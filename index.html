@@ -10,9 +10,10 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 #game-container { position: relative; width: 100vw; height: 100vh; }
 #game-canvas { display: block; background: #000005; }
 #hud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-#hud-top { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: flex-start; padding: 10px; gap: 20px; }
-#command-bar { display: flex; gap: 5px; pointer-events: auto; flex-wrap: wrap; }
-.cmd-btn { padding: 8px 16px; background: rgba(0,50,80,0.8); border: 1px solid #0088ff; color: #00aaff; cursor: pointer; font-size: 12px; font-family: 'Courier New', monospace; }
+#hud-top { position: absolute; top: 10px; left: 10px; right: 10px; display: flex; justify-content: center; align-items: flex-start; pointer-events: none; }
+#command-bar, #utility-bar { display: flex; gap: 5px; pointer-events: auto; flex-wrap: wrap; padding: 6px; background: linear-gradient(180deg, rgba(18,58,105,0.86), rgba(4,18,42,0.82)); border: 1px solid rgba(83,180,255,0.72); box-shadow: 0 0 16px rgba(0,136,255,0.22), inset 0 0 18px rgba(80,170,255,0.14); }
+#utility-bar { position: absolute; top: 0; right: 0; }
+.cmd-btn { min-width: 88px; padding: 8px 12px; background: rgba(0,50,80,0.8); border: 1px solid #0088ff; color: #00aaff; cursor: pointer; font-size: 12px; font-family: 'Courier New', monospace; }
 .cmd-btn:hover { background: rgba(0,100,150,0.8); }
 .cmd-btn.active { background: rgba(0,150,50,0.8); border-color: #00ff00; color: #00ff00; }
 .cmd-btn.cruise-active { background: rgba(0,92,190,0.92); border-color: #6bd4ff; color: #d8f7ff; box-shadow: 0 0 14px rgba(0,136,255,0.5); }
@@ -23,20 +24,37 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .info-row span:first-child { color: #888; }
 .info-row span:last-child { color: #00ff00; }
 .info-text { margin-top: 8px; padding-top: 8px; border-top: 1px solid #223344; color: #aaddff; font-size: 10px; line-height: 1.35; max-height: 140px; overflow-y: auto; white-space: pre-line; }
-#hud-left { position: absolute; top: 60px; left: 10px; }
+#hud-left { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); min-width: 430px; padding: 8px 10px; background: rgba(0, 10, 24, 0.76); border: 1px solid rgba(0,136,255,0.55); box-shadow: 0 0 16px rgba(0,136,255,0.18); }
 .stat-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
 .stat-label { width: 80px; font-size: 11px; color: #888; }
-.bar-container { width: 150px; height: 14px; background: rgba(0,0,0,0.7); border: 1px solid #333; }
+.bar-container { flex: 1; min-width: 210px; height: 14px; background: rgba(0,0,0,0.7); border: 1px solid #333; }
 .bar-fill { height: 100%; transition: width 0.1s; }
 .bar-fill.hull { background: linear-gradient(to right, #880000, #ff4444); }
 .bar-fill.shield { background: linear-gradient(to right, #004488, #44aaff); }
 .bar-fill.energy { background: linear-gradient(to right, #886600, #ffcc44); }
-#hud-bottom { position: absolute; bottom: 10px; left: 10px; right: 10px; }
-#hud-info { display: flex; gap: 20px; padding: 8px 12px; background: rgba(0,0,0,0.7); border: 1px solid #333; font-size: 12px; }
-#hud-right { position: absolute; top: 60px; right: 10px; text-align: right; }
-.speed-display { font-size: 16px; color: #ffaa00; margin-bottom: 5px; }
+#hud-bottom { position: absolute; bottom: 10px; left: 10px; width: min(360px, calc(50vw - 230px)); min-width: 260px; }
+#hud-info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px 12px; margin-top: 8px; font-size: 11px; color: #9edfff; }
+#hud-right { position: absolute; bottom: 10px; right: 10px; width: min(360px, calc(50vw - 230px)); min-width: 280px; text-align: left; }
+.hud-panel { pointer-events: auto; background: linear-gradient(180deg, rgba(5,25,54,0.88), rgba(0,8,18,0.86)); border: 1px solid rgba(0,136,255,0.62); box-shadow: 0 0 18px rgba(0,136,255,0.18), inset 0 0 18px rgba(75,160,255,0.10); padding: 9px; }
+.hud-panel-title { display: flex; justify-content: space-between; align-items: center; color: #80dcff; border-bottom: 1px solid rgba(90,170,220,0.32); padding-bottom: 5px; margin-bottom: 6px; font-size: 12px; letter-spacing: 0; }
+.hud-list { display: grid; gap: 4px; max-height: 170px; overflow-y: auto; }
+.hud-row { display: grid; grid-template-columns: auto 1fr auto; gap: 7px; align-items: center; min-height: 24px; padding: 4px 5px; border: 1px solid rgba(70,130,170,0.2); background: rgba(0,18,34,0.55); color: #c8f2ff; font-size: 11px; cursor: pointer; }
+.hud-row:hover, .hud-row.selected { border-color: #ffaa00; color: #fff4c8; background: rgba(75,48,0,0.42); }
+.hud-row-muted { color: #66889a; font-size: 11px; padding: 6px 4px; }
+.hud-kind { width: 18px; text-align: center; color: #ffaa00; }
+.hud-distance { color: #8fb8c8; font-variant-numeric: tabular-nums; }
+.loadout-consumables { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 7px; }
+.consumable-box { border: 1px solid rgba(70,130,170,0.28); background: rgba(0,18,34,0.55); padding: 6px; color: #d8f7ff; font-size: 12px; }
+.consumable-box span { color: #ffaa00; float: right; }
+.speed-display { font-size: 15px; color: #ffaa00; margin-bottom: 7px; text-align: center; }
 .nav-hint { font-size: 11px; color: #666; }
-#target-info { font-size: 12px; color: #00aaff; margin-bottom: 10px; display: none; }
+#target-info { font-size: 12px; color: #00aaff; margin-bottom: 7px; display: none; }
+@media (max-width: 980px) {
+    #hud-left { min-width: 300px; width: calc(100vw - 28px); bottom: 120px; }
+    #hud-bottom, #hud-right { width: calc(50vw - 16px); min-width: 0; }
+    .cmd-btn { min-width: 72px; padding: 7px 9px; font-size: 11px; }
+    #hud-info { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 .hidden { display: none !important; }
 #start-screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: linear-gradient(rgba(0,0,8,0.24), rgba(0,0,8,0.62)), url('assets/cover-stellar-drift.svg') center/cover no-repeat; z-index: 1000; }
 #start-screen > div { position: relative; z-index: 1; text-shadow: 0 2px 12px #000; }
@@ -124,14 +142,13 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                     <button class="cmd-btn" id="btn-freeflight" onclick="setMode('freeflight')">FREEFLIGHT</button>
                     <button class="cmd-btn" id="btn-approach" onclick="setMode('approach')">ANFLIEGEN</button>
                     <button class="cmd-btn" id="btn-dock" onclick="setMode('dock')">ANDOCKEN</button>
-                    <button class="cmd-btn" id="btn-cruise" onclick="toggleCruiseFlight()">REISEFLUG</button>
-                    <button class="cmd-btn" id="btn-map" onclick="toggleMap()">MAP</button>
-    <button class="cmd-btn" id="btn-inventory" onclick="showInventory()">INVENTAR</button>
+                </div>
+                <div id="utility-bar">
+                    <button class="cmd-btn" id="btn-inventory" onclick="showInventory()">INVENTAR</button>
                     <button class="cmd-btn" id="btn-reputation" onclick="toggleReputationPanel()">RUF</button>
+                    <button class="cmd-btn" id="btn-map" onclick="toggleMap()">MAP</button>
                     <button class="cmd-btn" id="btn-info" onclick="toggleInfoPanel()">INFO</button>
-                    <button class="cmd-btn" id="btn-universe" onclick="toggleUniverseView()">UNIVERSE</button>
                     <button class="cmd-btn" id="btn-menu" onclick="returnToMainMenu()">MENÜ</button>
-                    <button class="cmd-btn" id="btn-language" onclick="toggleLanguage()">DE</button>
                 </div>
                 <div id="info-panel">
                     <h3>SELECTED OBJECT</h3>
@@ -145,6 +162,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
             </div>
             
             <div id="hud-left">
+                <div class="speed-display" id="speed-display">SPEED: 0 m/s</div>
                 <div class="stat-bar">
                     <span class="stat-label">HULL (Panzerung)</span>
                     <div class="bar-container"><div id="hull-bar" class="bar-fill hull"></div></div>
@@ -157,6 +175,14 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                     <span class="stat-label">ENERGY</span>
                     <div class="bar-container"><div id="energy-bar" class="bar-fill energy"></div></div>
                 </div>
+                <div id="hud-info">
+                    <span id="credits">CREDITS: 10,000</span>
+                    <span id="cargo">CARGO: 0/50</span>
+                    <span id="system-name">SYSTEM: LI01</span>
+                    <span id="game-time">00:00</span>
+                    <span id="zoom-display">ZOOM: 1.0x</span>
+                    <span id="mode-indicator">FREEFLIGHT</span>
+                </div>
             </div>
             
             <div id="hud-right">
@@ -164,22 +190,20 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                     <div id="target-name" style="color:#ffaa00;">Selected: None</div>
                     <div id="target-dist" style="color:#888;">Distance: -</div>
                 </div>
-                <div class="speed-display" id="speed-display">SPEED: 0 m/s</div>
-                <div class="nav-hint">
-                    <span id="mode-indicator">FREEFLIGHT</span><br>
-                    LMB: rotate | RMB: fire<br>
-                    Click obj + dock/approach<br>
-                    M: map | Scroll: zoom
+                <div id="loadout-panel" class="hud-panel">
+                    <div class="hud-panel-title"><span>WAFFEN</span><span id="weapon-count">0</span></div>
+                    <div id="weapon-list" class="hud-list"></div>
+                    <div class="loadout-consumables">
+                        <div class="consumable-box">Nanobots <span id="nanobot-count">0</span></div>
+                        <div class="consumable-box">Shield Batteries <span id="shield-battery-count">0</span></div>
+                    </div>
                 </div>
             </div>
             
             <div id="hud-bottom">
-                <div id="hud-info">
-                    <span id="credits">CREDITS: 10,000</span>
-                    <span id="cargo">CARGO: 0/50</span>
-                    <span id="system-name">SYSTEM: LI01</span>
-                    <span id="game-time">00:00</span>
-                    <span id="zoom-display">ZOOM: 1.0x</span>
+                <div id="scanner-panel" class="hud-panel">
+                    <div class="hud-panel-title"><span>SCANNER</span><span id="scanner-range">12 km</span></div>
+                    <div id="scanner-list" class="hud-list"></div>
                 </div>
             </div>
             
@@ -4321,19 +4345,111 @@ function update(dt) {
     }
 }
 
+const SCANNER_RANGE = 12000;
+
+function scannerObjectKind(target) {
+    if (!target) return 'Objekt';
+    if (game.npcs.includes(target)) return 'Schiff';
+    if (target instanceof PlanetLocation) return 'Planet';
+    if (target instanceof JumpGate) return target.kind === 'hole' ? 'Sprungloch' : 'Sprungtor';
+    if (target instanceof TradeLaneRing) return 'Tradelane';
+    if (target instanceof Station) return 'Station';
+    return target.type || 'Objekt';
+}
+
+function scannerObjectIcon(kind) {
+    if (kind === 'Schiff') return '▲';
+    if (kind === 'Planet') return '●';
+    if (kind === 'Sprungtor' || kind === 'Sprungloch') return '◇';
+    if (kind === 'Tradelane') return '◌';
+    return '■';
+}
+
+function scannerTargetKey(target) {
+    return target?.id || target?.nickname || target?.name || '';
+}
+
+function scannerTargets() {
+    if (!game.player) return [];
+    const candidates = [];
+    for (const npc of game.npcs || []) {
+        if (!npc || npc.hull <= 0) continue;
+        candidates.push(npc);
+    }
+    for (const entity of game.entities || []) {
+        if (entity instanceof Station || entity instanceof PlanetLocation || entity instanceof JumpGate || entity instanceof TradeLaneRing) candidates.push(entity);
+    }
+    return candidates.map(target => {
+        const distance = Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z);
+        return { target, distance, kind: scannerObjectKind(target) };
+    }).filter(entry => Number.isFinite(entry.distance) && entry.distance <= SCANNER_RANGE)
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, 14);
+}
+
+function selectScannerTarget(key) {
+    const target = [...(game.npcs || []), ...(game.entities || [])].find(item => scannerTargetKey(item) === key);
+    if (!target) return;
+    game.selectedTarget = target;
+    addLog('Selected: ' + (target.name || scannerObjectKind(target)));
+    playSound('select', 0.7);
+    updateHUD();
+}
+
+function updateScannerPanel() {
+    const list = document.getElementById('scanner-list');
+    const range = document.getElementById('scanner-range');
+    if (!list) return;
+    if (range) range.textContent = formatDistance(SCANNER_RANGE);
+    const entries = scannerTargets();
+    if (!entries.length) {
+        list.innerHTML = '<div class="hud-row-muted">Keine Schiffe oder Stationen in Reichweite.</div>';
+        return;
+    }
+    list.innerHTML = entries.map(entry => {
+        const key = scannerTargetKey(entry.target);
+        const selected = game.selectedTarget === entry.target ? ' selected' : '';
+        const name = entry.target.name || entry.target.shipName || key || entry.kind;
+        return `<div class="hud-row${selected}" onclick="selectScannerTarget('${escapeHtml(key)}')"><span class="hud-kind">${scannerObjectIcon(entry.kind)}</span><span>${escapeHtml(name)}<br><span style="color:#7299aa;">${escapeHtml(entry.kind)}</span></span><span class="hud-distance">${formatDistance(entry.distance)}</span></div>`;
+    }).join('');
+}
+
+function updateLoadoutPanel() {
+    const list = document.getElementById('weapon-list');
+    if (!list || !game.player) return;
+    const weaponSlots = getWeaponSlotKeys();
+    const mountedWeapons = weaponSlots.map(slot => ({ slot, item: mountedEquipmentItem(slot) }));
+    const mountedCount = mountedWeapons.filter(entry => entry.item).length;
+    const weaponCount = document.getElementById('weapon-count');
+    if (weaponCount) weaponCount.textContent = mountedCount + '/' + weaponSlots.length;
+    list.innerHTML = mountedWeapons.length ? mountedWeapons.map(entry => {
+        const item = entry.item;
+        const damage = item ? Math.round(Number(item.hullDamage || 0) + Number(item.energyDamage || 0)) : 0;
+        const label = item ? escapeHtml(item.name || item.id) : 'Leer';
+        const meta = item ? `${escapeHtml(item.category || 'weapon')} ${damage ? '| ' + damage + ' dmg' : ''}` : 'Kein Geschuetz montiert';
+        return `<div class="hud-row"><span class="hud-kind">✦</span><span>${label}<br><span style="color:#7299aa;">${meta}</span></span><span class="hud-distance">${escapeHtml(equipmentSlotLabel(entry.slot))}</span></div>`;
+    }).join('') : '<div class="hud-row-muted">Keine Waffen-Slots vorhanden.</div>';
+    const nanobots = document.getElementById('nanobot-count');
+    const batteries = document.getElementById('shield-battery-count');
+    if (nanobots) nanobots.textContent = `${game.player.nanobots}/${game.player.maxNanobots}`;
+    if (batteries) batteries.textContent = `${game.player.shieldBatteries}/${game.player.maxShieldBatteries}`;
+}
+
 function updateHUD() {
     const p = game.player;
     document.getElementById('hull-bar').style.width = (p.hull / Math.max(1, p.maxHull) * 100) + '%';
     document.getElementById('shield-bar').style.width = (p.maxShield > 0 ? p.shield / p.maxShield * 100 : 0) + '%';
     document.getElementById('energy-bar').style.width = (p.energy / Math.max(1, p.maxEnergy) * 100) + '%';
-    document.getElementById('credits').textContent = `CREDITS: ${p.credits}`;
-    document.getElementById('cargo').textContent = `CARGO: ${cargoUnits()}/${p.maxCargo} | N:${p.nanobots} B:${p.shieldBatteries}`;
+    document.getElementById('credits').textContent = `CREDITS: ${p.credits.toLocaleString()}`;
+    document.getElementById('cargo').textContent = `CARGO: ${cargoUnits()}/${p.maxCargo}`;
     const h = Math.floor(game.gameTime / 75);
     const m = Math.floor((game.gameTime % 75) / 1.25);
     document.getElementById('game-time').textContent = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
     document.getElementById('zoom-display').textContent = `ZOOM: ${game.zoom.toFixed(1)}x`;
     document.getElementById('speed-display').textContent = `SPEED: ${Math.round(p.speed)} m/s`;
     updateCruiseButton();
+    updateScannerPanel();
+    updateLoadoutPanel();
     
     // Mode indicator
     const modeEl = document.getElementById('mode-indicator');
