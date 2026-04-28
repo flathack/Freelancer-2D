@@ -4966,7 +4966,10 @@ function renderEquipmentDealer() {
     html += '</div><div class="equipment-panel"><h4>Inventory</h4>';
     const availableInventory = inventory.map(inv => ({ ...inv, availableQuantity: availableEquipmentQuantity(inv.id) })).filter(inv => inv.availableQuantity > 0);
     if (availableInventory.length) {
-        for (const inv of availableInventory) html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(inv.category || '')} x${inv.availableQuantity}</span></div><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${categorySlotKeys(inv.category).length ? '' : 'disabled'}>Mount</button></div>`;
+        for (const inv of availableInventory) {
+            const sellPrice = equipmentSellPrice(inv.id);
+            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(inv.category || '')} x${inv.availableQuantity} | ${sellPrice.toLocaleString()} CR</span></div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${categorySlotKeys(inv.category).length ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
+        }
     } else {
         html += '<div style="color:#667f8f;">No equipment in inventory.</div>';
     }
@@ -4986,6 +4989,13 @@ function renderEquipmentDealer() {
     content.innerHTML = html;
 }
 
+function equipmentSellPrice(itemId) {
+    const item = getEquipment(itemId);
+    const marketEntry = getEquipmentMarket().find(entry => String(entry.id || '').toLowerCase() === String(itemId || '').toLowerCase());
+    const buyPrice = Number(marketEntry?.price || item?.price || 0);
+    return Math.max(0, Math.floor(buyPrice / 3));
+}
+
 function buyEquipment(itemId) {
     const marketEntry = getEquipmentMarket().find(entry => entry.id === itemId);
     const item = getEquipment(itemId);
@@ -5002,6 +5012,20 @@ function buyEquipment(itemId) {
         inv.quantity += 1;
     }
     playSound('buy', 0.65);
+    saveGame();
+    renderEquipmentDealer();
+    updateHUD();
+}
+
+function sellEquipment(itemId) {
+    const inv = findEquipmentItem(itemId);
+    if (!inv || availableEquipmentQuantity(itemId) <= 0) return;
+    const sellPrice = equipmentSellPrice(itemId);
+    if (sellPrice <= 0) return;
+    inv.quantity = Math.max(0, (Number(inv.quantity) || 0) - 1);
+    game.player.credits += sellPrice;
+    game.player.equipmentInventory = (game.player.equipmentInventory || []).filter(item => (Number(item.quantity) || 0) > 0);
+    playSound('buy', 0.45);
     saveGame();
     renderEquipmentDealer();
     updateHUD();
