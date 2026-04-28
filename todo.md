@@ -124,4 +124,17 @@ Implementiere den id parser:
 - jedes schiff hat einen eigenes power plant. diesen realistisch einbinden, also mit echten freelancer 3d werten und die waffen sollen auch die energie ziehen die in den inis stehen
 - equipment preise aus den inis ziehen
 
+--------------------------------
 
+- wenn das schiff die tadelane verlässt, dann soll das schiff 80 m/s fliegen.
+- nach sprung durch ein jumpgate / jumphole soll auch die Geschwindigkeit 80 m/s sein.
+- rotation der objekte noch falsch, oben in dem spiel ist Y = 0. nach links dreht sich das objekt mit in den minus bereich, rechts in den plus bereich. 90grad wäre also nach rechts gedreht. In FL Atlas ist es korrekt umgesetzt
+
+-----
+
+- Der Reiseflug sollte immer 300 m/s sein. Beim Nashorn Frachter ist es z. b. 228 m/s, das sollte so nicht sein.
+- der max speed im Kampf Modus sollte 80 m/s sein.
+- der reiseflug ist 300 m/s. dieser muss aktiviert werden. der Charge auf den Reiseflug dauert 5 Sek. Nach den 5 Sek beschleunigt das Schiff auf 300 m/s. Wenn man den Reiseflug deaktiviert, dann bremst das schiff wieder auf 80 m/s. mit W und S kann man zwischen 0 und 80 dann einstellen. Der Kampfmodus ist immer 80 m/s. Mit TAB button kann man den Nachbrenner aktivieren, dann beschleunigt das schiff auf 200 m/s. Aber nur solange ich Tab gedrückt halte. Wenn ich TAB los lasse, dann geht die geschwindigkeit wieder runter auf 80 m/s.
+- den reiseflug aktivieren kann man auch über die UI. Oben in der Leiste gibts einen Extra button REISEFLUG. Wenn der aktiv ist, ist dieser BLAU. Im reiseflug kann man weiter FREEFLIGHT, ANFLIEGEN, ANDOCKEN nutzen, das ist davon unabhängig.
+- wird der reiseflug aufgeladen, kommt eine anmation hinten an der schubdüse vom Raumschiff, denk dir was schönes aus. Und der reiseflug zeichnet hinten dann eine schöne animierte flamme aus dem raumschiff raus.
+- wir brauchen oben einen button MENÜ um das spiel zu beenden bzw. ins Menü zu kommen.

@@ -11,10 +11,11 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 #game-canvas { display: block; background: #000005; }
 #hud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
 #hud-top { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: flex-start; padding: 10px; gap: 20px; }
-#command-bar { display: flex; gap: 5px; pointer-events: auto; }
+#command-bar { display: flex; gap: 5px; pointer-events: auto; flex-wrap: wrap; }
 .cmd-btn { padding: 8px 16px; background: rgba(0,50,80,0.8); border: 1px solid #0088ff; color: #00aaff; cursor: pointer; font-size: 12px; font-family: 'Courier New', monospace; }
 .cmd-btn:hover { background: rgba(0,100,150,0.8); }
 .cmd-btn.active { background: rgba(0,150,50,0.8); border-color: #00ff00; color: #00ff00; }
+.cmd-btn.cruise-active { background: rgba(0,92,190,0.92); border-color: #6bd4ff; color: #d8f7ff; box-shadow: 0 0 14px rgba(0,136,255,0.5); }
 .cmd-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 #info-panel { width: 280px; background: rgba(0,15,30,0.9); border: 1px solid #006688; padding: 10px; display: none; }
 #info-panel h3 { color: #00aaff; font-size: 14px; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; }
@@ -104,10 +105,12 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                     <button class="cmd-btn" id="btn-freeflight" onclick="setMode('freeflight')">FREEFLIGHT</button>
                     <button class="cmd-btn" id="btn-approach" onclick="setMode('approach')">ANFLIEGEN</button>
                     <button class="cmd-btn" id="btn-dock" onclick="setMode('dock')">ANDOCKEN</button>
+                    <button class="cmd-btn" id="btn-cruise" onclick="toggleCruiseFlight()">REISEFLUG</button>
                     <button class="cmd-btn" id="btn-map" onclick="toggleMap()">MAP</button>
     <button class="cmd-btn" id="btn-inventory" onclick="showInventory()">INVENTAR</button>
                     <button class="cmd-btn" id="btn-info" onclick="toggleInfoPanel()">INFO</button>
                     <button class="cmd-btn" id="btn-universe" onclick="toggleUniverseView()">UNIVERSE</button>
+                    <button class="cmd-btn" id="btn-menu" onclick="returnToMainMenu()">MENÜ</button>
                     <button class="cmd-btn" id="btn-language" onclick="toggleLanguage()">DE</button>
                 </div>
                 <div id="info-panel">
@@ -542,14 +545,14 @@ const MAX_SAVE_SLOTS = 5;
 const GAME_TITLE = 'Freelancer 2D - a 2d adventure';
 const I18N = {
     de: {
-        freeflight: 'FREIFLUG', approach: 'ANFLIEGEN', dock: 'ANDOCKEN', map: 'KARTE', inventory: 'INVENTAR', info: 'INFO', shipShop: 'SCHIFFHÄNDLER', universe: 'UNIVERSUM',
+        freeflight: 'FREIFLUG', approach: 'ANFLIEGEN', dock: 'ANDOCKEN', cruise: 'REISEFLUG', menu: 'MENÜ', map: 'KARTE', inventory: 'INVENTAR', info: 'INFO', shipShop: 'SCHIFFHÄNDLER', universe: 'UNIVERSUM',
         launch: 'Starten', launchDeck: 'Launch Deck', bar: 'Bar', equipmentDealer: 'Equipment Dealer', tradeDealer: 'Trade Dealer', shipDealer: 'Ship Dealer',
         landedAt: 'Gelandet auf', noCommodityMarket: 'Dieser Ort hat keinen Commodity-Markt.', noEquipment: 'Equipment-Handel ist noch nicht implementiert.', barText: 'Piloten, Gerüchte und Jobangebote folgen später.',
         buy: 'KAUFEN', sell: 'VERKAUFEN', owned: 'BESITZ', credits: 'Credits', cargo: 'Laderaum', price: 'Preis', stock: 'Bestand', commodity: 'Ware', quantity: 'Menge',
         shipDealerDockOnly: 'Schiffe koennen nur nach dem Andocken gekauft werden.', noShipsSold: 'Hier werden keine Schiffe verkauft.', atmosphereWarning: 'Atmosphaereneintritt', planetImpact: 'Planetare Kollision'
     },
     en: {
-        freeflight: 'FREEFLIGHT', approach: 'APPROACH', dock: 'DOCK', map: 'MAP', inventory: 'INVENTORY', info: 'INFO', shipShop: 'SHIP DEALER', universe: 'UNIVERSE',
+        freeflight: 'FREEFLIGHT', approach: 'APPROACH', dock: 'DOCK', cruise: 'CRUISE', menu: 'MENU', map: 'MAP', inventory: 'INVENTORY', info: 'INFO', shipShop: 'SHIP DEALER', universe: 'UNIVERSE',
         launch: 'Launch', launchDeck: 'Launch Deck', bar: 'Bar', equipmentDealer: 'Equipment Dealer', tradeDealer: 'Trade Dealer', shipDealer: 'Ship Dealer',
         landedAt: 'Landed at', noCommodityMarket: 'This location has no commodity market.', noEquipment: 'Equipment trading is not implemented yet.', barText: 'Pilots, rumors, and job offers will arrive later.',
         buy: 'BUY', sell: 'SELL', owned: 'OWNED', credits: 'Credits', cargo: 'Cargo', price: 'Price', stock: 'Stock', commodity: 'Commodity', quantity: 'Qty',
@@ -633,8 +636,8 @@ function mountedEquipmentItem(slot) {
 
 function applyLanguage() {
     const labels = [
-        ['btn-freeflight', 'freeflight'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-map', 'map'],
-        ['btn-inventory', 'inventory'], ['btn-info', 'info'], ['btn-universe', 'universe'], ['btn-launch', 'launch']
+        ['btn-freeflight', 'freeflight'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-cruise', 'cruise'], ['btn-map', 'map'],
+        ['btn-inventory', 'inventory'], ['btn-info', 'info'], ['btn-universe', 'universe'], ['btn-menu', 'menu'], ['btn-launch', 'launch']
     ];
     for (const [id, key] of labels) {
         const el = document.getElementById(id);
@@ -681,17 +684,34 @@ function degToRad(value) {
     return (Number(value) || 0) * Math.PI / 180;
 }
 
-const NORMAL_FLIGHT_EXIT_SPEED = 80;
+const COMBAT_MAX_SPEED = 80;
+const CRUISE_SPEED = 300;
+const AFTERBURNER_SPEED = 200;
+const REVERSE_SPEED = -15;
+const CRUISE_CHARGE_SECONDS = 5;
+const NORMAL_FLIGHT_EXIT_SPEED = COMBAT_MAX_SPEED;
+const TRADE_LANE_ACCELERATION = 1250;
+const TRADE_LANE_DECELERATION = 1850;
+const TRADE_LANE_BRAKE_DISTANCE = 5200;
 
 function flYawToCanvasRotation(value) {
     return -degToRad(value);
 }
 
+function smoothStep(value) {
+    const t = clamp(value, 0, 1);
+    return t * t * (3 - 2 * t);
+}
+
 function setNormalFlightSpeed(player, speed = NORMAL_FLIGHT_EXIT_SPEED) {
     if (!player) return;
-    player.maxSpeed = player.baseMaxSpeed || player.maxSpeed;
+    player.cancelCruise?.();
+    player.afterburnerActive = false;
+    player.reverseActive = false;
+    player.maxSpeed = player.baseMaxSpeed || COMBAT_MAX_SPEED;
+    player.throttle = player.maxSpeed > 0 ? clamp(speed / player.maxSpeed, 0, 1) : 0;
     player.speed = Math.min(Math.max(0, speed), player.maxSpeed || speed);
-    player.throttle = player.maxSpeed > 0 ? clamp(player.speed / player.maxSpeed, 0, 1) : 0;
+    updateCruiseButton();
 }
 
 function rotatePoint(x, z, angle) {
@@ -774,7 +794,7 @@ function startTradeLaneFromRing(ring) {
     game.player.laneIndex = start.targetIndex;
     game.player.laneDirection = start.direction;
     game.player.maxSpeed = game.player.laneSpeed;
-    game.player.speed = game.player.laneSpeed;
+    game.player.speed = Math.max(NORMAL_FLIGHT_EXIT_SPEED, Math.min(game.player.speed || NORMAL_FLIGHT_EXIT_SPEED, game.player.laneSpeed * 0.22));
     game.player.throttle = 1;
     game.player.tradeLaneCooldownUntil = 0;
     game.approachTarget = null;
@@ -1024,7 +1044,12 @@ function restorePlayerFromSave(save) {
     game.player.z = Number(savedPlayer.z) || game.player.z;
     game.player.rotation = Number.isFinite(savedPlayer.rotation) ? savedPlayer.rotation : game.player.rotation;
     game.player.throttle = Number.isFinite(savedPlayer.throttle) ? savedPlayer.throttle : game.player.throttle;
-    game.player.speed = Number.isFinite(savedPlayer.speed) ? savedPlayer.speed : 0;
+    game.player.maxSpeed = COMBAT_MAX_SPEED;
+    game.player.baseMaxSpeed = COMBAT_MAX_SPEED;
+    game.player.cancelCruise?.();
+    game.player.afterburnerActive = false;
+    game.player.reverseActive = false;
+    game.player.speed = Number.isFinite(savedPlayer.speed) ? Math.min(savedPlayer.speed, CRUISE_SPEED) : 0;
     game.player.hull = Math.max(1, Math.min(game.player.maxHull, Number(savedPlayer.hull) || game.player.maxHull));
     game.player.shield = Math.max(0, Math.min(game.player.maxShield, Number(savedPlayer.shield) || game.player.maxShield));
     game.player.energy = Math.max(0, Math.min(game.player.maxEnergy, Number(savedPlayer.energy) || game.player.maxEnergy));
@@ -1063,6 +1088,7 @@ function restorePlayerFromSave(save) {
         game.waypoint = null;
     }
     applyMountedEquipmentEffects();
+    updateCruiseButton();
 }
 
 function updateSaveHint(save = readSavedGame()) {
@@ -1121,6 +1147,45 @@ function returnToFreeflight(message = '', options = {}) {
     if (message) addLog(message);
 }
 
+function updateCruiseButton() {
+    const button = document.getElementById('btn-cruise');
+    if (!button || !game.player) return;
+    button.classList.toggle('cruise-active', game.player.cruiseActive || game.player.cruiseCharging);
+    const label = t('cruise');
+    button.textContent = game.player.cruiseCharging ? label + ' ' + Math.ceil(Math.max(0, CRUISE_CHARGE_SECONDS - game.player.cruiseCharge)) : label;
+}
+
+function toggleCruiseFlight() {
+    if (!game.player || game.isDocked || game.player.inTradeLane || game.jumpTransition) return;
+    if (game.player.cruiseActive || game.player.cruiseCharging) {
+        game.player.cancelCruise();
+        game.player.reverseActive = false;
+        game.player.throttle = 1;
+        addLog('Reiseflug deaktiviert');
+    } else {
+        game.player.startCruiseCharge();
+        addLog('Reiseflug lädt: ' + CRUISE_CHARGE_SECONDS + ' Sekunden');
+    }
+    updateCruiseButton();
+}
+
+function returnToMainMenu() {
+    saveGame();
+    game.running = false;
+    game.mouseDown = false;
+    game.rightMouseDown = false;
+    if (game.player) {
+        game.player.fireHeld = false;
+        game.player.afterburnerActive = false;
+        game.player.reverseActive = false;
+    }
+    document.getElementById('landing-overlay')?.classList.add('hidden');
+    document.getElementById('map-overlay')?.classList.add('hidden');
+    document.getElementById('universe-overlay')?.classList.add('hidden');
+    document.getElementById('start-screen')?.classList.remove('hidden');
+    updateSaveHint(readSavedGame());
+}
+
 function applyShipPackage(packageId, logPurchase = false) {
     const shipPackage = getShipPackage(packageId);
     if (!shipPackage || !game.player) return false;
@@ -1133,8 +1198,8 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.hull = game.player.maxHull;
     game.player.maxShield = stats.shield || game.player.maxShield;
     game.player.shield = game.player.maxShield;
-    game.player.maxSpeed = stats.maxSpeed || game.player.maxSpeed;
-    game.player.baseMaxSpeed = game.player.maxSpeed;
+    game.player.maxSpeed = COMBAT_MAX_SPEED;
+    game.player.baseMaxSpeed = COMBAT_MAX_SPEED;
     game.player.turnRate = stats.turnRate || game.player.turnRate;
     game.player.agility = stats.agility || game.player.agility;
     game.player.acceleration = stats.acceleration || game.player.acceleration;
@@ -1195,8 +1260,12 @@ function startJumpTransition(target) {
     };
     game.dockTarget = null;
     game.approachTarget = null;
+    game.player.cancelCruise?.();
+    game.player.afterburnerActive = false;
+    game.player.reverseActive = false;
     game.player.throttle = 0;
     game.player.speed = 0;
+    updateCruiseButton();
     addLog('Jumping through ' + target.name + ' to ' + (target.dest || 'unknown system'));
     playSound('jump', 1.2);
 }
@@ -1557,6 +1626,10 @@ function checkPlanetAtmosphereHazards(dt) {
         const dist = Math.sqrt(dx * dx + dz * dz);
         const atmosphere = planetAtmosphereRadius(planet);
         if (dist > atmosphere) continue;
+        game.player.cancelCruise?.();
+        game.player.afterburnerActive = false;
+        game.player.reverseActive = false;
+        updateCruiseButton();
         if (game.player.inTradeLane) {
             game.player.inTradeLane = false;
             game.player.laneRoute = null;
@@ -1593,6 +1666,12 @@ function checkZoneHazards(dt) {
     for (const zone of systemData.zones || []) {
         const damage = Number(zone.damage || 0);
         if (damage <= 0 || !isPointInsideZone(zone, game.player.x, game.player.z)) continue;
+        if (zone.dragModifier && zone.dragModifier < 1) {
+            game.player.cancelCruise?.();
+            game.player.afterburnerActive = false;
+            game.player.reverseActive = false;
+            updateCruiseButton();
+        }
         game.player.takeDamage(damage * dt);
         if (zone.dragModifier && zone.dragModifier !== 1) game.player.speed *= Math.max(0.25, Math.min(1, zone.dragModifier));
         if (!game.player.lastZoneDamageWarning || performance.now() - game.player.lastZoneDamageWarning > 1200) {
@@ -1681,7 +1760,7 @@ function getCurrentSystemKey() {
 
 function createFieldObstacles(field, kind) {
     const rng = seededRandom(hashString(currentSystemId + ':' + field.id + ':' + kind));
-    const count = kind === 'asteroid' ? Math.min(220, Math.max(34, Math.floor(field.size / 260))) : Math.min(46, Math.max(10, Math.floor(field.size / 1100)));
+    const count = kind === 'asteroid' ? Math.min(340, Math.max(52, Math.floor(field.size / 185))) : Math.min(46, Math.max(10, Math.floor(field.size / 1100)));
     const radiusX = Math.max(800, (field.sizeX || field.size || 2000) * 0.75);
     const radiusZ = Math.max(800, (field.sizeZ || field.size || 2000) * 0.75);
     const fieldRotation = flYawToCanvasRotation(field.rotateY || 0);
@@ -1697,10 +1776,16 @@ function createFieldObstacles(field, kind) {
             id: field.id + '_obstacle_' + i,
             fieldId: field.id,
             kind,
+            localX,
+            localZ,
             x: field.x + rotated.x,
             z: field.z + rotated.z,
             radius,
-            rotation: rng() * Math.PI * 2
+            rotation: rng() * Math.PI * 2,
+            spinSpeed: kind === 'asteroid' ? (rng() - 0.5) * 0.18 : 0,
+            driftPhase: rng() * Math.PI * 2,
+            driftSpeed: kind === 'asteroid' ? 0.045 + rng() * 0.075 : 0,
+            driftRadius: kind === 'asteroid' ? 18 + rng() * 70 : 0
         });
     }
     return obstacles;
@@ -1796,8 +1881,16 @@ class PlayerShip {
         this.rotation = -Math.PI / 2; // Face right
         this.speed = 0;
         this.throttle = 0.8; // Start at 80%
-        this.maxSpeed = 300;
-        this.baseMaxSpeed = 300;
+        this.maxSpeed = COMBAT_MAX_SPEED;
+        this.baseMaxSpeed = COMBAT_MAX_SPEED;
+        this.cruiseSpeed = CRUISE_SPEED;
+        this.afterburnerSpeed = AFTERBURNER_SPEED;
+        this.cruiseActive = false;
+        this.cruiseCharging = false;
+        this.cruiseCharge = 0;
+        this.afterburnerActive = false;
+        this.reverseActive = false;
+        this.afterburnerPulse = 0;
         this.turnRate = 2.0;
         this.agility = 1.4;
         this.acceleration = 1.5;
@@ -1855,6 +1948,19 @@ class PlayerShip {
         if (this.shield < this.maxShield) {
             this.shield = Math.min(this.maxShield, this.shield + this.shieldRegen * dt);
         }
+
+        this.maxSpeed = this.baseMaxSpeed || COMBAT_MAX_SPEED;
+        if (this.cruiseCharging) {
+            this.cruiseCharge += dt;
+            if (this.cruiseCharge >= CRUISE_CHARGE_SECONDS) {
+                this.cruiseCharging = false;
+                this.cruiseActive = true;
+                this.cruiseCharge = CRUISE_CHARGE_SECONDS;
+                playSound('select', 1.25);
+                addLog('Reiseflug aktiviert');
+            }
+            updateCruiseButton();
+        }
         
         // LMB held: Rotate ship toward mouse
         if (game.mouseDown) {
@@ -1885,10 +1991,12 @@ class PlayerShip {
                 if (Math.abs(angleDiff) > 0.05) {
                     this.rotation += Math.sign(angleDiff) * this.turnRate * dt * (avoidance.magnitude > 0.05 ? 1.1 : 0.5);
                 }
-                this.throttle = avoidance.magnitude > 0.35 ? 0.55 : 1;
+                if (!this.cruiseActive && !this.cruiseCharging && !this.afterburnerActive) {
+                    this.throttle = avoidance.magnitude > 0.35 ? 0.55 : 1;
+                }
             } else {
                 const finishedName = game.approachTarget.name;
-                this.throttle = 0;
+                if (!this.cruiseActive && !this.afterburnerActive) this.throttle = 0;
                 if (!game.dockTarget) {
                     returnToFreeflight('Arrived near ' + finishedName);
                 }
@@ -1897,20 +2005,25 @@ class PlayerShip {
         
         // Trade lane speed check
         if (this.inTradeLane) {
-            // In trade lane - move along the route at 2500 m/s
-            this.speed = this.laneSpeed; // 2500 m/s
+            const targetSpeed = this.tradeLaneTargetSpeed();
+            const rate = targetSpeed >= this.speed ? TRADE_LANE_ACCELERATION : TRADE_LANE_DECELERATION;
+            const delta = targetSpeed - this.speed;
+            this.speed += Math.sign(delta) * Math.min(Math.abs(delta), rate * dt);
             // Check if reached end of lane
             if (this.laneIndex >= this.laneRoute.length || this.laneIndex < 0) {
                 this.exitTradeLane('Exited trade lane - returning to normal flight');
             }
         } else {
-            // Normal speed based on throttle
-            const targetSpeed = this.throttle * this.maxSpeed;
-            const response = targetSpeed >= this.speed ? this.acceleration : this.brakeRate;
-            const drag = this.throttle <= 0.01 ? this.linearDrag * 0.22 : 0;
+            let targetSpeed = this.throttle * COMBAT_MAX_SPEED;
+            if (this.cruiseActive) targetSpeed = this.cruiseSpeed;
+            else if (this.afterburnerActive) targetSpeed = this.afterburnerSpeed;
+            else if (this.reverseActive) targetSpeed = REVERSE_SPEED;
+            targetSpeed = Math.max(REVERSE_SPEED, Math.min(this.cruiseSpeed, targetSpeed));
+            const response = targetSpeed >= this.speed ? (this.cruiseActive ? 1.65 : this.acceleration) : this.brakeRate;
+            const drag = this.throttle <= 0.01 && !this.reverseActive ? this.linearDrag * 0.22 : 0;
             const blend = Math.min(1, Math.max(0.02, response * dt));
             this.speed += (targetSpeed - this.speed) * blend;
-            this.speed = Math.max(0, this.speed - drag * this.speed * dt);
+            this.speed = Math.max(REVERSE_SPEED, Math.min(this.cruiseSpeed, this.speed - drag * this.speed * dt));
             if (Math.abs(this.speed) < 0.05) this.speed = 0;
         }
         
@@ -1954,7 +2067,7 @@ class PlayerShip {
         if (this.primaryCooldown > 0) this.primaryCooldown -= dt;
         
         // Fire (right mouse held)
-        if (this.fireHeld && this.primaryCooldown <= 0 && this.energy >= 5) {
+        if (!this.inTradeLane && !this.cruiseActive && !this.cruiseCharging && this.fireHeld && this.primaryCooldown <= 0 && this.energy >= 5) {
             this.fire();
         }
     }
@@ -1970,8 +2083,38 @@ class PlayerShip {
         if (message) addLog(message);
         returnToFreeflight('', { preserveMotion: true });
     }
+
+    tradeLaneTargetSpeed() {
+        if (!this.laneRoute || this.laneIndex >= this.laneRoute.length || this.laneIndex < 0) return NORMAL_FLIGHT_EXIT_SPEED;
+        const target = this.laneRoute[this.laneIndex];
+        const dx = target.x - this.x;
+        const dz = target.z - this.z;
+        const distance = Math.sqrt(dx * dx + dz * dz);
+        const finalIndex = this.laneDirection >= 0 ? this.laneRoute.length - 1 : 0;
+        if (this.laneIndex === finalIndex) {
+            const speedRatio = smoothStep(distance / TRADE_LANE_BRAKE_DISTANCE);
+            return NORMAL_FLIGHT_EXIT_SPEED + (this.laneSpeed - NORMAL_FLIGHT_EXIT_SPEED) * speedRatio;
+        }
+        return this.laneSpeed;
+    }
+
+    startCruiseCharge() {
+        if (this.inTradeLane || this.destroyed) return;
+        this.cruiseActive = false;
+        this.cruiseCharging = true;
+        this.cruiseCharge = 0;
+        this.afterburnerActive = false;
+        this.reverseActive = false;
+    }
+
+    cancelCruise() {
+        this.cruiseActive = false;
+        this.cruiseCharging = false;
+        this.cruiseCharge = 0;
+    }
     
     fire() {
+        if (this.inTradeLane || this.cruiseActive || this.cruiseCharging) return;
         const weapons = this.activeWeapons();
         const totalEnergy = weapons.reduce((sum, weapon) => sum + weapon.energyCost, 0);
         if (this.energy < totalEnergy) return;
@@ -2036,6 +2179,10 @@ class PlayerShip {
                 const nz = dz / dist;
                 this.x = obstacle.x + nx * minDist;
                 this.z = obstacle.z + nz * minDist;
+                this.cancelCruise();
+                this.afterburnerActive = false;
+                this.reverseActive = false;
+                updateCruiseButton();
                 this.speed *= 0.25;
                 this.throttle = Math.min(this.throttle, 0.25);
                 if (!this.lastObstacleHit || performance.now() - this.lastObstacleHit > 1200) {
@@ -2150,16 +2297,41 @@ class PlayerShip {
             ctx.stroke();
         }
         
-        // Engine glow - use simple color if gradient fails
-        if (this.speed > 20) {
-            const intensity = Math.min(1, this.speed / this.maxSpeed);
-            const glowSize = 20 * intensity * visualScale;
-            if (glowSize > 2) {
-                ctx.fillStyle = `rgba(255, 150, 50, ${intensity * 0.5})`;
+        const flameTime = game.gameTime * 18;
+        const chargeRatio = this.cruiseCharging ? clamp(this.cruiseCharge / CRUISE_CHARGE_SECONDS, 0, 1) : 0;
+        if (this.cruiseCharging) {
+            for (let i = 0; i < 5; i++) {
+                const phase = flameTime + i * 1.7;
+                const length = (18 + 36 * chargeRatio + Math.sin(phase) * 5) * visualScale;
+                const width = (5 + 12 * chargeRatio + Math.cos(phase * 1.4) * 2) * visualScale;
+                const gradient = ctx.createLinearGradient(-12 * visualScale, 0, -12 * visualScale - length, 0);
+                gradient.addColorStop(0, `rgba(190,245,255,${0.2 + chargeRatio * 0.5})`);
+                gradient.addColorStop(0.45, `rgba(45,145,255,${0.18 + chargeRatio * 0.42})`);
+                gradient.addColorStop(1, 'rgba(0,30,160,0)');
+                ctx.fillStyle = gradient;
                 ctx.beginPath();
-                ctx.arc(-12 * visualScale, 0, glowSize, 0, Math.PI * 2);
+                ctx.moveTo(-14 * visualScale, 0);
+                ctx.quadraticCurveTo(-12 * visualScale - length * 0.45, -width, -12 * visualScale - length, Math.sin(phase) * 2 * visualScale);
+                ctx.quadraticCurveTo(-12 * visualScale - length * 0.45, width, -14 * visualScale, 0);
                 ctx.fill();
             }
+        }
+        if (this.cruiseActive || this.afterburnerActive || this.speed > 20) {
+            const intensity = this.cruiseActive ? 1 : this.afterburnerActive ? 0.82 : Math.min(1, this.speed / COMBAT_MAX_SPEED);
+            const length = (this.cruiseActive ? 92 : this.afterburnerActive ? 62 : 28) * intensity * visualScale;
+            const width = (this.cruiseActive ? 18 : this.afterburnerActive ? 14 : 8) * intensity * visualScale;
+            const flicker = 1 + Math.sin(flameTime * 1.9) * 0.08;
+            const gradient = ctx.createLinearGradient(-12 * visualScale, 0, -12 * visualScale - length * flicker, 0);
+            gradient.addColorStop(0, this.cruiseActive ? 'rgba(230,255,255,0.95)' : 'rgba(255,240,160,0.8)');
+            gradient.addColorStop(0.35, this.cruiseActive ? 'rgba(55,180,255,0.72)' : 'rgba(255,130,40,0.62)');
+            gradient.addColorStop(1, 'rgba(0,90,255,0)');
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.moveTo(-14 * visualScale, 0);
+            ctx.quadraticCurveTo(-12 * visualScale - length * 0.48, -width, -12 * visualScale - length * flicker, Math.sin(flameTime) * 3 * visualScale);
+            ctx.quadraticCurveTo(-12 * visualScale - length * 0.48, width, -14 * visualScale, 0);
+            ctx.fill();
+
         }
         
         ctx.restore();
@@ -2405,7 +2577,17 @@ class AsteroidField {
         this.rotation = flYawToCanvasRotation(data.rotate_y || data.rotateY || 0);
         this.obstacles = createFieldObstacles(this, 'asteroid');
     }
-    update(dt) {}
+    update(dt) {
+        for (const obstacle of this.obstacles) {
+            obstacle.driftPhase += obstacle.driftSpeed * dt;
+            obstacle.rotation += obstacle.spinSpeed * dt;
+            const driftX = Math.cos(obstacle.driftPhase) * obstacle.driftRadius;
+            const driftZ = Math.sin(obstacle.driftPhase * 0.73) * obstacle.driftRadius * 0.55;
+            const rotated = rotatePoint(obstacle.localX + driftX, obstacle.localZ + driftZ, this.rotation);
+            obstacle.x = this.x + rotated.x;
+            obstacle.z = this.z + rotated.z;
+        }
+    }
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
         const screenRadiusX = this.sizeX * 0.8 * game.zoom;
@@ -2952,7 +3134,7 @@ function renderTradeLaneTunnel() {
     if (!game.player?.inTradeLane) return;
     const ctx = game.ctx;
     const pulse = (Math.sin(performance.now() * 0.018) + 1) * 0.5;
-    const speed = Math.max(0.6, game.player.speed / game.player.laneSpeed);
+    const speed = clamp(game.player.speed / game.player.laneSpeed, 0.12, 1.25);
     ctx.save();
     ctx.translate(game.width / 2, game.height / 2);
     ctx.rotate(game.player.rotation);
@@ -3000,7 +3182,11 @@ function update(dt) {
             const target = game.dockTarget;
             game.dockTarget = null;
             game.approachTarget = null;
+            game.player.cancelCruise?.();
+            game.player.afterburnerActive = false;
+            game.player.reverseActive = false;
             game.player.throttle = 0;
+            updateCruiseButton();
             if (target instanceof TradeLaneRing) {
                 startTradeLaneFromRing(target);
             } else if (target instanceof JumpGate) {
@@ -3060,12 +3246,22 @@ function updateHUD() {
     document.getElementById('game-time').textContent = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
     document.getElementById('zoom-display').textContent = `ZOOM: ${game.zoom.toFixed(1)}x`;
     document.getElementById('speed-display').textContent = `SPEED: ${Math.round(p.speed)} m/s`;
+    updateCruiseButton();
     
     // Mode indicator
     const modeEl = document.getElementById('mode-indicator');
     if (game.mouseDown) {
         modeEl.textContent = 'ROTATE MODE';
         modeEl.style.color = '#ffaa00';
+    } else if (p.cruiseCharging) {
+        modeEl.textContent = 'CRUISE CHARGE ' + Math.ceil(Math.max(0, CRUISE_CHARGE_SECONDS - p.cruiseCharge)) + 's';
+        modeEl.style.color = '#66ccff';
+    } else if (p.cruiseActive) {
+        modeEl.textContent = 'CRUISE 300 m/s';
+        modeEl.style.color = '#66ccff';
+    } else if (p.afterburnerActive) {
+        modeEl.textContent = 'AFTERBURNER 200 m/s';
+        modeEl.style.color = '#ff8844';
     } else {
         modeEl.textContent = game.approachTarget ? 'APPROACH' : 'FREEFLIGHT';
         modeEl.style.color = game.approachTarget ? '#ffaa00' : '#00ff00';
@@ -3333,14 +3529,34 @@ function setupInput() {
     });
     
     window.addEventListener('keydown', (e) => {
-        if (!game.player || game.isDocked) return;
+        if (!game.player || game.isDocked || !game.running) return;
         
         switch (e.code) {
             case 'KeyW':
+                game.player.reverseActive = false;
                 game.player.throttle = Math.min(1, game.player.throttle + 0.05);
                 break;
             case 'KeyS':
+                if (game.player.cruiseActive || game.player.cruiseCharging) {
+                    game.player.cancelCruise();
+                    game.player.afterburnerActive = false;
+                    game.player.reverseActive = false;
+                    game.player.throttle = 1;
+                    updateCruiseButton();
+                    addLog('Reiseflug deaktiviert');
+                    break;
+                }
+                game.player.reverseActive = false;
                 game.player.throttle = Math.max(0, game.player.throttle - 0.05);
+                break;
+            case 'KeyX':
+                if (!game.player.inTradeLane && !game.jumpTransition) {
+                    game.player.cancelCruise();
+                    game.player.afterburnerActive = false;
+                    game.player.reverseActive = true;
+                    game.player.throttle = 0;
+                    updateCruiseButton();
+                }
                 break;
             case 'KeyA':
                 if (game.selectedTarget) {
@@ -3362,12 +3578,29 @@ function setupInput() {
             case 'KeyB':
                 game.player.useShieldBattery();
                 break;
+            case 'Tab':
+                e.preventDefault();
+                if (!game.player.inTradeLane && !game.player.cruiseActive && !game.player.cruiseCharging && !game.jumpTransition) {
+                    game.player.afterburnerActive = true;
+                    game.player.reverseActive = false;
+                    game.player.throttle = 1;
+                }
+                break;
+        }
+    });
+
+    window.addEventListener('keyup', (e) => {
+        if (e.code === 'Tab') {
+            e.preventDefault();
+            if (game.player) game.player.afterburnerActive = false;
+        } else if (e.code === 'KeyX') {
+            if (game.player) game.player.reverseActive = false;
         }
     });
     
     // Continuous fire while right mouse held
     setInterval(() => {
-        if (game.rightMouseDown && game.player && !game.isDocked) {
+        if (game.rightMouseDown && game.player && !game.isDocked && !game.player.inTradeLane && !game.player.cruiseActive && !game.player.cruiseCharging) {
             game.player.fireHeld = true;
         } else if (game.player) {
             game.player.fireHeld = false;
@@ -3949,7 +4182,7 @@ function setMode(mode) {
     document.getElementById('btn-' + mode)?.classList.add('active');
     
     if (mode === 'freeflight') {
-        returnToFreeflight('Freeflight mode - no autopilot');
+        returnToFreeflight('Freeflight mode - no autopilot', { preserveMotion: true });
         return;
     }
     
@@ -4090,8 +4323,12 @@ function openLandingWindow(target) {
     game.isDocked = true;
     game.landedBase = target;
     game.lastLanding = createLandingRecord(target);
+    game.player.cancelCruise?.();
+    game.player.afterburnerActive = false;
+    game.player.reverseActive = false;
     game.player.throttle = 0;
     game.player.speed = 0;
+    updateCruiseButton();
     const overlay = document.getElementById('landing-overlay');
     if (overlay) overlay.classList.remove('hidden');
     const title = document.getElementById('landing-title');
@@ -4106,7 +4343,11 @@ function launchFromBase() {
     document.getElementById('landing-overlay')?.classList.add('hidden');
     game.isDocked = false;
     game.landedBase = null;
+    game.player.cancelCruise?.();
+    game.player.afterburnerActive = false;
+    game.player.reverseActive = false;
     game.player.throttle = 0;
+    updateCruiseButton();
     playSound('launch', 1);
     saveGame();
 }
