@@ -422,7 +422,8 @@ def extract_system_data(system_name: str) -> dict:
         'tradelanes': [],
         'asteroidfields': [],
         'nebulae': [],
-        'zones': []
+        'zones': [],
+        'missionZones': []
     }
     
     if not system_ini.exists():
@@ -482,6 +483,10 @@ def extract_system_data(system_name: str) -> dict:
                         pass
                 if zone_map[zone_nickname]['damage'] > 0:
                     result['zones'].append(zone_map[zone_nickname])
+                if 'destroy_vignette' in zone_nickname.lower():
+                    mission_zone = dict(zone_map[zone_nickname])
+                    mission_zone['vignette_type'] = get_prop(props, 'vignette_type', '')
+                    result['missionZones'].append(mission_zone)
     
     # Second pass: process all sections
     for section_name, props in sections:
@@ -880,6 +885,7 @@ def main():
             'planets': sys_data.get('planets', []),
             'suns': sys_data.get('suns', []),
             'zones': sys_data.get('zones', []),
+            'missionZones': sys_data.get('missionZones', []),
             'asteroidfields': sys_data.get('asteroidfields', []),
             'tradelanes': tradelanes,  # Note: spelled tradelanes in output
             'nebulae': sys_data.get('nebulae', [])
