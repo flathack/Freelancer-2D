@@ -39,6 +39,11 @@ def freelancer_exe(default: Path = DEFAULT_FL_ROOT) -> Path:
     return freelancer_root(default) / "EXE"
 
 
+def output_data_dir(default: Path) -> Path:
+    raw = _cli_value("--output-dir") or os.environ.get("FREELANCER2D_OUTPUT_DIR", "")
+    return (Path(raw).expanduser() if raw else default).resolve()
+
+
 def fl_path_info() -> str:
     root = freelancer_root()
     return f"Freelancer root: {root}"
