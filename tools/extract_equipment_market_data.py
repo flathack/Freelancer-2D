@@ -25,6 +25,8 @@ def title_from_nickname(nickname: str) -> str:
 
 def classify_equipment(nickname: str, category: str, equipment_id: str) -> str:
     value = f"{nickname} {category} {equipment_id}".lower()
+    if category == "power":
+        return "powerplant"
     if "battery" in value:
         return "shield_battery"
     if "repair" in value or "nanobot" in value:
@@ -48,44 +50,98 @@ def classify_equipment(nickname: str, category: str, equipment_id: str) -> str:
     return category or "equipment"
 
 
+def to_float(value: str, default: float = 0.0) -> float:
+    try:
+        return float(str(value).split(",", 1)[0].strip())
+    except Exception:
+        return default
+
+
+def to_price(value: str, default: int = 1) -> int:
+    return max(1, round(to_float(value, default)))
+
+
+def good_ini_files() -> list[Path]:
+    files = [FL_DATA / "EQUIPMENT" / "goods.ini"]
+    files.extend(sorted(path for path in (FL_DATA / "EQUIPMENT").glob("*_good.ini") if path.name.lower() != "goods.ini"))
+    return files
+
+
 def extract_goods() -> dict[str, dict]:
     equipment: dict[str, dict] = {}
-    for section, props in parse_ini_sections(FL_DATA / "EQUIPMENT" / "goods.ini"):
-        if section.lower() != "good":
-            continue
-        category = first(props, "category").lower()
-        if category in {"commodity", "shiphull"}:
-            continue
-        nickname = first(props, "nickname").lower()
-        if not nickname:
-            continue
-        equipment_id = first(props, "equipment", nickname).lower()
-        price = to_int(first(props, "price"), 1)
-        equipment[nickname] = {
-            "id": nickname,
-            "equipmentId": equipment_id,
-            "name": fl_text(title_from_nickname(nickname)),
-            "category": classify_equipment(nickname, category, equipment_id),
-            "rawCategory": category,
-            "price": max(1, price),
-            "itemIcon": first(props, "item_icon"),
-            "combinable": first(props, "combinable", "false").lower() == "true",
-        }
+    for ini_path in good_ini_files():
+        for section, props in parse_ini_sections(ini_path):
+            if section.lower() != "good":
+                continue
+            category = first(props, "category").lower()
+            if category in {"commodity", "shiphull", "ship"}:
+                continue
+            nickname = first(props, "nickname").lower()
+            if not nickname:
+                continue
+            equipment_id = first(props, "equipment", nickname).lower()
+            ids_name = first(props, "ids_name")
+            ids_info = first(props, "ids_info")
+            equipment[nickname] = {
+                "id": nickname,
+                "equipmentId": equipment_id,
+                "name": fl_text(universe.resolve_id(ids_name, title_from_nickname(nickname))) if ids_name else fl_text(title_from_nickname(nickname)),
+                "category": classify_equipment(nickname, category, equipment_id),
+                "rawCategory": category,
+                "price": to_price(first(props, "price"), 1),
+                "idsName": ids_name,
+                "idsInfo": ids_info,
+                "info": universe.resolve_info(ids_info) if ids_info else "",
+                "itemIcon": first(props, "item_icon"),
+                "shopArchetype": first(props, "shop_archetype"),
+                "materialLibrary": first(props, "material_library"),
+                "combinable": first(props, "combinable", "false").lower() == "true",
+                "priceSource": ini_path.name,
+            }
     return equipment
+
+
+def equipment_item_for_archetype(equipment: dict[str, dict], archetype_id: str) -> dict | None:
+    key = archetype_id.lower()
+    if key in equipment:
+        return equipment[key]
+    for item in equipment.values():
+        if str(item.get("equipmentId", "")).lower() == key:
+            return item
+    return None
 
 
 def enrich_from_equipment_files(equipment: dict[str, dict]) -> dict[str, dict]:
     for ini_path in sorted((FL_DATA / "EQUIPMENT").glob("*.ini")):
         if ini_path.name.lower() in {"goods.ini", "market_misc.ini", "market_commodities.ini", "market_ships.ini"}:
             continue
-        for section, props in parse_ini_sections(ini_path):
+        sections = parse_ini_sections(ini_path)
+        munitions: dict[str, dict] = {}
+        for section, props in sections:
+            if section.lower() != "munition":
+                continue
+            nickname = first(props, "nickname").lower()
+            if not nickname:
+                continue
+            munitions[nickname] = {
+                "hullDamage": to_float(first(props, "hull_damage"), 0),
+                "energyDamage": to_float(first(props, "energy_damage"), 0),
+                "weaponType": first(props, "weapon_type"),
+                "projectileLifetime": to_float(first(props, "lifetime"), 0),
+                "requiresAmmo": first(props, "requires_ammo", "false").lower() == "true",
+                "munitionHitEffect": first(props, "munition_hit_effect"),
+                "constEffect": first(props, "const_effect"),
+            }
+        for section, props in sections:
+            if section.lower() == "good":
+                continue
             nickname = first(props, "nickname").lower()
             if not nickname:
                 continue
             ids_name = first(props, "ids_name")
             ids_info = first(props, "ids_info")
             category = classify_equipment(nickname, section.lower(), nickname)
-            item = equipment.get(nickname, {
+            item = equipment_item_for_archetype(equipment, nickname) or {
                 "id": nickname,
                 "equipmentId": nickname,
                 "name": fl_text(universe.resolve_id(ids_name, title_from_nickname(nickname))),
@@ -94,7 +150,8 @@ def enrich_from_equipment_files(equipment: dict[str, dict]) -> dict[str, dict]:
                 "price": 500,
                 "itemIcon": "",
                 "combinable": category in {"ammo", "nanobot", "shield_battery"},
-            })
+                "priceSource": "fallback",
+            }
             if ids_name:
                 item["name"] = fl_text(universe.resolve_id(ids_name, item["name"]))
             item["idsName"] = ids_name
@@ -102,18 +159,20 @@ def enrich_from_equipment_files(equipment: dict[str, dict]) -> dict[str, dict]:
             item["info"] = universe.resolve_info(ids_info)
             item["category"] = category
             item["hitPts"] = to_int(first(props, "hit_pts"), item.get("hitPts", 0))
-            item["powerUsage"] = to_int(first(props, "power_usage"), item.get("powerUsage", 0))
-            item["refireDelay"] = first(props, "refire_delay", item.get("refireDelay", ""))
+            item["powerUsage"] = to_float(first(props, "power_usage"), item.get("powerUsage", 0))
+            item["refireDelay"] = to_float(first(props, "refire_delay"), item.get("refireDelay", 0))
+            item["muzzleVelocity"] = to_float(first(props, "muzzle_velocity"), item.get("muzzleVelocity", 0))
+            item["projectileArchetype"] = first(props, "projectile_archetype", item.get("projectileArchetype", ""))
+            item["capacity"] = to_float(first(props, "capacity"), item.get("capacity", 0))
+            item["chargeRate"] = to_float(first(props, "charge_rate"), item.get("chargeRate", 0))
+            item["thrustCapacity"] = to_float(first(props, "thrust_capacity"), item.get("thrustCapacity", 0))
+            item["thrustChargeRate"] = to_float(first(props, "thrust_charge_rate"), item.get("thrustChargeRate", 0))
+            munition = munitions.get(str(item.get("projectileArchetype", "")).lower())
+            if munition:
+                item.update(munition)
             item["sourceFile"] = ini_path.name
-            equipment[nickname] = item
+            equipment[item["id"]] = item
     return equipment
-
-
-def to_float(value: str, default: float = 1.0) -> float:
-    try:
-        return float(value.strip())
-    except Exception:
-        return default
 
 
 def extract_markets(equipment: dict[str, dict]) -> dict[str, list[dict]]:
@@ -141,6 +200,7 @@ def extract_markets(equipment: dict[str, dict]) -> dict[str, list[dict]]:
                     "price": 500 + to_int(parts[1]) * 250,
                     "itemIcon": "",
                     "combinable": item_id.endswith("_ammo") or "battery" in item_id or "repair" in item_id,
+                    "priceSource": "fallback",
                 }
                 equipment[item_id] = item
             min_stock = to_int(parts[3])

@@ -220,6 +220,54 @@ def extract_goods() -> tuple[dict[str, dict], dict[str, dict]]:
     return hulls, packages
 
 
+def load_powerplants() -> dict[str, dict]:
+    powerplants: dict[str, dict] = {}
+    for ini_path in sorted((FL_DATA / "EQUIPMENT").glob("*.ini")):
+        if ini_path.name.lower() in {"goods.ini", "market_misc.ini", "market_commodities.ini", "market_ships.ini"}:
+            continue
+        for section, props in parse_ini_sections(ini_path):
+            if section.lower() != "power":
+                continue
+            nickname = first(props, "nickname").lower()
+            if not nickname:
+                continue
+            ids_name = first(props, "ids_name")
+            ids_info = first(props, "ids_info")
+            powerplants[nickname] = {
+                "id": nickname,
+                "name": fl_text(universe.resolve_id(ids_name, nickname)),
+                "idsName": ids_name,
+                "idsInfo": ids_info,
+                "info": clean_info(universe.resolve_info(ids_info)),
+                "capacity": to_float(first(props, "capacity"), 1000.0),
+                "chargeRate": to_float(first(props, "charge_rate"), 100.0),
+                "thrustCapacity": to_float(first(props, "thrust_capacity"), 1000.0),
+                "thrustChargeRate": to_float(first(props, "thrust_charge_rate"), 100.0),
+                "sourceFile": ini_path.name,
+            }
+    return powerplants
+
+
+def parse_addon(value: str) -> tuple[str, str, int]:
+    parts = [part.strip() for part in value.split(",")]
+    addon_id = parts[0].lower() if parts else ""
+    hardpoint = parts[1] if len(parts) > 1 else ""
+    quantity = to_int(parts[2], 1) if len(parts) > 2 else 1
+    return addon_id, hardpoint, quantity
+
+
+def package_powerplant(package: dict, powerplants: dict[str, dict]) -> dict | None:
+    for addon in package.get("addons", []):
+        addon_id, _hardpoint, _quantity = parse_addon(addon)
+        if addon_id in powerplants:
+            return powerplants[addon_id]
+    for addon in package.get("addons", []):
+        addon_id, _hardpoint, _quantity = parse_addon(addon)
+        if "power" in addon_id:
+            return powerplants.get(addon_id)
+    return None
+
+
 def extract_markets() -> dict[str, list[str]]:
     markets: dict[str, list[str]] = {}
     for section, props in parse_ini_sections(FL_DATA / "EQUIPMENT" / "market_ships.ini"):
@@ -281,6 +329,7 @@ def build_payload() -> dict:
     load_resources()
     ships = extract_shiparch()
     hulls, packages = extract_goods()
+    powerplants = load_powerplants()
     markets = extract_markets()
     market_package_ids = {package for packages_for_base in markets.values() for package in packages_for_base}
     market_package_ids.add("gf1_package")
@@ -298,6 +347,7 @@ def build_payload() -> dict:
         ship_name = ship.get("name") or hull.get("name") or ship["id"]
         ship_type = ship.get("type", "FIGHTER")
         handling = ship.get("handling", {})
+        powerplant = package_powerplant(package, powerplants)
         max_speed = 250 if ship_type == "FREIGHTER" else 300
         max_speed = round(max_speed * clamp(0.86 + float(handling.get("agility", 1.4)) * 0.08, 0.88, 1.12))
         if ship["mass"] > 800:
@@ -325,7 +375,12 @@ def build_payload() -> dict:
                 "firePower": ship["firePower"],
                 "mass": ship["mass"],
                 "shipClass": ship.get("shipClass", 0),
+                "powerCapacity": round(powerplant["capacity"], 2) if powerplant else 1000,
+                "powerChargeRate": round(powerplant["chargeRate"], 2) if powerplant else 100,
+                "thrustCapacity": round(powerplant["thrustCapacity"], 2) if powerplant else 1000,
+                "thrustChargeRate": round(powerplant["thrustChargeRate"], 2) if powerplant else 100,
             },
+            "powerplant": powerplant or {},
             "info": ship.get("info", ""),
         }
 

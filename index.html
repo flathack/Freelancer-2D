@@ -681,6 +681,19 @@ function degToRad(value) {
     return (Number(value) || 0) * Math.PI / 180;
 }
 
+const NORMAL_FLIGHT_EXIT_SPEED = 80;
+
+function flYawToCanvasRotation(value) {
+    return -degToRad(value);
+}
+
+function setNormalFlightSpeed(player, speed = NORMAL_FLIGHT_EXIT_SPEED) {
+    if (!player) return;
+    player.maxSpeed = player.baseMaxSpeed || player.maxSpeed;
+    player.speed = Math.min(Math.max(0, speed), player.maxSpeed || speed);
+    player.throttle = player.maxSpeed > 0 ? clamp(player.speed / player.maxSpeed, 0, 1) : 0;
+}
+
 function rotatePoint(x, z, angle) {
     const cos = Math.cos(angle);
     const sin = Math.sin(angle);
@@ -724,9 +737,8 @@ function tradeLaneRingRotation(rings, index) {
         dx = current.x - prev.x;
         dz = current.z - prev.z;
     }
-    if (Math.abs(dx) + Math.abs(dz) < 0.001) return degToRad(current.rotate_y || current.rotateY || 0);
-    // Match FLAtlas: trade lane rings face along the lane vector using atan2(x, z).
-    return Math.atan2(dx, dz);
+    if (Math.abs(dx) + Math.abs(dz) < 0.001) return flYawToCanvasRotation(current.rotate_y || current.rotateY || 0);
+    return -Math.atan2(dx, dz);
 }
 
 function getTradeLaneStartForRing(ring, player) {
@@ -1088,13 +1100,15 @@ function updateSaveHint(save = readSavedGame()) {
     deleteButton.classList.remove('hidden');
 }
 
-function returnToFreeflight(message = '') {
+function returnToFreeflight(message = '', options = {}) {
     game.approachTarget = null;
     game.dockTarget = null;
     if (game.player) {
         const wasInTradeLane = game.player.inTradeLane;
-        game.player.throttle = 0;
-        game.player.speed = 0;
+        if (!options.preserveMotion) {
+            game.player.throttle = 0;
+            game.player.speed = 0;
+        }
         game.player.inTradeLane = false;
         game.player.laneRoute = null;
         game.player.laneIndex = 0;
@@ -1131,6 +1145,13 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.shipMass = stats.mass || game.player.shipMass;
     game.player.shipClass = Number.isFinite(stats.shipClass) ? stats.shipClass : game.player.shipClass;
     game.player.maxCargo = stats.holdSize || game.player.maxCargo;
+    game.player.powerPlantId = shipPackage.powerplant?.id || '';
+    game.player.powerPlantName = shipPackage.powerplant?.name || 'Powerplant';
+    game.player.maxEnergy = Number.isFinite(stats.powerCapacity) ? stats.powerCapacity : game.player.maxEnergy;
+    game.player.powerGen = Number.isFinite(stats.powerChargeRate) ? stats.powerChargeRate : game.player.powerGen;
+    game.player.thrustCapacity = Number.isFinite(stats.thrustCapacity) ? stats.thrustCapacity : game.player.thrustCapacity;
+    game.player.thrustChargeRate = Number.isFinite(stats.thrustChargeRate) ? stats.thrustChargeRate : game.player.thrustChargeRate;
+    game.player.energy = Math.min(game.player.maxEnergy, Math.max(game.player.energy || game.player.maxEnergy, game.player.maxEnergy));
     game.player.firePower = stats.firePower || game.player.firePower || 1;
     const shipRecord = typeof FL_SHIPS !== 'undefined' ? FL_SHIPS[String(shipPackage.ship || '').toLowerCase()] : null;
     game.player.weaponSlots = parseShipWeaponSlots(shipRecord) || clamp(game.player.firePower, 0, 8);
@@ -1515,7 +1536,7 @@ function renderDamageZones(ctx) {
         if (Math.max(rx, rz) < 20) continue;
         ctx.save();
         ctx.translate(pos.x, pos.y);
-        ctx.rotate(degToRad(zone.rotateY || 0));
+        ctx.rotate(flYawToCanvasRotation(zone.rotateY || 0));
         ctx.fillStyle = 'rgba(255,90,20,0.045)';
         ctx.strokeStyle = 'rgba(255,120,35,0.22)';
         ctx.lineWidth = Math.max(1, game.zoom * 2);
@@ -1557,7 +1578,7 @@ function checkPlanetAtmosphereHazards(dt) {
 }
 
 function isPointInsideZone(zone, x, z) {
-    const rotation = -degToRad(zone.rotateY || 0);
+    const rotation = -flYawToCanvasRotation(zone.rotateY || 0);
     const local = rotatePoint(x - zone.x, z - zone.z, rotation);
     const radiusX = Math.max(1, zone.sizeX || zone.size || 1);
     const radiusZ = Math.max(1, zone.sizeZ || zone.size || 1);
@@ -1663,7 +1684,7 @@ function createFieldObstacles(field, kind) {
     const count = kind === 'asteroid' ? Math.min(220, Math.max(34, Math.floor(field.size / 260))) : Math.min(46, Math.max(10, Math.floor(field.size / 1100)));
     const radiusX = Math.max(800, (field.sizeX || field.size || 2000) * 0.75);
     const radiusZ = Math.max(800, (field.sizeZ || field.size || 2000) * 0.75);
-    const fieldRotation = degToRad(field.rotateY || 0);
+    const fieldRotation = flYawToCanvasRotation(field.rotateY || 0);
     const obstacles = [];
     for (let i = 0; i < count; i++) {
         const angle = rng() * Math.PI * 2;
@@ -1737,14 +1758,13 @@ function loadSystem(systemId, arrivalObjectId = null) {
         game.player.x = arrival.x + Math.cos(angle) * 200;
         game.player.z = arrival.z + Math.sin(angle) * 200;
         game.player.rotation = angle;
-        game.player.throttle = 0.4;
-        game.player.speed = 0;
         game.player.inTradeLane = false;
         game.player.laneRoute = null;
         game.player.laneDirection = 1;
         game.player.tradeLaneCooldownUntil = performance.now() + 1800;
+        setNormalFlightSpeed(game.player);
     }
-    returnToFreeflight();
+    returnToFreeflight('', { preserveMotion: true });
     rebuildEntities();
     updateSystemHud();
     if (game.showMap) drawMapCanvas();
@@ -1790,6 +1810,10 @@ class PlayerShip {
         this.hull = 100; this.maxHull = 100;
         this.shield = 80; this.maxShield = 80; this.shieldRegen = 8;
         this.energy = 100; this.maxEnergy = 100; this.powerGen = 15;
+        this.powerPlantId = '';
+        this.powerPlantName = 'Powerplant';
+        this.thrustCapacity = 1000;
+        this.thrustChargeRate = 100;
         this.credits = 10000; this.cargo = []; this.maxCargo = 50;
         this.equipmentInventory = [];
         this.mountedEquipment = {};
@@ -1941,10 +1965,10 @@ class PlayerShip {
         this.laneRoute = null;
         this.laneDirection = 1;
         this.maxSpeed = this.baseMaxSpeed;
-        this.speed = 0;
+        setNormalFlightSpeed(this);
         this.tradeLaneCooldownUntil = performance.now() + 1800;
         if (message) addLog(message);
-        returnToFreeflight();
+        returnToFreeflight('', { preserveMotion: true });
     }
     
     fire() {
@@ -1981,15 +2005,18 @@ class PlayerShip {
             const id = String(item?.id || '').toLowerCase();
             const mark = Number((id.match(/mark(\d+)/) || [])[1]) || Number((id.match(/_(\d+)$/) || [])[1]) || 1;
             const refire = Math.max(0.08, Number(item?.refireDelay) || (0.18 - Math.min(mark, 7) * 0.01));
-            const speed = id.includes('laser') ? 1120 : id.includes('plasma') ? 760 : id.includes('tachyon') ? 980 : 880 + Math.min(mark, 8) * 24;
-            const color = id.includes('plasma') ? '#ff7a33' : id.includes('tachyon') ? '#8be9ff' : id.includes('neutron') ? '#b085ff' : id.includes('particle') ? '#77ff66' : '#ffe66b';
+            const speed = Number(item?.muzzleVelocity) || (id.includes('laser') ? 1120 : id.includes('plasma') ? 760 : id.includes('tachyon') ? 980 : 880 + Math.min(mark, 8) * 24);
+            const weaponType = String(item?.weaponType || id).toLowerCase();
+            const color = weaponType.includes('plasma') ? '#ff7a33' : weaponType.includes('tachyon') ? '#8be9ff' : weaponType.includes('neutron') ? '#b085ff' : weaponType.includes('particle') ? '#77ff66' : '#ffe66b';
+            const hullDamage = Number(item?.hullDamage) || 0;
+            const energyDamage = Number(item?.energyDamage) || 0;
             return {
                 cooldown: refire,
-                energyCost: Math.max(3, Math.min(22, Number(item?.powerUsage) || (5 + mark))),
-                damage: 7 + mark * 3 + (item?.category === 'turret' ? 3 : 0),
-                radius: Math.max(3, Math.min(8, 3 + mark * 0.45)),
+                energyCost: Math.max(0, Number(item?.powerUsage) || (5 + mark)),
+                damage: hullDamage || energyDamage || (7 + mark * 3 + (item?.category === 'turret' ? 3 : 0)),
+                radius: Math.max(3, Math.min(10, 3 + Math.sqrt(Math.max(hullDamage, energyDamage, mark * 12)) * 0.08)),
                 speed,
-                lifetime: 1.15 + Math.min(mark, 8) * 0.08,
+                lifetime: Number(item?.projectileLifetime) || (1.15 + Math.min(mark, 8) * 0.08),
                 color,
                 trailColor: color + '88',
                 offset: (order - (entries.length - 1) / 2) * spread
@@ -2167,7 +2194,7 @@ class Station {
     constructor(data) {
         Object.assign(this, data);
         this.radius = Math.max(55, Math.min(260, Number(data.radius || 600) * 0.18));
-        this.rotation = degToRad(this.rotateY || 0);
+        this.rotation = flYawToCanvasRotation(this.rotateY || 0);
     }
     update(dt) {}
     render(ctx) {
@@ -2233,7 +2260,7 @@ class JumpGate {
     constructor(data) {
         Object.assign(this, data);
         this.radius = 100;
-        this.rotation = degToRad(this.rotateY || 0);
+        this.rotation = flYawToCanvasRotation(this.rotateY || 0);
         this.kind = data.kind || 'gate';
         this.type = data.type || (this.kind === 'hole' ? 'Jump Hole' : 'Jump Gate');
     }
@@ -2314,7 +2341,7 @@ class TradeLaneRing {
             this.visualRotation = null;
         }
         this.radius = 60;
-        this.rotation = Number.isFinite(this.visualRotation) ? this.visualRotation : degToRad(this.rotateY || 0);
+        this.rotation = Number.isFinite(this.visualRotation) ? this.visualRotation : flYawToCanvasRotation(this.rotateY || 0);
         this.type = 'trade_lane_ring';
     }
     update(dt) {}
@@ -2375,7 +2402,7 @@ class AsteroidField {
         this.sizeX = data.size_x || data.sizeX || this.size;
         this.sizeZ = data.size_z || data.sizeZ || this.size;
         this.shape = data.shape || 'ELLIPSOID';
-        this.rotation = degToRad(data.rotate_y || data.rotateY || 0);
+        this.rotation = flYawToCanvasRotation(data.rotate_y || data.rotateY || 0);
         this.obstacles = createFieldObstacles(this, 'asteroid');
     }
     update(dt) {}
@@ -2454,7 +2481,7 @@ class Nebula {
         this.sizeZ = data.size_z || data.sizeZ || this.size;
         this.shape = data.shape || 'ELLIPSOID';
         this.color = '#8888ff';
-        this.rotation = degToRad(data.rotate_y || data.rotateY || 0);
+        this.rotation = flYawToCanvasRotation(data.rotate_y || data.rotateY || 0);
         this.obstacles = createFieldObstacles(this, 'nebula');
     }
     update(dt) {}
@@ -2881,7 +2908,7 @@ function updateJumpTransition(dt) {
     const progress = Math.min(1, transition.timer / transition.duration);
     if (progress >= 1) {
         game.jumpTransition = null;
-        game.player.throttle = 0.45;
+        setNormalFlightSpeed(game.player);
     }
     return true;
 }
@@ -3473,7 +3500,7 @@ function drawMapCanvas() {
         ctx.fillStyle = 'rgba(80,120,220,0.12)';
         ctx.strokeStyle = 'rgba(120,180,255,0.25)';
         ctx.beginPath();
-        ctx.ellipse(ex, ey, rx, rz, degToRad(nebula.rotate_y || nebula.rotateY || 0), 0, Math.PI * 2);
+        ctx.ellipse(ex, ey, rx, rz, flYawToCanvasRotation(nebula.rotate_y || nebula.rotateY || 0), 0, Math.PI * 2);
         ctx.fill();
         ctx.stroke();
     }
@@ -3486,7 +3513,7 @@ function drawMapCanvas() {
         ctx.fillStyle = 'rgba(130,110,70,0.12)';
         ctx.strokeStyle = 'rgba(180,150,90,0.25)';
         ctx.beginPath();
-        ctx.ellipse(ex, ey, rx, rz, degToRad(field.rotate_y || field.rotateY || 0), 0, Math.PI * 2);
+        ctx.ellipse(ex, ey, rx, rz, flYawToCanvasRotation(field.rotate_y || field.rotateY || 0), 0, Math.PI * 2);
         ctx.fill();
         ctx.stroke();
     }
@@ -4160,7 +4187,7 @@ function renderEquipmentDealer() {
         content.innerHTML = `<div style="color:#ffaa00;">${t('noEquipment')}</div>`;
         return;
     }
-    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span></div>`;
+    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span></div>`;
     const slots = [...getWeaponSlotKeys(), 'shield', 'thruster', 'mine', 'countermeasure', 'missile'];
     html += '<div class="equipment-layout"><div class="equipment-panel"><h4>Mounted Slots</h4>';
     for (const slot of slots) {
@@ -4174,14 +4201,16 @@ function renderEquipmentDealer() {
         html += '<div style="color:#667f8f;">No equipment in inventory.</div>';
     }
     html += '</div></div>';
-    html += '<table class="trade-table"><tr><th>Item</th><th>Type</th><th>Price</th><th>Stock</th><th>Owned</th><th></th></tr>';
+    html += '<table class="trade-table"><tr><th>Item</th><th>Type</th><th>Power</th><th>Damage</th><th>Price</th><th>Stock</th><th>Owned</th><th></th></tr>';
     for (const entry of market.slice(0, 120)) {
         const item = getEquipment(entry.id);
         if (!item) continue;
         const inv = inventory.find(i => i.id === item.id);
         const owned = inv ? inv.quantity : 0;
         const canBuy = entry.forSale && game.player.credits >= entry.price;
-        html += `<tr><td style="color:#00ff00;">${escapeHtml(item.name)}</td><td>${escapeHtml(item.category)}</td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td>${owned}</td><td><button class="trade-button" onclick="buyEquipment('${item.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td></tr>`;
+        const damageLabel = item.hullDamage || item.energyDamage ? `${Math.round(Number(item.hullDamage || 0))}/${Math.round(Number(item.energyDamage || 0))}` : '-';
+        const powerLabel = item.powerUsage ? Number(item.powerUsage).toFixed(1) : (item.capacity ? `${Math.round(item.capacity).toLocaleString()} / +${Math.round(item.chargeRate || 0).toLocaleString()}` : '-');
+        html += `<tr><td style="color:#00ff00;">${escapeHtml(item.name)}</td><td>${escapeHtml(item.category)}</td><td>${escapeHtml(powerLabel)}</td><td>${escapeHtml(damageLabel)}</td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td>${owned}</td><td><button class="trade-button" onclick="buyEquipment('${item.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td></tr>`;
     }
     html += '</table>';
     content.innerHTML = html;
@@ -4312,7 +4341,7 @@ function openShipShop() {
     }
 
     html += '<table style="width:100%;border-collapse:collapse;">';
-    html += '<tr style="text-align:left;background:#002244;"><th style="padding:8px;">Ship</th><th style="padding:8px;">Type</th><th style="padding:8px;">Hull</th><th style="padding:8px;">Shield</th><th style="padding:8px;">Cargo</th><th style="padding:8px;">Handling</th><th style="padding:8px;">Price</th><th></th></tr>';
+    html += '<tr style="text-align:left;background:#002244;"><th style="padding:8px;">Ship</th><th style="padding:8px;">Type</th><th style="padding:8px;">Hull</th><th style="padding:8px;">Shield</th><th style="padding:8px;">Powerplant</th><th style="padding:8px;">Cargo</th><th style="padding:8px;">Handling</th><th style="padding:8px;">Price</th><th></th></tr>';
     
     for (const ship of ships) {
         const canAfford = game.player.credits >= ship.price;
@@ -4324,6 +4353,7 @@ function openShipShop() {
             <td style="padding:6px;color:#888;">${escapeHtml(ship.type || '-')}</td>
             <td style="padding:6px;color:#ff4444;">${stats.hull || '-'}</td>
             <td style="padding:6px;color:#44aaff;">${stats.shield || '-'}</td>
+            <td style="padding:6px;color:#ffcc44;">${stats.powerCapacity ? `${Math.round(stats.powerCapacity).toLocaleString()} / +${Math.round(stats.powerChargeRate || 0).toLocaleString()}` : '-'}</td>
             <td style="padding:6px;color:#ffaa00;">${stats.holdSize || '-'}</td>
             <td style="padding:6px;color:#9edfff;">T ${stats.turnRate || '-'} / A ${stats.acceleration || '-'}</td>
             <td style="padding:6px;color:#ffaa00;">${ship.price.toLocaleString()} CR</td>

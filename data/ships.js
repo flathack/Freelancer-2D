@@ -1391,7 +1391,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 35,
       "firePower": 5,
       "mass": 150,
-      "shipClass": 1
+      "shipClass": 1,
+      "powerCapacity": 2500.0,
+      "powerChargeRate": 248.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "br_elite_power01",
+      "name": "Kraftwerk, schwerer Bretonia-Jäger",
+      "idsName": "263724",
+      "idsInfo": "264724",
+      "info": "Kraftwerk, schwerer Bretonia-Jäger\nEnergiekapazität: 2500\nRegenerationsrate / s: 248",
+      "capacity": 2500.0,
+      "chargeRate": 248.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 2600\nFrachtraum: 35\nMax. Batterien/Nanobots: 20/20\nOptimale Waffenklasse: 3\nMax. Waffenklasse: 5\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1417,7 +1433,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 30,
       "firePower": 5,
       "mass": 100,
-      "shipClass": 0
+      "shipClass": 0,
+      "powerCapacity": 2100.0,
+      "powerChargeRate": 213.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "br_fighter_power01",
+      "name": "Kraftwerk, leichter Bretonia-Jäger",
+      "idsName": "263723",
+      "idsInfo": "264723",
+      "info": "Kraftwerk, leichter Bretonia-Jäger\nEnergiekapazität: 2100\nRegenerationsrate / s: 213",
+      "capacity": 2100.0,
+      "chargeRate": 213.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 2100\nFrachtraum: 30\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 3\nMax. Waffenklasse: 5\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -1443,7 +1475,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 125,
       "firePower": 4,
       "mass": 300,
-      "shipClass": 2
+      "shipClass": 2,
+      "powerCapacity": 1800.0,
+      "powerChargeRate": 183.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "br_freighter_power01",
+      "name": "Kraftwerk, Bretonia-Frachter",
+      "idsName": "263725",
+      "idsInfo": "264725",
+      "info": "Kraftwerk, Bretonia-Frachter\nEnergiekapazität: 1800\nRegenerationsrate / s: 183",
+      "capacity": 1800.0,
+      "chargeRate": 183.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/5\nPanzerung: 2200\nFrachtraum: 125\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM"
   },
@@ -1469,7 +1517,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 70,
       "firePower": 9,
       "mass": 150,
-      "shipClass": 3
+      "shipClass": 3,
+      "powerCapacity": 7400.0,
+      "powerChargeRate": 750.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "bh_elite2_power01",
+      "name": "Kraftwerk, sehr schwerer Jäger der Kopfgeldjäger",
+      "idsName": "263719",
+      "idsInfo": "264719",
+      "info": "Kraftwerk, schwerer Jäger der Kopfgeldjäger\nEnergiekapazität: 7400\nRegenerationsrate / s: 750",
+      "capacity": 7400.0,
+      "chargeRate": 750.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 7900\nFrachtraum: 70\nMax. Batterien/Nanobots: 49/49\nOptimale Waffenklasse: 7\nMax. Waffenklasse: 9\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1495,7 +1559,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 45,
       "firePower": 6,
       "mass": 150,
-      "shipClass": 1
+      "shipClass": 1,
+      "powerCapacity": 3400.0,
+      "powerChargeRate": 345.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "bh_elite_power01",
+      "name": "Kraftwerk, schwerer Jäger der Kopfgeldjäger",
+      "idsName": "263718",
+      "idsInfo": "264718",
+      "info": "Triebwerk, schwerer Jäger der Kopfgeldjäger\nEnergiekapazität: 3400\nRegenerationsrate / s: 345",
+      "capacity": 3400.0,
+      "chargeRate": 345.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 3600\nFrachtraum: 45\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1521,7 +1601,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 35,
       "firePower": 4,
       "mass": 100,
-      "shipClass": 0
+      "shipClass": 0,
+      "powerCapacity": 1800.0,
+      "powerChargeRate": 183.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "bh_fighter_power01",
+      "name": "Kraftwerk, leichter Jäger der Kopfgeldjäger",
+      "idsName": "263717",
+      "idsInfo": "264717",
+      "info": "Kraftwerk, leichter Jäger der Kopfgeldjäger\nEnergiekapazität: 1800\nRegenerationsrate / s: 183",
+      "capacity": 1800.0,
+      "chargeRate": 183.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 1800\nFrachtraum: 35\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -1547,7 +1643,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 70,
       "firePower": 10,
       "mass": 75,
-      "shipClass": 3
+      "shipClass": 3,
+      "powerCapacity": 10400.0,
+      "powerChargeRate": 1040.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "bw_elite2_power01",
+      "name": "Kraftwerk, sehr schwerer Grenzweltjäger",
+      "idsName": "263712",
+      "idsInfo": "264712",
+      "info": "Kraftwerk, schwerer Grenzweltjäger\nEnergiekapazität: 10400\nRegenerationsrate / s: 1040",
+      "capacity": 10400.0,
+      "chargeRate": 1040.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 10800\nFrachtraum: 70\nMax. Batterien/Nanobots: 63/63\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1573,7 +1685,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 45,
       "firePower": 7,
       "mass": 150,
-      "shipClass": 1
+      "shipClass": 1,
+      "powerCapacity": 4700.0,
+      "powerChargeRate": 465.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "bw_elite_power01",
+      "name": "Kraftwerk, schwerer Grenzweltjäger",
+      "idsName": "263711",
+      "idsInfo": "264711",
+      "info": "Kraftwerk, schwerer Grenzweltjäger\nEnergiekapazität: 4700\nRegenerationsrate / s: 465",
+      "capacity": 4700.0,
+      "chargeRate": 465.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 4900\nFrachtraum: 45\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1599,7 +1727,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 35,
       "firePower": 4,
       "mass": 100,
-      "shipClass": 0
+      "shipClass": 0,
+      "powerCapacity": 1800.0,
+      "powerChargeRate": 183.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "bw_fighter_power01",
+      "name": "Kraftwerk, leichter Grenzweltjäger",
+      "idsName": "263710",
+      "idsInfo": "264710",
+      "info": "Kraftwerk, leichter Grenzweltjäger\nEnergiekapazität: 1800\nRegenerationsrate / s: 183",
+      "capacity": 1800.0,
+      "chargeRate": 183.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/1\nPanzerung: 1800\nFrachtraum: 35\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -1625,7 +1769,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 275,
       "firePower": 6,
       "mass": 300,
-      "shipClass": 2
+      "shipClass": 2,
+      "powerCapacity": 2900.0,
+      "powerChargeRate": 290.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "bw_freighter_power01",
+      "name": "Kraftwerk, Grenzweltfrachter",
+      "idsName": "263713",
+      "idsInfo": "264713",
+      "info": "Kraftwerk, Grenzweltfrachter\nEnergiekapazität: 2900\nRegenerationsrate / s: 290",
+      "capacity": 2900.0,
+      "chargeRate": 290.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/5\nPanzerung: 3600\nFrachtraum: 275\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM"
   },
@@ -1651,7 +1811,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 70,
       "firePower": 10,
       "mass": 150,
-      "shipClass": 3
+      "shipClass": 3,
+      "powerCapacity": 11900.0,
+      "powerChargeRate": 1190.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "co_elite2_power01",
+      "name": "Kraftwerk, sehr schwerer Korsaren-Jäger",
+      "idsName": "263716",
+      "idsInfo": "264716",
+      "info": "Kraftwerk, schwerer Korsaren-Jäger\nEnergiekapazität: 11900\nRegenerationsrate / s: 1190",
+      "capacity": 11900.0,
+      "chargeRate": 1190.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 12600\nFrachtraum: 70\nMax. Batterien/Nanobots: 71/71\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1677,7 +1853,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 45,
       "firePower": 9,
       "mass": 150,
-      "shipClass": 1
+      "shipClass": 1,
+      "powerCapacity": 8900.0,
+      "powerChargeRate": 890.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "co_elite_power01",
+      "name": "Kraftwerk, schwerer Korsaren-Jäger",
+      "idsName": "263715",
+      "idsInfo": "264715",
+      "info": "Kraftwerk, schwerer Korsaren-Jäger\nEnergiekapazität: 8900\nRegenerationsrate / s: 890",
+      "capacity": 8900.0,
+      "chargeRate": 890.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 9200\nFrachtraum: 45\nMax. Batterien/Nanobots: 55/55\nOptimale Waffenklasse: 7\nMax. Waffenklasse: 9\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1703,7 +1895,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 35,
       "firePower": 5,
       "mass": 50,
-      "shipClass": 0
+      "shipClass": 0,
+      "powerCapacity": 2500.0,
+      "powerChargeRate": 248.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "co_fighter_power01",
+      "name": "Kraftwerk, leichter Korsaren-Jäger",
+      "idsName": "263714",
+      "idsInfo": "264714",
+      "info": "Kraftwerk, leichter Korsaren-Jäger\nEnergiekapazität: 2500\nRegenerationsrate / s: 248",
+      "capacity": 2500.0,
+      "chargeRate": 248.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 2400\nFrachtraum: 35\nMax. Batterien/Nanobots: 20/20\nOptimale Waffenklasse: 3\nMax. Waffenklasse: 5\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -1729,7 +1937,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 20,
       "firePower": 3,
       "mass": 100,
-      "shipClass": 0
+      "shipClass": 0,
+      "powerCapacity": 1000.0,
+      "powerChargeRate": 95.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "ge_fighter_power01",
+      "name": "Kraftwerk, Starflier",
+      "idsName": "263705",
+      "idsInfo": "264705",
+      "info": "Kraftwerk, Starflier\nEnergiekapazität: 1000\nRegenerationsrate / s: 95",
+      "capacity": 1000.0,
+      "chargeRate": 95.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3\nPanzerung: 1100\nFrachtraum: 20\nMax. Batterien/Nanobots: 10/10\nOptimale Waffenklasse: 1\nMax.Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM"
   },
@@ -1755,7 +1979,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 30,
       "firePower": 4,
       "mass": 100,
-      "shipClass": 0
+      "shipClass": 0,
+      "powerCapacity": 1800.0,
+      "powerChargeRate": 183.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "ge_fighter2_power01",
+      "name": "Kraftwerk, Starblazer",
+      "idsName": "263706",
+      "idsInfo": "264706",
+      "info": "Kraftwerk, Starblazer\nEnergiekapazität: 1800\nRegenerationsrate / s: 183",
+      "capacity": 1800.0,
+      "chargeRate": 183.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/0\nPanzerung: 1800\nFrachtraum: 30\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -1781,7 +2021,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 45,
       "firePower": 6,
       "mass": 100,
-      "shipClass": 0
+      "shipClass": 0,
+      "powerCapacity": 3400.0,
+      "powerChargeRate": 345.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "ge_fighter4_power01",
+      "name": "Kraftwerk, leichter Ziviljäger",
+      "idsName": "263707",
+      "idsInfo": "264707",
+      "info": "Kraftwerk, leichter Ziviljäger\nEnergiekapazität: 3400\nRegenerationsrate / s: 345",
+      "capacity": 3400.0,
+      "chargeRate": 345.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 3300\nFrachtraum: 45\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -1807,7 +2063,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 60,
       "firePower": 8,
       "mass": 150,
-      "shipClass": 1
+      "shipClass": 1,
+      "powerCapacity": 6400.0,
+      "powerChargeRate": 645.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "ge_fighter5_power01",
+      "name": "Kraftwerk, schwerer Ziviljäger",
+      "idsName": "263708",
+      "idsInfo": "264708",
+      "info": "Kraftwerk, schwerer Ziviljäger\nEnergiekapazität: 6400\nRegenerationsrate / s: 645",
+      "capacity": 6400.0,
+      "chargeRate": 645.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 6200\nFrachtraum: 60\nMax. Batterien/Nanobots: 43/43\nOptimale Waffenklasse: 6\nMax. Waffenklasse: 8\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1833,7 +2105,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 70,
       "firePower": 10,
       "mass": 150,
-      "shipClass": 3
+      "shipClass": 3,
+      "powerCapacity": 10400.0,
+      "powerChargeRate": 1040.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "ge_fighter6_power01",
+      "name": "Kraftwerk, sehr schwerer Ziviljäger",
+      "idsName": "263709",
+      "idsInfo": "264709",
+      "info": "Kraftwerk, sehr schwerer Ziviljäger\nEnergiekapazität: 10400\nRegenerationsrate / s: 1040",
+      "capacity": 10400.0,
+      "chargeRate": 1040.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 9900\nFrachtraum: 70\nMax. Batterien/Nanobots: 63/63\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1859,7 +2147,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 40,
       "firePower": 6,
       "mass": 150,
-      "shipClass": 1
+      "shipClass": 1,
+      "powerCapacity": 3400.0,
+      "powerChargeRate": 345.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "ku_elite_power01",
+      "name": "Kraftwerk, schwerer Kusari-Jäger",
+      "idsName": "263727",
+      "idsInfo": "264727",
+      "info": "Kraftwerk, schwerer Kusari-Jäger\nEnergiekapazität: 3400\nRegenerationsrate / s: 345",
+      "capacity": 3400.0,
+      "chargeRate": 345.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 3600\nFrachtraum: 40\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1885,7 +2189,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 35,
       "firePower": 6,
       "mass": 100,
-      "shipClass": 0
+      "shipClass": 0,
+      "powerCapacity": 2900.0,
+      "powerChargeRate": 290.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "ku_fighter_power01",
+      "name": "Kraftwerk, leichter Kusari-Jäger",
+      "idsName": "263726",
+      "idsInfo": "264726",
+      "info": "Kraftwerk, leichter Kusari-Jäger\nEnergiekapazität: 2900\nRegenerationsrate / s: 290",
+      "capacity": 2900.0,
+      "chargeRate": 290.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 2800\nFrachtraum: 35\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -1911,7 +2231,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 175,
       "firePower": 6,
       "mass": 300,
-      "shipClass": 2
+      "shipClass": 2,
+      "powerCapacity": 2700.0,
+      "powerChargeRate": 265.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "ku_freighter_power01",
+      "name": "Kraftwerk, Kusari-Frachter",
+      "idsName": "263728",
+      "idsInfo": "264728",
+      "info": "Kraftwerk, Kusari-Frachter\nEnergiekapazität: 2700\nRegenerationsrate / s: 265",
+      "capacity": 2700.0,
+      "chargeRate": 265.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 2/6\nPanzerung: 3600\nFrachtraum: 175\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM"
   },
@@ -1937,7 +2273,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 30,
       "firePower": 4,
       "mass": 150,
-      "shipClass": 1
+      "shipClass": 1,
+      "powerCapacity": 1500.0,
+      "powerChargeRate": 157.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "li_elite_power01",
+      "name": "Kraftwerk, schwerer Liberty-Jäger",
+      "idsName": "263721",
+      "idsInfo": "264721",
+      "info": "Kraftwerk, schwerer Liberty-Jäger\nEnergiekapazität: 1500\nRegenerationsrate / s: 157",
+      "capacity": 1500.0,
+      "chargeRate": 157.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 1600\nFrachtraum: 30\nMax. Batterien/Nanobots: 14/14\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1963,7 +2315,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 25,
       "firePower": 3,
       "mass": 100,
-      "shipClass": 0
+      "shipClass": 0,
+      "powerCapacity": 1300.0,
+      "powerChargeRate": 126.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "li_fighter_power01",
+      "name": "Kraftwerk, leichter Liberty-Jäger",
+      "idsName": "263720",
+      "idsInfo": "264720",
+      "info": "Kraftwerk, leichter Liberty-Jäger\nEnergiekapazität: 1300\nRegenerationsrate / s: 126",
+      "capacity": 1300.0,
+      "chargeRate": 126.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 1300\nFrachtraum: 25\nMax. Batterien/Nanobots: 12/12\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -1989,7 +2357,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 80,
       "firePower": 3,
       "mass": 300,
-      "shipClass": 2
+      "shipClass": 2,
+      "powerCapacity": 1300.0,
+      "powerChargeRate": 126.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "li_freighter_power01",
+      "name": "Kraftwerk, Liberty-Frachter",
+      "idsName": "263722",
+      "idsInfo": "264722",
+      "info": "Kraftwerk, Liberty-Frachter\nEnergiekapazität: 1300\nRegenerationsrate / s: 126",
+      "capacity": 1300.0,
+      "chargeRate": 126.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nWaffen-/Geschützturmsockel: 3/5\nPanzerung: 1600\nFrachtraum: 80\nMax. Batterien/Nanobots: 12/12\nOptimale Waffenklasse: 1\nMax. Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM"
   },
@@ -2015,7 +2399,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 70,
       "firePower": 6,
       "mass": 150,
-      "shipClass": 3
+      "shipClass": 3,
+      "powerCapacity": 4000.0,
+      "powerChargeRate": 395.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "or_elite_power01",
+      "name": "Kraftwerk, schwerer Jäger des Ordens",
+      "idsName": "263735",
+      "idsInfo": "264735",
+      "info": "Kraftwerk, schwerer Orden-Jäger\nEnergiekapazität: 4000\nRegenerationsrate / s: 395",
+      "capacity": 4000.0,
+      "chargeRate": 395.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 4200\nFrachtraum: 70\nMax. Batterien/Nanobots: 29/29\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -2041,7 +2441,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 40,
       "firePower": 6,
       "mass": 150,
-      "shipClass": 1
+      "shipClass": 1,
+      "powerCapacity": 3400.0,
+      "powerChargeRate": 345.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "pi_elite_power01",
+      "name": "Kraftwerk, schwerer Piraten-Jäger",
+      "idsName": "263733",
+      "idsInfo": "264733",
+      "info": "Kraftwerk, schwerer Piraten-Jäger\nEnergiekapazität: 3400\nRegenerationsrate / s: 345",
+      "capacity": 3400.0,
+      "chargeRate": 345.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 3600\nFrachtraum: 40\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -2067,7 +2483,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 35,
       "firePower": 4,
       "mass": 100,
-      "shipClass": 0
+      "shipClass": 0,
+      "powerCapacity": 1500.0,
+      "powerChargeRate": 157.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "pi_fighter_power01",
+      "name": "Kraftwerk, leichter Piraten-Jäger",
+      "idsName": "263732",
+      "idsInfo": "264732",
+      "info": "Kraftwerk, leichter Piraten-Jäger\nEnergiekapazität: 1500\nRegenerationsrate / s: 157",
+      "capacity": 1500.0,
+      "chargeRate": 157.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/1\nPanzerung: 1900\nFrachtraum: 35\nMax. Batterien/Nanobots: 14/14\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -2093,7 +2525,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 90,
       "firePower": 4,
       "mass": 300,
-      "shipClass": 2
+      "shipClass": 2,
+      "powerCapacity": 1800.0,
+      "powerChargeRate": 183.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "pi_freighter_power01",
+      "name": "Kraftwerk, Piraten-Frachter",
+      "idsName": "263734",
+      "idsInfo": "264734",
+      "info": "Kraftwerk, Piraten-Frachter\nEnergiekapazität: 1800\nRegenerationsrate / s: 183",
+      "capacity": 1800.0,
+      "chargeRate": 183.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/4\nPanzerung: 2200\nFrachtraum: 90\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM"
   },
@@ -2119,7 +2567,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 50,
       "firePower": 8,
       "mass": 150,
-      "shipClass": 1
+      "shipClass": 1,
+      "powerCapacity": 5400.0,
+      "powerChargeRate": 545.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "rh_elite_power01",
+      "name": "Kraftwerk, schwerer Rheinland-Jäger",
+      "idsName": "263730",
+      "idsInfo": "264730",
+      "info": "Kraftwerk, schwerer Rheinland-Jäger\nEnergiekapazität: 5400\nRegenerationsrate / s: 545",
+      "capacity": 5400.0,
+      "chargeRate": 545.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 5800\nFrachtraum: 50\nMax. Batterien/Nanobots: 38/38\nOptimale Waffenklasse: 6\nMax. Waffenklasse: 8\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -2145,7 +2609,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 45,
       "firePower": 7,
       "mass": 100,
-      "shipClass": 0
+      "shipClass": 0,
+      "powerCapacity": 4700.0,
+      "powerChargeRate": 465.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "rh_fighter_power01",
+      "name": "Kraftwerk, leichter Rheinland-Jäger",
+      "idsName": "263729",
+      "idsInfo": "264729",
+      "info": "Kraftwerk, leichter Rheinland-Jäger\nEnergiekapazität: 4700\nRegenerationsrate / s: 465",
+      "capacity": 4700.0,
+      "chargeRate": 465.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 4500\nFrachtraum: 45\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -2171,7 +2651,23 @@ const FL_SHIP_PACKAGES = {
       "holdSize": 250,
       "firePower": 7,
       "mass": 300,
-      "shipClass": 2
+      "shipClass": 2,
+      "powerCapacity": 4700.0,
+      "powerChargeRate": 465.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0
+    },
+    "powerplant": {
+      "id": "rh_freighter_power01",
+      "name": "Kraftwerk, Rheinland-Frachter",
+      "idsName": "263731",
+      "idsInfo": "264731",
+      "info": "Kraftwerk, Rheinland-Frachter\nEnergiekapazität: 4700\nRegenerationsrate / s: 465",
+      "capacity": 4700.0,
+      "chargeRate": 465.0,
+      "thrustCapacity": 1000.0,
+      "thrustChargeRate": 100.0,
+      "sourceFile": "misc_equip.ini"
     },
     "info": "Statistik\nWaffen-/Geschützturmsockel: 2/6\nPanzerung: 5800\nFrachtraum: 250\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM"
   }
