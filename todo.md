@@ -107,45 +107,21 @@ Implementiere den id parser:
 - show planet rings if there is a ring in the ini file
 
 
+------------------------
 
+- es gibt waffenplatformen die fälschlicherweise als planeten dargestellt werden, glaube das ist ein bug aus freelancer. generell gilt nur death zones in freelancer 2d anzeigen, die es auch in freelancer 3d gibt.
+- Neues spiel im menü geht nicht, wenn es bereits ein savegame gibt.
+- das löschen des bestehenden savegames im hauptmenü erlauben
+- man kann bis zu 5 savegames parallel haben, bitte im Menü dann die auswahl lassen, bzw. den user einen namen vergeben lassen
+- ein schiff kann ja zwischen 0 und 8 waffen haben, die animation / geschwindigkeit und optik sollte dann pro waffe anders sein (basierend auf den echten freelancer 3d ini daten.)
+- inventar auf der base besser anzeigen: schiffe haben slots für waffen, minen, etc. Und auf einer base kann ein user waffen kaufen und in die slots packen. 
+- in der bar die news als eigenen sub tab anzeigen.
+- in der bar pro zeile einen npc anzeigen und mit einer sprechblase symbolisieren, falls er ein  Gerücht hat.
+- Klickt man auf die Sprechblase kann man das Gerücht lesen
 
+--------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- jedes schiff hat einen eigenes power plant. diesen realistisch einbinden, also mit echten freelancer 3d werten und die waffen sollen auch die energie ziehen die in den inis stehen
+- equipment preise aus den inis ziehen
 
 
