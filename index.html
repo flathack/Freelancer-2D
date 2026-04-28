@@ -84,6 +84,8 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .trade-table td { padding: 6px; border-bottom: 1px solid #1b2c38; }
 .trade-button { padding: 4px 9px; background: #003300; border: 1px solid #00aa00; color: #00ff00; cursor: pointer; font-family: 'Courier New', monospace; }
 .trade-button:disabled { background: #222; border-color: #555; color: #777; cursor: not-allowed; }
+.trade-qty-input { width: 64px; padding: 4px 6px; background: #001a24; border: 1px solid #24708f; color: #d8f7ff; font-family: 'Courier New', monospace; }
+.trade-qty-input:disabled { opacity: 0.45; }
 .bar-subtabs, .equipment-layout { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
 .bar-subtab { padding: 6px 10px; background: rgba(0,40,65,0.78); border: 1px solid #1d76a3; color: #9edfff; cursor: pointer; font-family: 'Courier New', monospace; }
 .bar-subtab.active { color: #fff; border-color: #ffaa00; background: rgba(70,45,0,0.58); }
@@ -634,6 +636,53 @@ function mountedEquipmentItem(slot) {
     return getEquipment(game.player?.mountedEquipment?.[slot]);
 }
 
+function mountedEquipmentCopies(itemId) {
+    return Object.values(game.player?.mountedEquipment || {}).filter(mountedId => mountedId === itemId).length;
+}
+
+function availableEquipmentQuantity(itemId) {
+    const inv = findEquipmentItem(itemId);
+    if (!inv) return 0;
+    return Math.max(0, (Number(inv.quantity) || 0) - mountedEquipmentCopies(itemId));
+}
+
+function safeDomId(value) {
+    return String(value || '').replace(/[^a-z0-9_-]/gi, '_');
+}
+
+const STARTER_MOUNTED_EQUIPMENT = {
+    gf1_package: [
+        { id: 'shield01_mark01_lf', slot: 'shield' },
+        { id: 'li_gun01_mark01', slot: 'weapon1' },
+        { id: 'li_gun01_mark01', slot: 'weapon2' }
+    ]
+};
+
+function addEquipmentInventoryCopy(itemId) {
+    const item = getEquipment(itemId);
+    if (!item) return false;
+    let inv = findEquipmentItem(item.id);
+    if (!inv) {
+        inv = { id: item.id, name: item.name, quantity: 0, category: item.category };
+        game.player.equipmentInventory.push(inv);
+    }
+    inv.quantity += 1;
+    return true;
+}
+
+function mountedEquipmentCount() {
+    return Object.values(game.player?.mountedEquipment || {}).filter(Boolean).length;
+}
+
+function ensureStarterEquipmentForEmptyLoadout() {
+    if (!game.player || mountedEquipmentCount() > 0 || (game.player.equipmentInventory || []).length > 0) return;
+    const defaults = STARTER_MOUNTED_EQUIPMENT[game.player.shipPackageId] || [];
+    for (const entry of defaults) {
+        if (!addEquipmentInventoryCopy(entry.id)) continue;
+        if (entry.slot && !game.player.mountedEquipment[entry.slot]) game.player.mountedEquipment[entry.slot] = entry.id;
+    }
+}
+
 function applyLanguage() {
     const labels = [
         ['btn-freeflight', 'freeflight'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-cruise', 'cruise'], ['btn-map', 'map'],
@@ -693,6 +742,18 @@ const NORMAL_FLIGHT_EXIT_SPEED = COMBAT_MAX_SPEED;
 const TRADE_LANE_ACCELERATION = 1250;
 const TRADE_LANE_DECELERATION = 1850;
 const TRADE_LANE_BRAKE_DISTANCE = 5200;
+const SOLAR_OBJECT_RENDER_SCALE = 0.18;
+const SOLAR_OBJECT_ICON_RADIUS_BOOST = 1.1;
+const SOLAR_OBJECT_MIN_SCREEN_RADIUS = 12;
+const SOLAR_OBJECT_FALLBACK_RADII = {
+    jumpgate: 600,
+    jumphole: 600,
+    jumphole_red: 600,
+    jumphole_green: 600,
+    jumphole_orange: 600,
+    jumphole_light: 600,
+    trade_lane_ring: 300
+};
 
 function flYawToCanvasRotation(value) {
     return -degToRad(value);
@@ -701,6 +762,21 @@ function flYawToCanvasRotation(value) {
 function smoothStep(value) {
     const t = clamp(value, 0, 1);
     return t * t * (3 - 2 * t);
+}
+
+function solarObjectSourceRadius(value, archetype = '', fallback = 600) {
+    const explicit = Number(value);
+    if (Number.isFinite(explicit) && explicit > 0) return explicit;
+    const key = String(archetype || '').toLowerCase();
+    return SOLAR_OBJECT_FALLBACK_RADII[key] || fallback;
+}
+
+function solarObjectWorldRadius(value, archetype = '', fallback = 600) {
+    return Math.max(1, solarObjectSourceRadius(value, archetype, fallback) * SOLAR_OBJECT_RENDER_SCALE);
+}
+
+function solarObjectScreenRadius(worldRadius) {
+    return Math.max(SOLAR_OBJECT_MIN_SCREEN_RADIUS, worldRadius * game.zoom * SOLAR_OBJECT_ICON_RADIUS_BOOST);
 }
 
 function setNormalFlightSpeed(player, speed = NORMAL_FLIGHT_EXIT_SPEED) {
@@ -1057,6 +1133,7 @@ function restorePlayerFromSave(save) {
     game.player.cargo = Array.isArray(savedPlayer.cargo) ? savedPlayer.cargo : [];
     game.player.equipmentInventory = Array.isArray(savedPlayer.equipmentInventory) ? savedPlayer.equipmentInventory : [];
     game.player.mountedEquipment = savedPlayer.mountedEquipment && typeof savedPlayer.mountedEquipment === 'object' ? savedPlayer.mountedEquipment : {};
+    ensureStarterEquipmentForEmptyLoadout();
     game.player.nanobots = Number.isFinite(savedPlayer.nanobots) ? savedPlayer.nanobots : game.player.nanobots;
     game.player.shieldBatteries = Number.isFinite(savedPlayer.shieldBatteries) ? savedPlayer.shieldBatteries : game.player.shieldBatteries;
     game.player.destroyed = false;
@@ -1221,6 +1298,7 @@ function applyShipPackage(packageId, logPurchase = false) {
     const shipRecord = typeof FL_SHIPS !== 'undefined' ? FL_SHIPS[String(shipPackage.ship || '').toLowerCase()] : null;
     game.player.weaponSlots = parseShipWeaponSlots(shipRecord) || clamp(game.player.firePower, 0, 8);
     game.player.radius = Math.max(18, Math.min(34, Math.sqrt(game.player.maxHull) * 0.28));
+    ensureStarterEquipmentForEmptyLoadout();
     if (logPurchase) {
         addLog('Purchased ship: ' + shipPackage.name);
         playSound('buy', 1.1);
@@ -1370,6 +1448,8 @@ function buildSystemData(systemId) {
         destObject: g.dest_gate,
         type: 'Jump Gate',
         kind: 'gate',
+        archetype: g.archetype || 'jumpgate',
+        radius: g.solar_radius || g.solarRadius || 600,
         rotateY: g.rotate_y || g.rotateY || 0,
         info: g.info || ''
         })),
@@ -1382,6 +1462,8 @@ function buildSystemData(systemId) {
         destObject: h.dest_hole,
         type: 'Jump Hole',
         kind: 'hole',
+        archetype: h.archetype || 'jumphole',
+        radius: h.solar_radius || h.solarRadius || 600,
         rotateY: h.rotate_y || h.rotateY || 0,
         info: h.info || ''
         }))
@@ -2116,6 +2198,7 @@ class PlayerShip {
     fire() {
         if (this.inTradeLane || this.cruiseActive || this.cruiseCharging) return;
         const weapons = this.activeWeapons();
+        if (!weapons.length) return;
         const totalEnergy = weapons.reduce((sum, weapon) => sum + weapon.energyCost, 0);
         if (this.energy < totalEnergy) return;
         this.primaryCooldown = weapons.reduce((cooldown, weapon) => Math.max(cooldown, weapon.cooldown), 0.12);
@@ -2141,7 +2224,7 @@ class PlayerShip {
     activeWeapons() {
         const slotKeys = getWeaponSlotKeys();
         const mounted = slotKeys.map((slot, index) => ({ slot, index, item: mountedEquipmentItem(slot) })).filter(entry => entry.item);
-        const entries = mounted.length ? mounted : [{ slot: 'weapon1', index: 0, item: null }];
+        const entries = mounted;
         const spread = entries.length > 1 ? 18 : 0;
         return entries.map((entry, order) => {
             const item = entry.item;
@@ -2365,24 +2448,22 @@ class PlanetLocation {
 class Station {
     constructor(data) {
         Object.assign(this, data);
-        this.radius = Math.max(55, Math.min(260, Number(data.radius || 600) * 0.18));
+        this.sourceRadius = solarObjectSourceRadius(data.radius, this.type, 600);
+        this.radius = solarObjectWorldRadius(this.sourceRadius, this.type, 600);
         this.rotation = flYawToCanvasRotation(this.rotateY || 0);
     }
     update(dt) {}
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
-        const scale = Math.max(0.5, game.zoom);
         const objectImage = getObjectImage(this.type);
         ctx.save();
         ctx.translate(pos.x, pos.y);
         
-        let size = this.radius * scale;
-        if (String(this.type || '').includes('dreadnought') || String(this.type || '').includes('battleship')) size = Math.max(size, 82 * scale);
-        if (String(this.type || '').includes('smallstation')) size = Math.max(size, 35 * scale);
+        const size = solarObjectScreenRadius(this.radius);
         
         ctx.rotate(this.rotation);
         if (objectImage) {
-            const imageSize = Math.max(28, size * 2.2);
+            const imageSize = size * 2.2;
             ctx.drawImage(objectImage, -imageSize / 2, -imageSize / 2, imageSize, imageSize);
         } else {
             ctx.fillStyle = '#445566';
@@ -2423,7 +2504,7 @@ class Station {
     
     containsPoint(px, pz) {
         const dx = this.x - px, dz = this.z - pz;
-        return Math.sqrt(dx * dx + dz * dz) < Math.max(80, this.radius);
+        return Math.sqrt(dx * dx + dz * dz) < Math.max(45, this.radius);
     }
 }
 
@@ -2431,10 +2512,13 @@ class Station {
 class JumpGate {
     constructor(data) {
         Object.assign(this, data);
-        this.radius = 100;
+        const archetype = data.archetype || (data.kind === 'hole' ? 'jumphole' : 'jumpgate');
+        this.sourceRadius = solarObjectSourceRadius(data.radius, archetype, 600);
+        this.radius = solarObjectWorldRadius(this.sourceRadius, archetype, 600);
         this.rotation = flYawToCanvasRotation(this.rotateY || 0);
         this.kind = data.kind || 'gate';
         this.type = data.type || (this.kind === 'hole' ? 'Jump Hole' : 'Jump Gate');
+        this.archetype = archetype;
     }
     update(dt) {
         if (this.kind === 'hole') this.rotation += 0.02 * dt;
@@ -2442,7 +2526,7 @@ class JumpGate {
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
         const isHole = this.kind === 'hole';
-        const size = (isHole ? 65 : 80) * Math.max(0.5, game.zoom);
+        const size = solarObjectScreenRadius(this.radius);
         ctx.save();
         ctx.translate(pos.x, pos.y);
         ctx.rotate(isHole ? -this.rotation * 1.8 : this.rotation);
@@ -2483,7 +2567,7 @@ class JumpGate {
     
     containsPoint(px, pz) {
         const dx = this.x - px, dz = this.z - pz;
-        return Math.sqrt(dx * dx + dz * dz) < 100;
+        return Math.sqrt(dx * dx + dz * dz) < Math.max(60, this.radius);
     }
 }
 
@@ -2512,7 +2596,8 @@ class TradeLaneRing {
             this.rotateY = 0;
             this.visualRotation = null;
         }
-        this.radius = 60;
+        this.sourceRadius = solarObjectSourceRadius(null, 'trade_lane_ring', 300);
+        this.radius = solarObjectWorldRadius(this.sourceRadius, 'trade_lane_ring', 300);
         this.rotation = Number.isFinite(this.visualRotation) ? this.visualRotation : flYawToCanvasRotation(this.rotateY || 0);
         this.type = 'trade_lane_ring';
     }
@@ -2520,27 +2605,27 @@ class TradeLaneRing {
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
         const objectImage = getObjectImage(this.type);
-        const scale = Math.max(0.35, game.zoom);
+        const size = solarObjectScreenRadius(this.radius) * 2.2;
+        const glowRadius = Math.max(16, size * 0.43);
         ctx.save();
         ctx.translate(pos.x, pos.y);
         ctx.rotate(this.rotation);
         if (objectImage) {
-            const size = 70 * scale;
             ctx.drawImage(objectImage, -size / 2, -size / 2, size, size);
         } else {
             ctx.strokeStyle = this.index === 0 ? '#00ff88' : '#008866';
             ctx.lineWidth = 3;
             ctx.beginPath();
-            ctx.arc(0, 0, 15 * scale, 0, Math.PI * 2);
+            ctx.arc(0, 0, size * 0.34, 0, Math.PI * 2);
             ctx.stroke();
         }
         if (this.index === 0 || game.player?.inTradeLane) {
-            const gradient = ctx.createRadialGradient(0, 0, 5 * scale, 0, 0, 30 * scale);
+            const gradient = ctx.createRadialGradient(0, 0, glowRadius * 0.18, 0, 0, glowRadius);
             gradient.addColorStop(0, 'rgba(0,255,136,0.3)');
             gradient.addColorStop(1, 'transparent');
             ctx.fillStyle = gradient;
             ctx.beginPath();
-            ctx.arc(0, 0, 30 * scale, 0, Math.PI * 2);
+            ctx.arc(0, 0, glowRadius, 0, Math.PI * 2);
             ctx.fill();
         }
         ctx.restore();
@@ -2550,7 +2635,7 @@ class TradeLaneRing {
             ctx.lineWidth = 3;
             ctx.setLineDash([5, 5]);
             ctx.beginPath();
-            ctx.arc(pos.x, pos.y, 46 * scale, 0, Math.PI * 2);
+            ctx.arc(pos.x, pos.y, glowRadius + 10, 0, Math.PI * 2);
             ctx.stroke();
             ctx.setLineDash([]);
         }
@@ -2559,7 +2644,7 @@ class TradeLaneRing {
     containsPoint(px, pz) {
         const dx = this.x - px;
         const dz = this.z - pz;
-        return Math.sqrt(dx * dx + dz * dz) < 170;
+        return Math.sqrt(dx * dx + dz * dz) < Math.max(120, this.radius);
     }
 }
 
@@ -3765,16 +3850,17 @@ function drawMapCanvas() {
         const pos = systemMapToScreen(station.x, station.z, mapTransform);
         const ex = pos.x;
         const ey = pos.y;
+        const mapRadius = Math.max(2, solarObjectWorldRadius(station.radius, station.type, 600) * mapTransform.scaleX);
         ctx.fillStyle = '#00aaff';
         ctx.beginPath();
-        ctx.arc(ex, ey, 6, 0, Math.PI * 2);
+        ctx.arc(ex, ey, mapRadius, 0, Math.PI * 2);
         ctx.fill();
         
         if (game.selectedTarget === station) {
             ctx.strokeStyle = '#ffaa00';
             ctx.lineWidth = 2;
             ctx.beginPath();
-            ctx.arc(ex, ey, 10, 0, Math.PI * 2);
+            ctx.arc(ex, ey, mapRadius + 4, 0, Math.PI * 2);
             ctx.stroke();
         }
         
@@ -3788,10 +3874,11 @@ function drawMapCanvas() {
         const pos = systemMapToScreen(gate.x, gate.z, mapTransform);
         const ex = pos.x;
         const ey = pos.y;
+        const mapRadius = Math.max(3, solarObjectWorldRadius(gate.radius, gate.archetype || (gate.kind === 'hole' ? 'jumphole' : 'jumpgate'), 600) * mapTransform.scaleX);
         ctx.strokeStyle = gate.kind === 'hole' ? '#33ddff' : '#8844ff';
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.arc(ex, ey, gate.kind === 'hole' ? 8 : 10, 0, Math.PI * 2);
+        ctx.arc(ex, ey, mapRadius, 0, Math.PI * 2);
         ctx.stroke();
 
         const selectedEntity = game.entities.find(e => e.id === gate.id);
@@ -3799,7 +3886,7 @@ function drawMapCanvas() {
             ctx.strokeStyle = '#ffaa00';
             ctx.lineWidth = 2;
             ctx.beginPath();
-            ctx.arc(ex, ey, 14, 0, Math.PI * 2);
+            ctx.arc(ex, ey, mapRadius + 4, 0, Math.PI * 2);
             ctx.stroke();
         }
 
@@ -4436,8 +4523,9 @@ function renderEquipmentDealer() {
         html += `<div class="slot-row"><div><strong>${escapeHtml(equipmentSlotLabel(slot))}</strong><br><span style="color:${item ? '#b9efff' : '#667f8f'};">${item ? escapeHtml(item.name) : 'Empty'}</span></div><button class="trade-button" onclick="unmountEquipment('${slot}')" ${item ? '' : 'disabled'}>Unmount</button></div>`;
     }
     html += '</div><div class="equipment-panel"><h4>Inventory</h4>';
-    if (inventory.length) {
-        for (const inv of inventory) html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(inv.category || '')} x${inv.quantity}</span></div><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${categorySlotKeys(inv.category).length ? '' : 'disabled'}>Mount</button></div>`;
+    const availableInventory = inventory.map(inv => ({ ...inv, availableQuantity: availableEquipmentQuantity(inv.id) })).filter(inv => inv.availableQuantity > 0);
+    if (availableInventory.length) {
+        for (const inv of availableInventory) html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(inv.category || '')} x${inv.availableQuantity}</span></div><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${categorySlotKeys(inv.category).length ? '' : 'disabled'}>Mount</button></div>`;
     } else {
         html += '<div style="color:#667f8f;">No equipment in inventory.</div>';
     }
@@ -4447,7 +4535,7 @@ function renderEquipmentDealer() {
         const item = getEquipment(entry.id);
         if (!item) continue;
         const inv = inventory.find(i => i.id === item.id);
-        const owned = inv ? inv.quantity : 0;
+        const owned = inv ? availableEquipmentQuantity(item.id) : 0;
         const canBuy = entry.forSale && game.player.credits >= entry.price;
         const damageLabel = item.hullDamage || item.energyDamage ? `${Math.round(Number(item.hullDamage || 0))}/${Math.round(Number(item.energyDamage || 0))}` : '-';
         const powerLabel = item.powerUsage ? Number(item.powerUsage).toFixed(1) : (item.capacity ? `${Math.round(item.capacity).toLocaleString()} / +${Math.round(item.chargeRate || 0).toLocaleString()}` : '-');
@@ -4518,31 +4606,43 @@ function renderTradeDealer() {
         return;
     }
     let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>${t('cargo')}: ${cargoUnits()}/${game.player.maxCargo}</span></div>`;
-    html += `<table class="trade-table"><tr><th>${t('commodity')}</th><th>${t('price')}</th><th>${t('stock')}</th><th></th><th>${t('quantity')}</th><th></th></tr>`;
+    html += `<table class="trade-table"><tr><th>${t('commodity')}</th><th>${t('price')}</th><th>${t('stock')}</th><th>${t('quantity')}</th><th></th><th>${t('owned')}</th><th></th></tr>`;
     for (const entry of market) {
         const commodity = getCommodity(entry.id);
         if (!commodity) continue;
         const cargoItem = findCargoItem(entry.id);
-        const canBuy = entry.forSale && game.player.credits >= entry.price && cargoUnits() < game.player.maxCargo;
+        const cargoSpace = Math.max(0, game.player.maxCargo - cargoUnits());
+        const affordable = entry.price > 0 ? Math.floor(game.player.credits / entry.price) : cargoSpace;
+        const marketStock = Number.isFinite(Number(entry.stockMax)) && Number(entry.stockMax) > 0 ? Number(entry.stockMax) : Infinity;
+        const maxBuy = Math.max(0, Math.min(cargoSpace, affordable, marketStock));
+        const canBuy = entry.forSale && maxBuy > 0;
         const canSell = !!cargoItem && cargoItem.quantity > 0;
-        html += `<tr><td style="color:#00ff00;">${escapeHtml(commodity.name)}</td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td><button class="trade-button" onclick="buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td><td>${cargoItem ? cargoItem.quantity : 0}</td><td><button class="trade-button" onclick="sellCommodity('${entry.id}')" ${canSell ? '' : 'disabled'}>${t('sell')}</button></td></tr>`;
+        const inputId = 'buy-qty-' + safeDomId(entry.id);
+        html += `<tr><td style="color:#00ff00;">${escapeHtml(commodity.name)}</td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td><input class="trade-qty-input" id="${inputId}" type="number" min="1" max="${maxBuy || 1}" value="${canBuy ? 1 : 0}" onkeydown="if(event.key==='Enter') buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}></td><td><button class="trade-button" onclick="buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td><td>${cargoItem ? cargoItem.quantity : 0}</td><td><button class="trade-button" onclick="sellCommodity('${entry.id}')" ${canSell ? '' : 'disabled'}>${t('sell')}</button></td></tr>`;
     }
     html += '</table>';
     content.innerHTML = html;
 }
 
-function buyCommodity(commodityId) {
+function buyCommodity(commodityId, requestedQuantity = null) {
     const marketEntry = getCommodityMarket().find(entry => entry.id === commodityId);
     const commodity = getCommodity(commodityId);
     if (!marketEntry || !commodity || !marketEntry.forSale || cargoUnits() >= game.player.maxCargo || game.player.credits < marketEntry.price) return;
-    game.player.credits -= marketEntry.price;
+    const input = document.getElementById('buy-qty-' + safeDomId(commodityId));
+    const rawQuantity = requestedQuantity ?? Number(input?.value || 1);
+    const cargoSpace = Math.max(0, game.player.maxCargo - cargoUnits());
+    const affordable = marketEntry.price > 0 ? Math.floor(game.player.credits / marketEntry.price) : cargoSpace;
+    const marketStock = Number.isFinite(Number(marketEntry.stockMax)) && Number(marketEntry.stockMax) > 0 ? Number(marketEntry.stockMax) : Infinity;
+    const quantity = Math.floor(Math.max(0, Math.min(Number(rawQuantity) || 0, cargoSpace, affordable, marketStock)));
+    if (quantity <= 0) return;
+    game.player.credits -= marketEntry.price * quantity;
     let cargoItem = findCargoItem(commodityId);
     if (!cargoItem) {
         cargoItem = { id: commodityId, name: commodity.name, quantity: 0, avgPrice: marketEntry.price };
         game.player.cargo.push(cargoItem);
     }
-    cargoItem.avgPrice = Math.round(((cargoItem.avgPrice || marketEntry.price) * cargoItem.quantity + marketEntry.price) / (cargoItem.quantity + 1));
-    cargoItem.quantity += 1;
+    cargoItem.avgPrice = Math.round(((cargoItem.avgPrice || marketEntry.price) * cargoItem.quantity + marketEntry.price * quantity) / (cargoItem.quantity + quantity));
+    cargoItem.quantity += quantity;
     playSound('buy', 0.65);
     saveGame();
     renderTradeDealer();

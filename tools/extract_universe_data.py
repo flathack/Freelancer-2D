@@ -578,6 +578,7 @@ def extract_system_data(system_name: str) -> dict:
         
         # Jump Gates
         if archetype == 'jumpgate':
+            arch = solar_info(archetype)
             goto = get_prop(props, 'goto', '')
             goto_parts = goto.split(',')
             dest_system = goto_parts[0].strip() if len(goto_parts) > 0 else ''
@@ -593,6 +594,8 @@ def extract_system_data(system_name: str) -> dict:
                 'ids_info': get_prop(props, 'ids_info', ''),
                 'info': resolve_info(get_prop(props, 'ids_info', '')),
                 'x': pos[0], 'y': pos[1], 'z': pos[2],
+                'archetype': archetype,
+                'solar_radius': arch.get('solar_radius', 600),
                 'dest_system': dest_system,
                 'dest_gate': dest_gate,
                 'rotate_y': rotate_y
@@ -602,6 +605,7 @@ def extract_system_data(system_name: str) -> dict:
         
         # Jump Holes
         if archetype.startswith('jumphole'):
+            arch = solar_info(archetype) or solar_info('jumphole')
             goto = get_prop(props, 'goto', '')
             goto_parts = goto.split(',')
             dest_system = goto_parts[0].strip() if len(goto_parts) > 0 else ''
@@ -617,6 +621,7 @@ def extract_system_data(system_name: str) -> dict:
                 'info': resolve_info(get_prop(props, 'ids_info', '')),
                 'x': pos[0], 'y': pos[1], 'z': pos[2],
                 'archetype': archetype,
+                'solar_radius': arch.get('solar_radius', 600),
                 'dest_system': dest_system,
                 'dest_hole': dest_hole,
                 'rotate_y': parse_rotation_y(get_prop(props, 'rotate', '0,0,0'))
