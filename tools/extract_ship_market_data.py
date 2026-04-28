@@ -62,6 +62,13 @@ def to_int(value: str, default: int = 0) -> int:
         return default
 
 
+def to_float(value: str, default: float = 0.0) -> float:
+    try:
+        return float(value.split(",", 1)[0].strip())
+    except Exception:
+        return default
+
+
 def to_float_triplet(value: str) -> tuple[float, float, float] | None:
     try:
         parts = [float(part.strip()) for part in value.split(",")[:3]]
@@ -87,6 +94,46 @@ def clean_info(text: str) -> str:
     return text
 
 
+def clamp(value: float, minimum: float, maximum: float) -> float:
+    return max(minimum, min(maximum, value))
+
+
+def derive_handling(
+    ship_type: str,
+    mass: int,
+    linear_drag: float,
+    steering_torque: tuple[float, float, float] | None,
+    angular_drag: tuple[float, float, float] | None,
+    rotation_inertia: tuple[float, float, float] | None,
+    nudge_force: float,
+    strafe_force: float,
+    max_bank_angle: float,
+) -> dict[str, float]:
+    mass_value = max(float(mass), 1.0)
+    torque = steering_torque or (24000.0, 24000.0, 58000.0)
+    drag = angular_drag or (15000.0, 15000.0, 35000.0)
+    inertia = rotation_inertia or (2800.0, 2800.0, 1000.0)
+    yaw_response = (torque[2] / max(drag[2], 1.0)) * (100.0 / mass_value) ** 0.35
+    pitch_response = (torque[0] / max(drag[0], 1.0)) * (100.0 / mass_value) ** 0.35
+    inertia_penalty = clamp((1800.0 / max(inertia[2], 1.0)) ** 0.12, 0.78, 1.18)
+    type_factor = 0.82 if ship_type == "FREIGHTER" else 1.0
+    turn_rate = clamp((0.58 + yaw_response * 0.86) * inertia_penalty * type_factor, 0.75, 3.35)
+    agility = clamp((yaw_response * 0.68 + pitch_response * 0.32) * inertia_penalty * type_factor, 0.45, 3.25)
+    acceleration = clamp((max(nudge_force, 16000.0) / mass_value) / 135.0, 0.85, 4.2)
+    brake_rate = clamp((max(linear_drag, 0.4) * 2.0) + (max(drag[2], 1.0) / max(torque[2], 1.0)) * 3.0, 1.5, 6.5)
+    strafe_power = clamp((max(strafe_force, 10000.0) / mass_value) / 130.0, 0.55, 3.4)
+    bank_factor = clamp(max_bank_angle / 35.0, 0.45, 1.25)
+    return {
+        "turnRate": round(turn_rate, 2),
+        "agility": round(agility, 2),
+        "acceleration": round(acceleration, 2),
+        "brakeRate": round(brake_rate, 2),
+        "strafePower": round(strafe_power, 2),
+        "linearDrag": round(max(linear_drag, 0.1), 2),
+        "bankFactor": round(bank_factor, 2),
+    }
+
+
 def load_resources() -> None:
     universe.RESOURCE_STRINGS = universe.load_resource_strings()
     universe.RESOURCE_INFOCARDS = universe.load_resource_infocards()
@@ -105,12 +152,20 @@ def extract_shiparch() -> dict[str, dict]:
             ids_info = first(props, "ids_info")
             archetype = first(props, "da_archetype")
             torque = to_float_triplet(first(props, "steering_torque"))
+            angular_drag = to_float_triplet(first(props, "angular_drag"))
+            rotation_inertia = to_float_triplet(first(props, "rotation_inertia"))
             mass = to_int(first(props, "mass"), 100)
+            ship_class = to_int(first(props, "ship_class"), 0)
             hold_size = to_int(first(props, "hold_size"), 25)
             hit_pts = to_int(first(props, "hit_pts"), 1000)
             ship_type = first(props, "type", "FIGHTER").upper()
+            linear_drag = to_float(first(props, "linear_drag"), 1.0)
+            nudge_force = to_float(first(props, "nudge_force"), 25000.0)
+            strafe_force = to_float(first(props, "strafe_force"), 15000.0)
+            max_bank_angle = to_float(first(props, "max_bank_angle"), 30.0)
             fire_power = sum(1 for value in all_values(props, "hp_type") if "hp_gun" in value.lower())
             model_path = str((FL_DATA / archetype.replace("\\", "/")).resolve()) if archetype else ""
+            handling = derive_handling(ship_type, mass, linear_drag, torque, angular_drag, rotation_inertia, nudge_force, strafe_force, max_bank_angle)
             ships[nickname] = {
                 "id": nickname,
                 "name": fl_text(universe.resolve_id(ids_name, nickname)),
@@ -118,10 +173,19 @@ def extract_shiparch() -> dict[str, dict]:
                 "idsName": ids_name,
                 "idsInfo": ids_info,
                 "type": ship_type,
+                "shipClass": ship_class,
                 "mass": mass,
                 "holdSize": hold_size,
                 "hitPts": hit_pts,
-                "turnRate": round(max(0.9, min(2.8, ((torque[2] / max(mass, 1)) / 1400) if torque else 1.6)), 2),
+                "linearDrag": linear_drag,
+                "steeringTorque": list(torque) if torque else None,
+                "angularDrag": list(angular_drag) if angular_drag else None,
+                "rotationInertia": list(rotation_inertia) if rotation_inertia else None,
+                "nudgeForce": nudge_force,
+                "strafeForce": strafe_force,
+                "maxBankAngle": max_bank_angle,
+                "handling": handling,
+                "turnRate": handling["turnRate"],
                 "firePower": max(1, fire_power),
                 "modelPath": model_path,
             }
@@ -233,7 +297,9 @@ def build_payload() -> dict:
             continue
         ship_name = ship.get("name") or hull.get("name") or ship["id"]
         ship_type = ship.get("type", "FIGHTER")
-        max_speed = 260 if ship_type == "FREIGHTER" else 300
+        handling = ship.get("handling", {})
+        max_speed = 250 if ship_type == "FREIGHTER" else 300
+        max_speed = round(max_speed * clamp(0.86 + float(handling.get("agility", 1.4)) * 0.08, 0.88, 1.12))
         if ship["mass"] > 800:
             max_speed = 180
         package_payload[package_id] = {
@@ -248,9 +314,17 @@ def build_payload() -> dict:
                 "hull": ship["hitPts"],
                 "shield": max(60, round(ship["hitPts"] * 0.22)),
                 "maxSpeed": max_speed,
-                "turnRate": ship["turnRate"],
+                "turnRate": handling.get("turnRate", ship["turnRate"]),
+                "agility": handling.get("agility", 1.4),
+                "acceleration": handling.get("acceleration", 1.5),
+                "brakeRate": handling.get("brakeRate", 3.0),
+                "strafePower": handling.get("strafePower", 1.0),
+                "linearDrag": handling.get("linearDrag", 1.0),
+                "bankFactor": handling.get("bankFactor", 1.0),
                 "holdSize": ship["holdSize"],
                 "firePower": ship["firePower"],
+                "mass": ship["mass"],
+                "shipClass": ship.get("shipClass", 0),
             },
             "info": ship.get("info", ""),
         }

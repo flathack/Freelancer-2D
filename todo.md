@@ -95,7 +95,16 @@ Implementiere den id parser:
 
 -----------------------------------------------------------
 
-
+- es wird bei 0,0,0 aktuell einfach eine sonne erstellt und nicht aus der ini die sonnen übernommen.
+- Sonnen Atmosphere und Death zone auch in freelancer 2d implementieren, daten aus freelancer 3d ziehen
+- damage in zones (es gibt zonen wo z. b. damage = 20 ist), dann soll dem user schiff 20 schaden pro sekunde zugefügt werden.
+- implement nanobots und shield batteries
+- equipment sold on bases - import freelancer 3d data from market_misc.ini to freelancer 2d.
+- user can change inventory on bases, buy equipment, weapons, shields, thrusters, mines, adv. countermeasures, rockets etc.
+- NPCs in Bars - also import news and rumors from NPCs.
+- planet atmosphere bisschen kleiner machen, weil docking ring teilweise innerhalb der atmosphere ist.
+- some stations, battleships etc. missing from freelancer 2d game.
+- show planet rings if there is a ring in the ini file
 
 
 

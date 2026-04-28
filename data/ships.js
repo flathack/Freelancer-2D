@@ -9,10 +9,39 @@ const FL_SHIPS = {
     "idsName": "237002",
     "idsInfo": "66497",
     "type": "FIGHTER",
+    "shipClass": 1,
     "mass": 150,
     "holdSize": 45,
     "hitPts": 3600,
-    "turnRate": 1.1,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      55000.0,
+      55000.0,
+      230000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 20.0,
+    "handling": {
+      "turnRate": 1.49,
+      "agility": 1.11,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.57
+    },
+    "turnRate": 1.49,
     "firePower": 6,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_ELITE\\bh_elite.cmp",
     "icon": "data/ship_icons/bh_elite.png"
@@ -24,10 +53,39 @@ const FL_SHIPS = {
     "idsName": "237003",
     "idsInfo": "66494",
     "type": "FIGHTER",
+    "shipClass": 3,
     "mass": 150,
     "holdSize": 70,
     "hitPts": 7900,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      55000.0,
+      55000.0,
+      143000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.11,
+      "agility": 0.81,
+      "acceleration": 1.48,
+      "brakeRate": 4.96,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.11,
     "firePower": 9,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_VHEAVY_FIGHTER\\bh_vheavy_fighter.cmp",
     "icon": "data/ship_icons/bh_elite2.png"
@@ -39,10 +97,39 @@ const FL_SHIPS = {
     "idsName": "237004",
     "idsInfo": "66500",
     "type": "FIGHTER",
+    "shipClass": 0,
     "mass": 100,
     "holdSize": 35,
     "hitPts": 1800,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      18000.0,
+      18000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      2800.0,
+      2800.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.62,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 2.15,
     "firePower": 4,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_FIGHTER\\bh_fighter.cmp",
     "icon": "data/ship_icons/bh_fighter.png"
@@ -54,10 +141,39 @@ const FL_SHIPS = {
     "idsName": "237007",
     "idsInfo": "66505",
     "type": "FIGHTER",
+    "shipClass": 1,
     "mass": 150,
     "holdSize": 35,
     "hitPts": 2600,
-    "turnRate": 1.1,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      230000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.49,
     "firePower": 5,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BRETONIA\\BR_ELITE\\br_elite.cmp",
     "icon": "data/ship_icons/br_elite.png"
@@ -69,10 +185,39 @@ const FL_SHIPS = {
     "idsName": "237008",
     "idsInfo": "66508",
     "type": "FIGHTER",
+    "shipClass": 0,
     "mass": 100,
     "holdSize": 30,
     "hitPts": 2100,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      18000.0,
+      18000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      2800.0,
+      2800.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.62,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 2.15,
     "firePower": 5,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BRETONIA\\BR_FIGHTER\\br_fighter.cmp",
     "icon": "data/ship_icons/br_fighter.png"
@@ -84,10 +229,39 @@ const FL_SHIPS = {
     "idsName": "237009",
     "idsInfo": "66511",
     "type": "FREIGHTER",
+    "shipClass": 2,
     "mass": 300,
     "holdSize": 125,
     "hitPts": 2200,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      54000.0,
+      54000.0,
+      104000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 1.02,
+      "agility": 0.64,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 1.02,
     "firePower": 4,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BRETONIA\\BR_FREIGHTER\\br_freighter.cmp",
     "icon": "data/ship_icons/br_freighter.png"
@@ -99,10 +273,39 @@ const FL_SHIPS = {
     "idsName": "237011",
     "idsInfo": "66518",
     "type": "FIGHTER",
+    "shipClass": 1,
     "mass": 150,
     "holdSize": 45,
     "hitPts": 4900,
-    "turnRate": 1.1,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      230000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.49,
     "firePower": 7,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BORDER_WORLD\\BW_ELITE\\bw_elite.cmp",
     "icon": "data/ship_icons/bw_elite.png"
@@ -114,10 +317,39 @@ const FL_SHIPS = {
     "idsName": "237012",
     "idsInfo": "66515",
     "type": "FIGHTER",
+    "shipClass": 3,
     "mass": 75,
     "holdSize": 70,
     "hitPts": 10800,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      63000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      41000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      2400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.97,
+      "agility": 1.47,
+      "acceleration": 2.96,
+      "brakeRate": 3.95,
+      "strafePower": 2.05,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.97,
     "firePower": 10,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BORDER_WORLD\\BW_VHEAVY_FIGHTER\\bw_vheavy_fighter.cmp",
     "icon": "data/ship_icons/bw_elite2.png"
@@ -129,10 +361,39 @@ const FL_SHIPS = {
     "idsName": "237013",
     "idsInfo": "66521",
     "type": "FIGHTER",
+    "shipClass": 0,
     "mass": 100,
     "holdSize": 35,
     "hitPts": 1800,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      18000.0,
+      18000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      2800.0,
+      2800.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.62,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 2.15,
     "firePower": 4,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BORDER_WORLD\\BW_FIGHTER\\bw_fighter.cmp",
     "icon": "data/ship_icons/bw_fighter.png"
@@ -144,10 +405,39 @@ const FL_SHIPS = {
     "idsName": "237014",
     "idsInfo": "66524",
     "type": "FREIGHTER",
+    "shipClass": 2,
     "mass": 300,
     "holdSize": 275,
     "hitPts": 3600,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      54000.0,
+      54000.0,
+      54000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 5.33,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
     "firePower": 6,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BORDER_WORLD\\BW_FREIGHTER\\bw_freighter.cmp",
     "icon": "data/ship_icons/bw_freighter.png"
@@ -159,10 +449,39 @@ const FL_SHIPS = {
     "idsName": "237020",
     "idsInfo": "66545",
     "type": "FIGHTER",
+    "shipClass": 1,
     "mass": 150,
     "holdSize": 45,
     "hitPts": 9200,
-    "turnRate": 1.1,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      230000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.49,
     "firePower": 9,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\PIRATE\\PI_ELITE\\pi_elite.cmp",
     "icon": "data/ship_icons/co_elite.png"
@@ -174,10 +493,39 @@ const FL_SHIPS = {
     "idsName": "237021",
     "idsInfo": "66542",
     "type": "FIGHTER",
+    "shipClass": 3,
     "mass": 150,
     "holdSize": 70,
     "hitPts": 12600,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      143000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.11,
+      "agility": 0.74,
+      "acceleration": 1.48,
+      "brakeRate": 4.96,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.11,
     "firePower": 10,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\PIRATE\\PI_VHEAVY_FIGHTER\\pi_vheavy_fighter.cmp",
     "icon": "data/ship_icons/co_elite2.png"
@@ -189,10 +537,39 @@ const FL_SHIPS = {
     "idsName": "237022",
     "idsInfo": "66548",
     "type": "FIGHTER",
+    "shipClass": 0,
     "mass": 50,
     "holdSize": 35,
     "hitPts": 2400,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      18000.0,
+      18000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      2800.0,
+      2800.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 2.57,
+      "agility": 2.07,
+      "acceleration": 4.2,
+      "brakeRate": 3.81,
+      "strafePower": 3.08,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 2.57,
     "firePower": 5,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\PIRATE\\PI_FIGHTER\\pi_fighter.cmp",
     "icon": "data/ship_icons/co_fighter.png"
@@ -204,10 +581,39 @@ const FL_SHIPS = {
     "idsName": "237015",
     "idsInfo": "66527",
     "type": "FIGHTER",
+    "shipClass": 0,
     "mass": 100,
     "holdSize": 20,
     "hitPts": 1100,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      25000.0,
+      25000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      3800.0,
+      3800.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.78,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 2.15,
     "firePower": 3,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_STARFLIER\\cv_starflier.cmp",
     "icon": "data/ship_icons/ge_fighter.png"
@@ -219,10 +625,39 @@ const FL_SHIPS = {
     "idsName": "237016",
     "idsInfo": "66530",
     "type": "FIGHTER",
+    "shipClass": 0,
     "mass": 100,
     "holdSize": 30,
     "hitPts": 1800,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      15800.0,
+      15800.0,
+      58000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      2800.0,
+      2800.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.57,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 2.15,
     "firePower": 4,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_STARTRACKER\\cv_startracker.cmp",
     "icon": "data/ship_icons/ge_fighter2.png"
@@ -234,10 +669,39 @@ const FL_SHIPS = {
     "idsName": "237017",
     "idsInfo": "66533",
     "type": "FIGHTER",
+    "shipClass": 0,
     "mass": 100,
     "holdSize": 45,
     "hitPts": 3300,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      18000.0,
+      18000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      2800.0,
+      2800.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.62,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 2.15,
     "firePower": 6,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_FIGHTER\\cv_fighter.cmp",
     "icon": "data/ship_icons/ge_fighter4.png"
@@ -249,10 +713,39 @@ const FL_SHIPS = {
     "idsName": "237018",
     "idsInfo": "66536",
     "type": "FIGHTER",
+    "shipClass": 1,
     "mass": 150,
     "holdSize": 60,
     "hitPts": 6200,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      55000.0,
+      55000.0,
+      48000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.72,
+      "agility": 1.27,
+      "acceleration": 1.48,
+      "brakeRate": 4.19,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.72,
     "firePower": 8,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_ELITE\\cv_elite.cmp",
     "icon": "data/ship_icons/ge_fighter5.png"
@@ -264,10 +757,39 @@ const FL_SHIPS = {
     "idsName": "237019",
     "idsInfo": "66539",
     "type": "FIGHTER",
+    "shipClass": 3,
     "mass": 150,
     "holdSize": 70,
     "hitPts": 9900,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      55000.0,
+      55000.0,
+      48000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.72,
+      "agility": 1.27,
+      "acceleration": 1.48,
+      "brakeRate": 4.19,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.72,
     "firePower": 10,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_VHEAVY_FIGHTER\\cv_vheavy_fighter.cmp",
     "icon": "data/ship_icons/ge_fighter6.png"
@@ -279,10 +801,39 @@ const FL_SHIPS = {
     "idsName": "237027",
     "idsInfo": "66555",
     "type": "FIGHTER",
+    "shipClass": 1,
     "mass": 150,
     "holdSize": 40,
     "hitPts": 3600,
-    "turnRate": 1.1,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      230000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.49,
     "firePower": 6,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\KUSARI\\KU_ELITE\\ku_elite.cmp",
     "icon": "data/ship_icons/ku_elite.png"
@@ -294,10 +845,39 @@ const FL_SHIPS = {
     "idsName": "237028",
     "idsInfo": "66558",
     "type": "FIGHTER",
+    "shipClass": 0,
     "mass": 100,
     "holdSize": 35,
     "hitPts": 2800,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      25000.0,
+      25000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      3800.0,
+      3800.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.78,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 2.15,
     "firePower": 6,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\KUSARI\\KU_FIGHTER\\ku_fighter.cmp",
     "icon": "data/ship_icons/ku_fighter.png"
@@ -309,10 +889,39 @@ const FL_SHIPS = {
     "idsName": "237029",
     "idsInfo": "66561",
     "type": "FREIGHTER",
+    "shipClass": 2,
     "mass": 300,
     "holdSize": 175,
     "hitPts": 3600,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      54000.0,
+      54000.0,
+      104000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 1.02,
+      "agility": 0.64,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 1.02,
     "firePower": 6,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\KUSARI\\KU_FREIGHTER\\ku_freighter.cmp",
     "icon": "data/ship_icons/ku_freighter.png"
@@ -324,10 +933,39 @@ const FL_SHIPS = {
     "idsName": "237033",
     "idsInfo": "66567",
     "type": "FIGHTER",
+    "shipClass": 1,
     "mass": 150,
     "holdSize": 30,
     "hitPts": 1600,
-    "turnRate": 1.1,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      50000.0,
+      50000.0,
+      230000.0
+    ],
+    "angularDrag": [
+      40000.0,
+      40000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.49,
+      "agility": 1.09,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.49,
     "firePower": 4,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\LIBERTY\\LI_ELITE\\li_elite.cmp",
     "icon": "data/ship_icons/li_elite.png"
@@ -339,10 +977,39 @@ const FL_SHIPS = {
     "idsName": "237034",
     "idsInfo": "66570",
     "type": "FIGHTER",
+    "shipClass": 0,
     "mass": 100,
     "holdSize": 25,
     "hitPts": 1300,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      24000.0,
+      24000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      2800.0,
+      2800.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 2.15,
     "firePower": 3,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\LIBERTY\\LI_FIGHTER\\li_fighter.cmp",
     "icon": "data/ship_icons/li_fighter.png"
@@ -354,10 +1021,39 @@ const FL_SHIPS = {
     "idsName": "237035",
     "idsInfo": "66573",
     "type": "FREIGHTER",
+    "shipClass": 2,
     "mass": 300,
     "holdSize": 80,
     "hitPts": 1600,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      54000.0,
+      54000.0,
+      104000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 1.02,
+      "agility": 0.64,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 1.02,
     "firePower": 3,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\LIBERTY\\LI_FREIGHTER\\li_freighter.cmp",
     "icon": "data/ship_icons/li_freighter.png"
@@ -369,10 +1065,39 @@ const FL_SHIPS = {
     "idsName": "237041",
     "idsInfo": "66581",
     "type": "FIGHTER",
+    "shipClass": 3,
     "mass": 150,
     "holdSize": 70,
     "hitPts": 4200,
-    "turnRate": 1.1,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      230000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.49,
     "firePower": 6,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\ORDER\\OR_ELITE\\or_elite.cmp",
     "icon": "data/ship_icons/or_elite.png"
@@ -384,10 +1109,39 @@ const FL_SHIPS = {
     "idsName": "237044",
     "idsInfo": "66585",
     "type": "FIGHTER",
+    "shipClass": 1,
     "mass": 150,
     "holdSize": 40,
     "hitPts": 3600,
-    "turnRate": 1.1,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      230000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 20.0,
+    "handling": {
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.57
+    },
+    "turnRate": 1.49,
     "firePower": 6,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CORSAIR\\CO_ELITE\\co_elite.cmp",
     "icon": "data/ship_icons/pi_elite.png"
@@ -399,10 +1153,39 @@ const FL_SHIPS = {
     "idsName": "237045",
     "idsInfo": "66588",
     "type": "FIGHTER",
+    "shipClass": 0,
     "mass": 100,
     "holdSize": 35,
     "hitPts": 1900,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      18000.0,
+      18000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      2800.0,
+      2800.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 25.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.62,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.71
+    },
+    "turnRate": 2.15,
     "firePower": 4,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CORSAIR\\CO_FIGHTER\\co_fighter.cmp",
     "icon": "data/ship_icons/pi_fighter.png"
@@ -414,10 +1197,39 @@ const FL_SHIPS = {
     "idsName": "237046",
     "idsInfo": "66591",
     "type": "FREIGHTER",
+    "shipClass": 2,
     "mass": 300,
     "holdSize": 90,
     "hitPts": 2200,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      54000.0,
+      54000.0,
+      104000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 1.02,
+      "agility": 0.64,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 1.02,
     "firePower": 4,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CORSAIR\\CO_FREIGHTER\\co_freighter.cmp",
     "icon": "data/ship_icons/pi_freighter.png"
@@ -429,10 +1241,39 @@ const FL_SHIPS = {
     "idsName": "237051",
     "idsInfo": "66598",
     "type": "FIGHTER",
+    "shipClass": 1,
     "mass": 150,
     "holdSize": 50,
     "hitPts": 5800,
-    "turnRate": 1.1,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      230000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.49,
     "firePower": 8,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\RHEINLAND\\RH_ELITE\\rh_elite.cmp",
     "icon": "data/ship_icons/rh_elite.png"
@@ -444,10 +1285,39 @@ const FL_SHIPS = {
     "idsName": "237052",
     "idsInfo": "66601",
     "type": "FIGHTER",
+    "shipClass": 0,
     "mass": 100,
     "holdSize": 45,
     "hitPts": 4500,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      18000.0,
+      18000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      2800.0,
+      2800.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.62,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 2.15,
     "firePower": 7,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\RHEINLAND\\RH_FIGHTER\\rh_fighter.cmp",
     "icon": "data/ship_icons/rh_fighter.png"
@@ -459,10 +1329,39 @@ const FL_SHIPS = {
     "idsName": "237053",
     "idsInfo": "66604",
     "type": "FREIGHTER",
+    "shipClass": 2,
     "mass": 300,
     "holdSize": 250,
     "hitPts": 5800,
-    "turnRate": 0.9,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      24000.0,
+      24000.0,
+      104000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 1.02,
+      "agility": 0.57,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 1.02,
     "firePower": 7,
     "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\RHEINLAND\\RH_FREIGHTER\\rh_freighter.cmp",
     "icon": "data/ship_icons/rh_freighter.png"
@@ -481,10 +1380,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 2600,
       "shield": 572,
-      "maxSpeed": 300,
-      "turnRate": 1.1,
+      "maxSpeed": 283,
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86,
       "holdSize": 35,
-      "firePower": 5
+      "firePower": 5,
+      "mass": 150,
+      "shipClass": 1
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 2600\nFrachtraum: 35\nMax. Batterien/Nanobots: 20/20\nOptimale Waffenklasse: 3\nMax. Waffenklasse: 5\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -499,10 +1406,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 2100,
       "shield": 462,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 297,
+      "turnRate": 2.15,
+      "agility": 1.62,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0,
       "holdSize": 30,
-      "firePower": 5
+      "firePower": 5,
+      "mass": 100,
+      "shipClass": 0
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 2100\nFrachtraum: 30\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 3\nMax. Waffenklasse: 5\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -517,10 +1432,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 2200,
       "shield": 484,
-      "maxSpeed": 260,
-      "turnRate": 0.9,
+      "maxSpeed": 228,
+      "turnRate": 1.02,
+      "agility": 0.64,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45,
       "holdSize": 125,
-      "firePower": 4
+      "firePower": 4,
+      "mass": 300,
+      "shipClass": 2
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/5\nPanzerung: 2200\nFrachtraum: 125\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM"
   },
@@ -535,10 +1458,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 7900,
       "shield": 1738,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 277,
+      "turnRate": 1.11,
+      "agility": 0.81,
+      "acceleration": 1.48,
+      "brakeRate": 4.96,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86,
       "holdSize": 70,
-      "firePower": 9
+      "firePower": 9,
+      "mass": 150,
+      "shipClass": 3
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 7900\nFrachtraum: 70\nMax. Batterien/Nanobots: 49/49\nOptimale Waffenklasse: 7\nMax. Waffenklasse: 9\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -553,10 +1484,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 3600,
       "shield": 792,
-      "maxSpeed": 300,
-      "turnRate": 1.1,
+      "maxSpeed": 285,
+      "turnRate": 1.49,
+      "agility": 1.11,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.57,
       "holdSize": 45,
-      "firePower": 6
+      "firePower": 6,
+      "mass": 150,
+      "shipClass": 1
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 3600\nFrachtraum: 45\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -571,10 +1510,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 1800,
       "shield": 396,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 297,
+      "turnRate": 2.15,
+      "agility": 1.62,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0,
       "holdSize": 35,
-      "firePower": 4
+      "firePower": 4,
+      "mass": 100,
+      "shipClass": 0
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 1800\nFrachtraum: 35\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -589,10 +1536,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 10800,
       "shield": 2376,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 293,
+      "turnRate": 1.97,
+      "agility": 1.47,
+      "acceleration": 2.96,
+      "brakeRate": 3.95,
+      "strafePower": 2.05,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86,
       "holdSize": 70,
-      "firePower": 10
+      "firePower": 10,
+      "mass": 75,
+      "shipClass": 3
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 10800\nFrachtraum: 70\nMax. Batterien/Nanobots: 63/63\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -607,10 +1562,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 4900,
       "shield": 1078,
-      "maxSpeed": 300,
-      "turnRate": 1.1,
+      "maxSpeed": 283,
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86,
       "holdSize": 45,
-      "firePower": 7
+      "firePower": 7,
+      "mass": 150,
+      "shipClass": 1
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 4900\nFrachtraum: 45\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -625,10 +1588,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 1800,
       "shield": 396,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 297,
+      "turnRate": 2.15,
+      "agility": 1.62,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0,
       "holdSize": 35,
-      "firePower": 4
+      "firePower": 4,
+      "mass": 100,
+      "shipClass": 0
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/1\nPanzerung: 1800\nFrachtraum: 35\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -643,10 +1614,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 3600,
       "shield": 792,
-      "maxSpeed": 260,
-      "turnRate": 0.9,
+      "maxSpeed": 224,
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 5.33,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45,
       "holdSize": 275,
-      "firePower": 6
+      "firePower": 6,
+      "mass": 300,
+      "shipClass": 2
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/5\nPanzerung: 3600\nFrachtraum: 275\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM"
   },
@@ -661,10 +1640,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 12600,
       "shield": 2772,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 276,
+      "turnRate": 1.11,
+      "agility": 0.74,
+      "acceleration": 1.48,
+      "brakeRate": 4.96,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86,
       "holdSize": 70,
-      "firePower": 10
+      "firePower": 10,
+      "mass": 150,
+      "shipClass": 3
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 12600\nFrachtraum: 70\nMax. Batterien/Nanobots: 71/71\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -679,10 +1666,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 9200,
       "shield": 2024,
-      "maxSpeed": 300,
-      "turnRate": 1.1,
+      "maxSpeed": 283,
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86,
       "holdSize": 45,
-      "firePower": 9
+      "firePower": 9,
+      "mass": 150,
+      "shipClass": 1
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 9200\nFrachtraum: 45\nMax. Batterien/Nanobots: 55/55\nOptimale Waffenklasse: 7\nMax. Waffenklasse: 9\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -697,10 +1692,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 2400,
       "shield": 528,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 308,
+      "turnRate": 2.57,
+      "agility": 2.07,
+      "acceleration": 4.2,
+      "brakeRate": 3.81,
+      "strafePower": 3.08,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0,
       "holdSize": 35,
-      "firePower": 5
+      "firePower": 5,
+      "mass": 50,
+      "shipClass": 0
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 2400\nFrachtraum: 35\nMax. Batterien/Nanobots: 20/20\nOptimale Waffenklasse: 3\nMax. Waffenklasse: 5\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -715,10 +1718,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 1100,
       "shield": 242,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 301,
+      "turnRate": 2.15,
+      "agility": 1.78,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0,
       "holdSize": 20,
-      "firePower": 3
+      "firePower": 3,
+      "mass": 100,
+      "shipClass": 0
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3\nPanzerung: 1100\nFrachtraum: 20\nMax. Batterien/Nanobots: 10/10\nOptimale Waffenklasse: 1\nMax.Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM"
   },
@@ -733,10 +1744,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 1800,
       "shield": 396,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 296,
+      "turnRate": 2.15,
+      "agility": 1.57,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0,
       "holdSize": 30,
-      "firePower": 4
+      "firePower": 4,
+      "mass": 100,
+      "shipClass": 0
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/0\nPanzerung: 1800\nFrachtraum: 30\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -751,10 +1770,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 3300,
       "shield": 726,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 297,
+      "turnRate": 2.15,
+      "agility": 1.62,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0,
       "holdSize": 45,
-      "firePower": 6
+      "firePower": 6,
+      "mass": 100,
+      "shipClass": 0
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 3300\nFrachtraum: 45\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -769,10 +1796,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 6200,
       "shield": 1364,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 288,
+      "turnRate": 1.72,
+      "agility": 1.27,
+      "acceleration": 1.48,
+      "brakeRate": 4.19,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86,
       "holdSize": 60,
-      "firePower": 8
+      "firePower": 8,
+      "mass": 150,
+      "shipClass": 1
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 6200\nFrachtraum: 60\nMax. Batterien/Nanobots: 43/43\nOptimale Waffenklasse: 6\nMax. Waffenklasse: 8\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -787,10 +1822,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 9900,
       "shield": 2178,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 288,
+      "turnRate": 1.72,
+      "agility": 1.27,
+      "acceleration": 1.48,
+      "brakeRate": 4.19,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86,
       "holdSize": 70,
-      "firePower": 10
+      "firePower": 10,
+      "mass": 150,
+      "shipClass": 3
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 9900\nFrachtraum: 70\nMax. Batterien/Nanobots: 63/63\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -805,10 +1848,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 3600,
       "shield": 792,
-      "maxSpeed": 300,
-      "turnRate": 1.1,
+      "maxSpeed": 283,
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86,
       "holdSize": 40,
-      "firePower": 6
+      "firePower": 6,
+      "mass": 150,
+      "shipClass": 1
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 3600\nFrachtraum: 40\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -823,10 +1874,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 2800,
       "shield": 616,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 301,
+      "turnRate": 2.15,
+      "agility": 1.78,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0,
       "holdSize": 35,
-      "firePower": 6
+      "firePower": 6,
+      "mass": 100,
+      "shipClass": 0
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 2800\nFrachtraum: 35\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -841,10 +1900,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 3600,
       "shield": 792,
-      "maxSpeed": 260,
-      "turnRate": 0.9,
+      "maxSpeed": 228,
+      "turnRate": 1.02,
+      "agility": 0.64,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45,
       "holdSize": 175,
-      "firePower": 6
+      "firePower": 6,
+      "mass": 300,
+      "shipClass": 2
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 2/6\nPanzerung: 3600\nFrachtraum: 175\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM"
   },
@@ -859,10 +1926,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 1600,
       "shield": 352,
-      "maxSpeed": 300,
-      "turnRate": 1.1,
+      "maxSpeed": 284,
+      "turnRate": 1.49,
+      "agility": 1.09,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86,
       "holdSize": 30,
-      "firePower": 4
+      "firePower": 4,
+      "mass": 150,
+      "shipClass": 1
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 1600\nFrachtraum: 30\nMax. Batterien/Nanobots: 14/14\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -878,9 +1953,17 @@ const FL_SHIP_PACKAGES = {
       "hull": 1300,
       "shield": 286,
       "maxSpeed": 300,
-      "turnRate": 0.9,
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0,
       "holdSize": 25,
-      "firePower": 3
+      "firePower": 3,
+      "mass": 100,
+      "shipClass": 0
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 1300\nFrachtraum: 25\nMax. Batterien/Nanobots: 12/12\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -895,10 +1978,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 1600,
       "shield": 352,
-      "maxSpeed": 260,
-      "turnRate": 0.9,
+      "maxSpeed": 228,
+      "turnRate": 1.02,
+      "agility": 0.64,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45,
       "holdSize": 80,
-      "firePower": 3
+      "firePower": 3,
+      "mass": 300,
+      "shipClass": 2
     },
     "info": "Statistik\nWaffen-/Geschützturmsockel: 3/5\nPanzerung: 1600\nFrachtraum: 80\nMax. Batterien/Nanobots: 12/12\nOptimale Waffenklasse: 1\nMax. Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM"
   },
@@ -913,10 +2004,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 4200,
       "shield": 924,
-      "maxSpeed": 300,
-      "turnRate": 1.1,
+      "maxSpeed": 283,
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86,
       "holdSize": 70,
-      "firePower": 6
+      "firePower": 6,
+      "mass": 150,
+      "shipClass": 3
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 4200\nFrachtraum: 70\nMax. Batterien/Nanobots: 29/29\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -931,10 +2030,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 3600,
       "shield": 792,
-      "maxSpeed": 300,
-      "turnRate": 1.1,
+      "maxSpeed": 283,
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.57,
       "holdSize": 40,
-      "firePower": 6
+      "firePower": 6,
+      "mass": 150,
+      "shipClass": 1
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 3600\nFrachtraum: 40\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -949,10 +2056,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 1900,
       "shield": 418,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 297,
+      "turnRate": 2.15,
+      "agility": 1.62,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.71,
       "holdSize": 35,
-      "firePower": 4
+      "firePower": 4,
+      "mass": 100,
+      "shipClass": 0
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/1\nPanzerung: 1900\nFrachtraum: 35\nMax. Batterien/Nanobots: 14/14\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -967,10 +2082,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 2200,
       "shield": 484,
-      "maxSpeed": 260,
-      "turnRate": 0.9,
+      "maxSpeed": 228,
+      "turnRate": 1.02,
+      "agility": 0.64,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45,
       "holdSize": 90,
-      "firePower": 4
+      "firePower": 4,
+      "mass": 300,
+      "shipClass": 2
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/4\nPanzerung: 2200\nFrachtraum: 90\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM"
   },
@@ -985,10 +2108,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 5800,
       "shield": 1276,
-      "maxSpeed": 300,
-      "turnRate": 1.1,
+      "maxSpeed": 283,
+      "turnRate": 1.49,
+      "agility": 1.04,
+      "acceleration": 1.48,
+      "brakeRate": 3.84,
+      "strafePower": 1.03,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86,
       "holdSize": 50,
-      "firePower": 8
+      "firePower": 8,
+      "mass": 150,
+      "shipClass": 1
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 5800\nFrachtraum: 50\nMax. Batterien/Nanobots: 38/38\nOptimale Waffenklasse: 6\nMax. Waffenklasse: 8\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1003,10 +2134,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 4500,
       "shield": 990,
-      "maxSpeed": 300,
-      "turnRate": 0.9,
+      "maxSpeed": 297,
+      "turnRate": 2.15,
+      "agility": 1.62,
+      "acceleration": 2.22,
+      "brakeRate": 3.81,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0,
       "holdSize": 45,
-      "firePower": 7
+      "firePower": 7,
+      "mass": 100,
+      "shipClass": 0
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 4500\nFrachtraum: 45\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -1021,10 +2160,18 @@ const FL_SHIP_PACKAGES = {
     "stats": {
       "hull": 5800,
       "shield": 1276,
-      "maxSpeed": 260,
-      "turnRate": 0.9,
+      "maxSpeed": 226,
+      "turnRate": 1.02,
+      "agility": 0.57,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45,
       "holdSize": 250,
-      "firePower": 7
+      "firePower": 7,
+      "mass": 300,
+      "shipClass": 2
     },
     "info": "Statistik\nWaffen-/Geschützturmsockel: 2/6\nPanzerung: 5800\nFrachtraum: 250\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM"
   }
