@@ -9,12 +9,14 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-FL_ROOT = Path("C:/Users/steve/Github/FL-Installationen/Freelancer-HD")
-FL_DATA = FL_ROOT / "DATA"
 FLATLAS_ROOT = Path("C:/Users/steve/Github/FLAtlas")
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from fl_config import freelancer_data, freelancer_root  # noqa: E402
 from extract_ship_market_data import first, parse_ini_sections  # noqa: E402
+
+FL_ROOT = freelancer_root()
+FL_DATA = freelancer_data()
 
 
 def used_archetypes() -> set[str]:

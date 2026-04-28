@@ -11,15 +11,17 @@ import json
 from pathlib import Path
 from typing import Optional, Dict, List, Set
 
+from fl_config import freelancer_data, freelancer_exe, freelancer_root
+
 try:
     import pefile
 except ImportError:
     pefile = None
 
 # Base paths
-FL_DATA = Path('C:/Users/steve/Github/FL-Installationen/Freelancer-HD/DATA')
-FL_ROOT = FL_DATA.parent
-FL_EXE = FL_ROOT / 'EXE'
+FL_ROOT = freelancer_root()
+FL_DATA = freelancer_data()
+FL_EXE = freelancer_exe()
 UNIVERSE_DIR = FL_DATA / 'UNIVERSE'
 RESOURCE_DLLS = [
     'infocards.dll',

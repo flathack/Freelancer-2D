@@ -2,7 +2,9 @@
 import json
 from pathlib import Path
 
-FL_DATA = Path('C:/Users/steve/Github/FL-Installationen/Freelancer-HD/DATA')
+from fl_config import freelancer_data
+
+FL_DATA = freelancer_data()
 OUTPUT = Path('C:/Users/steve/Github/AmazonChecker/Freelancer2D/data/npc_loadouts.js')
 
 
