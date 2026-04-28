@@ -258,6 +258,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 <script src="data/ships.js"></script>
 <script src="data/commodities.js"></script>
 <script src="data/equipment.js"></script>
+<script src="data/npc_loadouts.js"></script>
 <script src="data/bar_data.js"></script>
 <script src="data/object_icons.js"></script>
 <script>
@@ -744,9 +745,15 @@ function acceptMission(missionId) {
 }
 
 function missionLootWeaponIds() {
-    if (typeof FL_EQUIPMENT === 'undefined') return [];
+    if (typeof FL_EQUIPMENT === 'undefined' || typeof FL_BASE_EQUIPMENT_MARKETS === 'undefined') return [];
+    const soldIds = new Set();
+    Object.values(FL_BASE_EQUIPMENT_MARKETS).forEach(market => {
+        (market || []).forEach(entry => {
+            if (entry?.forSale) soldIds.add(String(entry.id || '').toLowerCase());
+        });
+    });
     return Object.values(FL_EQUIPMENT)
-        .filter(item => item && (item.category === 'weapon' || item.category === 'turret') && Number(item.price || 0) > 0)
+        .filter(item => item && soldIds.has(String(item.id || '').toLowerCase()) && (item.category === 'weapon' || item.category === 'turret') && Number(item.price || 0) > 0)
         .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
         .slice(0, 80)
         .map(item => item.id);
@@ -789,6 +796,87 @@ function collectLoot(loot) {
     }
     playSound('buy', 0.45);
     saveGame();
+}
+
+function weaponColorPartsForItem(item) {
+    const key = String(item?.id || item?.weaponType || item?.projectileArchetype || 'weapon').toLowerCase();
+    const hash = Math.abs(hashString('weapon-color:' + key));
+    return {
+        hue: hash % 360,
+        saturation: 72 + (hash % 18),
+        lightness: 56 + ((hash >> 4) % 12)
+    };
+}
+
+function weaponColorForItem(item) {
+    const { hue, saturation, lightness } = weaponColorPartsForItem(item);
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+}
+
+function weaponTrailColorForItem(item) {
+    const { hue, saturation, lightness } = weaponColorPartsForItem(item);
+    return `hsla(${hue}, ${saturation}%, ${lightness}%, 0.55)`;
+}
+
+function weaponStatsFromEquipment(item, fallbackDifficulty = 1) {
+    const id = String(item?.id || '').toLowerCase();
+    const mark = Number((id.match(/mark(\d+)/) || [])[1]) || Number((id.match(/_(\d+)$/) || [])[1]) || fallbackDifficulty || 1;
+    const refire = Math.max(0.08, Number(item?.refireDelay) || (0.22 - Math.min(mark, 7) * 0.012));
+    const speed = Number(item?.muzzleVelocity) || (id.includes('laser') ? 1120 : id.includes('plasma') ? 760 : id.includes('tachyon') ? 980 : 860 + Math.min(mark, 8) * 24);
+    const color = weaponColorForItem(item);
+    const hullDamage = Number(item?.hullDamage) || 0;
+    const energyDamage = Number(item?.energyDamage) || 0;
+    return {
+        id: item?.id || '',
+        name: item?.name || item?.id || 'Weapon',
+        cooldown: refire,
+        energyCost: Math.max(0, Number(item?.powerUsage) || (5 + mark)),
+        damage: hullDamage || energyDamage || (7 + mark * 3 + (item?.category === 'turret' ? 3 : 0)),
+        radius: Math.max(3, Math.min(10, 3 + Math.sqrt(Math.max(hullDamage, energyDamage, mark * 12)) * 0.08)),
+        speed,
+        lifetime: Number(item?.projectileLifetime) || (1.15 + Math.min(mark, 8) * 0.08),
+        color,
+        trailColor: weaponTrailColorForItem(item)
+    };
+}
+
+function enemyShipPrefixesForSystem(systemId = currentSystemId) {
+    const prefix = String(systemId || '').slice(0, 2).toLowerCase();
+    if (prefix === 'li') return ['pi_', 'fc_lr', 'bh_', 'co_', 'li_'];
+    if (prefix === 'br') return ['br_', 'pi_', 'bh_', 'co_'];
+    if (prefix === 'ku') return ['ku_', 'pi_', 'bw_', 'co_'];
+    if (prefix === 'rh') return ['rh_', 'pi_', 'bw_', 'co_'];
+    if (prefix === 'bw' || prefix === 'ew') return ['bw_', 'pi_', 'co_', 'bh_'];
+    return ['pi_', 'bw_', 'co_', 'bh_', 'li_', 'br_', 'ku_', 'rh_'];
+}
+
+function chooseNpcShipForMission(difficulty = 1) {
+    if (typeof FL_NPC_SHIPS === 'undefined' || typeof FL_NPC_LOADOUTS === 'undefined' || typeof FL_SHIPS === 'undefined') return null;
+    const prefixes = enemyShipPrefixesForSystem();
+    const targetLevel = 1 + difficulty * 3;
+    const usable = FL_NPC_SHIPS.filter(entry => {
+        const ship = FL_SHIPS[String(entry.ship || '').toLowerCase()];
+        const loadout = FL_NPC_LOADOUTS[String(entry.loadout || '').toLowerCase()];
+        const classText = String(entry.classes || '').toLowerCase();
+        return ship && loadout && loadout.weapons?.length && (classText.includes('fighter') || ship.type === 'FIGHTER');
+    });
+    const regional = usable.filter(entry => prefixes.some(prefix => String(entry.ship || '').startsWith(prefix)));
+    const pool = regional.length ? regional : usable;
+    if (!pool.length) return null;
+    const scored = pool.map(entry => ({ entry, score: Math.abs((Number(entry.level) || 1) - targetLevel) + Math.random() * 2 }));
+    scored.sort((a, b) => a.score - b.score);
+    return scored[Math.floor(Math.random() * Math.min(8, scored.length))].entry;
+}
+
+function npcLoadoutDetails(npcShip, difficulty = 1) {
+    const loadout = typeof FL_NPC_LOADOUTS !== 'undefined' ? FL_NPC_LOADOUTS[String(npcShip?.loadout || '').toLowerCase()] : null;
+    const ship = typeof FL_SHIPS !== 'undefined' ? FL_SHIPS[String(npcShip?.ship || loadout?.archetype || '').toLowerCase()] : null;
+    const weaponStats = (loadout?.weapons || [])
+        .map(entry => getEquipment(entry.id))
+        .filter(item => item && (item.category === 'weapon' || item.category === 'turret'))
+        .map(item => weaponStatsFromEquipment(item, difficulty));
+    const shieldItem = (loadout?.shields || []).map(entry => getEquipment(entry.id)).find(item => item && item.category === 'shield') || null;
+    return { loadout, ship, weaponStats, shieldItem };
 }
 
 function applyLanguage() {
@@ -1904,11 +1992,80 @@ function createLandingRecord(target) {
     return {
         systemId: currentSystemId,
         baseId,
+        targetId: target?.id || target?.nickname || '',
+        dockWith: target?.dockWith || target?.dock_with || '',
+        base: target?.base || '',
         name: target?.name || baseId || systemData.name,
         x: Number(target?.x) || 0,
         z: Number(target?.z) || 0,
         type: target?.type || target?.constructor?.name || 'Base'
     };
+}
+
+function isPlanetDockTarget(target) {
+    return target instanceof PlanetLocation || String(target?.type || '').toLowerCase().includes('planet');
+}
+
+function isDockingRingTarget(target) {
+    const type = String(target?.type || target?.archetype || '').toLowerCase();
+    const solarType = String(target?.solarType || target?.solar_type || '').toLowerCase();
+    return solarType === 'docking_ring' || type.includes('dock_ring');
+}
+
+function findPlanetForBase(baseId) {
+    const normalized = String(baseId || '').toLowerCase();
+    if (!normalized) return null;
+    return (systemData.planets || []).find(planet => getBaseId(planet) === normalized) || null;
+}
+
+function findDockingRingForBase(baseId) {
+    const normalized = String(baseId || '').toLowerCase();
+    if (!normalized) return null;
+    const candidates = [...(systemData.stations || []), ...game.entities.filter(entity => entity instanceof Station)];
+    return candidates.find(entity => getBaseId(entity) === normalized && isDockingRingTarget(entity)) || null;
+}
+
+function findDockingRingForPlanet(planet) {
+    const baseId = getBaseId(planet);
+    const matchingRing = findDockingRingForBase(baseId);
+    if (matchingRing) return matchingRing;
+    const rings = [...(systemData.stations || []), ...game.entities.filter(entity => entity instanceof Station)].filter(isDockingRingTarget);
+    if (!rings.length) return null;
+    const maxDistance = planetAtmosphereRadius(planet) + 9000;
+    return rings
+        .map(ring => ({ ring, distance: Math.hypot(ring.x - planet.x, ring.z - planet.z) }))
+        .filter(entry => entry.distance <= maxDistance)
+        .sort((a, b) => a.distance - b.distance)[0]?.ring || null;
+}
+
+function launchPointFromDockTarget(target) {
+    if (!target) return null;
+    const baseId = getBaseId(target);
+    const planet = isPlanetDockTarget(target) ? target : findPlanetForBase(baseId);
+    const dockingRing = planet ? findDockingRingForPlanet(planet) : (isDockingRingTarget(target) ? target : null);
+    if (dockingRing) {
+        const anchor = planet || findPlanetForBase(getBaseId(dockingRing));
+        let dx = anchor ? dockingRing.x - anchor.x : Math.cos(flYawToCanvasRotation(dockingRing.rotateY || 0));
+        let dz = anchor ? dockingRing.z - anchor.z : Math.sin(flYawToCanvasRotation(dockingRing.rotateY || 0));
+        const length = Math.hypot(dx, dz) || 1;
+        dx /= length;
+        dz /= length;
+        return {
+            x: dockingRing.x + dx * 700,
+            z: dockingRing.z + dz * 700,
+            rotation: Math.atan2(dz, dx)
+        };
+    }
+    if (planet) {
+        const angle = game.player?.rotation || 0;
+        const distance = planetAtmosphereRadius(planet) + 650;
+        return {
+            x: planet.x + Math.cos(angle) * distance,
+            z: planet.z + Math.sin(angle) * distance,
+            rotation: angle
+        };
+    }
+    return null;
 }
 
 function findLandingTarget(landing = game.lastLanding) {
@@ -2354,27 +2511,13 @@ class PlayerShip {
         const slotKeys = getWeaponSlotKeys();
         const mounted = slotKeys.map((slot, index) => ({ slot, index, item: mountedEquipmentItem(slot) })).filter(entry => entry.item);
         const entries = mounted;
-        const spread = entries.length > 1 ? 18 : 0;
+        const maxLateralOffset = Math.max(6, Math.min(22, this.radius * 0.65));
         return entries.map((entry, order) => {
             const item = entry.item;
-            const id = String(item?.id || '').toLowerCase();
-            const mark = Number((id.match(/mark(\d+)/) || [])[1]) || Number((id.match(/_(\d+)$/) || [])[1]) || 1;
-            const refire = Math.max(0.08, Number(item?.refireDelay) || (0.18 - Math.min(mark, 7) * 0.01));
-            const speed = Number(item?.muzzleVelocity) || (id.includes('laser') ? 1120 : id.includes('plasma') ? 760 : id.includes('tachyon') ? 980 : 880 + Math.min(mark, 8) * 24);
-            const weaponType = String(item?.weaponType || id).toLowerCase();
-            const color = weaponType.includes('plasma') ? '#ff7a33' : weaponType.includes('tachyon') ? '#8be9ff' : weaponType.includes('neutron') ? '#b085ff' : weaponType.includes('particle') ? '#77ff66' : '#ffe66b';
-            const hullDamage = Number(item?.hullDamage) || 0;
-            const energyDamage = Number(item?.energyDamage) || 0;
+            const offset = entries.length > 1 ? ((order / (entries.length - 1)) - 0.5) * 2 * maxLateralOffset : 0;
             return {
-                cooldown: refire,
-                energyCost: Math.max(0, Number(item?.powerUsage) || (5 + mark)),
-                damage: hullDamage || energyDamage || (7 + mark * 3 + (item?.category === 'turret' ? 3 : 0)),
-                radius: Math.max(3, Math.min(10, 3 + Math.sqrt(Math.max(hullDamage, energyDamage, mark * 12)) * 0.08)),
-                speed,
-                lifetime: Number(item?.projectileLifetime) || (1.15 + Math.min(mark, 8) * 0.08),
-                color,
-                trailColor: color + '88',
-                offset: (order - (entries.length - 1) / 2) * spread
+                ...weaponStatsFromEquipment(item),
+                offset
             };
         });
     }
@@ -2941,6 +3084,13 @@ class Nebula {
 function createNPC(type, options = {}) {
     const colors = { trader: '#44aa44', pirate: '#aa4444', police: '#4444aa', civilian: '#888888' };
     const difficulty = Number(options.difficulty || 1);
+    const npcShip = options.npcShip || (type === 'pirate' ? chooseNpcShipForMission(difficulty) : null);
+    const details = npcLoadoutDetails(npcShip, difficulty);
+    const ship = details.ship;
+    const shieldItem = details.shieldItem;
+    const hullValue = options.hull || Math.round(Math.max(90, Math.min(900, Number(ship?.hitPts || 650) * 0.14 + difficulty * 28)));
+    const shieldValue = options.shield || Math.round(Math.max(50, Math.min(520, Number(shieldItem?.hitPts || 180) * 0.35 + difficulty * 18)));
+    const handling = ship?.handling || {};
     return {
         id: 'npc-' + Math.random().toString(36).substr(2, 9),
         name: options.name || ((type === 'pirate' ? 'SH' : type === 'trader' ? 'MV' : 'PD') + '-' + (Math.floor(Math.random() * 9000) + 1000)),
@@ -2948,15 +3098,23 @@ function createNPC(type, options = {}) {
         z: Number.isFinite(options.z) ? options.z : (Math.random() - 0.5) * 60000,
         rotation: Math.random() * Math.PI * 2,
         speed: 0, throttle: 0.3,
-        role: type, hull: options.hull || (80 + difficulty * 28), maxHull: options.hull || (80 + difficulty * 28),
-        shield: options.shield || (60 + difficulty * 18), maxShield: options.shield || (60 + difficulty * 18),
+        role: type, hull: hullValue, maxHull: hullValue,
+        shield: shieldValue, maxShield: shieldValue,
         maxSpeed: options.maxSpeed || (110 + difficulty * 18 + Math.random() * 35),
-        turnRate: 2.0, radius: 18,
+        turnRate: Math.max(1.25, Math.min(2.9, Number(handling.turnRate) || 2.0)), radius: Math.max(16, Math.min(28, Math.sqrt(Number(ship?.hitPts || 900)) * 0.34)),
         color: colors[type], stateTimer: 0,
         shieldRotation: 0,
         missionId: options.missionId || '',
         fireCooldown: 0,
-        weaponDamage: 12 + difficulty * 5
+        weaponDamage: 12 + difficulty * 5,
+        npcShipId: npcShip?.id || '',
+        shipId: ship?.id || '',
+        shipName: ship?.name || '',
+        shipIcon: ship?.icon || '',
+        loadoutId: npcShip?.loadout || '',
+        shieldName: shieldItem?.name || '',
+        weapons: details.weaponStats.length ? details.weaponStats : [weaponStatsFromEquipment(getEquipment('li_gun01_mark01'), difficulty)],
+        nextWeaponIndex: 0
     };
 }
 
@@ -2966,11 +3124,13 @@ function spawnMissionEnemies(mission) {
     for (let i = 0; i < count; i++) {
         const angle = (i / count) * Math.PI * 2 + Math.random() * 0.45;
         const distance = 420 + Math.random() * 760;
+        const npcShip = chooseNpcShipForMission(mission.difficulty);
         game.npcs.push(createNPC('pirate', {
-            name: 'Raider-' + (i + 1),
+            name: (npcShip?.ship || 'Raider') + '-' + (i + 1),
             x: mission.x + Math.cos(angle) * distance,
             z: mission.z + Math.sin(angle) * distance,
             difficulty: mission.difficulty,
+            npcShip,
             missionId: mission.id
         }));
     }
@@ -3011,18 +3171,21 @@ function fireNPCWeapon(npc) {
     const distance = Math.hypot(dx, dz);
     if (distance > 980 || distance < 1) return;
     const angle = Math.atan2(dz, dx);
-    npc.fireCooldown = 0.85 + Math.random() * 0.35;
+    const weapons = (npc.weapons || []).filter(Boolean);
+    const weapon = weapons[npc.nextWeaponIndex % weapons.length] || weaponStatsFromEquipment(getEquipment('li_gun01_mark01'), 1);
+    npc.nextWeaponIndex = (npc.nextWeaponIndex || 0) + 1;
+    npc.fireCooldown = weapon.cooldown + Math.random() * 0.08;
     game.projectiles.push({
         x: npc.x + Math.cos(angle) * 30,
         z: npc.z + Math.sin(angle) * 30,
-        vx: Math.cos(angle) * 620,
-        vz: Math.sin(angle) * 620,
-        damage: npc.weaponDamage || 16,
-        radius: 4,
-        lifetime: 1.5,
+        vx: Math.cos(angle) * weapon.speed,
+        vz: Math.sin(angle) * weapon.speed,
+        damage: weapon.damage,
+        radius: weapon.radius,
+        lifetime: weapon.lifetime,
         owner: 'npc',
-        color: '#ff6a38',
-        trailColor: 'rgba(255,96,48,0.55)'
+        color: weapon.color,
+        trailColor: weapon.trailColor
     });
 }
 
@@ -3063,6 +3226,7 @@ function renderNPC(ctx, npc) {
     ctx.save();
     ctx.translate(pos.x, pos.y);
     ctx.rotate(npc.rotation);
+    const visualScale = Math.max(0.35, Math.min(2.8, game.zoom));
     
     // Shield
     if (npc.shield > 0) {
@@ -3072,21 +3236,30 @@ function renderNPC(ctx, npc) {
         ctx.save();
         ctx.rotate(npc.shieldRotation);
         ctx.beginPath();
-        ctx.arc(0, 0, 25, 0, Math.PI * 1.5);
+        ctx.arc(0, 0, (npc.radius + 7) * visualScale, 0, Math.PI * 1.5);
         ctx.stroke();
         ctx.restore();
     }
-    
-    ctx.fillStyle = npc.color;
-    ctx.strokeStyle = '#333333';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(18, 0);
-    ctx.lineTo(-12, -10);
-    ctx.lineTo(-12, 10);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
+
+    const shipImage = getShipImage(npc.shipIcon);
+    if (shipImage) {
+        const size = Math.max(34, Math.min(70, npc.radius * 2.7)) * visualScale;
+        ctx.save();
+        ctx.rotate(Math.PI / 2);
+        ctx.drawImage(shipImage, -size / 2, -size / 2, size, size);
+        ctx.restore();
+    } else {
+        ctx.fillStyle = npc.color;
+        ctx.strokeStyle = '#333333';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(18 * visualScale, 0);
+        ctx.lineTo(-12 * visualScale, -10 * visualScale);
+        ctx.lineTo(-12 * visualScale, 10 * visualScale);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
     ctx.restore();
 }
 
@@ -4667,6 +4840,8 @@ function openLandingWindow(target) {
 }
 
 function launchFromBase() {
+    const launchTarget = game.landedBase || findLandingTarget();
+    const launchPoint = launchPointFromDockTarget(launchTarget);
     document.getElementById('landing-overlay')?.classList.add('hidden');
     game.isDocked = false;
     game.landedBase = null;
@@ -4674,6 +4849,14 @@ function launchFromBase() {
     game.player.afterburnerActive = false;
     game.player.reverseActive = false;
     game.player.throttle = 0;
+    game.player.speed = 0;
+    game.player.inTradeLane = false;
+    game.player.laneRoute = null;
+    if (launchPoint) {
+        game.player.x = launchPoint.x;
+        game.player.z = launchPoint.z;
+        game.player.rotation = launchPoint.rotation;
+    }
     updateCruiseButton();
     playSound('launch', 1);
     saveGame();
