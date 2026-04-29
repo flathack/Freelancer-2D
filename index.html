@@ -121,6 +121,24 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 #map-controls { display: flex; gap: 10px; }
 .map-btn { padding: 5px 12px; background: #003355; border: 1px solid #0088ff; color: #00aaff; cursor: pointer; font-size: 11px; }
 .map-btn:hover { background: #005588; }
+#inventory-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: min(760px, calc(100vw - 28px)); max-height: min(620px, calc(100vh - 28px)); background: rgba(0,10,20,0.96); border: 2px solid #00aaff; z-index: 2000; display: flex; flex-direction: column; box-shadow: 0 0 28px rgba(0,136,255,0.28); }
+#inventory-header { padding: 10px 12px; border-bottom: 1px solid #173c54; display: flex; justify-content: space-between; align-items: center; }
+#inventory-header h3 { color: #00aaff; margin: 0; font-size: 16px; }
+#inventory-content { padding: 12px; overflow-y: auto; display: grid; gap: 10px; }
+.inventory-summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.inventory-stat { padding: 8px; border: 1px solid #1d4b62; background: rgba(0,22,34,0.72); color: #b9efff; font-size: 12px; }
+.inventory-stat strong { display: block; color: #ffaa00; font-size: 11px; margin-bottom: 3px; }
+.inventory-section { border: 1px solid #1f4d62; background: rgba(0,18,30,0.72); }
+.inventory-section-title { padding: 8px 10px; color: #ffaa00; border-bottom: 1px solid #1b3b4d; font-size: 13px; }
+.inventory-row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 10px; padding: 8px 10px; border-bottom: 1px solid #162d3c; color: #d8f7ff; font-size: 12px; align-items: center; }
+.inventory-row:last-child { border-bottom: 0; }
+.inventory-meta { color: #8fb8c8; font-size: 11px; }
+.inventory-empty { padding: 10px; color: #667f8f; font-size: 12px; }
+@media (max-width: 720px) {
+    .inventory-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .inventory-row { grid-template-columns: minmax(0, 1fr) auto; }
+    .inventory-row .inventory-meta { grid-column: 1 / -1; }
+}
 #map-canvas, #universe-canvas { cursor: grab; }
 #map-canvas:active, #universe-canvas:active { cursor: grabbing; }
 #log-area { position: absolute; top: 250px; left: 10px; width: 320px; max-height: 180px; background: rgba(0,0,0,0.85); border: 1px solid #333; overflow-y: auto; padding: 5px; font-size: 11px; display: none; }
@@ -312,6 +330,14 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
             </div>
         </div>
         <canvas id="map-canvas" width="700" height="460"></canvas>
+    </div>
+
+    <div id="inventory-overlay" class="hidden">
+        <div id="inventory-header">
+            <h3 id="inventory-title">INVENTORY</h3>
+            <button class="map-btn" id="btn-close-inventory" style="background:#330000;border-color:#aa0000;color:#ff4444;">CLOSE</button>
+        </div>
+        <div id="inventory-content"></div>
     </div>
     
     <!-- Universe View Overlay -->
@@ -5128,6 +5154,7 @@ function updateHUD() {
     updateCruiseButton();
     updateScannerPanel();
     updateLoadoutPanel();
+    if (!document.getElementById('inventory-overlay')?.classList.contains('hidden')) renderInventoryPanel();
     
     // Mode indicator
     const modeEl = document.getElementById('mode-indicator');
@@ -5452,7 +5479,11 @@ function setupInput() {
     
     window.addEventListener('keydown', (e) => {
         const tagName = e.target?.tagName?.toLowerCase();
-        if (tagName === 'input' || tagName === 'textarea' || e.target?.isContentEditable) return;
+        if (tagName === 'input' || tagName === 'textarea' || tagName === 'select' || e.target?.isContentEditable) return;
+        if (e.code === 'Escape') {
+            toggleInventoryPanel(false);
+            return;
+        }
         if (!game.player || game.isDocked || !game.running) return;
         
         switch (e.code) {
@@ -5490,6 +5521,9 @@ function setupInput() {
                 break;
             case 'KeyM':
                 toggleMap();
+                break;
+            case 'KeyI':
+                toggleInventoryPanel();
                 break;
             case 'KeyG':
             case 'KeyN':
@@ -6262,6 +6296,7 @@ document.getElementById('map-canvas')?.addEventListener('click', (e) => {
 });
 
 document.getElementById('btn-close-map')?.addEventListener('click', toggleMap);
+document.getElementById('btn-close-inventory')?.addEventListener('click', () => toggleInventoryPanel(false));
 document.getElementById('btn-close-universe')?.addEventListener('click', toggleUniverseView);
 // Command bar functions
 function setMode(mode) {
@@ -6295,26 +6330,78 @@ function setMode(mode) {
 }
 
 function showInventory() {
-    addLog('--- INVENTORY ---');
-    addLog('Credits: ' + game.player.credits);
-    addLog('Cargo: ' + cargoUnits() + '/' + game.player.maxCargo);
-    addLog('Nanobots: ' + game.player.nanobots + '/' + game.player.maxNanobots + ' | Shield Batteries: ' + game.player.shieldBatteries + '/' + game.player.maxShieldBatteries);
-    const mounted = game.player.mountedEquipment || {};
-    const mountedNames = Object.keys(mounted).map(slot => slot + ': ' + (getEquipment(mounted[slot])?.name || mounted[slot]));
-    if (mountedNames.length) addLog('Mounted: ' + mountedNames.join(', '));
-    if (game.player.cargo.length > 0) {
-        for (const item of game.player.cargo) {
-            addLog('  - ' + item.name + ' x' + item.quantity);
+    toggleInventoryPanel(true);
+}
+
+function inventoryRow(name, quantity, meta = '') {
+    return `<div class="inventory-row"><span>${escapeHtml(name)}</span><span>x${Number(quantity || 0).toLocaleString()}</span><span class="inventory-meta">${escapeHtml(meta)}</span></div>`;
+}
+
+function renderInventoryPanel() {
+    const content = document.getElementById('inventory-content');
+    if (!content || !game.player) return;
+    const p = game.player;
+    const shieldText = p.maxShield > 0 ? `${Math.round(p.shield).toLocaleString()}/${Math.round(p.maxShield).toLocaleString()}` : 'none';
+    let html = '<div class="inventory-summary">';
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('credits'))}</strong>${p.credits.toLocaleString()} CR</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('cargo'))}</strong>${cargoUnits()}/${p.maxCargo}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('hudHull'))}</strong>${Math.round(p.hull).toLocaleString()}/${Math.round(p.maxHull).toLocaleString()}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('hudShield'))}</strong>${shieldText}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('hudEnergy'))}</strong>${Math.round(p.energy).toLocaleString()}/${Math.round(p.maxEnergy).toLocaleString()}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('labelNanobots'))}</strong>${p.nanobots}/${p.maxNanobots}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('labelShieldBatteries'))}</strong>${p.shieldBatteries}/${p.maxShieldBatteries}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('missileAmmo'))}</strong>${totalMissileAmmoCount()}/${p.maxMissileAmmo}</div>`;
+    html += '</div>';
+
+    html += `<div class="inventory-section"><div class="inventory-section-title">${escapeHtml(t('cargo'))}</div>`;
+    if (p.cargo?.length) {
+        for (const item of p.cargo) {
+            const commodity = getCommodity(item.id);
+            const avgPrice = Number(item.avgPrice || 0) > 0 ? `Avg ${Number(item.avgPrice).toLocaleString()} CR` : '';
+            html += inventoryRow(item.name || commodity?.name || item.id, item.quantity, avgPrice);
         }
+    } else {
+        html += '<div class="inventory-empty">No cargo loaded.</div>';
     }
-    if (game.player.equipmentInventory?.length > 0) {
-        for (const item of game.player.equipmentInventory) {
-            addLog('  * ' + item.name + ' x' + item.quantity);
+    html += '</div>';
+
+    html += `<div class="inventory-section"><div class="inventory-section-title">Mounted Equipment</div>`;
+    const mountedEntries = Object.entries(p.mountedEquipment || {}).filter(([, itemId]) => itemId);
+    if (mountedEntries.length) {
+        for (const [slot, itemId] of mountedEntries) {
+            const item = getEquipment(itemId);
+            html += inventoryRow(item?.name || itemId, 1, equipmentSlotLabel(slot));
         }
+    } else {
+        html += '<div class="inventory-empty">No equipment mounted.</div>';
     }
-    addLog('Hull: ' + game.player.hull + '/' + game.player.maxHull);
-    addLog('Shield: ' + (game.player.maxShield > 0 ? Math.round(game.player.shield) + '/' + Math.round(game.player.maxShield) : 'none'));
-    addLog('Energy: ' + Math.round(game.player.energy) + '/' + game.player.maxEnergy);
+    html += '</div>';
+
+    html += `<div class="inventory-section"><div class="inventory-section-title">Equipment Inventory</div>`;
+    const inventory = (p.equipmentInventory || []).filter(item => (Number(item.quantity) || 0) > 0);
+    if (inventory.length) {
+        for (const item of inventory) {
+            const equipment = getEquipment(item.id);
+            const available = availableEquipmentQuantity(item.id);
+            html += inventoryRow(item.name || equipment?.name || item.id, item.quantity, `${equipment?.category || item.category || 'equipment'} | available ${available}`);
+        }
+    } else {
+        html += '<div class="inventory-empty">No equipment in inventory.</div>';
+    }
+    html += '</div>';
+    content.innerHTML = html;
+}
+
+function toggleInventoryPanel(force = null) {
+    const overlay = document.getElementById('inventory-overlay');
+    if (!overlay) return;
+    const shouldShow = force === null ? overlay.classList.contains('hidden') : Boolean(force);
+    if (shouldShow) {
+        renderInventoryPanel();
+        overlay.classList.remove('hidden');
+    } else {
+        overlay.classList.add('hidden');
+    }
 }
 
 function toggleInfoPanel() {
