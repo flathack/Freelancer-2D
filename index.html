@@ -37,6 +37,11 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 }
 #command-bar, #utility-bar { display: flex; gap: 4px; pointer-events: auto; flex-wrap: wrap; padding: 5px; background: linear-gradient(180deg, var(--hud-panel-top), var(--hud-panel-bottom)); border: 1px solid var(--hud-accent); box-shadow: 0 0 16px var(--hud-panel-shadow), inset 0 0 18px var(--hud-panel-inner); }
 #utility-bar { position: absolute; top: 0; right: 0; }
+#music-player { position: absolute; top: 0; left: 0; width: min(300px, calc(100vw - 28px)); pointer-events: auto; display: grid; grid-template-columns: auto 1fr auto; gap: 5px; align-items: center; padding: 5px; background: linear-gradient(180deg, var(--hud-panel-top), var(--hud-panel-bottom)); border: 1px solid var(--hud-accent); box-shadow: 0 0 16px var(--hud-panel-shadow), inset 0 0 18px var(--hud-panel-inner); }
+#music-label { color: var(--hud-highlight); font-size: 11px; white-space: nowrap; }
+#music-track-select { min-width: 0; height: 28px; padding: 0 6px; background: rgba(0,18,34,0.88); border: 1px solid var(--hud-accent-strong); color: #d8f7ff; font-family: 'Courier New', monospace; font-size: 11px; }
+#music-toggle { min-width: 54px; height: 28px; padding: 0 7px; background: rgba(0,50,80,0.8); border: 1px solid var(--hud-accent-strong); color: var(--hud-accent-soft); cursor: pointer; font-family: 'Courier New', monospace; font-size: 11px; }
+#music-toggle:hover { background: rgba(0,100,150,0.8); }
 .cmd-btn { min-width: 74px; padding: 7px 9px; background: rgba(0,50,80,0.8); border: 1px solid var(--hud-accent-strong); color: var(--hud-accent-soft); cursor: pointer; font-size: 11px; font-family: 'Courier New', monospace; }
 .cmd-btn:hover { background: rgba(0,100,150,0.8); }
 .cmd-btn.active { background: rgba(0,150,50,0.8); border-color: #00ff00; color: #00ff00; }
@@ -73,6 +78,8 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .consumable-box { border: 1px solid rgba(70,130,170,0.28); background: rgba(0,18,34,0.55); padding: 6px; color: #d8f7ff; font-size: 12px; }
 
 @media (max-width: 980px) {
+    #command-bar { margin-top: 42px; }
+    #music-player { width: min(280px, calc(100vw - 28px)); }
     #hud-left { min-width: 300px; width: calc(100vw - 28px); bottom: 120px; }
     .cmd-btn { min-width: 62px; padding: 6px 8px; font-size: 10px; }
     #hud-info { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -171,6 +178,11 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
         
         <div id="hud">
             <div id="hud-top">
+                <div id="music-player">
+                    <span id="music-label">MUSIC</span>
+                    <select id="music-track-select" title="Music track"></select>
+                    <button id="music-toggle" title="Stop or resume music">STOP</button>
+                </div>
                 <div id="command-bar">
                     <button class="cmd-btn" id="btn-freeflight" onclick="setMode('freeflight')">FREEFLIGHT</button>
                     <button class="cmd-btn" id="btn-approach" onclick="setMode('approach')">ANFLIEGEN</button>
@@ -649,6 +661,11 @@ const game = {
     audioBuffers: {},
     audioBufferLoads: {},
     audioBufferFailures: {},
+    musicAudio: null,
+    musicMode: 'space',
+    musicStoppedByUser: false,
+    currentMusicTrackPath: '',
+    manualMusicTrackPath: '',
     lastEngineSoundAt: 0
 };
 
@@ -660,6 +677,18 @@ const SAVE_VERSION = 1;
 const MAX_SAVE_SLOTS = 5;
 const GAME_TITLE = 'Freelancer 2D - a 2d adventure';
 const JUSTICE_FIRE_SOUND_PATH = 'assets/audio/justice-fire.wav';
+const MUSIC_TRACKS = {
+    space: [
+        { name: 'Deep Space', path: 'assets/music/space/SPACE-Deep-Space.mp3' },
+        { name: 'DeepSpace 2', path: 'assets/music/space/SPACE-DeepSpace2.mp3' },
+        { name: 'DeepSpace 5.1', path: 'assets/music/space/SPACE-DeepSpace5.1.mp3' },
+        { name: 'DeepSpace 5.2', path: 'assets/music/space/SPACE-DeepSpace5.2.mp3' },
+        { name: 'Orbital Drift', path: 'assets/music/space/SPACE-Orbital-Drift.mp3' }
+    ],
+    fight: [
+        { name: 'Fight 1', path: 'assets/music/fight/FIGHT-music1.mp3' }
+    ]
+};
 const ENABLE_CROSSFIRE_MOD = true;
 const MODS = [
     { id: 'vanilla', name: 'Vanilla DE', dataPath: '' },
@@ -4260,6 +4289,136 @@ function addLog(message, type = 'system') {
     }
 }
 
+function allMusicTracks() {
+    return [...MUSIC_TRACKS.space, ...MUSIC_TRACKS.fight];
+}
+
+function musicTrackByPath(path) {
+    return allMusicTracks().find(track => track.path === path) || null;
+}
+
+function musicModeForTrack(path) {
+    return MUSIC_TRACKS.fight.some(track => track.path === path) ? 'fight' : 'space';
+}
+
+function defaultMusicTrack(mode = 'space') {
+    const tracks = MUSIC_TRACKS[mode] || MUSIC_TRACKS.space;
+    return tracks[0] || null;
+}
+
+function nextMusicTrack(mode = game.musicMode) {
+    const tracks = MUSIC_TRACKS[mode] || MUSIC_TRACKS.space;
+    if (!tracks.length) return null;
+    const currentIndex = tracks.findIndex(track => track.path === game.currentMusicTrackPath);
+    return tracks[(currentIndex + 1 + tracks.length) % tracks.length];
+}
+
+function ensureMusicAudio() {
+    if (game.musicAudio) return game.musicAudio;
+    const audio = new Audio();
+    audio.preload = 'auto';
+    audio.volume = 0.45;
+    audio.addEventListener('ended', () => {
+        const track = nextMusicTrack(game.musicMode);
+        if (track) playMusicTrack(track, game.musicMode);
+    });
+    game.musicAudio = audio;
+    return audio;
+}
+
+function populateMusicPlayer() {
+    const select = document.getElementById('music-track-select');
+    if (!select) return;
+    select.innerHTML = '';
+    for (const mode of ['space', 'fight']) {
+        const group = document.createElement('optgroup');
+        group.label = mode.toUpperCase();
+        for (const track of MUSIC_TRACKS[mode]) {
+            const option = document.createElement('option');
+            option.value = track.path;
+            option.textContent = track.name;
+            group.appendChild(option);
+        }
+        select.appendChild(group);
+    }
+    const initialTrack = defaultMusicTrack('space');
+    if (initialTrack) select.value = initialTrack.path;
+}
+
+function updateMusicPlayer() {
+    const select = document.getElementById('music-track-select');
+    const button = document.getElementById('music-toggle');
+    const label = document.getElementById('music-label');
+    if (select && game.currentMusicTrackPath) select.value = game.currentMusicTrackPath;
+    if (button) button.textContent = game.musicStoppedByUser ? 'PLAY' : 'STOP';
+    if (label) label.textContent = game.musicMode === 'fight' ? 'FIGHT' : 'SPACE';
+}
+
+function playMusicTrack(track, mode = 'space', manual = false) {
+    if (!track) return;
+    const audio = ensureMusicAudio();
+    game.musicMode = mode;
+    game.currentMusicTrackPath = track.path;
+    if (manual) game.manualMusicTrackPath = track.path;
+    if (audio.src !== new URL(track.path, window.location.href).href) audio.src = track.path;
+    audio.loop = (MUSIC_TRACKS[mode] || []).length <= 1;
+    if (!game.musicStoppedByUser) audio.play().catch(error => console.warn('Music playback blocked:', error));
+    updateMusicPlayer();
+}
+
+function stopMusic(userInitiated = true) {
+    const audio = ensureMusicAudio();
+    audio.pause();
+    if (userInitiated) game.musicStoppedByUser = true;
+    updateMusicPlayer();
+}
+
+function resumeMusic() {
+    game.musicStoppedByUser = false;
+    const track = musicTrackByPath(game.currentMusicTrackPath) || defaultMusicTrack(game.musicMode);
+    playMusicTrack(track, game.musicMode);
+}
+
+function setupMusicPlayer() {
+    populateMusicPlayer();
+    ensureMusicAudio();
+    const select = document.getElementById('music-track-select');
+    const button = document.getElementById('music-toggle');
+    select?.addEventListener('change', event => {
+        const track = musicTrackByPath(event.target.value);
+        if (!track) return;
+        const mode = musicModeForTrack(track.path);
+        game.musicStoppedByUser = false;
+        playMusicTrack(track, mode, true);
+    });
+    button?.addEventListener('click', () => {
+        if (game.musicStoppedByUser) resumeMusic();
+        else stopMusic(true);
+    });
+    updateMusicPlayer();
+}
+
+function combatMusicActive() {
+    if (!game.running || game.isDocked || !game.player) return false;
+    if (game.projectiles.some(p => p.targetId === 'player')) return true;
+    return game.npcs.some(npc => {
+        if (!npc || npc.hull <= 0) return false;
+        const distance = Math.hypot(npc.x - game.player.x, npc.z - game.player.z);
+        return distance < 2600 && (npc.hostileToPlayer || npc.missionId || playerIsHostileToFaction(npc.faction) || (npc.role === 'pirate' && !npc.faction));
+    });
+}
+
+function updateMusicMode() {
+    if (game.musicStoppedByUser) return;
+    const manualTrack = musicTrackByPath(game.manualMusicTrackPath);
+    const wantedMode = combatMusicActive() ? 'fight' : (manualTrack ? musicModeForTrack(manualTrack.path) : 'space');
+    if (game.musicMode === wantedMode && game.currentMusicTrackPath) return;
+    const track = manualTrack && musicModeForTrack(manualTrack.path) === wantedMode
+        ? manualTrack
+        : defaultMusicTrack(wantedMode);
+    playMusicTrack(track, wantedMode);
+}
+
 function ensureAudio() {
     if (game.audioContext) {
         if (game.audioContext.state === 'suspended') game.audioContext.resume();
@@ -4737,6 +4896,7 @@ function renderTradeLaneWarpBubble() {
 }
 
 function update(dt) {
+    updateMusicMode();
     if (!game.running || game.isDocked) return;
     game.gameTime += dt;
     if (game.gameTime >= 1800) game.gameTime = 0;
@@ -6888,6 +7048,7 @@ async function init() {
     });
     
     setupInput();
+    setupMusicPlayer();
     initStars();
     
     game.player = new PlayerShip(6173, -50515);
@@ -6916,6 +7077,7 @@ async function init() {
 
 function startGame() {
     ensureAudio();
+    if (!game.musicStoppedByUser) playMusicTrack(defaultMusicTrack('space'), 'space');
     document.getElementById('start-screen').classList.add('hidden');
     game.running = true;
     game.hasStarted = true;
