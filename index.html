@@ -66,6 +66,9 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .hud-row-muted { color: #66889a; font-size: 11px; padding: 6px 4px; }
 .hud-kind { width: 18px; text-align: center; color: var(--hud-highlight); }
 .hud-distance { color: #8fb8c8; font-variant-numeric: tabular-nums; }
+.scanner-actions { pointer-events: auto; display: flex; justify-content: flex-end; margin-bottom: 6px; }
+.hud-action-btn { min-width: 118px; height: 28px; padding: 0 10px; background: rgba(0,34,58,0.82); border: 1px solid color-mix(in srgb, var(--hud-accent) 76%, transparent); color: var(--hud-accent-soft); cursor: pointer; font-family: 'Courier New', monospace; font-size: 11px; }
+.hud-action-btn:hover { border-color: var(--hud-highlight); color: var(--hud-highlight-soft); background: var(--hud-highlight-bg); }
 .loadout-consumables { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; margin-top: 7px; }
 .consumable-box { border: 1px solid rgba(70,130,170,0.28); background: rgba(0,18,34,0.55); padding: 6px; color: #d8f7ff; font-size: 12px; }
 
@@ -227,6 +230,9 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
             </div>
             
             <div id="hud-bottom">
+                <div class="scanner-actions">
+                    <button class="hud-action-btn" id="btn-clear-selection" onclick="clearNavigationSelection()">[-] CLEAR</button>
+                </div>
                 <div id="scanner-panel" class="hud-panel">
                     <div class="hud-panel-title"><span id="scanner-title">SCANNER</span><span id="scanner-range">12 km</span></div>
                     <div id="scanner-list" class="hud-list"></div>
@@ -667,7 +673,7 @@ const I18N = {
         maxSavesReached: 'Maximal 5 Savegames. Bitte zuerst einen Spielstand loeschen.', deleteSaveConfirm: 'Savegame "{name}" loeschen?', modDataMissing: '{mod}-Daten nicht gefunden. Starte mit Vanilla DE.',
         hudHull: 'HÜLLE', hudShield: 'SCHILD', hudEnergy: 'ENERGIE', loadoutTitle: 'WAFFEN', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Schildbatterien',
         ammoTab: 'Ammo', missileAmmo: 'Raketen', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
-        selected: 'Ausgewählt', distance: 'Distanz', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
+        selected: 'Ausgewählt', distance: 'Distanz', clearSelection: '[-] Ziel/WP', selectionCleared: 'Zielauswahl geloescht.', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
         scannerNone: 'Keine Schiffe oder Stationen in Reichweite.', noWeaponSlots: 'Keine Waffen-Slots vorhanden.', emptyWeapon: 'Leer', noGunMounted: 'Keine Waffe montiert',
         scannerShip: 'Schiff', scannerPlanet: 'Planet', scannerJumpGate: 'Sprungtor', scannerJumpHole: 'Sprungloch', scannerTradeLane: 'Tradelane', scannerStation: 'Station', scannerObject: 'Objekt', weaponSlot: 'Waffe',
         repChanged: 'Ruf geändert', repHostile: 'FEINDLICH', repFriendly: 'FREUNDLICH', repNeutral: 'NEUTRAL', noReputationData: 'Keine Rufdaten geladen.',
@@ -691,7 +697,7 @@ const I18N = {
         maxSavesReached: 'Maximum of 5 savegames. Delete one first.', deleteSaveConfirm: 'Delete savegame "{name}"?', modDataMissing: '{mod} data not found. Starting with Vanilla DE.',
         hudHull: 'HULL', hudShield: 'SHIELD', hudEnergy: 'ENERGY', loadoutTitle: 'WEAPONS', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Shield Batteries',
         ammoTab: 'Ammo', missileAmmo: 'Missiles', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
-        selected: 'Selected', distance: 'Distance', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
+        selected: 'Selected', distance: 'Distance', clearSelection: '[-] Clear', selectionCleared: 'Selection cleared.', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
         scannerNone: 'No ships or stations in range.', noWeaponSlots: 'No weapon slots available.', emptyWeapon: 'Empty', noGunMounted: 'No weapon mounted',
         scannerShip: 'Ship', scannerPlanet: 'Planet', scannerJumpGate: 'Jump Gate', scannerJumpHole: 'Jump Hole', scannerTradeLane: 'Trade Lane', scannerStation: 'Station', scannerObject: 'Object', weaponSlot: 'Weapon',
         repChanged: 'Reputation changed', repHostile: 'HOSTILE', repFriendly: 'FRIENDLY', repNeutral: 'NEUTRAL', noReputationData: 'No reputation data loaded.',
@@ -1366,7 +1372,7 @@ function updatePopulationNpcs(dt) {
 function applyLanguage() {
     const labels = [
         ['btn-freeflight', 'freeflight'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-cruise', 'cruise'], ['btn-map', 'map'],
-        ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-universe', 'universe'], ['btn-menu', 'menu'], ['btn-launch', 'launch']
+        ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-universe', 'universe'], ['btn-menu', 'menu'], ['btn-launch', 'launch'], ['btn-clear-selection', 'clearSelection']
     ];
     for (const [id, key] of labels) {
         const el = document.getElementById(id);
@@ -1656,6 +1662,20 @@ function setFreeSpaceWaypoint(x, z) {
         return game.waypoint;
     }
     return setWaypointTarget({ x, z, name: 'Waypoint', type: 'Waypoint' }, 'Waypoint');
+}
+
+function clearNavigationSelection() {
+    const hadWaypoint = Boolean(game.waypoint);
+    game.selectedTarget = null;
+    game.approachTarget = null;
+    game.dockTarget = null;
+    if (!game.activeMission || game.waypoint?.type !== 'Mission') {
+        game.waypoint = null;
+    }
+    addLog(t('selectionCleared'));
+    playSound('select', 0.45);
+    updateHUD();
+    if (hadWaypoint && !game.waypoint) saveGame();
 }
 
 function getShipPackage(packageId) {
@@ -4660,41 +4680,45 @@ function renderTradeLaneWarpBubble() {
     const ctx = game.ctx;
     const pulse = (Math.sin(performance.now() * 0.015) + 1) * 0.5;
     const speed = clamp(game.player.speed / game.player.laneSpeed, 0.08, 1.25);
-    const bubbleLength = 82 + speed * 92 + pulse * 12;
-    const bubbleWidth = 30 + speed * 28 + pulse * 7;
+    const visualScale = Math.max(0.2, Math.min(3.2, game.zoom));
+    const shipSize = Math.max(42, Math.min(76, game.player.radius * 2.8)) * visualScale;
+    const bubbleLength = shipSize * (1.05 + speed * 0.72) + pulse * 5 * visualScale;
+    const bubbleWidth = shipSize * (0.48 + speed * 0.24) + pulse * 3 * visualScale;
+    const bubbleOffset = shipSize * 0.1;
     ctx.save();
-    ctx.translate(game.width / 2, game.height / 2);
+    const pos = worldToScreen(game.player.x, game.player.z);
+    ctx.translate(pos.x, pos.y);
     ctx.rotate(game.player.rotation);
     ctx.globalCompositeOperation = 'lighter';
 
-    const shell = ctx.createRadialGradient(18, 0, 10, 18, 0, bubbleLength);
+    const shell = ctx.createRadialGradient(bubbleOffset, 0, shipSize * 0.15, bubbleOffset, 0, bubbleLength);
     shell.addColorStop(0, `rgba(210,255,245,${0.08 + speed * 0.08})`);
     shell.addColorStop(0.38, `rgba(80,255,200,${0.08 + speed * 0.1})`);
     shell.addColorStop(0.72, `rgba(50,190,255,${0.06 + speed * 0.08})`);
     shell.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = shell;
     ctx.beginPath();
-    ctx.ellipse(8, 0, bubbleLength, bubbleWidth, 0, 0, Math.PI * 2);
+    ctx.ellipse(bubbleOffset, 0, bubbleLength, bubbleWidth, 0, 0, Math.PI * 2);
     ctx.fill();
 
     for (let i = 0; i < 3; i++) {
         const ringPulse = (pulse + i * 0.28) % 1;
         const alpha = (0.28 - i * 0.055) * speed;
         ctx.strokeStyle = `rgba(135,255,220,${alpha})`;
-        ctx.lineWidth = 1.2 + ringPulse * 2.4;
+        ctx.lineWidth = Math.max(0.7, (1.2 + ringPulse * 2.4) * visualScale);
         ctx.beginPath();
-        ctx.ellipse(8 + ringPulse * 8, 0, bubbleLength * (0.78 + ringPulse * 0.18), bubbleWidth * (0.78 + ringPulse * 0.2), 0, 0, Math.PI * 2);
+        ctx.ellipse(bubbleOffset + ringPulse * shipSize * 0.12, 0, bubbleLength * (0.78 + ringPulse * 0.18), bubbleWidth * (0.78 + ringPulse * 0.2), 0, 0, Math.PI * 2);
         ctx.stroke();
     }
 
     for (let i = 0; i < 22; i++) {
-        const lane = ((i % 11) - 5) * (5 + speed * 4);
+        const lane = ((i % 11) - 5) * shipSize * (0.08 + speed * 0.04);
         const t = (i / 22 + performance.now() * 0.0032 * speed) % 1;
         const start = -bubbleLength * (0.9 + t * 0.42);
-        const end = -18 - t * 45;
+        const end = -shipSize * (0.34 + t * 0.85);
         const alpha = (0.05 + t * 0.2) * speed;
         ctx.strokeStyle = `rgba(180,255,235,${alpha})`;
-        ctx.lineWidth = 1 + t * 2.2;
+        ctx.lineWidth = Math.max(0.6, (1 + t * 2.2) * visualScale);
         ctx.beginPath();
         ctx.moveTo(start, lane * (1.2 + t));
         ctx.lineTo(end, lane * 0.35);
