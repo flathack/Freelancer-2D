@@ -6624,7 +6624,7 @@ function renderTradeDealer() {
     if (game.tradeInfoCommodityId && !market.some(entry => entry.id === game.tradeInfoCommodityId)) game.tradeInfoCommodityId = '';
     let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>${t('cargo')}: ${cargoUnits()}/${game.player.maxCargo}</span></div>`;
     html += renderTradeInfoPanel(market);
-    html += `<table class="trade-table"><tr><th>${t('commodity')}</th><th>${t('price')}</th><th>${t('stock')}</th><th>${t('quantity')}</th><th></th><th>${t('owned')}</th><th></th></tr>`;
+    html += `<table class="trade-table"><tr><th>${t('commodity')}</th><th>${t('price')}</th><th>${t('stock')}</th><th>${t('quantity')}</th><th></th><th>${t('owned')}</th><th>${t('quantity')}</th><th></th></tr>`;
     for (const entry of market) {
         const commodity = getCommodity(entry.id);
         if (!commodity) continue;
@@ -6635,9 +6635,10 @@ function renderTradeDealer() {
         const maxBuy = Math.max(0, Math.min(cargoSpace, affordable, marketStock));
         const canBuy = entry.forSale && maxBuy > 0;
         const canSell = !!cargoItem && cargoItem.quantity > 0;
-        const inputId = 'buy-qty-' + safeDomId(entry.id);
+        const buyInputId = 'buy-qty-' + safeDomId(entry.id);
+        const sellInputId = 'sell-qty-' + safeDomId(entry.id);
         const selected = game.tradeInfoCommodityId === entry.id ? ' class="selected"' : '';
-        html += `<tr${selected}><td><span class="trade-commodity-link" onclick="selectTradeInfoCommodity('${entry.id}')">${escapeHtml(commodity.name)}</span></td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td><input class="trade-qty-input" id="${inputId}" type="number" min="1" max="${maxBuy || 1}" value="${canBuy ? 1 : 0}" onkeydown="if(event.key==='Enter') buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}></td><td><button class="trade-button" onclick="buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td><td>${cargoItem ? cargoItem.quantity : 0}</td><td><button class="trade-button" onclick="sellCommodity('${entry.id}')" ${canSell ? '' : 'disabled'}>${t('sell')}</button></td></tr>`;
+        html += `<tr${selected}><td><span class="trade-commodity-link" onclick="selectTradeInfoCommodity('${entry.id}')">${escapeHtml(commodity.name)}</span></td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td><input class="trade-qty-input" id="${buyInputId}" type="number" min="1" max="${maxBuy || 1}" value="${canBuy ? 1 : 0}" onkeydown="if(event.key==='Enter') buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}></td><td><button class="trade-button" onclick="buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td><td>${cargoItem ? cargoItem.quantity : 0}</td><td><input class="trade-qty-input" id="${sellInputId}" type="number" min="1" max="${cargoItem ? cargoItem.quantity : 1}" value="${canSell ? 1 : 0}" onkeydown="if(event.key==='Enter') sellCommodity('${entry.id}')" ${canSell ? '' : 'disabled'}></td><td><button class="trade-button" onclick="sellCommodity('${entry.id}')" ${canSell ? '' : 'disabled'}>${t('sell')}</button></td></tr>`;
     }
     html += '</table>';
     content.innerHTML = html;
@@ -6697,12 +6698,16 @@ function buyCommodity(commodityId, requestedQuantity = null) {
     updateHUD();
 }
 
-function sellCommodity(commodityId) {
+function sellCommodity(commodityId, requestedQuantity = null) {
     const marketEntry = getCommodityMarket().find(entry => entry.id === commodityId);
     const cargoItem = findCargoItem(commodityId);
     if (!marketEntry || !cargoItem || cargoItem.quantity <= 0) return;
-    game.player.credits += marketEntry.price;
-    cargoItem.quantity -= 1;
+    const input = document.getElementById('sell-qty-' + safeDomId(commodityId));
+    const rawQuantity = requestedQuantity ?? Number(input?.value || 1);
+    const quantity = Math.floor(Math.max(0, Math.min(Number(rawQuantity) || 0, cargoItem.quantity)));
+    if (quantity <= 0) return;
+    game.player.credits += marketEntry.price * quantity;
+    cargoItem.quantity -= quantity;
     if (cargoItem.quantity <= 0) game.player.cargo = game.player.cargo.filter(item => item.id !== commodityId);
     playSound('buy', 0.45);
     saveGame();
