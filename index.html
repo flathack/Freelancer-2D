@@ -1467,6 +1467,8 @@ const NORMAL_FLIGHT_EXIT_SPEED = COMBAT_MAX_SPEED;
 const TRADE_LANE_ACCELERATION = 1250;
 const TRADE_LANE_DECELERATION = 1850;
 const TRADE_LANE_BRAKE_DISTANCE = 5200;
+const JUMP_TRANSITION_TOTAL_DURATION = 8;
+const JUMP_TRANSITION_PHASE_DURATION = JUMP_TRANSITION_TOTAL_DURATION / 2;
 const MISSION_SPAWN_DISTANCE = 1700;
 const MISSION_ENEMY_MIN_COUNT = 3;
 const MISSION_ENEMY_MAX_COUNT = 7;
@@ -2158,7 +2160,9 @@ function startJumpTransition(target) {
     game.jumpTransition = {
         phase: 'out',
         timer: 0,
-        duration: 1.15,
+        elapsed: 0,
+        duration: JUMP_TRANSITION_PHASE_DURATION,
+        totalDuration: JUMP_TRANSITION_TOTAL_DURATION,
         angle,
         targetSystem: target.dest || currentSystemId,
         targetObject: target.destObject,
@@ -2857,8 +2861,9 @@ function loadSystem(systemId, arrivalObjectId = null) {
     if (game.player) {
         const arrival = findArrivalObject(arrivalObjectId) || systemData.stations[0] || systemData.jumpgates[0] || { x: 0, z: 0 };
         const angle = game.jumpTransition ? game.jumpTransition.angle : game.player.rotation;
-        game.player.x = arrival.x + Math.cos(angle) * 200;
-        game.player.z = arrival.z + Math.sin(angle) * 200;
+        const arrivalOffset = game.jumpTransition ? 0 : 200;
+        game.player.x = arrival.x + Math.cos(angle) * arrivalOffset;
+        game.player.z = arrival.z + Math.sin(angle) * arrivalOffset;
         game.player.rotation = angle;
         game.player.inTradeLane = false;
         game.player.laneRoute = null;
@@ -4534,11 +4539,12 @@ function updateJumpTransition(dt) {
     const transition = game.jumpTransition;
     if (!transition) return false;
     transition.timer += dt;
+    transition.elapsed = (transition.elapsed || 0) + dt;
     game.player.rotation = transition.angle;
 
     if (transition.phase === 'out') {
         const progress = Math.min(1, transition.timer / transition.duration);
-        const speed = 4500 + progress * 22000;
+        const speed = 2600 + smoothStep(progress) * 11000;
         game.player.x += Math.cos(transition.angle) * speed * dt;
         game.player.z += Math.sin(transition.angle) * speed * dt;
         if (progress >= 1) {
@@ -4547,7 +4553,7 @@ function updateJumpTransition(dt) {
                 ...transition,
                 phase: 'in',
                 timer: 0,
-                duration: 0.9
+                duration: JUMP_TRANSITION_PHASE_DURATION
             };
         }
         return true;
@@ -4568,26 +4574,46 @@ function renderJumpTunnel() {
     const cx = game.width / 2;
     const cy = game.height / 2;
     const progress = Math.min(1, transition.timer / transition.duration);
-    const pulse = transition.phase === 'out' ? progress : 1 - progress;
+    const totalProgress = Math.min(1, (transition.elapsed || transition.timer) / (transition.totalDuration || transition.duration));
+    const phasePulse = transition.phase === 'out' ? smoothStep(progress) : 1 - smoothStep(progress);
+    const tunnelPower = Math.sin(totalProgress * Math.PI);
+    const pulse = Math.max(0.12, Math.max(phasePulse * 0.72, tunnelPower));
+    const now = performance.now();
+    const tunnelRadius = Math.max(game.width, game.height) * (0.18 + pulse * 0.42);
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
     ctx.translate(cx, cy);
     ctx.rotate(transition.angle);
-    for (let i = 0; i < 46; i++) {
-        const lane = (i - 23) * 28;
-        const length = 250 + pulse * 900 + (i % 7) * 45;
-        const offset = ((transition.timer * 1800 + i * 97) % 900) - 450;
-        const alpha = 0.12 + pulse * 0.45;
-        ctx.strokeStyle = `rgba(90,210,255,${alpha})`;
-        ctx.lineWidth = 1 + pulse * 3;
+    for (let ring = 0; ring < 18; ring++) {
+        const ringT = (ring / 18 + now * 0.00045 + totalProgress * 0.9) % 1;
+        const radiusX = 80 + ringT * tunnelRadius * 1.65;
+        const radiusY = radiusX * (0.16 + ringT * 0.1);
+        const alpha = (1 - ringT) * (0.08 + pulse * 0.3);
+        ctx.strokeStyle = `rgba(140,225,255,${alpha})`;
+        ctx.lineWidth = 1 + (1 - ringT) * 4;
         ctx.beginPath();
-        ctx.moveTo(offset - length, lane);
-        ctx.lineTo(offset + length, lane * (0.16 + pulse * 0.18));
+        ctx.ellipse(0, 0, radiusX, radiusY, 0, 0, Math.PI * 2);
         ctx.stroke();
     }
-    const gradient = ctx.createRadialGradient(0, 0, 30, 0, 0, Math.max(game.width, game.height) * 0.72);
-    gradient.addColorStop(0, `rgba(210,250,255,${0.22 + pulse * 0.35})`);
-    gradient.addColorStop(0.35, `rgba(70,150,255,${0.08 + pulse * 0.18})`);
+    for (let i = 0; i < 76; i++) {
+        const side = (i % 2 === 0 ? 1 : -1);
+        const lane = side * (24 + (i % 19) * 18);
+        const depth = (i / 76 + now * 0.0012 + totalProgress * 1.8) % 1;
+        const focus = 1 - depth;
+        const length = 280 + pulse * 1250 + (i % 9) * 60;
+        const offset = -game.width * 0.58 + depth * game.width * 1.16;
+        const alpha = 0.06 + focus * (0.15 + pulse * 0.28);
+        ctx.strokeStyle = `rgba(${90 + i % 5 * 20},${190 + i % 4 * 14},255,${alpha})`;
+        ctx.lineWidth = 1 + focus * 4;
+        ctx.beginPath();
+        ctx.moveTo(offset - length, lane);
+        ctx.lineTo(offset + length, lane * (0.06 + depth * 0.18));
+        ctx.stroke();
+    }
+    const gradient = ctx.createRadialGradient(0, 0, 26, 0, 0, Math.max(game.width, game.height) * 0.78);
+    gradient.addColorStop(0, `rgba(230,255,255,${0.22 + pulse * 0.4})`);
+    gradient.addColorStop(0.32, `rgba(80,170,255,${0.08 + pulse * 0.22})`);
+    gradient.addColorStop(0.72, `rgba(30,80,200,${0.04 + pulse * 0.12})`);
     gradient.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = gradient;
     ctx.beginPath();
@@ -4626,6 +4652,54 @@ function renderTradeLaneTunnel() {
     ctx.beginPath();
     ctx.arc(0, 0, Math.max(game.width, game.height), 0, Math.PI * 2);
     ctx.fill();
+    ctx.restore();
+}
+
+function renderTradeLaneWarpBubble() {
+    if (!game.player?.inTradeLane) return;
+    const ctx = game.ctx;
+    const pulse = (Math.sin(performance.now() * 0.015) + 1) * 0.5;
+    const speed = clamp(game.player.speed / game.player.laneSpeed, 0.08, 1.25);
+    const bubbleLength = 82 + speed * 92 + pulse * 12;
+    const bubbleWidth = 30 + speed * 28 + pulse * 7;
+    ctx.save();
+    ctx.translate(game.width / 2, game.height / 2);
+    ctx.rotate(game.player.rotation);
+    ctx.globalCompositeOperation = 'lighter';
+
+    const shell = ctx.createRadialGradient(18, 0, 10, 18, 0, bubbleLength);
+    shell.addColorStop(0, `rgba(210,255,245,${0.08 + speed * 0.08})`);
+    shell.addColorStop(0.38, `rgba(80,255,200,${0.08 + speed * 0.1})`);
+    shell.addColorStop(0.72, `rgba(50,190,255,${0.06 + speed * 0.08})`);
+    shell.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = shell;
+    ctx.beginPath();
+    ctx.ellipse(8, 0, bubbleLength, bubbleWidth, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    for (let i = 0; i < 3; i++) {
+        const ringPulse = (pulse + i * 0.28) % 1;
+        const alpha = (0.28 - i * 0.055) * speed;
+        ctx.strokeStyle = `rgba(135,255,220,${alpha})`;
+        ctx.lineWidth = 1.2 + ringPulse * 2.4;
+        ctx.beginPath();
+        ctx.ellipse(8 + ringPulse * 8, 0, bubbleLength * (0.78 + ringPulse * 0.18), bubbleWidth * (0.78 + ringPulse * 0.2), 0, 0, Math.PI * 2);
+        ctx.stroke();
+    }
+
+    for (let i = 0; i < 22; i++) {
+        const lane = ((i % 11) - 5) * (5 + speed * 4);
+        const t = (i / 22 + performance.now() * 0.0032 * speed) % 1;
+        const start = -bubbleLength * (0.9 + t * 0.42);
+        const end = -18 - t * 45;
+        const alpha = (0.05 + t * 0.2) * speed;
+        ctx.strokeStyle = `rgba(180,255,235,${alpha})`;
+        ctx.lineWidth = 1 + t * 2.2;
+        ctx.beginPath();
+        ctx.moveTo(start, lane * (1.2 + t));
+        ctx.lineTo(end, lane * 0.35);
+        ctx.stroke();
+    }
     ctx.restore();
 }
 
@@ -5005,8 +5079,8 @@ function render() {
 
     renderWaypointLine(ctx);
 
-    renderTradeLaneTunnel();
     renderJumpTunnel();
+    renderTradeLaneWarpBubble();
     renderApproachEdgeMarker(ctx);
     
     // Compass
