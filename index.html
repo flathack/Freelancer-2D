@@ -6201,6 +6201,22 @@ function getCommodityMarket(location = game.landedBase) {
     return commodityMarketsData()[baseId] || [];
 }
 
+function commodityBasePrice(commodityId) {
+    const commodity = getCommodity(commodityId);
+    return Math.max(1, Number(commodity?.basePrice) || 1);
+}
+
+function getCommodityMarketEntry(commodityId, location = game.landedBase) {
+    const wanted = String(commodityId || '').toLowerCase();
+    return getCommodityMarket(location).find(entry => String(entry.id || '').toLowerCase() === wanted) || null;
+}
+
+function getCommoditySellPrice(commodityId, location = game.landedBase) {
+    const marketEntry = getCommodityMarketEntry(commodityId, location);
+    const marketPrice = Number(marketEntry?.price || 0);
+    return marketPrice > 0 ? marketPrice : commodityBasePrice(commodityId);
+}
+
 function canonicalSystemId(systemId) {
     const wanted = String(systemId || '').toLowerCase();
     return Object.keys(gameSystemsData() || {}).find(id => id.toLowerCase() === wanted) || systemId || '';
@@ -6255,14 +6271,26 @@ function commoditySellDestinations(commodityId, sourceBaseId, sourcePrice) {
     const markets = commodityMarketsData();
     const locations = baseLocationsById();
     const jumpsBySystem = systemJumpDistances(currentSystemId);
-    return Object.entries(markets).flatMap(([baseId, market]) => {
+    const commodity = getCommodity(commodityId);
+    if (!commodity) return [];
+    const basePriceEntry = {
+        id: commodity.id,
+        price: commodityBasePrice(commodity.id),
+        forSale: false,
+        stockMin: 0,
+        stockMax: 0,
+        basePriceFallback: true
+    };
+    const baseIds = new Set([...Object.keys(locations), ...Object.keys(markets)]);
+    return Array.from(baseIds).flatMap(baseId => {
         if (baseId === sourceBaseId) return [];
+        const market = markets[baseId] || [];
         const entry = (market || []).find(item => String(item.id || '').toLowerCase() === String(commodityId || '').toLowerCase());
-        if (!entry || Number(entry.price) <= 0) return [];
+        const sellEntry = Number(entry?.price || 0) > 0 ? entry : basePriceEntry;
         const location = locations[baseId] || { baseId, name: baseId, systemId: '', systemName: '' };
         const jumps = jumpsBySystem[location.systemId];
         const distance = tradeDestinationDistance(location);
-        return [{ baseId, location, entry, jumps, distance, profit: Number(entry.price) - Number(sourcePrice || 0) }];
+        return [{ baseId, location, entry: sellEntry, jumps, distance, profit: Number(sellEntry.price) - Number(sourcePrice || 0) }];
     }).sort((a, b) => {
         const aJumps = a.jumps ?? Infinity;
         const bJumps = b.jumps ?? Infinity;
@@ -6617,15 +6645,27 @@ function renderTradeDealer() {
     if (!content) return;
     const market = getCommodityMarket();
     const cargo = game.player.cargo || [];
-    if (!market.length) {
+    const marketIds = new Set(market.map(entry => String(entry.id || '').toLowerCase()));
+    const cargoOnlyEntries = cargo
+        .filter(item => !marketIds.has(String(item.id || '').toLowerCase()) && getCommodity(item.id))
+        .map(item => ({
+            id: String(item.id || '').toLowerCase(),
+            price: getCommoditySellPrice(item.id),
+            forSale: false,
+            stockMin: 0,
+            stockMax: 0,
+            basePriceFallback: true
+        }));
+    const tradeEntries = [...market, ...cargoOnlyEntries];
+    if (!tradeEntries.length) {
         content.innerHTML = `<div style="color:#ffaa00;">${t('noCommodityMarket')}</div>`;
         return;
     }
-    if (game.tradeInfoCommodityId && !market.some(entry => entry.id === game.tradeInfoCommodityId)) game.tradeInfoCommodityId = '';
+    if (game.tradeInfoCommodityId && !tradeEntries.some(entry => entry.id === game.tradeInfoCommodityId)) game.tradeInfoCommodityId = '';
     let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>${t('cargo')}: ${cargoUnits()}/${game.player.maxCargo}</span></div>`;
-    html += renderTradeInfoPanel(market);
+    html += renderTradeInfoPanel(tradeEntries);
     html += `<table class="trade-table"><tr><th>${t('commodity')}</th><th>${t('price')}</th><th>${t('stock')}</th><th>${t('quantity')}</th><th></th><th>${t('owned')}</th><th>${t('quantity')}</th><th></th></tr>`;
-    for (const entry of market) {
+    for (const entry of tradeEntries) {
         const commodity = getCommodity(entry.id);
         if (!commodity) continue;
         const cargoItem = findCargoItem(entry.id);
@@ -6699,14 +6739,15 @@ function buyCommodity(commodityId, requestedQuantity = null) {
 }
 
 function sellCommodity(commodityId, requestedQuantity = null) {
-    const marketEntry = getCommodityMarket().find(entry => entry.id === commodityId);
+    const sellPrice = getCommoditySellPrice(commodityId);
+    const commodity = getCommodity(commodityId);
     const cargoItem = findCargoItem(commodityId);
-    if (!marketEntry || !cargoItem || cargoItem.quantity <= 0) return;
+    if (!commodity || sellPrice <= 0 || !cargoItem || cargoItem.quantity <= 0) return;
     const input = document.getElementById('sell-qty-' + safeDomId(commodityId));
     const rawQuantity = requestedQuantity ?? Number(input?.value || 1);
     const quantity = Math.floor(Math.max(0, Math.min(Number(rawQuantity) || 0, cargoItem.quantity)));
     if (quantity <= 0) return;
-    game.player.credits += marketEntry.price * quantity;
+    game.player.credits += sellPrice * quantity;
     cargoItem.quantity -= quantity;
     if (cargoItem.quantity <= 0) game.player.cargo = game.player.cargo.filter(item => item.id !== commodityId);
     playSound('buy', 0.45);
