@@ -137,6 +137,14 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .trade-table { width: 100%; border-collapse: collapse; font-size: 12px; }
 .trade-table th { text-align: left; padding: 7px; background: #002244; color: #8ee8ff; }
 .trade-table td { padding: 6px; border-bottom: 1px solid #1b2c38; }
+.trade-table tr.selected { background: rgba(80,52,0,0.28); }
+.trade-commodity-link { color: #00ff00; cursor: pointer; }
+.trade-commodity-link:hover { color: #fff1c7; }
+.trade-info-panel { margin: 10px 0; padding: 10px; border: 1px solid #22516b; background: rgba(0,18,34,0.72); color: #b9efff; }
+.trade-info-title { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: #ffaa00; margin-bottom: 8px; }
+.trade-info-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.trade-info-table th { text-align: left; padding: 6px; border-bottom: 1px solid #24445c; color: #8ee8ff; }
+.trade-info-table td { padding: 5px 6px; border-bottom: 1px solid #162d3c; }
 .trade-button { padding: 4px 9px; background: #003300; border: 1px solid #00aa00; color: #00ff00; cursor: pointer; font-family: 'Courier New', monospace; }
 .trade-button:disabled { background: #222; border-color: #555; color: #777; cursor: not-allowed; }
 .trade-qty-input { width: 64px; padding: 4px 6px; background: #001a24; border: 1px solid #24708f; color: #d8f7ff; font-family: 'Courier New', monospace; }
@@ -632,6 +640,7 @@ const game = {
     maxUniverseZoom: 6,
     waypoint: null,
     equipmentDealerTab: 'equipment',
+    tradeInfoCommodityId: '',
     activeMission: null,
     missionOffers: {},
     populationSpawnTimer: 0,
@@ -662,7 +671,7 @@ const I18N = {
         freeflight: 'FREIFLUG', approach: 'ANFLIEGEN', dock: 'ANDOCKEN', cruise: 'REISEFLUG', menu: 'MENÜ', map: 'KARTE', inventory: 'INVENTAR', reputation: 'RUF', info: 'INFO', shipShop: 'SCHIFFHÄNDLER', universe: 'UNIVERSUM',
         launch: 'Starten', launchDeck: 'Launch Deck', bar: 'Bar', equipmentDealer: 'Equipment Dealer', tradeDealer: 'Trade Dealer', shipDealer: 'Ship Dealer', missions: 'Missionen',
         landedAt: 'Gelandet auf', noCommodityMarket: 'Dieser Ort hat keinen Commodity-Markt.', noEquipment: 'Equipment-Handel ist noch nicht implementiert.', barText: 'Piloten, Gerüchte und Jobangebote folgen später.',
-        buy: 'KAUFEN', sell: 'VERKAUFEN', owned: 'BESITZ', credits: 'Credits', cargo: 'Laderaum', price: 'Preis', stock: 'Bestand', commodity: 'Ware', quantity: 'Menge',
+        buy: 'KAUFEN', sell: 'VERKAUFEN', owned: 'BESITZ', credits: 'Credits', cargo: 'Laderaum', price: 'Preis', stock: 'Bestand', commodity: 'Ware', quantity: 'Menge', tradeInfo: 'Trade-Informationen', tradeInfoHint: 'Ware anklicken, um Verkaufsziele zu sehen.', sellAt: 'Verkaufen bei', jumps: 'Spruenge', profit: 'Profit', noSellTargets: 'Keine Verkaufsziele fuer diese Ware gefunden.', unreachable: 'nicht erreichbar',
         shipDealerDockOnly: 'Schiffe koennen nur nach dem Andocken gekauft werden.', noShipsSold: 'Hier werden keine Schiffe verkauft.', atmosphereWarning: 'Atmosphaereneintritt', planetImpact: 'Planetare Kollision',
         startGame: 'SPIEL STARTEN', continueGame: 'WEITER', startNew: 'NEUES SPIEL', startDelete: 'SAVE LOESCHEN', saveNamePlaceholder: 'Name fuer neues Savegame', mainMenuLanguage: 'SPRACHE',
         startControls: 'Steuerung', controlRotate: 'Linke Maustaste halten - Schiff drehen', controlCursor: 'Linke Maustaste loslassen - Cursor-Modus', controlFire: 'Rechte Maustaste - Primärwaffen | Q - Raketen',
@@ -686,7 +695,7 @@ const I18N = {
         freeflight: 'FREEFLIGHT', approach: 'APPROACH', dock: 'DOCK', cruise: 'CRUISE', menu: 'MENU', map: 'MAP', inventory: 'INVENTORY', reputation: 'REP', info: 'INFO', shipShop: 'SHIP DEALER', universe: 'UNIVERSE',
         launch: 'Launch', launchDeck: 'Launch Deck', bar: 'Bar', equipmentDealer: 'Equipment Dealer', tradeDealer: 'Trade Dealer', shipDealer: 'Ship Dealer', missions: 'Missions',
         landedAt: 'Landed at', noCommodityMarket: 'This location has no commodity market.', noEquipment: 'Equipment trading is not implemented yet.', barText: 'Pilots, rumors, and job offers will arrive later.',
-        buy: 'BUY', sell: 'SELL', owned: 'OWNED', credits: 'Credits', cargo: 'Cargo', price: 'Price', stock: 'Stock', commodity: 'Commodity', quantity: 'Qty',
+        buy: 'BUY', sell: 'SELL', owned: 'OWNED', credits: 'Credits', cargo: 'Cargo', price: 'Price', stock: 'Stock', commodity: 'Commodity', quantity: 'Qty', tradeInfo: 'Trade Information', tradeInfoHint: 'Click a commodity to see sell destinations.', sellAt: 'Sell at', jumps: 'Jumps', profit: 'Profit', noSellTargets: 'No sell destinations found for this commodity.', unreachable: 'unreachable',
         shipDealerDockOnly: 'Ships can only be bought while docked.', noShipsSold: 'No ships are sold here.', atmosphereWarning: 'Atmosphere entry', planetImpact: 'Planetary collision',
         startGame: 'START GAME', continueGame: 'CONTINUE', startNew: 'NEW GAME', startDelete: 'DELETE SAVE', saveNamePlaceholder: 'Name for new savegame', mainMenuLanguage: 'LANGUAGE',
         startControls: 'Controls', controlRotate: 'Left Mouse (hold) - Rotate ship', controlCursor: 'Left Mouse (release) - Cursor mode', controlFire: 'Right Mouse - Primary fire | Q - Missiles',
@@ -6192,6 +6201,77 @@ function getCommodityMarket(location = game.landedBase) {
     return commodityMarketsData()[baseId] || [];
 }
 
+function canonicalSystemId(systemId) {
+    const wanted = String(systemId || '').toLowerCase();
+    return Object.keys(gameSystemsData() || {}).find(id => id.toLowerCase() === wanted) || systemId || '';
+}
+
+function systemJumpDistances(startSystemId = currentSystemId) {
+    const systems = gameSystemsData() || {};
+    const start = canonicalSystemId(startSystemId);
+    const distances = { [start]: 0 };
+    const queue = [start];
+    for (let cursor = 0; cursor < queue.length; cursor++) {
+        const systemId = queue[cursor];
+        const raw = systems[canonicalSystemId(systemId)] || {};
+        const links = [...(raw.jumpgates || []), ...(raw.jumpholes || [])]
+            .map(link => canonicalSystemId(link.dest_system))
+            .filter(Boolean);
+        for (const next of links) {
+            if (distances[next] !== undefined) continue;
+            distances[next] = distances[systemId] + 1;
+            queue.push(next);
+        }
+    }
+    return distances;
+}
+
+function baseLocationsById() {
+    const locations = {};
+    for (const systemId of Object.keys(gameSystemsData() || {})) {
+        const built = buildSystemData(systemId);
+        const dockables = [...(built.planets || []), ...(built.stations || [])];
+        for (const dockable of dockables) {
+            const baseId = getBaseId(dockable);
+            if (!baseId || locations[baseId]) continue;
+            locations[baseId] = { ...dockable, baseId, systemId: canonicalSystemId(systemId), systemName: built.name || systemId };
+        }
+    }
+    return locations;
+}
+
+function tradeDestinationDistance(location) {
+    if (!location) return Infinity;
+    if (location.systemId?.toLowerCase() === currentSystemId.toLowerCase()) {
+        return game.player ? Math.hypot((location.x || 0) - game.player.x, (location.z || 0) - game.player.z) : 0;
+    }
+    const built = buildSystemData(location.systemId);
+    const gates = built.jumpgates || [];
+    if (!gates.length) return Infinity;
+    return Math.min(...gates.map(gate => Math.hypot((location.x || 0) - gate.x, (location.z || 0) - gate.z)));
+}
+
+function commoditySellDestinations(commodityId, sourceBaseId, sourcePrice) {
+    const markets = commodityMarketsData();
+    const locations = baseLocationsById();
+    const jumpsBySystem = systemJumpDistances(currentSystemId);
+    return Object.entries(markets).flatMap(([baseId, market]) => {
+        if (baseId === sourceBaseId) return [];
+        const entry = (market || []).find(item => String(item.id || '').toLowerCase() === String(commodityId || '').toLowerCase());
+        if (!entry || Number(entry.price) <= 0) return [];
+        const location = locations[baseId] || { baseId, name: baseId, systemId: '', systemName: '' };
+        const jumps = jumpsBySystem[location.systemId];
+        const distance = tradeDestinationDistance(location);
+        return [{ baseId, location, entry, jumps, distance, profit: Number(entry.price) - Number(sourcePrice || 0) }];
+    }).sort((a, b) => {
+        const aJumps = a.jumps ?? Infinity;
+        const bJumps = b.jumps ?? Infinity;
+        if (aJumps !== bJumps) return aJumps - bJumps;
+        if (a.distance !== b.distance) return a.distance - b.distance;
+        return b.entry.price - a.entry.price;
+    });
+}
+
 function getEquipmentMarket(location = game.landedBase) {
     const baseId = getBaseId(location);
     if (!baseId) return [];
@@ -6541,7 +6621,9 @@ function renderTradeDealer() {
         content.innerHTML = `<div style="color:#ffaa00;">${t('noCommodityMarket')}</div>`;
         return;
     }
+    if (game.tradeInfoCommodityId && !market.some(entry => entry.id === game.tradeInfoCommodityId)) game.tradeInfoCommodityId = '';
     let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>${t('cargo')}: ${cargoUnits()}/${game.player.maxCargo}</span></div>`;
+    html += renderTradeInfoPanel(market);
     html += `<table class="trade-table"><tr><th>${t('commodity')}</th><th>${t('price')}</th><th>${t('stock')}</th><th>${t('quantity')}</th><th></th><th>${t('owned')}</th><th></th></tr>`;
     for (const entry of market) {
         const commodity = getCommodity(entry.id);
@@ -6554,10 +6636,40 @@ function renderTradeDealer() {
         const canBuy = entry.forSale && maxBuy > 0;
         const canSell = !!cargoItem && cargoItem.quantity > 0;
         const inputId = 'buy-qty-' + safeDomId(entry.id);
-        html += `<tr><td style="color:#00ff00;">${escapeHtml(commodity.name)}</td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td><input class="trade-qty-input" id="${inputId}" type="number" min="1" max="${maxBuy || 1}" value="${canBuy ? 1 : 0}" onkeydown="if(event.key==='Enter') buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}></td><td><button class="trade-button" onclick="buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td><td>${cargoItem ? cargoItem.quantity : 0}</td><td><button class="trade-button" onclick="sellCommodity('${entry.id}')" ${canSell ? '' : 'disabled'}>${t('sell')}</button></td></tr>`;
+        const selected = game.tradeInfoCommodityId === entry.id ? ' class="selected"' : '';
+        html += `<tr${selected}><td><span class="trade-commodity-link" onclick="selectTradeInfoCommodity('${entry.id}')">${escapeHtml(commodity.name)}</span></td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td><input class="trade-qty-input" id="${inputId}" type="number" min="1" max="${maxBuy || 1}" value="${canBuy ? 1 : 0}" onkeydown="if(event.key==='Enter') buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}></td><td><button class="trade-button" onclick="buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td><td>${cargoItem ? cargoItem.quantity : 0}</td><td><button class="trade-button" onclick="sellCommodity('${entry.id}')" ${canSell ? '' : 'disabled'}>${t('sell')}</button></td></tr>`;
     }
     html += '</table>';
     content.innerHTML = html;
+}
+
+function renderTradeInfoPanel(market) {
+    const selectedId = game.tradeInfoCommodityId;
+    if (!selectedId) return `<div class="trade-info-panel"><div class="trade-info-title"><strong>${escapeHtml(t('tradeInfo'))}</strong></div><span style="color:#8fb8c8;">${escapeHtml(t('tradeInfoHint'))}</span></div>`;
+    const sourceEntry = market.find(entry => entry.id === selectedId);
+    const commodity = getCommodity(selectedId);
+    if (!sourceEntry || !commodity) return '';
+    const sourceBaseId = getBaseId(game.landedBase);
+    const destinations = commoditySellDestinations(selectedId, sourceBaseId, sourceEntry.price).slice(0, 20);
+    let html = `<div class="trade-info-panel"><div class="trade-info-title"><strong>${escapeHtml(t('tradeInfo'))}: ${escapeHtml(commodity.name)}</strong><span>${escapeHtml(t('price'))}: ${Number(sourceEntry.price || 0).toLocaleString()} CR</span></div>`;
+    if (!destinations.length) {
+        html += `<div style="color:#ffaa00;">${escapeHtml(t('noSellTargets'))}</div></div>`;
+        return html;
+    }
+    html += `<table class="trade-info-table"><tr><th>${escapeHtml(t('sellAt'))}</th><th>System</th><th>${escapeHtml(t('jumps'))}</th><th>${escapeHtml(t('distance'))}</th><th>${escapeHtml(t('price'))}</th><th>${escapeHtml(t('profit'))}</th></tr>`;
+    for (const destination of destinations) {
+        const jumps = destination.jumps === undefined ? t('unreachable') : destination.jumps;
+        const distance = Number.isFinite(destination.distance) ? formatDistance(destination.distance) : '-';
+        const profitColor = destination.profit >= 0 ? '#00ff00' : '#ff7777';
+        html += `<tr><td>${escapeHtml(destination.location.name || destination.baseId)}</td><td>${escapeHtml(destination.location.systemName || destination.location.systemId || '-')}</td><td>${escapeHtml(jumps)}</td><td>${escapeHtml(distance)}</td><td style="color:#ffaa00;">${Number(destination.entry.price || 0).toLocaleString()} CR</td><td style="color:${profitColor};">${destination.profit >= 0 ? '+' : ''}${destination.profit.toLocaleString()} CR</td></tr>`;
+    }
+    html += '</table></div>';
+    return html;
+}
+
+function selectTradeInfoCommodity(commodityId) {
+    game.tradeInfoCommodityId = commodityId;
+    renderTradeDealer();
 }
 
 function buyCommodity(commodityId, requestedQuantity = null) {
