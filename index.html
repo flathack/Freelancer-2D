@@ -3567,7 +3567,7 @@ function checkZoneHazards(dt) {
             game.player.reverseActive = false;
             updateCruiseButton();
         }
-        game.player.takeDamage(damage * dt);
+        game.player.takeHullDamage(damage * dt, 'Radiation damage');
         if (zone.dragModifier && zone.dragModifier !== 1) game.player.speed *= Math.max(0.25, Math.min(1, zone.dragModifier));
         if (!game.player.lastZoneDamageWarning || performance.now() - game.player.lastZoneDamageWarning > 1200) {
             addLog('Zone damage: ' + (zone.name || zone.id) + ' (' + damage + '/s)', 'alert');
@@ -4289,6 +4289,18 @@ class PlayerShip {
         if (this.hull <= 0) {
             this.hull = 0;
             addLog('Ship destroyed!', 'alert');
+            destroyPlayerShip();
+        }
+    }
+
+    takeHullDamage(amount, source = 'Hull damage') {
+        const damage = Math.max(0, Number(amount) || 0);
+        if (damage <= 0) return;
+        this.hull -= damage;
+        if (damage > 4) playSound('hit', Math.min(1.4, damage / 16));
+        if (this.hull <= 0) {
+            this.hull = 0;
+            addLog(source + ': ship destroyed!', 'alert');
             destroyPlayerShip();
         }
     }
