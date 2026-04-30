@@ -10,8 +10,8 @@
 
 [-] Mine Dropper Implementation
 [-] Countermeasure Dropper Implementation
-[-] Thruster functional
-[-] Objects clickable on scanner interface
+[x] Thruster functional: only when a ship has a thruster equipped, the TAB key should work (speed buff to 200 m/s). Also the thruster should use thruster capacity and using thruster reduces thrust capacity. see ini files for information. its like powerusage for weapons but separate. Other thrusters have different powerusages. The ships power plants have a separate thrust capacity value. Also the power plant should be visible in the inventory but not sellable and not unequiptable
+[X] Objects clickable on scanner interface
 [X] Waypoint should appear as target in scanner overview. then you can click objects on the scanner and fly to them.
 
 ## Bugs

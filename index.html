@@ -290,6 +290,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                     <span id="system-name">SYSTEM: LI01</span>
                     <span id="game-time">00:00</span>
                     <span id="zoom-display">ZOOM: 1.0x</span>
+                    <span id="thrust-display">THRUST: 0/0</span>
                     <span id="mode-indicator">FREEFLIGHT</span>
                 </div>
             </div>
@@ -1254,8 +1255,40 @@ function equipmentSlotLabel(slot) {
     return slot.charAt(0).toUpperCase() + slot.slice(1);
 }
 
+function currentPowerPlantItem() {
+    if (!game.player) return null;
+    const mountedPowerplant = getEquipment(game.player.mountedEquipment?.powerplant);
+    if (mountedPowerplant) return mountedPowerplant;
+    const packagePowerplant = currentShipPackage()?.powerplant || null;
+    const equipmentPowerplant = getEquipment(game.player.powerPlantId);
+    if (equipmentPowerplant) return equipmentPowerplant;
+    if (!packagePowerplant && !game.player.powerPlantId) return null;
+    return {
+        id: game.player.powerPlantId || packagePowerplant?.id || 'ship_powerplant',
+        name: game.player.powerPlantName || packagePowerplant?.name || 'Powerplant',
+        category: 'powerplant',
+        capacity: game.player.baseMaxEnergy || game.player.maxEnergy || packagePowerplant?.capacity || 0,
+        chargeRate: game.player.basePowerGen || game.player.powerGen || packagePowerplant?.chargeRate || 0,
+        thrustCapacity: game.player.baseThrustCapacity || game.player.thrustCapacity || packagePowerplant?.thrustCapacity || 0,
+        thrustChargeRate: game.player.baseThrustChargeRate || game.player.thrustChargeRate || packagePowerplant?.thrustChargeRate || 0
+    };
+}
+
 function mountedEquipmentItem(slot) {
+    if (slot === 'powerplant') return currentPowerPlantItem();
     return getEquipment(game.player?.mountedEquipment?.[slot]);
+}
+
+function mountedThrusterItem() {
+    return mountedEquipmentItem('thruster');
+}
+
+function thrusterPowerUsage(item = mountedThrusterItem()) {
+    return Math.max(1, Number(item?.powerUsage || item?.thrustPowerUsage || 0) || 100);
+}
+
+function hasMountedThruster() {
+    return Boolean(mountedThrusterItem());
 }
 
 function equippedShieldItem() {
@@ -2710,6 +2743,7 @@ function createSaveGameState() {
             hull: game.player.hull,
             shield: game.player.shield,
             energy: game.player.energy,
+            thrustEnergy: game.player.thrustEnergy,
             credits: game.player.credits,
             cargo: game.player.cargo,
             equipmentInventory: game.player.equipmentInventory,
@@ -2781,6 +2815,7 @@ function restorePlayerFromSave(save) {
     game.player.speed = Number.isFinite(savedPlayer.speed) ? Math.min(savedPlayer.speed, game.player.cruiseSpeed) : 0;
     game.player.hull = Math.max(1, Math.min(game.player.maxHull, Number(savedPlayer.hull) || game.player.maxHull));
     game.player.energy = Math.max(0, Math.min(game.player.maxEnergy, Number(savedPlayer.energy) || game.player.maxEnergy));
+    game.player.thrustEnergy = Math.max(0, Math.min(game.player.thrustCapacity, Number.isFinite(savedPlayer.thrustEnergy) ? savedPlayer.thrustEnergy : game.player.thrustCapacity));
     game.player.credits = Number.isFinite(savedPlayer.credits) ? savedPlayer.credits : game.player.credits;
     game.player.cargo = Array.isArray(savedPlayer.cargo) ? savedPlayer.cargo : [];
     game.player.equipmentInventory = Array.isArray(savedPlayer.equipmentInventory) ? savedPlayer.equipmentInventory : [];
@@ -2913,7 +2948,12 @@ function resetTouchJoystick() {
 }
 
 function canUseTouchAfterburner() {
-    return game.player && !game.isDocked && !game.player.inTradeLane && !game.player.cruiseActive && !game.player.cruiseCharging && !game.jumpTransition;
+    return canUseAfterburner();
+}
+
+function canUseAfterburner() {
+    const p = game.player;
+    return Boolean(p && !game.isDocked && !p.inTradeLane && !p.cruiseActive && !p.cruiseCharging && !game.jumpTransition && hasMountedThruster() && (Number(p.thrustEnergy) || 0) > 0);
 }
 
 function setTouchAfterburner(active) {
@@ -2929,6 +2969,12 @@ function setTouchAfterburner(active) {
         game.player.afterburnerActive = false;
     }
     updateSpeedControl();
+}
+
+function syncTouchAfterburnerButton() {
+    if (game.player?.afterburnerActive) return;
+    game.touchAfterburnerActive = false;
+    document.getElementById('touch-afterburner')?.classList.remove('active');
 }
 
 function setTouchFire(active) {
@@ -3057,10 +3103,12 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.powerGen = Number.isFinite(stats.powerChargeRate) ? stats.powerChargeRate : game.player.powerGen;
     game.player.thrustCapacity = Number.isFinite(stats.thrustCapacity) ? stats.thrustCapacity : game.player.thrustCapacity;
     game.player.thrustChargeRate = Number.isFinite(stats.thrustChargeRate) ? stats.thrustChargeRate : game.player.thrustChargeRate;
+    game.player.thrustEnergy = game.player.thrustCapacity;
     game.player.baseMaxEnergy = game.player.maxEnergy;
     game.player.basePowerGen = game.player.powerGen;
     game.player.baseThrustCapacity = game.player.thrustCapacity;
     game.player.baseThrustChargeRate = game.player.thrustChargeRate;
+    game.player.baseAcceleration = game.player.acceleration;
     game.player.energy = Math.min(game.player.maxEnergy, Math.max(game.player.energy || game.player.maxEnergy, game.player.maxEnergy));
     game.player.firePower = stats.firePower || game.player.firePower || 1;
     game.player.baseFirePower = game.player.firePower;
@@ -3595,7 +3643,7 @@ function segmentCrossesExpandedZone(zone, x1, z1, x2, z2, margin = 0) {
     return -1;
 }
 
-function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 2600) {
+function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
     const dx = targetX - x;
     const dz = targetZ - z;
     const routeLength = Math.hypot(dx, dz);
@@ -3613,7 +3661,7 @@ function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 2600) {
     if (!threat) return { x: 0, z: 0, magnitude: 0 };
 
     const zone = threat.zone;
-    const radius = Math.max(zone.sizeX || zone.size || 1, zone.sizeZ || zone.size || 1) + margin + 900;
+    const radius = Math.max(zone.sizeX || zone.size || 1, zone.sizeZ || zone.size || 1) + margin + 420;
     const sideHint = Math.sign((zone.x - x) * nx + (zone.z - z) * nz) || 1;
     const candidates = [sideHint, -sideHint].map(side => ({
         x: zone.x + nx * radius * side,
@@ -3959,6 +4007,7 @@ class PlayerShip {
         this.powerPlantName = 'Powerplant';
         this.thrustCapacity = 1000;
         this.thrustChargeRate = 100;
+        this.thrustEnergy = this.thrustCapacity;
         this.credits = 100000; this.cargo = []; this.maxCargo = 50;
         this.equipmentInventory = [];
         this.mountedEquipment = {};
@@ -4002,6 +4051,16 @@ class PlayerShip {
         
         // Energy regen from powerplant
         this.energy = Math.min(this.maxEnergy, this.energy + this.powerGen * dt);
+        this.thrustCapacity = Math.max(0, Number(this.thrustCapacity) || 0);
+        this.thrustEnergy = Math.min(this.thrustCapacity, Math.max(0, Number(this.thrustEnergy) || 0));
+        if (this.afterburnerActive && !canUseAfterburner()) this.afterburnerActive = false;
+        if (this.afterburnerActive) {
+            this.thrustEnergy = Math.max(0, this.thrustEnergy - thrusterPowerUsage() * dt);
+            if (this.thrustEnergy <= 0) this.afterburnerActive = false;
+        } else {
+            this.thrustEnergy = Math.min(this.thrustCapacity, this.thrustEnergy + Math.max(0, Number(this.thrustChargeRate) || 0) * dt);
+        }
+        if (!this.afterburnerActive) syncTouchAfterburnerButton();
         
         // Shield regen (only when not taking damage)
         if (this.maxShield > 0 && this.shield < this.maxShield) {
@@ -4067,7 +4126,7 @@ class PlayerShip {
             
             if (dist > arrivalDistance) {
                 const avoidance = getAvoidanceVector(this.x, this.z, game.dockTarget ? 1900 : 1500);
-                const deathZoneAvoidance = getAutopilotDeathZoneAvoidance(this.x, this.z, game.approachTarget.x, game.approachTarget.z, game.dockTarget ? 3000 : 2600);
+                const deathZoneAvoidance = getAutopilotDeathZoneAvoidance(this.x, this.z, game.approachTarget.x, game.approachTarget.z, game.dockTarget ? 1700 : 1400);
                 const isAvoidingDeathZone = deathZoneAvoidance.magnitude > 0;
                 const steerX = isAvoidingDeathZone
                     ? deathZoneAvoidance.x + avoidance.x * Math.min(dist, 2600)
@@ -6728,6 +6787,8 @@ function updateHUD() {
     document.getElementById('game-time').textContent = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
     document.getElementById('zoom-display').textContent = `ZOOM: ${game.zoom.toFixed(1)}x`;
     document.getElementById('speed-display').textContent = `SPEED: ${Math.round(p.speed)} m/s`;
+    const thrustDisplay = document.getElementById('thrust-display');
+    if (thrustDisplay) thrustDisplay.textContent = `THRUST: ${Math.round(p.thrustEnergy || 0)}/${Math.round(p.thrustCapacity || 0)}`;
     updateSpeedControl();
     updateZoomControl();
     updateCruiseButton();
@@ -7191,7 +7252,7 @@ function setupInput() {
                 break;
             case 'Tab':
                 e.preventDefault();
-                if (!game.player.inTradeLane && !game.player.cruiseActive && !game.player.cruiseCharging && !game.jumpTransition) {
+                if (canUseAfterburner()) {
                     game.player.afterburnerActive = true;
                     game.player.reverseActive = false;
                     game.player.throttle = 1;
@@ -8069,10 +8130,13 @@ function renderInventoryPanel() {
     html += '</div>';
 
     html += `<div class="inventory-section"><div class="inventory-section-title">Mounted Equipment</div>`;
-    const mountedEntries = Object.entries(p.mountedEquipment || {}).filter(([, itemId]) => itemId);
+    const mountedEntries = [
+        ...(currentPowerPlantItem() ? [['powerplant', currentPowerPlantItem().id]] : []),
+        ...Object.entries(p.mountedEquipment || {}).filter(([slot]) => slot !== 'powerplant')
+    ].filter(([, itemId]) => itemId);
     if (mountedEntries.length) {
         for (const [slot, itemId] of mountedEntries) {
-            const item = getEquipment(itemId);
+            const item = slot === 'powerplant' ? currentPowerPlantItem() : getEquipment(itemId);
             html += inventoryRow(item?.name || itemId, 1, equipmentSlotLabel(slot));
         }
     } else {
@@ -8290,6 +8354,7 @@ function applyMountedEquipmentEffects() {
     game.player.powerGen = game.player.basePowerGen || game.player.powerGen;
     game.player.thrustCapacity = game.player.baseThrustCapacity || game.player.thrustCapacity;
     game.player.thrustChargeRate = game.player.baseThrustChargeRate || game.player.thrustChargeRate;
+    game.player.acceleration = game.player.baseAcceleration || game.player.acceleration;
     game.player.baseMaxSpeed = COMBAT_MAX_SPEED;
     game.player.maxSpeed = game.player.baseMaxSpeed;
     for (const itemId of Object.values(mounted)) {
@@ -8319,6 +8384,8 @@ function applyMountedEquipmentEffects() {
             game.player.maxSpeed = game.player.baseMaxSpeed;
         }
     }
+    game.player.thrustEnergy = Math.min(game.player.thrustCapacity, Number.isFinite(game.player.thrustEnergy) ? game.player.thrustEnergy : game.player.thrustCapacity);
+    if (!hasMountedThruster()) game.player.afterburnerActive = false;
     game.player.shield = game.player.maxShield > 0 ? Math.min(game.player.maxShield, game.player.maxShield * previousShieldRatio) : 0;
 }
 
@@ -8460,7 +8527,7 @@ function renderEquipmentDealer() {
     const inventory = game.player.equipmentInventory || [];
     const repairCost = shipRepairCost();
     const dealerTab = game.equipmentDealerTab || 'equipment';
-    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span><span>${tf('missileAmmoCount', { count: totalMissileAmmoCount(), max: game.player.maxMissileAmmo })}</span></div>`;
+    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Thrust: ${Math.round(game.player.thrustEnergy || 0).toLocaleString()}/${Math.round(game.player.thrustCapacity || 0).toLocaleString()} / +${Math.round(game.player.thrustChargeRate || 0).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span><span>${tf('missileAmmoCount', { count: totalMissileAmmoCount(), max: game.player.maxMissileAmmo })}</span></div>`;
     html += `<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;padding:8px;border:1px solid #24445c;background:#07141f;"><span style="color:#b9efff;">Ship repair: ${repairCost > 0 ? repairCost.toLocaleString() + ' CR' : 'no damage'}</span><button class="trade-button" onclick="repairPlayerShip()" ${repairCost > 0 && game.player.credits >= repairCost ? '' : 'disabled'}>REPAIR</button></div>`;
     if (!market.length) {
         html += `<div style="color:#ffaa00;">${t('noEquipment')}</div>`;
@@ -8473,7 +8540,8 @@ function renderEquipmentDealer() {
     for (const slot of slots) {
         const item = mountedEquipmentItem(slot);
         const itemMeta = item ? `${equipmentMountType(item)} class ${equipmentClass(item)}` : '';
-        html += `<div class="slot-row"><div><strong>${escapeHtml(equipmentSlotLabel(slot))}</strong><br><span style="color:${item ? '#b9efff' : '#667f8f'};">${item ? escapeHtml(item.name) : 'Empty'}</span>${item ? `<br><span style="color:#88a;">${escapeHtml(itemMeta)}</span>` : ''}</div><button class="trade-button" onclick="unmountEquipment('${slot}')" ${item ? '' : 'disabled'}>Unmount</button></div>`;
+        const lockedSlot = slot === 'powerplant';
+        html += `<div class="slot-row"><div><strong>${escapeHtml(equipmentSlotLabel(slot))}</strong><br><span style="color:${item ? '#b9efff' : '#667f8f'};">${item ? escapeHtml(item.name) : 'Empty'}</span>${item ? `<br><span style="color:#88a;">${escapeHtml(itemMeta)}${lockedSlot ? ' | fixed' : ''}</span>` : ''}</div><button class="trade-button" onclick="unmountEquipment('${slot}')" ${item && !lockedSlot ? '' : 'disabled'}>Unmount</button></div>`;
     }
     html += '</div><div class="equipment-panel"><h4>Inventory</h4>';
     const availableInventory = inventory.map(inv => ({ ...inv, availableQuantity: availableEquipmentQuantity(inv.id) })).filter(inv => inv.availableQuantity > 0);
@@ -8482,9 +8550,10 @@ function renderEquipmentDealer() {
             const sellPrice = equipmentSellPrice(inv.id);
             const inventoryItem = getEquipment(inv.id);
             const compatibility = equipmentCompatibility(inventoryItem);
-            const canMount = !inventoryItem?.combinable && compatibility.ok;
+            const isPowerplant = equipmentMountType(inventoryItem) === 'powerplant';
+            const canMount = !inventoryItem?.combinable && compatibility.ok && !isPowerplant;
             const meta = `${equipmentMountType(inventoryItem)} class ${equipmentClass(inventoryItem)} x${inv.availableQuantity} | ${sellPrice.toLocaleString()} CR`;
-            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
+            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}${isPowerplant ? ' | fixed' : ''}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 && !isPowerplant ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
         }
     } else {
         html += '<div style="color:#667f8f;">No equipment in inventory.</div>';
@@ -8511,7 +8580,9 @@ function renderEquipmentDealer() {
         const damageLabel = isMissileLauncher(item)
             ? `${Math.round(missileDamageForItem(item, getEquipment(missileAmmoItemId(item))))}`
             : (item.hullDamage || item.energyDamage ? `${Math.round(Number(item.hullDamage || 0))}/${Math.round(Number(item.energyDamage || 0))}` : '-');
-        const powerLabel = item.powerUsage ? Number(item.powerUsage).toFixed(1) : (item.capacity ? `${Math.round(item.capacity).toLocaleString()} / +${Math.round(item.chargeRate || 0).toLocaleString()}` : '-');
+        const powerLabel = item.category === 'thruster'
+            ? `${Math.round(thrusterPowerUsage(item)).toLocaleString()}/s thrust`
+            : (item.powerUsage ? Number(item.powerUsage).toFixed(1) : (item.capacity ? `${Math.round(item.capacity).toLocaleString()} / +${Math.round(item.chargeRate || 0).toLocaleString()}` : '-'));
         const typeLabel = equipmentMountType(item);
         const muted = !compatibility.ok;
         const rowStyle = muted ? ' style="opacity:0.48;color:#778899;"' : '';
@@ -8590,6 +8661,10 @@ function buyEquipment(itemId) {
 function sellEquipment(itemId) {
     const inv = findEquipmentItem(itemId);
     if (!inv || availableEquipmentQuantity(itemId) <= 0) return;
+    if (equipmentMountType(getEquipment(itemId)) === 'powerplant') {
+        addLog('Powerplants are fixed equipment and cannot be sold.', 'alert');
+        return;
+    }
     const sellPrice = equipmentSellPrice(itemId);
     if (sellPrice <= 0) return;
     inv.quantity = Math.max(0, (Number(inv.quantity) || 0) - 1);
@@ -8606,6 +8681,10 @@ function mountEquipment(itemId) {
     const inv = findEquipmentItem(itemId);
     const slot = equipmentSlot(item);
     if (!item || !inv || inv.quantity <= 0 || !slot) return;
+    if (equipmentMountType(item) === 'powerplant') {
+        addLog('Powerplants are fixed equipment and cannot be mounted manually.', 'alert');
+        return;
+    }
     const compatibility = equipmentCompatibility(item, slot);
     if (!compatibility.ok) {
         addLog(compatibility.reason, 'alert');
@@ -8627,6 +8706,10 @@ function mountEquipment(itemId) {
 
 function unmountEquipment(slot) {
     if (!game.player?.mountedEquipment?.[slot]) return;
+    if (slot === 'powerplant') {
+        addLog('Powerplants are fixed equipment and cannot be unmounted.', 'alert');
+        return;
+    }
     const item = getEquipment(game.player.mountedEquipment[slot]);
     delete game.player.mountedEquipment[slot];
     applyMountedEquipmentEffects();
