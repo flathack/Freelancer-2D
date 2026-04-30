@@ -247,6 +247,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                 </div>
                 <div id="command-bar">
                     <button class="cmd-btn" id="btn-freeflight" onclick="setMode('freeflight')">FREEFLIGHT</button>
+                    <button class="cmd-btn" id="btn-route" onclick="setRouteToSelectedTarget()">ROUTE</button>
                     <button class="cmd-btn" id="btn-approach" onclick="setMode('approach')">ANFLIEGEN</button>
                     <button class="cmd-btn" id="btn-dock" onclick="setMode('dock')">ANDOCKEN</button>
                     <button class="cmd-btn" id="btn-cruise" onclick="toggleCruiseFlight()">REISEFLUG</button>
@@ -403,11 +404,12 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
         <div id="map-header">
             <h3>SYSTEM MAP - LI01 MANHATTAN</h3>
             <div id="map-controls">
-                <button class="map-btn" id="btn-clear-waypoint">Wegpunkt löschen</button>
+                <button class="map-btn" id="btn-clear-waypoint">Route löschen</button>
                 <button class="map-btn" id="btn-close-map" style="background:#330000;border-color:#aa0000;color:#ff4444;">CLOSE</button>
             </div>
         </div>
         <canvas id="map-canvas" width="700" height="460"></canvas>
+        <div id="map-route-list" style="padding:8px 12px;border-top:1px solid #163044;color:#9edfff;font-size:11px;max-height:118px;overflow:auto;"></div>
     </div>
 
     <div id="inventory-overlay" class="hidden">
@@ -425,7 +427,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
         left: 50%;
         transform: translate(-50%, -50%);
         width: 900px;
-        height: 650px;
+        height: 720px;
         background: rgba(0,5,15,0.98);
         border: 2px solid #00ff00;
         z-index: 2000;
@@ -438,7 +440,8 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
             <button id="btn-close-universe" style="padding: 8px 20px; background: #330000; border: 1px solid #aa0000; color: #ff4444; cursor: pointer;">CLOSE</button>
         </div>
         <div id="universe-sector-tabs" style="display: none; gap: 8px; padding: 10px 14px; border-bottom: 1px solid #1d2b1d; flex-wrap: wrap;"></div>
-        <canvas id="universe-canvas" width="900" height="620"></canvas>
+        <canvas id="universe-canvas" width="900" height="500"></canvas>
+        <div id="universe-route-list" style="padding:8px 14px;border-top:1px solid #1d2b1d;color:#9edfff;font-size:11px;max-height:118px;overflow:auto;"></div>
     </div>
 
     <div id="landing-overlay" class="hidden">
@@ -760,6 +763,8 @@ const game = {
     minUniverseZoom: 0.55,
     maxUniverseZoom: 6,
     waypoint: null,
+    routeWaypoints: [],
+    routeDestination: null,
     equipmentDealerTab: 'equipment',
     tradeInfoCommodityId: '',
     activeMission: null,
@@ -823,7 +828,7 @@ const MODS = [
 ];
 const I18N = {
     de: {
-        freeflight: 'FREIFLUG', approach: 'ANFLIEGEN', dock: 'ANDOCKEN', cruise: 'REISEFLUG', menu: 'MENÜ', map: 'KARTE', inventory: 'INVENTAR', reputation: 'RUF', info: 'INFO', shipShop: 'SCHIFFHÄNDLER', universe: 'UNIVERSUM',
+        freeflight: 'FREIFLUG', route: 'ROUTE', approach: 'ANFLIEGEN', dock: 'ANDOCKEN', cruise: 'REISEFLUG', menu: 'MENÜ', map: 'KARTE', inventory: 'INVENTAR', reputation: 'RUF', info: 'INFO', shipShop: 'SCHIFFHÄNDLER', universe: 'UNIVERSUM',
         launch: 'Starten', launchDeck: 'Launch Deck', bar: 'Bar', equipmentDealer: 'Equipment Dealer', tradeDealer: 'Trade Dealer', shipDealer: 'Ship Dealer', missions: 'Missionen',
         landedAt: 'Gelandet auf', noCommodityMarket: 'Dieser Ort hat keinen Commodity-Markt.', noEquipment: 'Equipment-Handel ist noch nicht implementiert.', barText: 'Piloten, Gerüchte und Jobangebote folgen später.',
         buy: 'KAUFEN', sell: 'VERKAUFEN', owned: 'BESITZ', credits: 'Credits', cargo: 'Laderaum', price: 'Preis', stock: 'Bestand', commodity: 'Ware', quantity: 'Menge', tradeInfo: 'Trade-Informationen', tradeInfoHint: 'Ware anklicken, um Verkaufsziele zu sehen.', sellAt: 'Verkaufen bei', jumps: 'Spruenge', profit: 'Profit', noSellTargets: 'Keine Verkaufsziele fuer diese Ware gefunden.', unreachable: 'nicht erreichbar',
@@ -841,13 +846,13 @@ const I18N = {
         scannerNone: 'Keine Schiffe oder Stationen in Reichweite.', noWeaponSlots: 'Keine Waffen-Slots vorhanden.', emptyWeapon: 'Leer', noGunMounted: 'Keine Waffe montiert',
         scannerShip: 'Schiff', scannerPlanet: 'Planet', scannerJumpGate: 'Sprungtor', scannerJumpHole: 'Sprungloch', scannerTradeLane: 'Tradelane', scannerStation: 'Station', scannerWaypoint: 'Wegpunkt', scannerObject: 'Objekt', weaponSlot: 'Waffe',
         repChanged: 'Ruf geändert', repHostile: 'FEINDLICH', repFriendly: 'FREUNDLICH', repNeutral: 'NEUTRAL', noReputationData: 'Keine Rufdaten geladen.',
-        missionEliminate: 'Eliminiere feindliche Kontakte in {zone}.', missionWaypointLocked: 'Mission aktiv: Wegpunkt bleibt auf dem Missionsziel.', missionFreeWaypointsLocked: 'Mission aktiv: Freie Wegpunkte sind gesperrt.',
+        missionEliminate: 'Eliminiere feindliche Kontakte in {zone}.', missionWaypointLocked: 'Mission aktiv: Wegpunkt bleibt auf dem Missionsziel.', missionFreeWaypointsLocked: 'Mission aktiv: Freie Wegpunkte sind gesperrt.', clearRoute: 'Route loeschen', routeSet: 'Route gesetzt: {count} Wegpunkte nach {name}.', routeCleared: 'Route geloescht.', routeComplete: 'Route abgeschlossen.', routeUnavailable: 'Keine Route zum Ziel gefunden.', routeNoTarget: 'Zuerst ein Ziel auswaehlen.', routeListTitle: 'Aktuelle Route', routeEmpty: 'Keine Route gesetzt.',
         saveStored: 'Spielstand gespeichert', saveStoreFailed: 'Spielstand konnte nicht gespeichert werden', cruiseDisabled: 'Reiseflug deaktiviert', cruiseCharging: 'Reiseflug lädt: {seconds} Sekunden', cruiseEnabled: 'Reiseflug aktiviert',
         dockingDeniedHostile: 'Andocken verweigert: {faction} ist feindlich.', noShieldInstalled: 'Kein Schild installiert.', missionContactHostile: 'Mission contact: {count} feindliche Schiffe erfasst.',
         noBarNpcs: 'Keine NPCs in dieser Bar.', noDestroyMission: 'Keine destroy_vignette-Missionen in diesem System gefunden.', gameLoaded: 'Spielstand geladen: {system}, pilot!', welcomePilot: 'Willkommen in {system}, Pilot!'
     },
     en: {
-        freeflight: 'FREEFLIGHT', approach: 'APPROACH', dock: 'DOCK', cruise: 'CRUISE', menu: 'MENU', map: 'MAP', inventory: 'INVENTORY', reputation: 'REP', info: 'INFO', shipShop: 'SHIP DEALER', universe: 'UNIVERSE',
+        freeflight: 'FREEFLIGHT', route: 'ROUTE', approach: 'APPROACH', dock: 'DOCK', cruise: 'CRUISE', menu: 'MENU', map: 'MAP', inventory: 'INVENTORY', reputation: 'REP', info: 'INFO', shipShop: 'SHIP DEALER', universe: 'UNIVERSE',
         launch: 'Launch', launchDeck: 'Launch Deck', bar: 'Bar', equipmentDealer: 'Equipment Dealer', tradeDealer: 'Trade Dealer', shipDealer: 'Ship Dealer', missions: 'Missions',
         landedAt: 'Landed at', noCommodityMarket: 'This location has no commodity market.', noEquipment: 'Equipment trading is not implemented yet.', barText: 'Pilots, rumors, and job offers will arrive later.',
         buy: 'BUY', sell: 'SELL', owned: 'OWNED', credits: 'Credits', cargo: 'Cargo', price: 'Price', stock: 'Stock', commodity: 'Commodity', quantity: 'Qty', tradeInfo: 'Trade Information', tradeInfoHint: 'Click a commodity to see sell destinations.', sellAt: 'Sell at', jumps: 'Jumps', profit: 'Profit', noSellTargets: 'No sell destinations found for this commodity.', unreachable: 'unreachable',
@@ -865,7 +870,7 @@ const I18N = {
         scannerNone: 'No ships or stations in range.', noWeaponSlots: 'No weapon slots available.', emptyWeapon: 'Empty', noGunMounted: 'No weapon mounted',
         scannerShip: 'Ship', scannerPlanet: 'Planet', scannerJumpGate: 'Jump Gate', scannerJumpHole: 'Jump Hole', scannerTradeLane: 'Trade Lane', scannerStation: 'Station', scannerWaypoint: 'Waypoint', scannerObject: 'Object', weaponSlot: 'Weapon',
         repChanged: 'Reputation changed', repHostile: 'HOSTILE', repFriendly: 'FRIENDLY', repNeutral: 'NEUTRAL', noReputationData: 'No reputation data loaded.',
-        missionEliminate: 'Eliminate hostile contacts in {zone}.', missionWaypointLocked: 'Mission active: waypoint remains on the mission target.', missionFreeWaypointsLocked: 'Mission active: free waypoints are locked.',
+        missionEliminate: 'Eliminate hostile contacts in {zone}.', missionWaypointLocked: 'Mission active: waypoint remains on the mission target.', missionFreeWaypointsLocked: 'Mission active: free waypoints are locked.', clearRoute: 'Clear route', routeSet: 'Route set: {count} waypoints to {name}.', routeCleared: 'Route cleared.', routeComplete: 'Route complete.', routeUnavailable: 'No route to destination found.', routeNoTarget: 'Select a target first.', routeListTitle: 'Current Route', routeEmpty: 'No route set.',
         saveStored: 'Game saved', saveStoreFailed: 'Could not save game', cruiseDisabled: 'Cruise disabled', cruiseCharging: 'Cruise charging: {seconds} seconds', cruiseEnabled: 'Cruise enabled',
         dockingDeniedHostile: 'Docking denied: {faction} is hostile.', noShieldInstalled: 'No shield installed.', missionContactHostile: 'Mission contact: {count} hostile ships detected.',
         noBarNpcs: 'No NPCs in this bar.', noDestroyMission: 'No destroy_vignette missions found in this system.', gameLoaded: 'Savegame loaded: {system}, pilot!', welcomePilot: 'Welcome to {system}, pilot!'
@@ -2202,7 +2207,7 @@ function updatePopulationNpcs(dt) {
 
 function applyLanguage() {
     const labels = [
-        ['btn-freeflight', 'freeflight'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-cruise', 'cruise'], ['btn-map', 'map'],
+        ['btn-freeflight', 'freeflight'], ['btn-route', 'route'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-cruise', 'cruise'], ['btn-map', 'map'], ['btn-clear-waypoint', 'clearRoute'],
         ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-universe', 'universe'], ['btn-menu', 'menu'], ['btn-launch', 'launch'], ['btn-clear-selection', 'clearSelection']
     ];
     for (const [id, key] of labels) {
@@ -2427,9 +2432,12 @@ function getTradeLaneStartForRing(ring, player) {
     return { targetIndex: i + direction, direction };
 }
 
-function startTradeLaneFromRing(ring) {
+function startTradeLaneFromRing(ring, exitWaypoint = null) {
     if (!(ring instanceof TradeLaneRing) || !game.player) return false;
-    const start = getTradeLaneStartForRing(ring, game.player);
+    const exitIndex = Number.isInteger(exitWaypoint?.ringIndex) && exitWaypoint?.laneId === ring.laneId ? exitWaypoint.ringIndex : null;
+    const start = exitIndex !== null && exitIndex !== ring.index
+        ? { targetIndex: ring.index + Math.sign(exitIndex - ring.index), direction: Math.sign(exitIndex - ring.index) }
+        : getTradeLaneStartForRing(ring, game.player);
     if (!start) {
         addLog('Trade lane route unavailable', 'alert');
         return false;
@@ -2440,6 +2448,7 @@ function startTradeLaneFromRing(ring) {
     game.player.laneRoute = ring.laneRings;
     game.player.laneIndex = start.targetIndex;
     game.player.laneDirection = start.direction;
+    game.player.laneExitIndex = exitIndex;
     game.player.maxSpeed = game.player.laneSpeed;
     game.player.speed = Math.max(NORMAL_FLIGHT_EXIT_SPEED, Math.min(game.player.speed || NORMAL_FLIGHT_EXIT_SPEED, game.player.laneSpeed * 0.22));
     game.player.throttle = 1;
@@ -2460,20 +2469,21 @@ function findTradeLaneRingEntity(ring, index = null) {
         && ((ring.id && entity.id === ring.id) || (entity.x === ring.x && entity.z === ring.z && (index === null || entity.index === index)))) || null;
 }
 
-function setWaypointTarget(target, name = '') {
-    if (!target || !Number.isFinite(target.x) || !Number.isFinite(target.z)) return null;
-    if (game.activeMission && target.type !== 'Mission' && !target.isWaypoint) {
-        addLog(t('missionWaypointLocked'), 'alert');
-        return game.waypoint;
-    }
-    const waypoint = target.isWaypoint ? target : {
-        id: 'waypoint_' + Math.round(target.x) + '_' + Math.round(target.z),
-        name: name || target.name || 'Waypoint',
-        x: target.x,
-        z: target.z,
-        systemId: currentSystemId,
-        type: target.type || 'Waypoint',
-        linkedTarget: target,
+function makeRouteWaypoint(step) {
+    return {
+        id: step.id || 'route_' + safeDomId(step.systemId) + '_' + Math.round(step.x) + '_' + Math.round(step.z) + '_' + Math.random().toString(36).slice(2, 7),
+        name: step.name || 'Waypoint',
+        x: Number(step.x) || 0,
+        z: Number(step.z) || 0,
+        systemId: canonicalSystemId(step.systemId || currentSystemId),
+        type: step.type || 'Waypoint',
+        action: step.action || 'travel',
+        targetId: step.targetId || '',
+        targetKind: step.targetKind || '',
+        laneId: step.laneId || '',
+        ringIndex: Number.isInteger(step.ringIndex) ? step.ringIndex : null,
+        destSystem: step.destSystem || '',
+        destObject: step.destObject || '',
         isWaypoint: true,
         containsPoint(px, pz) {
             const dx = this.x - px;
@@ -2481,13 +2491,333 @@ function setWaypointTarget(target, name = '') {
             return Math.sqrt(dx * dx + dz * dz) < 700;
         }
     };
-    game.waypoint = waypoint;
-    addLog('Waypoint set: ' + waypoint.name);
+}
+
+function routeWaypoints() {
+    if (!Array.isArray(game.routeWaypoints)) game.routeWaypoints = [];
+    return game.routeWaypoints;
+}
+
+function syncActiveWaypointFromRoute() {
+    game.waypoint = routeWaypoints()[0] || null;
+}
+
+function serializeRouteWaypoint(step) {
+    if (!step) return null;
+    return {
+        id: step.id,
+        name: step.name,
+        x: step.x,
+        z: step.z,
+        systemId: step.systemId || currentSystemId,
+        type: step.type || 'Waypoint',
+        action: step.action || 'travel',
+        targetId: step.targetId || '',
+        targetKind: step.targetKind || '',
+        laneId: step.laneId || '',
+        ringIndex: Number.isInteger(step.ringIndex) ? step.ringIndex : null,
+        destSystem: step.destSystem || '',
+        destObject: step.destObject || ''
+    };
+}
+
+function restoreRouteWaypoint(step) {
+    return step && Number.isFinite(step.x) && Number.isFinite(step.z) ? makeRouteWaypoint(step) : null;
+}
+
+function routeStepMatchesTarget(step, target) {
+    if (!step || !target) return false;
+    if (step.targetId && target.id && String(step.targetId).toLowerCase() === String(target.id).toLowerCase()) return true;
+    if (step.targetKind === 'tradelane' && target instanceof TradeLaneRing) {
+        return step.laneId === target.laneId && step.ringIndex === target.index;
+    }
+    return Math.hypot((step.x || 0) - (target.x || 0), (step.z || 0) - (target.z || 0)) < 900;
+}
+
+function resolveRouteWaypointTarget(step) {
+    if (!step || step.systemId?.toLowerCase() !== currentSystemId.toLowerCase()) return null;
+    if (step.targetKind === 'tradelane') {
+        return (game.entities || []).find(entity => entity instanceof TradeLaneRing && entity.laneId === step.laneId && entity.index === step.ringIndex) || null;
+    }
+    if (step.targetId) {
+        return (game.entities || []).find(entity => entity.id && String(entity.id).toLowerCase() === String(step.targetId).toLowerCase()) || null;
+    }
+    return step;
+}
+
+function systemDisplayName(systemId) {
+    const system = buildSystemData(systemId);
+    return system.name || systemId;
+}
+
+function routeStepLabel(step, index) {
+    const prefix = String(index + 1).padStart(2, '0');
+    const system = systemDisplayName(step.systemId || currentSystemId);
+    const action = step.action === 'jump' ? 'Jump' : step.action === 'tradeLaneEntry' ? 'Trade lane in' : step.action === 'tradeLaneExit' ? 'Trade lane out' : step.action === 'destination' ? 'Destination' : 'Travel';
+    return `${prefix}. ${action}: ${step.name || 'Waypoint'} (${system})`;
+}
+
+function renderRouteLists() {
+    const renderList = (elementId) => {
+        const element = document.getElementById(elementId);
+        if (!element) return;
+        const steps = routeWaypoints();
+        if (!steps.length) {
+            element.innerHTML = `<strong style="color:#ffaa00;">${escapeHtml(t('routeListTitle'))}</strong><div style="color:#668899;margin-top:4px;">${escapeHtml(t('routeEmpty'))}</div>`;
+            return;
+        }
+        element.innerHTML = `<strong style="color:#ffaa00;">${escapeHtml(t('routeListTitle'))}</strong>` + steps.map((step, index) => {
+            const active = index === 0;
+            return `<div style="display:flex;gap:8px;align-items:center;margin-top:4px;color:${active ? '#ffffff' : '#9edfff'};"><span style="color:${active ? '#c77dff' : '#668899'};">${active ? '◆' : '◇'}</span><span>${escapeHtml(routeStepLabel(step, index))}</span></div>`;
+        }).join('');
+    };
+    renderList('map-route-list');
+    renderList('universe-route-list');
+}
+
+function findSystemJumpPath(startSystemId, destinationSystemId) {
+    const start = canonicalSystemId(startSystemId);
+    const goal = canonicalSystemId(destinationSystemId);
+    if (!start || !goal) return null;
+    if (start.toLowerCase() === goal.toLowerCase()) return [start];
+    const queue = [start];
+    const previous = { [start.toLowerCase()]: null };
+    for (let cursor = 0; cursor < queue.length; cursor++) {
+        const systemId = queue[cursor];
+        const system = buildSystemData(systemId);
+        for (const gate of system.jumpgates || []) {
+            const next = canonicalSystemId(gate.dest);
+            if (!next) continue;
+            const key = next.toLowerCase();
+            if (previous[key] !== undefined) continue;
+            previous[key] = systemId;
+            if (key === goal.toLowerCase()) {
+                const path = [next];
+                let current = systemId;
+                while (current) {
+                    path.unshift(current);
+                    current = previous[current.toLowerCase()];
+                }
+                return path;
+            }
+            queue.push(next);
+        }
+    }
+    return null;
+}
+
+function findJumpGateToSystem(systemId, destinationSystemId) {
+    const destination = canonicalSystemId(destinationSystemId).toLowerCase();
+    const system = buildSystemData(systemId);
+    return (system.jumpgates || []).find(gate => canonicalSystemId(gate.dest).toLowerCase() === destination) || null;
+}
+
+function arrivalPointForJump(systemId, arrivalObjectId) {
+    const system = buildSystemData(systemId);
+    const arrival = [...(system.jumpgates || []), ...(system.stations || []), ...(system.planets || [])]
+        .find(obj => obj.id && String(obj.id).toLowerCase() === String(arrivalObjectId || '').toLowerCase());
+    return arrival || system.stations[0] || system.jumpgates[0] || system.planets[0] || { x: 0, z: 0, name: system.name || systemId };
+}
+
+function buildLocalRouteSteps(systemId, startPoint, destinationPoint, options = {}) {
+    const system = buildSystemData(systemId);
+    const nodes = [
+        { id: 'start', kind: 'start', x: startPoint.x, z: startPoint.z, name: 'Start' },
+        { id: 'goal', kind: 'goal', x: destinationPoint.x, z: destinationPoint.z, name: destinationPoint.name || 'Destination' }
+    ];
+    for (const lane of system.tradeLanes || []) {
+        const laneId = lane.id || lane.nickname || 'trade_lane';
+        (lane.rings || []).forEach((ring, index) => {
+            nodes.push({ id: `ring:${laneId}:${index}`, kind: 'ring', laneId, ringIndex: index, x: ring.x, z: ring.z, name: ring.name || `Trade Lane Ring ${index + 1}` });
+        });
+    }
+    const byId = new Map(nodes.map(node => [node.id, node]));
+    const laneNeighborCost = (a, b) => {
+        if (a.kind !== 'ring' || b.kind !== 'ring' || a.laneId !== b.laneId || Math.abs(a.ringIndex - b.ringIndex) !== 1) return null;
+        return Math.hypot(a.x - b.x, a.z - b.z) * 0.08;
+    };
+    const distances = new Map(nodes.map(node => [node.id, Infinity]));
+    const previous = new Map();
+    const unvisited = new Set(nodes.map(node => node.id));
+    distances.set('start', 0);
+    while (unvisited.size) {
+        let currentId = null;
+        let currentDistance = Infinity;
+        for (const id of unvisited) {
+            const distance = distances.get(id);
+            if (distance < currentDistance) {
+                currentDistance = distance;
+                currentId = id;
+            }
+        }
+        if (!currentId || currentId === 'goal') break;
+        unvisited.delete(currentId);
+        const current = byId.get(currentId);
+        for (const neighbor of nodes) {
+            if (!unvisited.has(neighbor.id) || neighbor.id === currentId) continue;
+            const laneCost = laneNeighborCost(current, neighbor);
+            const normalCost = Math.hypot(current.x - neighbor.x, current.z - neighbor.z);
+            const cost = laneCost ?? normalCost;
+            const nextDistance = currentDistance + cost;
+            if (nextDistance < distances.get(neighbor.id)) {
+                distances.set(neighbor.id, nextDistance);
+                previous.set(neighbor.id, currentId);
+            }
+        }
+    }
+    if (!previous.has('goal') && startPoint !== destinationPoint) return [];
+    const path = [];
+    let cursor = 'goal';
+    while (cursor) {
+        path.unshift(byId.get(cursor));
+        cursor = previous.get(cursor);
+    }
+    const steps = [];
+    for (let i = 1; i < path.length; i++) {
+        const node = path[i];
+        if (node.kind === 'ring') {
+            const entry = node;
+            let exit = node;
+            while (i + 1 < path.length && path[i + 1].kind === 'ring' && path[i + 1].laneId === entry.laneId && Math.abs(path[i + 1].ringIndex - path[i].ringIndex) === 1) {
+                i += 1;
+                exit = path[i];
+            }
+            if (exit !== entry) {
+                steps.push(makeRouteWaypoint({ systemId, name: entry.name, x: entry.x, z: entry.z, type: 'Trade Lane Entry', action: 'tradeLaneEntry', targetKind: 'tradelane', laneId: entry.laneId, ringIndex: entry.ringIndex }));
+                steps.push(makeRouteWaypoint({ systemId, name: exit.name, x: exit.x, z: exit.z, type: 'Trade Lane Exit', action: 'tradeLaneExit', targetKind: 'tradelane', laneId: exit.laneId, ringIndex: exit.ringIndex }));
+            }
+        } else if (node.kind === 'goal') {
+            steps.push(makeRouteWaypoint({
+                systemId,
+                name: destinationPoint.name || 'Destination',
+                x: destinationPoint.x,
+                z: destinationPoint.z,
+                type: options.finalType || destinationPoint.type || 'Waypoint',
+                action: options.finalAction || 'destination',
+                targetKind: options.targetKind || destinationPoint.targetKind || '',
+                targetId: options.targetId || destinationPoint.targetId || destinationPoint.id || '',
+                destSystem: options.destSystem || destinationPoint.destSystem || '',
+                destObject: options.destObject || destinationPoint.destObject || ''
+            }));
+        }
+    }
+    return steps;
+}
+
+function calculateRouteToTarget(target, name = '') {
+    if (!target || !Number.isFinite(target.x) || !Number.isFinite(target.z)) return [];
+    const destinationSystem = canonicalSystemId(target.systemId || currentSystemId);
+    const path = findSystemJumpPath(currentSystemId, destinationSystem);
+    if (!path) return [];
+    const steps = [];
+    let cursorPoint = { x: game.player?.x || 0, z: game.player?.z || 0, name: 'Current position' };
+    for (let i = 0; i < path.length - 1; i++) {
+        const fromSystem = path[i];
+        const toSystem = path[i + 1];
+        const gate = findJumpGateToSystem(fromSystem, toSystem);
+        if (!gate) return [];
+        steps.push(...buildLocalRouteSteps(fromSystem, cursorPoint, gate, { finalAction: 'jump', finalType: gate.type || 'Jump Gate', targetKind: 'jumpgate', targetId: gate.id, destSystem: toSystem, destObject: gate.destObject }));
+        cursorPoint = arrivalPointForJump(toSystem, gate.destObject);
+    }
+    const finalPoint = {
+        id: target.id || '',
+        targetId: target.id || '',
+        targetKind: target instanceof Station ? 'station' : target instanceof PlanetLocation ? 'planet' : target instanceof JumpGate ? 'jumpgate' : target instanceof TradeLaneRing ? 'tradelane' : '',
+        name: name || target.name || 'Destination',
+        x: target.x,
+        z: target.z,
+        type: target.type || 'Waypoint'
+    };
+    steps.push(...buildLocalRouteSteps(destinationSystem, cursorPoint, finalPoint, { finalAction: 'destination', finalType: finalPoint.type, targetKind: finalPoint.targetKind, targetId: finalPoint.targetId }));
+    return steps;
+}
+
+function activateRouteStep() {
+    const step = game.waypoint;
+    if (!step || step.systemId?.toLowerCase() !== currentSystemId.toLowerCase() || !game.player || game.isDocked || game.jumpTransition) return;
+    const target = resolveRouteWaypointTarget(step) || step;
+    game.selectedTarget = target;
+    const distance = Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z);
+    game.commandMode = (step.action === 'jump' || step.action === 'tradeLaneEntry') ? 'dock' : 'approach';
+    if ((step.action === 'jump' || step.action === 'tradeLaneEntry') && distance <= 9500) {
+        startDocking(target);
+    } else {
+        game.approachTarget = target;
+        game.dockTarget = null;
+        game.approachArrivalLogged = false;
+        updateCommandModeButtons();
+        startAutopilotCruise();
+        updateSpeedControl();
+    }
+}
+
+function advanceRouteWaypoint(message = '', options = {}) {
+    const steps = routeWaypoints();
+    if (!steps.length) return;
+    steps.shift();
+    syncActiveWaypointFromRoute();
+    if (!game.waypoint) {
+        game.routeDestination = null;
+        if (message !== false) addLog(message || t('routeComplete'));
+    } else if (message) {
+        addLog(message);
+    }
+    if (options.activate !== false) activateRouteStep();
+    if (options.save !== false) saveGame();
+    updateHUD();
+    renderRouteLists();
+    if (game.showMap) drawMapCanvas();
+    if (!document.getElementById('universe-overlay')?.classList.contains('hidden')) drawUniverseMap();
+}
+
+function updateRouteProgress() {
+    const step = game.waypoint;
+    if (!step || !game.player || step.systemId?.toLowerCase() !== currentSystemId.toLowerCase()) return;
+    const target = resolveRouteWaypointTarget(step) || step;
+    const distance = Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z);
+    if ((step.action === 'jump' || step.action === 'tradeLaneEntry') && !game.dockTarget && !game.player.inTradeLane && !game.jumpTransition) {
+        if (distance <= 9500) startDocking(target);
+        else if (!game.approachTarget) activateRouteStep();
+        return;
+    }
+    if ((step.action === 'travel' || step.action === 'destination') && distance < 220 && !game.player.inTradeLane) {
+        advanceRouteWaypoint(step.action === 'destination' ? t('routeComplete') : 'Waypoint reached: ' + step.name);
+    }
+}
+
+function setRouteToSelectedTarget() {
+    if (!game.selectedTarget) {
+        addLog(t('routeNoTarget'), 'alert');
+        return;
+    }
+    setWaypointTarget(game.selectedTarget, game.selectedTarget.name || 'Destination');
+}
+
+function setWaypointTarget(target, name = '') {
+    if (!target || !Number.isFinite(target.x) || !Number.isFinite(target.z)) return null;
+    if (game.activeMission && target.type !== 'Mission' && !target.isWaypoint) {
+        addLog(t('missionWaypointLocked'), 'alert');
+        return game.waypoint;
+    }
+    const route = target.type === 'Mission'
+        ? [makeRouteWaypoint({ ...target, name: name || target.name || 'Mission', action: 'destination', systemId: target.systemId || currentSystemId })]
+        : calculateRouteToTarget(target, name);
+    if (!route.length) {
+        addLog(t('routeUnavailable'), 'alert');
+        return game.waypoint;
+    }
+    game.routeWaypoints = route;
+    game.routeDestination = serializeRouteWaypoint(route[route.length - 1]);
+    syncActiveWaypointFromRoute();
+    addLog(tf('routeSet', { count: route.length, name: name || target.name || 'Destination' }));
     playSound('select', 0.8);
+    activateRouteStep();
     saveGame();
     updateHUD();
+    renderRouteLists();
     if (game.showMap) drawMapCanvas();
-    return waypoint;
+    if (!document.getElementById('universe-overlay')?.classList.contains('hidden')) drawUniverseMap();
+    return game.waypoint;
 }
 
 function setFreeSpaceWaypoint(x, z) {
@@ -2509,17 +2839,21 @@ function clearNavigationSelection() {
 }
 
 function clearWaypoint() {
-    if (!game.waypoint) return;
+    if (!game.waypoint && !routeWaypoints().length) return;
     if (game.activeMission && game.waypoint.type === 'Mission') {
         addLog(t('missionWaypointLocked'), 'alert');
         return;
     }
+    game.routeWaypoints = [];
+    game.routeDestination = null;
     game.waypoint = null;
-    addLog('Waypoint cleared.');
+    addLog(t('routeCleared'));
     playSound('select', 0.45);
     saveGame();
     updateHUD();
+    renderRouteLists();
     if (game.showMap) drawMapCanvas();
+    if (!document.getElementById('universe-overlay')?.classList.contains('hidden')) drawUniverseMap();
 }
 
 function getShipPackage(packageId) {
@@ -2734,6 +3068,8 @@ function createSaveGameState() {
             systemId: game.waypoint.systemId || currentSystemId,
             type: game.waypoint.type || 'Waypoint'
         } : null,
+        routeWaypoints: routeWaypoints().map(serializeRouteWaypoint),
+        routeDestination: serializeRouteWaypoint(game.routeDestination),
         player: {
             x: game.player.x,
             z: game.player.z,
@@ -2829,6 +3165,7 @@ function restorePlayerFromSave(save) {
     game.player.destroyed = false;
     game.player.inTradeLane = false;
     game.player.laneRoute = null;
+    game.player.laneExitIndex = null;
     game.lastLanding = save.lastLanding && typeof save.lastLanding === 'object' ? save.lastLanding : null;
     game.mapZoom = Number.isFinite(save.mapZoom) ? clamp(save.mapZoom, game.minMapZoom, game.maxMapZoom) : game.mapZoom;
     game.mapPanX = Number.isFinite(save.mapPanX) ? save.mapPanX : 0;
@@ -2837,22 +3174,25 @@ function restorePlayerFromSave(save) {
     game.universePanX = Number.isFinite(save.universePanX) ? save.universePanX : 0;
     game.universePanY = Number.isFinite(save.universePanY) ? save.universePanY : 0;
     game.activeMission = save.activeMission && save.activeMission.systemId ? save.activeMission : null;
-    if (save.waypoint && Number.isFinite(save.waypoint.x) && Number.isFinite(save.waypoint.z)) {
-        game.waypoint = {
+    if (Array.isArray(save.routeWaypoints) && save.routeWaypoints.length) {
+        game.routeWaypoints = save.routeWaypoints.map(restoreRouteWaypoint).filter(Boolean);
+        game.routeDestination = restoreRouteWaypoint(save.routeDestination) || serializeRouteWaypoint(game.routeWaypoints[game.routeWaypoints.length - 1]);
+        syncActiveWaypointFromRoute();
+    } else if (save.waypoint && Number.isFinite(save.waypoint.x) && Number.isFinite(save.waypoint.z)) {
+        game.routeWaypoints = [makeRouteWaypoint({
             id: 'saved_waypoint',
             name: save.waypoint.name || 'Waypoint',
             x: save.waypoint.x,
             z: save.waypoint.z,
             systemId: save.waypoint.systemId || currentSystemId,
             type: save.waypoint.type || 'Waypoint',
-            isWaypoint: true,
-            containsPoint(px, pz) {
-                const dx = this.x - px;
-                const dz = this.z - pz;
-                return Math.sqrt(dx * dx + dz * dz) < 700;
-            }
-        };
+            action: save.waypoint.type === 'Mission' ? 'destination' : 'travel'
+        })];
+        game.routeDestination = serializeRouteWaypoint(game.routeWaypoints[0]);
+        syncActiveWaypointFromRoute();
     } else {
+        game.routeWaypoints = [];
+        game.routeDestination = null;
         game.waypoint = null;
     }
     applyMountedEquipmentEffects();
@@ -2912,6 +3252,7 @@ function returnToFreeflight(message = '', options = {}) {
         game.player.laneRoute = null;
         game.player.laneIndex = 0;
         game.player.laneDirection = 1;
+        game.player.laneExitIndex = null;
         if (wasInTradeLane) game.player.tradeLaneCooldownUntil = performance.now() + 1800;
         game.player.maxSpeed = game.player.baseMaxSpeed;
     }
@@ -3833,6 +4174,7 @@ function respawnAtLastLanding() {
     game.player.inTradeLane = false;
     game.player.laneRoute = null;
     game.player.laneDirection = 1;
+    game.player.laneExitIndex = null;
     game.selectedTarget = target;
     game.approachTarget = null;
     game.dockTarget = null;
@@ -3948,7 +4290,10 @@ function loadSystem(systemId, arrivalObjectId = null) {
     if (previousSystemId !== currentSystemId) game.ambientTradeSeededSystemId = '';
     seedAmbientTradeTrafficForSystem();
     updateSystemHud();
+    syncActiveWaypointFromRoute();
+    activateRouteStep();
     if (game.showMap) drawMapCanvas();
+    if (!document.getElementById('universe-overlay')?.classList.contains('hidden')) drawUniverseMap();
     addLog('Entered system: ' + systemData.name);
     saveGame();
 }
@@ -4020,7 +4365,7 @@ class PlayerShip {
         this.missileCooldown = 0;
         this.radius = 20;
         this.inTradeLane = false; this.laneSpeed = 2500;
-        this.laneRoute = null; this.laneIndex = 0; this.laneDirection = 1;
+        this.laneRoute = null; this.laneIndex = 0; this.laneDirection = 1; this.laneExitIndex = null;
         this.tradeLaneCooldownUntil = 0;
         this.fireHeld = false; this.lastFireTime = 0;
         this.strafeLeftActive = false;
@@ -4208,7 +4553,12 @@ class PlayerShip {
                     this.z = target.z;
                     if (dist > 0.001) this.rotation = Math.atan2(dz, dx);
                     remaining -= dist;
+                    const reachedIndex = this.laneIndex;
                     this.laneIndex += this.laneDirection || 1;
+                    if (Number.isInteger(this.laneExitIndex) && reachedIndex === this.laneExitIndex) {
+                        this.exitTradeLane('Exited trade lane at planned route waypoint');
+                        break;
+                    }
                     continue;
                 }
                 this.rotation = Math.atan2(dz, dx);
@@ -4250,11 +4600,15 @@ class PlayerShip {
         this.laneIndex = 0;
         this.laneRoute = null;
         this.laneDirection = 1;
+        this.laneExitIndex = null;
         this.maxSpeed = this.baseMaxSpeed;
         setNormalFlightSpeed(this);
         this.tradeLaneCooldownUntil = performance.now() + 1800;
         if (message) addLog(message);
         returnToFreeflight('', { preserveMotion: true });
+        if (game.waypoint?.action === 'tradeLaneExit' && game.waypoint.systemId?.toLowerCase() === currentSystemId.toLowerCase()) {
+            advanceRouteWaypoint(false);
+        }
     }
 
     tradeLaneTargetSpeed() {
@@ -4263,7 +4617,7 @@ class PlayerShip {
         const dx = target.x - this.x;
         const dz = target.z - this.z;
         const distance = Math.sqrt(dx * dx + dz * dz);
-        const finalIndex = this.laneDirection >= 0 ? this.laneRoute.length - 1 : 0;
+        const finalIndex = Number.isInteger(this.laneExitIndex) ? this.laneExitIndex : (this.laneDirection >= 0 ? this.laneRoute.length - 1 : 0);
         if (this.laneIndex === finalIndex) {
             const speedRatio = smoothStep(distance / TRADE_LANE_BRAKE_DISTANCE);
             return NORMAL_FLIGHT_EXIT_SPEED + (this.laneSpeed - NORMAL_FLIGHT_EXIT_SPEED) * speedRatio;
@@ -5064,6 +5418,8 @@ function completeMission(mission) {
     mission.status = 'complete';
     game.player.credits += mission.reward;
     if (game.waypoint?.type === 'Mission') game.waypoint = null;
+    if (routeWaypoints()[0]?.type === 'Mission') game.routeWaypoints = [];
+    if (!routeWaypoints().length) game.routeDestination = null;
     if (game.selectedTarget?.type === 'Mission') game.selectedTarget = null;
     addLog('Mission abgeschlossen: +' + mission.reward.toLocaleString() + ' CR');
     game.activeMission = null;
@@ -6479,14 +6835,21 @@ function update(dt) {
                 return;
             }
             if (target instanceof TradeLaneRing) {
-                startTradeLaneFromRing(target);
+                const activeStep = game.waypoint;
+                const exitStep = routeStepMatchesTarget(activeStep, target) && activeStep?.action === 'tradeLaneEntry' ? routeWaypoints()[1] : null;
+                if (activeStep?.action === 'tradeLaneEntry' && routeStepMatchesTarget(activeStep, target)) advanceRouteWaypoint(false, { activate: false, save: false });
+                startTradeLaneFromRing(target, exitStep);
             } else if (target instanceof JumpGate) {
+                const activeStep = game.waypoint;
+                if (activeStep?.action === 'jump' && routeStepMatchesTarget(activeStep, target)) advanceRouteWaypoint(false, { activate: false, save: false });
                 startJumpTransition(target);
             } else {
                 openLandingWindow(target);
             }
         }
     }
+
+    updateRouteProgress();
     
     for (const entity of game.entities) entity.update(dt);
     updateNpcFleets(dt);
@@ -6599,7 +6962,7 @@ function scannerTargetKey(target) {
 function scannerTargets() {
     if (!game.player) return [];
     const candidates = [];
-    if (game.waypoint && game.waypoint.systemId === currentSystemId) candidates.push({ target: game.waypoint, alwaysVisible: true });
+    if (game.waypoint && (game.waypoint.systemId || currentSystemId).toLowerCase() === currentSystemId.toLowerCase()) candidates.push({ target: game.waypoint, alwaysVisible: true });
     for (const npc of game.npcs || []) {
         if (!npc || npc.hull <= 0 || npc.hidden) continue;
         candidates.push({ target: npc, alwaysVisible: false });
@@ -6868,10 +7231,12 @@ function renderWaypointLine(ctx) {
         ctx.fillText(label || target.name || 'Target', end.x, end.y - 13);
         ctx.restore();
     };
+    routeWaypoints().forEach((waypoint, index) => {
+        if (waypoint && (waypoint.systemId || currentSystemId).toLowerCase() === currentSystemId.toLowerCase()) {
+            drawLine(waypoint, index === 0 ? 'rgba(185, 95, 255, 0.88)' : 'rgba(120, 190, 255, 0.52)', index === 0 ? '#c77dff' : '#78beff', index === 0 ? [7, 6] : [3, 7], (index + 1) + '. ' + (waypoint.name || 'Waypoint'));
+        }
+    });
     const waypoint = game.waypoint;
-    if (waypoint && currentSystemId === (waypoint.systemId || currentSystemId)) {
-        drawLine(waypoint, 'rgba(185, 95, 255, 0.88)', '#c77dff', [7, 6], waypoint.name || 'Waypoint');
-    }
     const target = game.approachTarget || game.selectedTarget;
     if (target && target !== waypoint && !target.isWaypoint) {
         drawLine(target, 'rgba(255, 170, 0, 0.86)', '#ffaa00', [10, 7], target.name || 'Target');
@@ -7532,33 +7897,38 @@ function drawMapCanvas() {
         ctx.setLineDash([]);
     }
 
-    if (game.waypoint && game.waypoint.systemId === currentSystemId) {
-        const waypointPos = systemMapToScreen(game.waypoint.x, game.waypoint.z, mapTransform);
-        if (mapPlayerPos) {
-            ctx.strokeStyle = 'rgba(185,95,255,0.82)';
+    const visibleRoute = routeWaypoints().filter(step => step.systemId?.toLowerCase() === currentSystemId.toLowerCase());
+    if (visibleRoute.length) {
+        let previousPos = mapPlayerPos;
+        for (const [index, step] of visibleRoute.entries()) {
+            const waypointPos = systemMapToScreen(step.x, step.z, mapTransform);
+            if (previousPos) {
+                ctx.strokeStyle = index === 0 ? 'rgba(185,95,255,0.82)' : 'rgba(120,190,255,0.58)';
+                ctx.lineWidth = index === 0 ? 2 : 1.5;
+                ctx.setLineDash(index === 0 ? [6, 5] : [4, 7]);
+                ctx.beginPath();
+                ctx.moveTo(previousPos.x, previousPos.y);
+                ctx.lineTo(waypointPos.x, waypointPos.y);
+                ctx.stroke();
+                ctx.setLineDash([]);
+            }
+            ctx.strokeStyle = index === 0 ? '#c77dff' : '#78beff';
+            ctx.fillStyle = index === 0 ? '#c77dff' : '#78beff';
             ctx.lineWidth = 2;
-            ctx.setLineDash([6, 5]);
             ctx.beginPath();
-            ctx.moveTo(mapPlayerPos.x, mapPlayerPos.y);
-            ctx.lineTo(waypointPos.x, waypointPos.y);
+            ctx.moveTo(waypointPos.x, waypointPos.y - 9);
+            ctx.lineTo(waypointPos.x + 9, waypointPos.y);
+            ctx.lineTo(waypointPos.x, waypointPos.y + 9);
+            ctx.lineTo(waypointPos.x - 9, waypointPos.y);
+            ctx.closePath();
             ctx.stroke();
-            ctx.setLineDash([]);
+            ctx.beginPath();
+            ctx.arc(waypointPos.x, waypointPos.y, 3, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.font = '9px Courier New';
+            ctx.fillText((index + 1) + '. ' + (step.name || 'Waypoint'), waypointPos.x, waypointPos.y - 14);
+            previousPos = waypointPos;
         }
-        ctx.strokeStyle = '#c77dff';
-        ctx.fillStyle = '#c77dff';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(waypointPos.x, waypointPos.y - 9);
-        ctx.lineTo(waypointPos.x + 9, waypointPos.y);
-        ctx.lineTo(waypointPos.x, waypointPos.y + 9);
-        ctx.lineTo(waypointPos.x - 9, waypointPos.y);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.arc(waypointPos.x, waypointPos.y, 3, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.font = '9px Courier New';
-        ctx.fillText(game.waypoint.name || 'Waypoint', waypointPos.x, waypointPos.y - 14);
     }
     
     // Player
@@ -7578,6 +7948,7 @@ function drawMapCanvas() {
     ctx.fillStyle = '#668899';
     ctx.textAlign = 'right';
     ctx.fillText('Wheel zoom / drag pan: ' + game.mapZoom.toFixed(1) + 'x', w - 10, 18);
+    renderRouteLists();
 }
 
 // Universe View
@@ -7717,6 +8088,49 @@ function drawUniverseCurrentSystemHighlight(ctx, systems, transform) {
     ctx.setLineDash([]);
 }
 
+function routeSystemOrder() {
+    const systems = [];
+    const add = (systemId) => {
+        const canonical = canonicalSystemId(systemId);
+        if (canonical && systems[systems.length - 1]?.toLowerCase() !== canonical.toLowerCase()) systems.push(canonical);
+    };
+    add(currentSystemId);
+    for (const step of routeWaypoints()) add(step.systemId || currentSystemId);
+    return systems;
+}
+
+function drawUniverseRoute(ctx, systemById, transform) {
+    const routeSystems = routeSystemOrder().map(id => systemById.get(id.toLowerCase())).filter(Boolean);
+    if (!routeSystems.length) return;
+    ctx.save();
+    ctx.strokeStyle = 'rgba(199,125,255,0.82)';
+    ctx.lineWidth = 3;
+    ctx.setLineDash([8, 6]);
+    ctx.beginPath();
+    routeSystems.forEach((system, index) => {
+        const pos = universeToScreen(system, transform);
+        if (index === 0) ctx.moveTo(pos.x, pos.y);
+        else ctx.lineTo(pos.x, pos.y);
+    });
+    ctx.stroke();
+    ctx.setLineDash([]);
+    routeSystems.forEach((system, index) => {
+        const pos = universeToScreen(system, transform);
+        ctx.fillStyle = index === 0 ? '#ffffff' : '#c77dff';
+        ctx.strokeStyle = '#16051e';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, index === 0 ? 7 : 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '9px Courier New';
+        ctx.textAlign = 'center';
+        ctx.fillText(String(index + 1), pos.x, pos.y - 10);
+    });
+    ctx.restore();
+}
+
 function drawUniverseLegend(ctx, w, h, footerText) {
     ctx.fillStyle = '#666666';
     ctx.font = '10px Courier New';
@@ -7847,6 +8261,7 @@ function drawUniverseSectorMap(ctx, canvas, systems, universeConnections, sector
     drawUniverseConnections(ctx, systemById, visibleConnections, universeTransform);
     drawUniverseSystemNodes(ctx, systems, universeTransform);
     drawUniverseCurrentSystemHighlight(ctx, systems, universeTransform);
+    drawUniverseRoute(ctx, systemById, universeTransform);
     if (sectorName) {
         ctx.fillStyle = '#88ccaa';
         ctx.font = '12px Courier New';
@@ -7854,6 +8269,7 @@ function drawUniverseSectorMap(ctx, canvas, systems, universeConnections, sector
         ctx.fillText(`Sector: ${sectorName}`, 12, 22);
     }
     drawUniverseLegend(ctx, w, h, 'Wheel zoom / drag pan: ' + game.universeZoom.toFixed(1) + 'x');
+    renderRouteLists();
 }
 
 function drawUniverseMap() {
@@ -7892,6 +8308,7 @@ function drawUniverseMap() {
     const sectors = availableUniverseSectors();
     if (universeViewMode() === 'overview' && sectors.length > 1) {
         drawUniverseSectorOverview(ctx, canvas, sectors, universeConnections);
+        renderRouteLists();
         return;
     }
     const selectedSector = currentUniverseSector();
@@ -7911,6 +8328,20 @@ function drawUniverseMap() {
         return;
     }
     drawUniverseSectorMap(ctx, canvas, systems, universeConnections, selectedSector?.name || 'Sirius');
+    renderRouteLists();
+}
+
+function universeSystemsForCurrentView() {
+    const universeSystems = dataSet('UNIVERSE_SYSTEMS', typeof UNIVERSE_SYSTEMS !== 'undefined' ? UNIVERSE_SYSTEMS : []);
+    const selectedSector = currentUniverseSector();
+    const sourceSystems = selectedSector && universeViewMode() !== 'overview' ? (selectedSector.systems || []) : universeSystems;
+    return sourceSystems.map(sys => ({ id: sys.nickname, name: displayName(sys.name, sys.nickname), x: Number(sys.x || 0), y: Number(sys.z || 0) }));
+}
+
+function setRouteToSystem(systemId) {
+    const system = buildSystemData(systemId);
+    const target = system.stations[0] || system.planets[0] || system.jumpgates[0] || { x: 0, z: 0, name: system.name || systemId };
+    setWaypointTarget({ ...target, systemId: canonicalSystemId(systemId), name: target.name || system.name || systemId, type: target.type || 'System Destination' }, target.name || system.name || systemId);
 }
 
 document.getElementById('universe-canvas')?.addEventListener('wheel', (e) => {
@@ -7945,6 +8376,32 @@ function stopUniverseDrag() {
 
 document.getElementById('universe-canvas')?.addEventListener('mouseup', stopUniverseDrag);
 document.getElementById('universe-canvas')?.addEventListener('mouseleave', stopUniverseDrag);
+
+document.getElementById('universe-canvas')?.addEventListener('click', (e) => {
+    if (game.universeDragged) {
+        game.universeDragged = false;
+        return;
+    }
+    if (universeViewMode() === 'overview') return;
+    const canvas = e.target;
+    const systems = universeSystemsForCurrentView();
+    if (!systems.length) return;
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    const transform = getUniverseTransform(canvas, systems);
+    let nearest = null;
+    let nearestDistance = Infinity;
+    for (const system of systems) {
+        const pos = universeToScreen(system, transform);
+        const distance = Math.hypot(pos.x - mx, pos.y - my);
+        if (distance < nearestDistance) {
+            nearest = system;
+            nearestDistance = distance;
+        }
+    }
+    if (nearest && nearestDistance <= 18) setRouteToSystem(nearest.id);
+});
 
 document.getElementById('btn-close-universe')?.addEventListener('click', toggleUniverseView);
 
