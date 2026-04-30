@@ -835,7 +835,7 @@ const I18N = {
         ammoTab: 'Ammo', missileAmmo: 'Raketen', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
         selected: 'Ausgewählt', distance: 'Distanz', clearSelection: '[-] Ziel/WP', selectionCleared: 'Zielauswahl geloescht.', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
         scannerNone: 'Keine Schiffe oder Stationen in Reichweite.', noWeaponSlots: 'Keine Waffen-Slots vorhanden.', emptyWeapon: 'Leer', noGunMounted: 'Keine Waffe montiert',
-        scannerShip: 'Schiff', scannerPlanet: 'Planet', scannerJumpGate: 'Sprungtor', scannerJumpHole: 'Sprungloch', scannerTradeLane: 'Tradelane', scannerStation: 'Station', scannerObject: 'Objekt', weaponSlot: 'Waffe',
+        scannerShip: 'Schiff', scannerPlanet: 'Planet', scannerJumpGate: 'Sprungtor', scannerJumpHole: 'Sprungloch', scannerTradeLane: 'Tradelane', scannerStation: 'Station', scannerWaypoint: 'Wegpunkt', scannerObject: 'Objekt', weaponSlot: 'Waffe',
         repChanged: 'Ruf geändert', repHostile: 'FEINDLICH', repFriendly: 'FREUNDLICH', repNeutral: 'NEUTRAL', noReputationData: 'Keine Rufdaten geladen.',
         missionEliminate: 'Eliminiere feindliche Kontakte in {zone}.', missionWaypointLocked: 'Mission aktiv: Wegpunkt bleibt auf dem Missionsziel.', missionFreeWaypointsLocked: 'Mission aktiv: Freie Wegpunkte sind gesperrt.',
         saveStored: 'Spielstand gespeichert', saveStoreFailed: 'Spielstand konnte nicht gespeichert werden', cruiseDisabled: 'Reiseflug deaktiviert', cruiseCharging: 'Reiseflug lädt: {seconds} Sekunden', cruiseEnabled: 'Reiseflug aktiviert',
@@ -859,7 +859,7 @@ const I18N = {
         ammoTab: 'Ammo', missileAmmo: 'Missiles', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
         selected: 'Selected', distance: 'Distance', clearSelection: '[-] Clear', selectionCleared: 'Selection cleared.', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
         scannerNone: 'No ships or stations in range.', noWeaponSlots: 'No weapon slots available.', emptyWeapon: 'Empty', noGunMounted: 'No weapon mounted',
-        scannerShip: 'Ship', scannerPlanet: 'Planet', scannerJumpGate: 'Jump Gate', scannerJumpHole: 'Jump Hole', scannerTradeLane: 'Trade Lane', scannerStation: 'Station', scannerObject: 'Object', weaponSlot: 'Weapon',
+        scannerShip: 'Ship', scannerPlanet: 'Planet', scannerJumpGate: 'Jump Gate', scannerJumpHole: 'Jump Hole', scannerTradeLane: 'Trade Lane', scannerStation: 'Station', scannerWaypoint: 'Waypoint', scannerObject: 'Object', weaponSlot: 'Weapon',
         repChanged: 'Reputation changed', repHostile: 'HOSTILE', repFriendly: 'FRIENDLY', repNeutral: 'NEUTRAL', noReputationData: 'No reputation data loaded.',
         missionEliminate: 'Eliminate hostile contacts in {zone}.', missionWaypointLocked: 'Mission active: waypoint remains on the mission target.', missionFreeWaypointsLocked: 'Mission active: free waypoints are locked.',
         saveStored: 'Game saved', saveStoreFailed: 'Could not save game', cruiseDisabled: 'Cruise disabled', cruiseCharging: 'Cruise charging: {seconds} seconds', cruiseEnabled: 'Cruise enabled',
@@ -3556,6 +3556,68 @@ function isPointInsideZone(zone, x, z) {
     return (local.x * local.x) / (radiusX * radiusX) + (local.z * local.z) / (radiusZ * radiusZ) <= 1;
 }
 
+function isPointInsideExpandedZone(zone, x, z, margin = 0) {
+    const rotation = -flYawToCanvasRotation(zone.rotateY || 0);
+    const local = rotatePoint(x - zone.x, z - zone.z, rotation);
+    const radiusX = Math.max(1, zone.sizeX || zone.size || 1) + margin;
+    const radiusZ = Math.max(1, zone.sizeZ || zone.size || 1) + margin;
+    if (String(zone.shape || '').toUpperCase() === 'SPHERE') {
+        return Math.sqrt(local.x * local.x + local.z * local.z) <= Math.max(radiusX, radiusZ);
+    }
+    return (local.x * local.x) / (radiusX * radiusX) + (local.z * local.z) / (radiusZ * radiusZ) <= 1;
+}
+
+function damagingZones() {
+    return (systemData.zones || []).filter(zone => Number(zone.damage || 0) > 0 && Number.isFinite(zone.x) && Number.isFinite(zone.z));
+}
+
+function segmentCrossesExpandedZone(zone, x1, z1, x2, z2, margin = 0) {
+    const distance = Math.hypot(x2 - x1, z2 - z1);
+    const steps = clamp(Math.ceil(distance / 1200), 8, 72);
+    for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        if (isPointInsideExpandedZone(zone, x1 + (x2 - x1) * t, z1 + (z2 - z1) * t, margin)) return t;
+    }
+    return -1;
+}
+
+function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 2600) {
+    const dx = targetX - x;
+    const dz = targetZ - z;
+    const routeLength = Math.hypot(dx, dz);
+    if (routeLength < 1) return { x: 0, z: 0, magnitude: 0 };
+    const ux = dx / routeLength;
+    const uz = dz / routeLength;
+    const nx = -uz;
+    const nz = ux;
+    let threat = null;
+    for (const zone of damagingZones()) {
+        if (isPointInsideExpandedZone(zone, targetX, targetZ, margin * 0.35) && routeLength < margin * 1.6) continue;
+        const t = segmentCrossesExpandedZone(zone, x, z, targetX, targetZ, margin);
+        if (t >= 0 && (!threat || t < threat.t)) threat = { zone, t };
+    }
+    if (!threat) return { x: 0, z: 0, magnitude: 0 };
+
+    const zone = threat.zone;
+    const radius = Math.max(zone.sizeX || zone.size || 1, zone.sizeZ || zone.size || 1) + margin + 900;
+    const sideHint = Math.sign((zone.x - x) * nx + (zone.z - z) * nz) || 1;
+    const candidates = [sideHint, -sideHint].map(side => ({
+        x: zone.x + nx * radius * side,
+        z: zone.z + nz * radius * side,
+        side
+    }));
+    const scored = candidates.map(point => {
+        const blocked = damagingZones().some(other => isPointInsideExpandedZone(other, point.x, point.z, margin * 0.5));
+        const pathCost = Math.hypot(point.x - x, point.z - z) + Math.hypot(targetX - point.x, targetZ - point.z);
+        return { point, score: pathCost + (blocked ? 100000000 : 0) };
+    }).sort((a, b) => a.score - b.score);
+    const detour = scored[0]?.point;
+    if (!detour) return { x: 0, z: 0, magnitude: 0 };
+    const vx = detour.x - x;
+    const vz = detour.z - z;
+    return { x: vx, z: vz, magnitude: Math.hypot(vx, vz), zone };
+}
+
 function checkZoneHazards(dt) {
     if (!game.player || game.isDocked || game.player.destroyed) return;
     for (const zone of systemData.zones || []) {
@@ -3991,19 +4053,29 @@ class PlayerShip {
             
             if (dist > arrivalDistance) {
                 const avoidance = getAvoidanceVector(this.x, this.z, game.dockTarget ? 1900 : 1500);
-                const steerX = dx + avoidance.x * Math.min(dist, 4500);
-                const steerZ = dz + avoidance.z * Math.min(dist, 4500);
+                const deathZoneAvoidance = getAutopilotDeathZoneAvoidance(this.x, this.z, game.approachTarget.x, game.approachTarget.z, game.dockTarget ? 3000 : 2600);
+                const isAvoidingDeathZone = deathZoneAvoidance.magnitude > 0;
+                const steerX = isAvoidingDeathZone
+                    ? deathZoneAvoidance.x + avoidance.x * Math.min(dist, 2600)
+                    : dx + avoidance.x * Math.min(dist, 4500);
+                const steerZ = isAvoidingDeathZone
+                    ? deathZoneAvoidance.z + avoidance.z * Math.min(dist, 2600)
+                    : dz + avoidance.z * Math.min(dist, 4500);
                 const targetAngle = Math.atan2(steerZ, steerX);
                 let angleDiff = targetAngle - this.rotation;
                 while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
                 while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
                 if (Math.abs(angleDiff) > 0.05) {
-                    this.rotation += Math.sign(angleDiff) * this.turnRate * dt * (avoidance.magnitude > 0.05 ? 1.1 : 0.5);
+                    this.rotation += Math.sign(angleDiff) * this.turnRate * dt * (isAvoidingDeathZone || avoidance.magnitude > 0.05 ? 1.1 : 0.5);
                 }
                 if (shouldBrakeForArrival) {
                     this.throttle = 0;
                 } else if (!this.cruiseActive && !this.cruiseCharging && !this.afterburnerActive) {
-                    this.throttle = avoidance.magnitude > 0.35 ? 0.55 : 1;
+                    this.throttle = isAvoidingDeathZone ? 0.85 : (avoidance.magnitude > 0.35 ? 0.55 : 1);
+                }
+                if (isAvoidingDeathZone && (!game.lastDeathZoneAvoidanceLog || performance.now() - game.lastDeathZoneAvoidanceLog > 3500)) {
+                    addLog('Autopilot avoiding death zone: ' + (deathZoneAvoidance.zone?.name || deathZoneAvoidance.zone?.id || 'hazard'), 'alert');
+                    game.lastDeathZoneAvoidanceLog = performance.now();
                 }
             } else {
                 const finishedName = game.approachTarget.name;
@@ -6428,6 +6500,7 @@ const SCANNER_RANGE = 12000;
 
 function scannerObjectKind(target) {
     if (!target) return t('scannerObject');
+    if (target.isWaypoint) return t('scannerWaypoint');
     if (game.npcs.includes(target)) return t('scannerShip');
     if (target instanceof PlanetLocation) return t('scannerPlanet');
     if (target instanceof JumpGate) return target.kind === 'hole' ? t('scannerJumpHole') : t('scannerJumpGate');
@@ -6441,36 +6514,62 @@ function scannerObjectIcon(kind) {
     if (kind === t('scannerPlanet')) return '●';
     if (kind === t('scannerJumpGate') || kind === t('scannerJumpHole')) return '◇';
     if (kind === t('scannerTradeLane')) return '◌';
+    if (kind === t('scannerWaypoint')) return '◆';
     return '■';
 }
 
 function scannerTargetKey(target) {
+    if (target?.isWaypoint) return target.id || 'waypoint';
     return target?.id || target?.nickname || target?.name || '';
 }
 
 function scannerTargets() {
     if (!game.player) return [];
     const candidates = [];
+    if (game.waypoint && game.waypoint.systemId === currentSystemId) candidates.push({ target: game.waypoint, alwaysVisible: true });
     for (const npc of game.npcs || []) {
         if (!npc || npc.hull <= 0 || npc.hidden) continue;
-        candidates.push(npc);
+        candidates.push({ target: npc, alwaysVisible: false });
     }
     for (const entity of game.entities || []) {
-        if (entity instanceof Station || entity instanceof PlanetLocation || entity instanceof JumpGate || entity instanceof TradeLaneRing) candidates.push(entity);
+        if (entity instanceof Station || entity instanceof PlanetLocation || entity instanceof JumpGate || entity instanceof TradeLaneRing) {
+            candidates.push({ target: entity, alwaysVisible: false });
+        }
     }
-    return candidates.map(target => {
+    return candidates.map(entry => {
+        const target = entry.target;
         const distance = Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z);
-        return { target, distance, kind: scannerObjectKind(target) };
-    }).filter(entry => Number.isFinite(entry.distance) && entry.distance <= SCANNER_RANGE)
-      .sort((a, b) => a.distance - b.distance)
+        return { target, distance, kind: scannerObjectKind(target), alwaysVisible: entry.alwaysVisible };
+    }).filter(entry => Number.isFinite(entry.distance) && (entry.alwaysVisible || entry.distance <= SCANNER_RANGE))
+      .sort((a, b) => Number(b.alwaysVisible) - Number(a.alwaysVisible) || a.distance - b.distance)
       .slice(0, 14);
 }
 
-function selectScannerTarget(key) {
-    const target = [...(game.npcs || []), ...(game.entities || [])].find(item => scannerTargetKey(item) === key);
+function findScannerTargetByKey(key) {
+    if (game.waypoint && scannerTargetKey(game.waypoint) === key) return game.waypoint;
+    return [...(game.npcs || []), ...(game.entities || [])].find(item => scannerTargetKey(item) === key) || null;
+}
+
+function startApproachFromScanner(target) {
+    if (!target || !Number.isFinite(target.x) || !Number.isFinite(target.z)) return;
+    game.selectedTarget = target;
+    game.approachTarget = target;
+    game.dockTarget = null;
+    game.approachArrivalLogged = false;
+    game.commandMode = 'approach';
+    updateCommandModeButtons();
+    startAutopilotCruise();
+    updateSpeedControl();
+    addLog('Approaching: ' + (target.name || scannerObjectKind(target)));
+}
+
+function selectScannerTarget(encodedKey) {
+    const key = decodeURIComponent(encodedKey || '');
+    const target = findScannerTargetByKey(key);
     if (!target) return;
     game.selectedTarget = target;
-    addLog('Selected: ' + (target.name || scannerObjectKind(target)));
+    if (!target.isWaypoint && !game.activeMission) setWaypointTarget(target, target.name || scannerObjectKind(target));
+    startApproachFromScanner(target.isWaypoint ? target : (game.selectedTarget || target));
     playSound('select', 0.7);
     updateHUD();
 }
@@ -6487,13 +6586,14 @@ function updateScannerPanel() {
     }
     list.innerHTML = entries.map(entry => {
         const key = scannerTargetKey(entry.target);
-        const selected = game.selectedTarget === entry.target ? ' selected' : '';
+        const encodedKey = encodeURIComponent(key).replace(/'/g, '%27');
+        const selected = game.selectedTarget === entry.target || game.selectedTarget === entry.target.linkedTarget ? ' selected' : '';
         const name = entry.target.name || entry.target.shipName || key || entry.kind;
         const hasDefenseStats = Number.isFinite(entry.target?.maxHull) || Number.isFinite(entry.target?.maxShield);
         const defenseLine = hasDefenseStats
             ? `${t('hudShield')}: ${Math.round(Number(entry.target?.shield) || 0)}/${Math.max(0, Math.round(Number(entry.target?.maxShield) || 0))} | ${t('hudHull')}: ${Math.round(Number(entry.target?.hull) || 0)}/${Math.max(1, Math.round(Number(entry.target?.maxHull) || 0))}`
             : entry.kind;
-        return `<div class="hud-row${selected}" onclick="selectScannerTarget('${escapeHtml(key)}')"><span class="hud-kind">${scannerObjectIcon(entry.kind)}</span><span>${escapeHtml(name)}<br><span style="color:#7299aa;">${escapeHtml(defenseLine)}</span></span><span class="hud-distance">${formatDistance(entry.distance)}</span></div>`;
+        return `<div class="hud-row${selected}" onclick="selectScannerTarget('${encodedKey}')"><span class="hud-kind">${scannerObjectIcon(entry.kind)}</span><span>${escapeHtml(name)}<br><span style="color:#7299aa;">${escapeHtml(defenseLine)}</span></span><span class="hud-distance">${formatDistance(entry.distance)}</span></div>`;
     }).join('');
 }
 
