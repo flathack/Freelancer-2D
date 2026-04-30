@@ -8317,13 +8317,20 @@ function renderEquipmentDealer() {
         if (!item) continue;
         const inv = inventory.find(i => i.id === item.id);
         const owned = inv ? availableEquipmentQuantity(item.id) : 0;
-        const canBuy = entry.forSale && game.player.credits >= entry.price;
+        const needsShipCompatibility = !item.combinable && categorySlotKeys(item.category).length > 0;
+        const compatibility = needsShipCompatibility ? equipmentCompatibility(item) : { ok: true, reason: '' };
+        const canBuy = entry.forSale && game.player.credits >= entry.price && compatibility.ok;
         const damageLabel = isMissileLauncher(item)
             ? `${Math.round(missileDamageForItem(item, getEquipment(missileAmmoItemId(item))))}`
             : (item.hullDamage || item.energyDamage ? `${Math.round(Number(item.hullDamage || 0))}/${Math.round(Number(item.energyDamage || 0))}` : '-');
         const powerLabel = item.powerUsage ? Number(item.powerUsage).toFixed(1) : (item.capacity ? `${Math.round(item.capacity).toLocaleString()} / +${Math.round(item.chargeRate || 0).toLocaleString()}` : '-');
         const typeLabel = equipmentMountType(item);
-        html += `<tr><td style="color:#00ff00;">${escapeHtml(item.name)}</td><td>${escapeHtml(typeLabel)}</td><td>${equipmentClass(item)}</td><td>${escapeHtml(powerLabel)}</td><td>${escapeHtml(damageLabel)}</td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td>${owned}</td><td><button class="trade-button" onclick="buyEquipment('${item.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td></tr>`;
+        const muted = !compatibility.ok;
+        const rowStyle = muted ? ' style="opacity:0.48;color:#778899;"' : '';
+        const mutedCellStyle = muted ? ' style="color:#778899;"' : '';
+        const reasonHtml = muted ? `<br><span style="color:#ff7777;font-size:11px;">${escapeHtml(compatibility.reason)}</span>` : '';
+        const titleAttr = muted ? ` title="${escapeHtml(compatibility.reason)}"` : '';
+        html += `<tr${rowStyle}${titleAttr}><td style="color:${muted ? '#778899' : '#00ff00'};">${escapeHtml(item.name)}${reasonHtml}</td><td${mutedCellStyle}>${escapeHtml(typeLabel)}</td><td${mutedCellStyle}>${equipmentClass(item)}</td><td${mutedCellStyle}>${escapeHtml(powerLabel)}</td><td${mutedCellStyle}>${escapeHtml(damageLabel)}</td><td style="color:${muted ? '#777' : '#ffaa00'};">${entry.price.toLocaleString()} CR</td><td${mutedCellStyle}>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td${mutedCellStyle}>${owned}</td><td><button class="trade-button" onclick="buyEquipment('${item.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td></tr>`;
     }
     html += '</table>';
     content.innerHTML = html;
@@ -8363,6 +8370,14 @@ function buyEquipment(itemId) {
     const marketEntry = getEquipmentMarket().find(entry => entry.id === itemId);
     const item = getEquipment(itemId);
     if (!marketEntry || !item || !marketEntry.forSale || game.player.credits < marketEntry.price) return;
+    const needsShipCompatibility = !item.combinable && categorySlotKeys(item.category).length > 0;
+    if (needsShipCompatibility) {
+        const compatibility = equipmentCompatibility(item);
+        if (!compatibility.ok) {
+            addLog(compatibility.reason, 'alert');
+            return;
+        }
+    }
     if (String(item.category || '').toLowerCase() === 'missile' && item.combinable && totalMissileAmmoCount() >= game.player.maxMissileAmmo) {
         addLog(t('ammoFull'), 'alert');
         return;
