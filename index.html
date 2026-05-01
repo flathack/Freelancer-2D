@@ -328,6 +328,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                         <div class="consumable-box"><span id="label-nanobots">Nanobots</span> <span id="nanobot-count">0</span></div>
                         <div class="consumable-box"><span id="label-shield-batteries">Shield Batteries</span> <span id="shield-battery-count">0</span></div>
                         <div class="consumable-box"><span id="label-missile-ammo">Missiles</span> <span id="missile-ammo-count">0</span></div>
+                        <div class="consumable-box"><span id="label-mines">Mines</span> <span id="mine-count">0</span></div>
                     </div>
                 </div>
             </div>
@@ -389,6 +390,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                 <p id="control-map">M - Toggle map</p>
                 <p id="control-nanobots">G / N - Use nanobot</p>
                 <p id="control-batteries">F / B - Use shield battery</p>
+                <p id="control-mines">E - Drop mine</p>
                 <p id="control-zoom">Mouse Wheel - Zoom</p>
             </div>
         </div>
@@ -836,13 +838,13 @@ const I18N = {
         shipDealerDockOnly: 'Schiffe koennen nur nach dem Andocken gekauft werden.', noShipsSold: 'Hier werden keine Schiffe verkauft.', atmosphereWarning: 'Atmosphaereneintritt', planetImpact: 'Planetare Kollision',
         startGame: 'SPIEL STARTEN', continueGame: 'WEITER', startNew: 'NEUES SPIEL', startDelete: 'SAVE LOESCHEN', saveNamePlaceholder: 'Name fuer neues Savegame', mainMenuLanguage: 'SPRACHE',
         startControls: 'Steuerung', controlRotate: 'Linke Maustaste halten - Schiff drehen', controlCursor: 'Linke Maustaste loslassen - Cursor-Modus', controlFire: 'Rechte Maustaste - Primärwaffen | Q - Raketen',
-        controlSelect: 'Objekt anklicken - Ziel auswählen', controlThrottleUp: 'W - Schub erhöhen', controlThrottleDown: 'S - Schub verringern / Reiseflug abbrechen', controlReverse: 'X - Rückwärtsschub', controlAfterburner: 'Tab - Nachbrenner halten',
+        controlSelect: 'Objekt anklicken - Ziel auswählen', controlThrottleUp: 'W - Schub erhöhen', controlThrottleDown: 'S - Schub verringern / Reiseflug abbrechen', controlReverse: 'X - Rückwärtsschub', controlAfterburner: 'Tab - Nachbrenner halten', controlMines: 'E - Mine abwerfen',
         controlDock: 'D - Schiff driftet nach rechts', controlApproach: 'A - Schiff driftet nach links', controlMap: 'M - Karte umschalten', controlNanobots: 'G / N - Nanobot benutzen', controlBatteries: 'F / B - Schildbatterie benutzen', controlZoom: 'Mausrad - Zoom',
         noSaveForMod: 'Kein Savegame fuer diesen Mod vorhanden', separateSaves: 'Vanilla DE, Vanilla EN und Crossfire haben getrennte Spielstaende',
         noSavedGameFound: 'Kein gespeicherter Spielstand gefunden.', savegameLabel: 'Spielstand', activeLabel: 'AKTIV', loadLabel: 'LADEN', unknownDate: 'unbekannt',
         maxSavesReached: 'Maximal 5 Savegames. Bitte zuerst einen Spielstand loeschen.', deleteSaveConfirm: 'Savegame "{name}" loeschen?', modDataMissing: '{mod}-Daten nicht gefunden. Starte mit Vanilla DE.',
         hudHull: 'HÜLLE', hudShield: 'SCHILD', hudEnergy: 'ENERGIE', loadoutTitle: 'WAFFEN', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Schildbatterien',
-        ammoTab: 'Ammo', missileAmmo: 'Raketen', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
+        ammoTab: 'Ammo', missileAmmo: 'Raketen', mines: 'Minen', mineAmmoCount: 'Minen: {count}/{max}', mineDropped: 'Mine abgeworfen.', mineAmmoEmpty: 'Keine Minen uebrig.', mineAmmoFull: 'Minenlager voll.', mineDropperMissing: 'Kein Minenwerfer montiert.', mineDropLocked: 'Minen nur bei Kampfgeschwindigkeit bis 80 m/s, nicht in Cruise, Tradelane oder Sprung.', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
         selected: 'Ausgewählt', distance: 'Distanz', clearSelection: '[-] Ziel/WP', selectionCleared: 'Zielauswahl geloescht.', waypointFromSelection: 'WP AUS AUSWAHL', noWaypointSelection: 'Kein geeignetes Objekt ausgewaehlt.', clearWaypoint: 'Wegpunkt loeschen', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
         scannerNone: 'Keine Schiffe oder Stationen in Reichweite.', noWeaponSlots: 'Keine Waffen-Slots vorhanden.', emptyWeapon: 'Leer', noGunMounted: 'Keine Waffe montiert',
         scannerShip: 'Schiff', scannerPlanet: 'Planet', scannerJumpGate: 'Sprungtor', scannerJumpHole: 'Sprungloch', scannerTradeLane: 'Tradelane', scannerStation: 'Station', scannerWaypoint: 'Wegpunkt', scannerObject: 'Objekt', weaponSlot: 'Waffe',
@@ -860,13 +862,13 @@ const I18N = {
         shipDealerDockOnly: 'Ships can only be bought while docked.', noShipsSold: 'No ships are sold here.', atmosphereWarning: 'Atmosphere entry', planetImpact: 'Planetary collision',
         startGame: 'START GAME', continueGame: 'CONTINUE', startNew: 'NEW GAME', startDelete: 'DELETE SAVE', saveNamePlaceholder: 'Name for new savegame', mainMenuLanguage: 'LANGUAGE',
         startControls: 'Controls', controlRotate: 'Left Mouse (hold) - Rotate ship', controlCursor: 'Left Mouse (release) - Cursor mode', controlFire: 'Right Mouse - Primary fire | Q - Missiles',
-        controlSelect: 'Click object - Select target', controlThrottleUp: 'W - Increase throttle', controlThrottleDown: 'S - Reduce throttle / cancel cruise', controlReverse: 'X - Reverse thrust', controlAfterburner: 'Tab - Hold afterburner',
+        controlSelect: 'Click object - Select target', controlThrottleUp: 'W - Increase throttle', controlThrottleDown: 'S - Reduce throttle / cancel cruise', controlReverse: 'X - Reverse thrust', controlAfterburner: 'Tab - Hold afterburner', controlMines: 'E - Drop mine',
         controlDock: 'D - Drift ship right', controlApproach: 'A - Drift ship left', controlMap: 'M - Toggle map', controlNanobots: 'G / N - Use nanobot', controlBatteries: 'F / B - Use shield battery', controlZoom: 'Mouse Wheel - Zoom',
         noSaveForMod: 'No savegame exists for this mod yet', separateSaves: 'Vanilla DE, Vanilla EN, and Crossfire use separate save slots',
         noSavedGameFound: 'No saved game found.', savegameLabel: 'Savegame', activeLabel: 'ACTIVE', loadLabel: 'LOAD', unknownDate: 'unknown',
         maxSavesReached: 'Maximum of 5 savegames. Delete one first.', deleteSaveConfirm: 'Delete savegame "{name}"?', modDataMissing: '{mod} data not found. Starting with Vanilla DE.',
         hudHull: 'HULL', hudShield: 'SHIELD', hudEnergy: 'ENERGY', loadoutTitle: 'WEAPONS', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Shield Batteries',
-        ammoTab: 'Ammo', missileAmmo: 'Missiles', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
+        ammoTab: 'Ammo', missileAmmo: 'Missiles', mines: 'Mines', mineAmmoCount: 'Mines: {count}/{max}', mineDropped: 'Mine dropped.', mineAmmoEmpty: 'No mines left.', mineAmmoFull: 'Mine bay full.', mineDropperMissing: 'No mine dropper mounted.', mineDropLocked: 'Mines only at combat speed up to 80 m/s, not in cruise, trade lane, or jump.', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
         selected: 'Selected', distance: 'Distance', clearSelection: '[-] Clear', selectionCleared: 'Selection cleared.', waypointFromSelection: 'WP FROM SELECTION', noWaypointSelection: 'No suitable object selected.', clearWaypoint: 'Clear waypoint', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
         scannerNone: 'No ships or stations in range.', noWeaponSlots: 'No weapon slots available.', emptyWeapon: 'Empty', noGunMounted: 'No weapon mounted',
         scannerShip: 'Ship', scannerPlanet: 'Planet', scannerJumpGate: 'Jump Gate', scannerJumpHole: 'Jump Hole', scannerTradeLane: 'Trade Lane', scannerStation: 'Station', scannerWaypoint: 'Waypoint', scannerObject: 'Object', weaponSlot: 'Weapon',
@@ -1026,6 +1028,7 @@ function equipmentMountType(item) {
     const id = String(item?.id || item?.equipmentId || '').toLowerCase();
     const name = String(item?.name || '').toLowerCase();
     const category = String(item?.category || '').toLowerCase();
+    if (category === 'mine' && item?.combinable) return 'mine ammo';
     if (category === 'weapon') return 'weapon';
     if (category === 'turret') return 'turret';
     if (category === 'shield') return 'shield';
@@ -1365,6 +1368,68 @@ function missileDamageForItem(item, ammoItem = null) {
     if (id.includes('missile03')) return Math.max(320, ammoPrice * 6);
     if (id.includes('missile02')) return Math.max(260, ammoPrice * 5.5);
     return Math.max(180, ammoPrice * 7);
+}
+
+function isMineDropper(item) {
+    return String(item?.category || '').toLowerCase() === 'mine' && !item?.combinable && Boolean(item?.projectileArchetype);
+}
+
+function isMineAmmo(item) {
+    return String(item?.category || '').toLowerCase() === 'mine' && Boolean(item?.combinable);
+}
+
+function equippedMineDropperItem() {
+    const item = mountedEquipmentItem('mine');
+    return isMineDropper(item) ? item : null;
+}
+
+function mineAmmoItemId(item) {
+    if (!isMineDropper(item)) return '';
+    return String(item?.projectileArchetype || '').toLowerCase();
+}
+
+function mineAmmoInventoryEntries() {
+    return (game.player?.equipmentInventory || []).filter(entry => isMineAmmo(getEquipment(entry.id)));
+}
+
+function totalMineAmmoCount() {
+    return mineAmmoInventoryEntries().reduce((sum, entry) => sum + Math.max(0, Number(entry.quantity) || 0), 0);
+}
+
+function mineAmmoCount(itemOrAmmoId) {
+    const ammoId = typeof itemOrAmmoId === 'string' ? String(itemOrAmmoId || '').toLowerCase() : mineAmmoItemId(itemOrAmmoId);
+    if (!ammoId) return 0;
+    return Math.max(0, Number(findEquipmentItem(ammoId)?.quantity) || 0);
+}
+
+function consumeMineAmmo(item) {
+    const ammoId = mineAmmoItemId(item);
+    if (!ammoId) return false;
+    const inv = findEquipmentItem(ammoId);
+    if (!inv || (Number(inv.quantity) || 0) <= 0) return false;
+    inv.quantity = Math.max(0, (Number(inv.quantity) || 0) - 1);
+    game.player.equipmentInventory = (game.player.equipmentInventory || []).filter(entry => (Number(entry.quantity) || 0) > 0);
+    return true;
+}
+
+function mineStatsFromEquipment(item) {
+    const ammo = getEquipment(mineAmmoItemId(item));
+    const damage = Number(ammo?.explosionHullDamage || ammo?.hullDamage || ammo?.price || MINE_DAMAGE);
+    const topSpeed = Number(ammo?.topSpeed || item?.muzzleVelocity || MINE_SPEED) || MINE_SPEED;
+    const dropSpeed = Number(item?.muzzleVelocity || Math.min(topSpeed, MINE_SPEED)) || MINE_SPEED;
+    return {
+        name: item?.name || t('mines'),
+        cooldown: Math.max(0.1, Number(item?.refireDelay) || MINE_DROP_COOLDOWN),
+        speed: Math.max(1, dropSpeed),
+        damage: Math.max(1, damage),
+        lifetime: Math.max(0.5, Number(ammo?.projectileLifetime) || MINE_LIFETIME),
+        seekRange: Math.max(0, Number(ammo?.seekDist || ammo?.seekerRange || MINE_SEEK_RANGE)),
+        maxSpeed: Math.max(1, topSpeed),
+        acceleration: Math.max(0, Number(ammo?.acceleration) || 0),
+        detonationRadius: Math.max(4, Number(ammo?.detonationDist || 0), Number(ammo?.explosionRadius || 0)),
+        radius: Math.max(6, Math.min(18, Number(ammo?.explosionRadius || 12) * 0.75)),
+        turnRate: Math.max(0.3, Number(ammo?.maxAngularVelocity) || 0.85)
+    };
 }
 
 function safeDomId(value) {
@@ -2242,12 +2307,14 @@ function applyLanguage() {
     if (nanobotLabel) nanobotLabel.textContent = t('labelNanobots');
     const batteryLabel = document.getElementById('label-shield-batteries');
     if (batteryLabel) batteryLabel.textContent = t('labelShieldBatteries');
+    const mineLabel = document.getElementById('label-mines');
+    if (mineLabel) mineLabel.textContent = t('mines');
     const controlsTitle = document.getElementById('controls-title');
     if (controlsTitle) controlsTitle.textContent = t('startControls');
     const startControls = [
         ['control-rotate', 'controlRotate'], ['control-cursor', 'controlCursor'], ['control-fire', 'controlFire'], ['control-select', 'controlSelect'],
         ['control-throttle-up', 'controlThrottleUp'], ['control-throttle-down', 'controlThrottleDown'], ['control-reverse', 'controlReverse'], ['control-afterburner', 'controlAfterburner'],
-        ['control-dock', 'controlDock'], ['control-approach', 'controlApproach'], ['control-map', 'controlMap'], ['control-nanobots', 'controlNanobots'],
+        ['control-dock', 'controlDock'], ['control-approach', 'controlApproach'], ['control-map', 'controlMap'], ['control-nanobots', 'controlNanobots'], ['control-mines', 'controlMines'],
         ['control-batteries', 'controlBatteries'], ['control-zoom', 'controlZoom']
     ];
     for (const [id, key] of startControls) {
@@ -2306,6 +2373,12 @@ const CRUISE_SPEED = 300;
 const CROSSFIRE_CRUISE_SPEED = 450;
 const AFTERBURNER_SPEED = 200;
 const REVERSE_SPEED = -15;
+const MAX_MINE_AMMO = 50;
+const MINE_DROP_COOLDOWN = 0.8;
+const MINE_SPEED = 34;
+const MINE_LIFETIME = 36;
+const MINE_SEEK_RANGE = 5200;
+const MINE_DAMAGE = 420;
 const CRUISE_CHARGE_SECONDS = 5;
 const NORMAL_FLIGHT_EXIT_SPEED = COMBAT_MAX_SPEED;
 const TRADE_LANE_ACCELERATION = 1250;
@@ -2768,6 +2841,7 @@ function createSaveGameState() {
             mountedEquipment: game.player.mountedEquipment,
             nanobots: game.player.nanobots,
             shieldBatteries: game.player.shieldBatteries,
+            mineAmmo: game.player.mineAmmo,
             shipPackageId: game.player.shipPackageId,
             faction: game.player.faction,
             reputations: game.player.reputations
@@ -2841,6 +2915,7 @@ function restorePlayerFromSave(save) {
     ensureStarterEquipmentForEmptyLoadout();
     game.player.nanobots = Number.isFinite(savedPlayer.nanobots) ? savedPlayer.nanobots : game.player.nanobots;
     game.player.shieldBatteries = Number.isFinite(savedPlayer.shieldBatteries) ? savedPlayer.shieldBatteries : game.player.shieldBatteries;
+    game.player.mineAmmo = Number.isFinite(savedPlayer.mineAmmo) ? clamp(savedPlayer.mineAmmo, 0, game.player.maxMineAmmo || MAX_MINE_AMMO) : game.player.mineAmmo;
     game.player.faction = normalizeFactionId(savedPlayer.faction || game.player.faction || 'li_n_grp');
     game.player.reputations = savedPlayer.reputations && typeof savedPlayer.reputations === 'object' ? { ...savedPlayer.reputations } : null;
     if (!game.player.reputations) initializePlayerReputations(game.player.faction);
@@ -3806,7 +3881,48 @@ function segmentCrossesExpandedZone(zone, x1, z1, x2, z2, margin = 0) {
     return -1;
 }
 
+function circularDeathZoneRadius(zone) {
+    return Math.max(1, Number(zone.sizeX || zone.size || 1), Number(zone.sizeZ || zone.size || 1));
+}
+
+function segmentCircleIntersection(zone, x1, z1, x2, z2, radius) {
+    const dx = x2 - x1;
+    const dz = z2 - z1;
+    const fx = x1 - zone.x;
+    const fz = z1 - zone.z;
+    const a = dx * dx + dz * dz;
+    if (a <= 0) return null;
+    const b = 2 * (fx * dx + fz * dz);
+    const c = fx * fx + fz * fz - radius * radius;
+    const discriminant = b * b - 4 * a * c;
+    if (discriminant < 0) return null;
+    const root = Math.sqrt(discriminant);
+    const t1 = (-b - root) / (2 * a);
+    const t2 = (-b + root) / (2 * a);
+    const hits = [t1, t2].filter(t => t >= 0 && t <= 1).sort((left, right) => left - right);
+    if (!hits.length) return null;
+    return { enter: hits[0], exit: hits[hits.length - 1] };
+}
+
+function autopilotZoneSide(zone, x, z, targetX, targetZ, routeNormalX, routeNormalZ, avoidRadius) {
+    const routeCandidates = [1, -1].map(side => {
+        const angle = Math.atan2(z - zone.z, x - zone.x) + side * 0.72;
+        const point = {
+            x: zone.x + Math.cos(angle) * avoidRadius,
+            z: zone.z + Math.sin(angle) * avoidRadius,
+            side
+        };
+        const blocked = damagingZones().some(other => other !== zone && isPointInsideExpandedZone(other, point.x, point.z, 500));
+        const pathCost = Math.hypot(point.x - x, point.z - z) + Math.hypot(targetX - point.x, targetZ - point.z);
+        return { side, score: pathCost + (blocked ? 100000000 : 0) };
+    });
+    const centerSide = Math.sign((zone.x - x) * routeNormalX + (zone.z - z) * routeNormalZ);
+    routeCandidates.sort((a, b) => a.score - b.score || (a.side === -centerSide ? -1 : 1));
+    return routeCandidates[0]?.side || 1;
+}
+
 function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
+    const clearance = 500;
     const dx = targetX - x;
     const dz = targetZ - z;
     const routeLength = Math.hypot(dx, dz);
@@ -3817,27 +3933,34 @@ function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
     const nz = ux;
     let threat = null;
     for (const zone of damagingZones()) {
-        if (isPointInsideExpandedZone(zone, targetX, targetZ, margin * 0.35) && routeLength < margin * 1.6) continue;
-        const t = segmentCrossesExpandedZone(zone, x, z, targetX, targetZ, margin);
-        if (t >= 0 && (!threat || t < threat.t)) threat = { zone, t };
+        if (isPointInsideZone(zone, targetX, targetZ)) continue;
+        const hit = segmentCircleIntersection(zone, x, z, targetX, targetZ, circularDeathZoneRadius(zone));
+        if (hit && (!threat || hit.enter < threat.t)) threat = { zone, t: hit.enter };
     }
     if (!threat) return { x: 0, z: 0, magnitude: 0 };
 
     const zone = threat.zone;
-    const radius = Math.max(zone.sizeX || zone.size || 1, zone.sizeZ || zone.size || 1) + margin + 420;
-    const sideHint = Math.sign((zone.x - x) * nx + (zone.z - z) * nz) || 1;
-    const candidates = [sideHint, -sideHint].map(side => ({
-        x: zone.x + nx * radius * side,
-        z: zone.z + nz * radius * side,
-        side
-    }));
-    const scored = candidates.map(point => {
-        const blocked = damagingZones().some(other => isPointInsideExpandedZone(other, point.x, point.z, margin * 0.5));
-        const pathCost = Math.hypot(point.x - x, point.z - z) + Math.hypot(targetX - point.x, targetZ - point.z);
-        return { point, score: pathCost + (blocked ? 100000000 : 0) };
-    }).sort((a, b) => a.score - b.score);
-    const detour = scored[0]?.point;
-    if (!detour) return { x: 0, z: 0, magnitude: 0 };
+    const deathRadius = circularDeathZoneRadius(zone);
+    const avoidRadius = deathRadius + clearance;
+    const avoidHit = segmentCircleIntersection(zone, x, z, targetX, targetZ, avoidRadius);
+    if (!avoidHit) return { x: 0, z: 0, magnitude: 0 };
+
+    const currentRadius = Math.hypot(x - zone.x, z - zone.z);
+    const entry = {
+        x: x + dx * avoidHit.enter,
+        z: z + dz * avoidHit.enter
+    };
+    const distanceToEntry = Math.hypot(entry.x - x, entry.z - z);
+    let detour = entry;
+    if (currentRadius <= avoidRadius + 900 || distanceToEntry < 900) {
+        const side = autopilotZoneSide(zone, x, z, targetX, targetZ, nx, nz, avoidRadius);
+        const currentAngle = Math.atan2(z - zone.z, x - zone.x);
+        const stepAngle = clamp(Math.max(0.28, 1400 / avoidRadius), 0.28, 0.95);
+        detour = {
+            x: zone.x + Math.cos(currentAngle + side * stepAngle) * avoidRadius,
+            z: zone.z + Math.sin(currentAngle + side * stepAngle) * avoidRadius
+        };
+    }
     const vx = detour.x - x;
     const vz = detour.z - z;
     return { x: vx, z: vz, magnitude: Math.hypot(vx, vz), zone };
@@ -4198,8 +4321,11 @@ class PlayerShip {
         this.shieldBatteries = 3;
         this.maxShieldBatteries = 25;
         this.maxMissileAmmo = 50;
+        this.mineAmmo = MAX_MINE_AMMO;
+        this.maxMineAmmo = MAX_MINE_AMMO;
         this.primaryCooldown = 0;
         this.missileCooldown = 0;
+        this.mineCooldown = 0;
         this.radius = 20;
         this.inTradeLane = false; this.laneSpeed = 2500;
         this.laneRoute = null; this.laneIndex = 0; this.laneDirection = 1;
@@ -4420,6 +4546,7 @@ class PlayerShip {
         // Weapon cooldown
         if (this.primaryCooldown > 0) this.primaryCooldown -= dt;
         if (this.missileCooldown > 0) this.missileCooldown -= dt;
+        if (this.mineCooldown > 0) this.mineCooldown -= dt;
         
         // Fire (right mouse held)
         if (!this.inTradeLane && !this.cruiseActive && !this.cruiseCharging && this.fireHeld && this.primaryCooldown <= 0 && this.energy >= 5) {
@@ -4545,6 +4672,63 @@ class PlayerShip {
         playWeaponFireAt(this.x, this.z, 0.78);
         saveGame();
         updateHUD();
+    }
+
+    canDropMine() {
+        return !game.isDocked
+            && !game.jumpTransition
+            && !this.inTradeLane
+            && !this.cruiseActive
+            && !this.cruiseCharging
+            && !this.afterburnerActive
+            && Math.abs(Number(this.speed) || 0) <= COMBAT_MAX_SPEED + 0.5
+            && this.mineCooldown <= 0;
+    }
+
+    dropMine() {
+        if (!this.canDropMine()) {
+            addLog(t('mineDropLocked'), 'alert');
+            return false;
+        }
+        const mineDropper = equippedMineDropperItem();
+        if (!mineDropper) {
+            addLog(t('mineDropperMissing'), 'alert');
+            return false;
+        }
+        if (mineAmmoCount(mineDropper) <= 0) {
+            addLog(t('mineAmmoEmpty'), 'alert');
+            return false;
+        }
+        const mine = mineStatsFromEquipment(mineDropper);
+        consumeMineAmmo(mineDropper);
+        this.mineCooldown = mine.cooldown;
+        const backAngle = this.rotation + Math.PI;
+        game.projectiles.push({
+            x: this.x + Math.cos(backAngle) * 42,
+            z: this.z + Math.sin(backAngle) * 42,
+            vx: Math.cos(backAngle) * mine.speed + Math.cos(this.rotation) * Math.min(Math.max(this.speed * 0.18, -12), 12),
+            vz: Math.sin(backAngle) * mine.speed + Math.sin(this.rotation) * Math.min(Math.max(this.speed * 0.18, -12), 12),
+            damage: mine.damage,
+            radius: mine.radius,
+            lifetime: mine.lifetime,
+            owner: 'player',
+            type: 'mine',
+            color: '#ff8844',
+            trailColor: 'rgba(255,120,30,0.28)',
+            homing: true,
+            targetId: '',
+            turnRate: mine.turnRate,
+            detonationRadius: mine.detonationRadius,
+            seekRange: mine.seekRange,
+            maxSpeed: mine.maxSpeed,
+            acceleration: mine.acceleration,
+            armedAfter: 0.25
+        });
+        addLog(t('mineDropped') + ' ' + mine.name);
+        playTone(180, 0.12, 'sawtooth', 0.34, 90);
+        saveGame();
+        updateHUD();
+        return true;
     }
 
     primaryWeapons() {
@@ -6689,6 +6873,20 @@ function update(dt) {
     
     for (let i = game.projectiles.length - 1; i >= 0; i--) {
         const p = game.projectiles[i];
+        p.age = (p.age || 0) + dt;
+        if (p.type === 'mine') {
+            const currentTarget = p.targetId ? game.npcs.find(npc => npc.id === p.targetId && !npc.hidden && !npc.inTradeLane && npc.hull > 0) : null;
+            if (!currentTarget) {
+                let best = null;
+                for (const npc of game.npcs) {
+                    if (npc.hidden || npc.inTradeLane || npc.hull <= 0) continue;
+                    if (!factionsAreHostile(game.player?.faction || '', npc.faction)) continue;
+                    const distance = Math.hypot(npc.x - p.x, npc.z - p.z);
+                    if (distance <= (p.seekRange || MINE_SEEK_RANGE) && (!best || distance < best.distance)) best = { npc, distance };
+                }
+                p.targetId = best?.npc?.id || '';
+            }
+        }
         if (p.homing && p.targetId) {
             const target = p.targetId === 'player'
                 ? game.player
@@ -6705,10 +6903,11 @@ function update(dt) {
                     while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
                     const maxTurn = Math.max(0, Number(p.turnRate) || 0) * dt;
                     const nextAngle = currentAngle + Math.max(-maxTurn, Math.min(maxTurn, angleDiff));
-                    const speed = Math.max(1, Math.hypot(p.vx, p.vz));
+                    let speed = Math.max(1, Math.hypot(p.vx, p.vz));
+                    if (p.type === 'mine') speed = Math.min(Number(p.maxSpeed) || 74, speed + (Number(p.acceleration) || 0) * dt);
                     p.vx = Math.cos(nextAngle) * speed;
                     p.vz = Math.sin(nextAngle) * speed;
-                    if (distance <= Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0)) p.lifetime = 0;
+                    if (distance <= Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0) && (p.type !== 'mine' || p.age >= (p.armedAfter || 0))) p.lifetime = 0;
                 }
             }
         }
@@ -6717,21 +6916,26 @@ function update(dt) {
         p.lifetime -= dt;
 
         if ((p.owner || 'player') === 'npc') {
-            if (p.targetId === 'player' && Math.hypot(game.player.x - p.x, game.player.z - p.z) < game.player.radius + p.radius) {
+            const hitRadius = Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0);
+            const armed = p.type !== 'mine' || p.age >= (p.armedAfter || 0);
+            if (armed && p.targetId === 'player' && Math.hypot(game.player.x - p.x, game.player.z - p.z) < game.player.radius + hitRadius) {
                 game.player.takeDamage(p.damage);
                 p.lifetime = 0;
             } else if (p.targetId && p.targetId !== 'player') {
                 const targetNpc = game.npcs.find(npc => npc.id === p.targetId);
-                if (targetNpc && Math.hypot(targetNpc.x - p.x, targetNpc.z - p.z) < targetNpc.radius + p.radius) {
+                if (armed && targetNpc && Math.hypot(targetNpc.x - p.x, targetNpc.z - p.z) < targetNpc.radius + hitRadius) {
                     damageNpc(targetNpc, p.damage, game.npcs.find(npc => npc.id === p.ownerId) || null);
                     p.lifetime = 0;
                 }
             }
         } else {
+            const hitRadius = Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0);
+            const armed = p.type !== 'mine' || p.age >= (p.armedAfter || 0);
             for (const npc of game.npcs) {
                 if (npc.hidden || npc.inTradeLane) continue;
+                if (p.type === 'mine' && !factionsAreHostile(game.player?.faction || '', npc.faction)) continue;
                 const dx = npc.x - p.x, dz = npc.z - p.z;
-                if (Math.sqrt(dx * dx + dz * dz) < npc.radius + p.radius) {
+                if (armed && Math.sqrt(dx * dx + dz * dz) < npc.radius + hitRadius) {
                     damageNpc(npc, p.damage, game.player);
                     p.lifetime = 0;
                     break;
@@ -6901,10 +7105,14 @@ function updateLoadoutPanel() {
     const batteries = document.getElementById('shield-battery-count');
     const missileAmmo = document.getElementById('missile-ammo-count');
     const missileAmmoLabel = document.getElementById('label-missile-ammo');
+    const mines = document.getElementById('mine-count');
+    const mineLabel = document.getElementById('label-mines');
     if (nanobots) nanobots.textContent = `${game.player.nanobots}/${game.player.maxNanobots}`;
     if (batteries) batteries.textContent = `${game.player.shieldBatteries}/${game.player.maxShieldBatteries}`;
     if (missileAmmo) missileAmmo.textContent = `${totalMissileAmmoCount()}/${game.player.maxMissileAmmo}`;
     if (missileAmmoLabel) missileAmmoLabel.textContent = t('missileAmmo');
+    if (mines) mines.textContent = `${totalMineAmmoCount()}/${game.player.maxMineAmmo}`;
+    if (mineLabel) mineLabel.textContent = t('mines');
 }
 
 function isSpeedSliderLocked() {
@@ -7117,6 +7325,22 @@ function render() {
     // Projectiles
     for (const p of game.projectiles) {
         const pos = worldToScreen(p.x, p.z);
+        if (p.type === 'mine') {
+            const pulse = (Math.sin((p.age || 0) * 8) + 1) * 0.5;
+            ctx.save();
+            ctx.globalCompositeOperation = 'lighter';
+            ctx.strokeStyle = 'rgba(255,110,35,0.62)';
+            ctx.fillStyle = p.color || '#ff8844';
+            ctx.lineWidth = Math.max(1, game.zoom * 2);
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, Math.max(4, (p.radius + pulse * 4) * game.zoom), 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, Math.max(2, p.radius * 0.45 * game.zoom), 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+            continue;
+        }
         const tail = worldToScreen(p.x - p.vx * 0.035, p.z - p.vz * 0.035);
         ctx.strokeStyle = p.trailColor || 'rgba(255,255,0,0.55)';
         ctx.lineWidth = Math.max(1, p.radius * game.zoom * 1.4);
@@ -7431,6 +7655,9 @@ function setupInput() {
             case 'KeyQ':
                 game.player.fireMissiles();
                 break;
+            case 'KeyE':
+                game.player.dropMine();
+                break;
             case 'Tab':
                 e.preventDefault();
                 if (canUseAfterburner()) {
@@ -7473,7 +7700,7 @@ function setupInput() {
         updateSpeedControl();
     });
 
-    addLog('W/S: throttle | A/D: drift left/right | Q: missiles | M: map');
+    addLog('W/S: throttle | A/D: drift left/right | Q: missiles | E: mine | M: map');
     
     // Continuous fire while right mouse held
     setInterval(() => {
@@ -8937,7 +9164,7 @@ function renderEquipmentDealer() {
     const inventory = game.player.equipmentInventory || [];
     const repairCost = shipRepairCost();
     const dealerTab = game.equipmentDealerTab || 'equipment';
-    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Thrust: ${Math.round(game.player.thrustEnergy || 0).toLocaleString()}/${Math.round(game.player.thrustCapacity || 0).toLocaleString()} / +${Math.round(game.player.thrustChargeRate || 0).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span><span>${tf('missileAmmoCount', { count: totalMissileAmmoCount(), max: game.player.maxMissileAmmo })}</span></div>`;
+    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Thrust: ${Math.round(game.player.thrustEnergy || 0).toLocaleString()}/${Math.round(game.player.thrustCapacity || 0).toLocaleString()} / +${Math.round(game.player.thrustChargeRate || 0).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span><span>${tf('missileAmmoCount', { count: totalMissileAmmoCount(), max: game.player.maxMissileAmmo })}</span><span>${tf('mineAmmoCount', { count: totalMineAmmoCount(), max: game.player.maxMineAmmo })}</span></div>`;
     html += `<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;padding:8px;border:1px solid #24445c;background:#07141f;"><span style="color:#b9efff;">Ship repair: ${repairCost > 0 ? repairCost.toLocaleString() + ' CR' : 'no damage'}</span><button class="trade-button" onclick="repairPlayerShip()" ${repairCost > 0 && game.player.credits >= repairCost ? '' : 'disabled'}>REPAIR</button></div>`;
     if (!market.length) {
         html += `<div style="color:#ffaa00;">${t('noEquipment')}</div>`;
@@ -8972,11 +9199,11 @@ function renderEquipmentDealer() {
     const marketEntries = dealerTab === 'ammo'
         ? market.filter(entry => {
             const item = getEquipment(entry.id);
-            return item && String(item.category || '').toLowerCase() === 'missile' && item.combinable;
+            return item && ((String(item.category || '').toLowerCase() === 'missile' && item.combinable) || isMineAmmo(item));
         })
         : market.filter(entry => {
             const item = getEquipment(entry.id);
-            return item && !(String(item.category || '').toLowerCase() === 'missile' && item.combinable);
+            return item && !(String(item.category || '').toLowerCase() === 'missile' && item.combinable) && !isMineAmmo(item);
         });
     html += '<table class="trade-table"><tr><th>Item</th><th>Type</th><th>Class</th><th>Power</th><th>Damage</th><th>Price</th><th>Stock</th><th>Owned</th><th></th></tr>';
     for (const entry of marketEntries.slice(0, 120)) {
@@ -8987,7 +9214,9 @@ function renderEquipmentDealer() {
         const needsShipCompatibility = !item.combinable && categorySlotKeys(item.category).length > 0;
         const compatibility = needsShipCompatibility ? equipmentCompatibility(item) : { ok: true, reason: '' };
         const canBuy = entry.forSale && game.player.credits >= entry.price && compatibility.ok;
-        const damageLabel = isMissileLauncher(item)
+        const damageLabel = isMineDropper(item)
+            ? `${Math.round(mineStatsFromEquipment(item).damage)}`
+            : isMissileLauncher(item)
             ? `${Math.round(missileDamageForItem(item, getEquipment(missileAmmoItemId(item))))}`
             : (item.hullDamage || item.energyDamage ? `${Math.round(Number(item.hullDamage || 0))}/${Math.round(Number(item.energyDamage || 0))}` : '-');
         const powerLabel = item.category === 'thruster'
@@ -9049,6 +9278,10 @@ function buyEquipment(itemId) {
     }
     if (String(item.category || '').toLowerCase() === 'missile' && item.combinable && totalMissileAmmoCount() >= game.player.maxMissileAmmo) {
         addLog(t('ammoFull'), 'alert');
+        return;
+    }
+    if (isMineAmmo(item) && totalMineAmmoCount() >= game.player.maxMineAmmo) {
+        addLog(t('mineAmmoFull'), 'alert');
         return;
     }
     game.player.credits -= marketEntry.price;
