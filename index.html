@@ -402,6 +402,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
         <div id="map-header">
             <h3 id="map-title">SYSTEM MAP - LI01 MANHATTAN</h3>
             <div id="map-controls">
+                <button class="map-btn" id="btn-waypoint-selection">WP AUS AUSWAHL</button>
                 <button class="map-btn" id="btn-clear-waypoint">Wegpunkt löschen</button>
                 <button class="map-btn" id="btn-close-map" style="background:#330000;border-color:#aa0000;color:#ff4444;">CLOSE</button>
             </div>
@@ -842,7 +843,7 @@ const I18N = {
         maxSavesReached: 'Maximal 5 Savegames. Bitte zuerst einen Spielstand loeschen.', deleteSaveConfirm: 'Savegame "{name}" loeschen?', modDataMissing: '{mod}-Daten nicht gefunden. Starte mit Vanilla DE.',
         hudHull: 'HÜLLE', hudShield: 'SCHILD', hudEnergy: 'ENERGIE', loadoutTitle: 'WAFFEN', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Schildbatterien',
         ammoTab: 'Ammo', missileAmmo: 'Raketen', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
-        selected: 'Ausgewählt', distance: 'Distanz', clearSelection: '[-] Ziel/WP', selectionCleared: 'Zielauswahl geloescht.', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
+        selected: 'Ausgewählt', distance: 'Distanz', clearSelection: '[-] Ziel/WP', selectionCleared: 'Zielauswahl geloescht.', waypointFromSelection: 'WP AUS AUSWAHL', noWaypointSelection: 'Kein geeignetes Objekt ausgewaehlt.', clearWaypoint: 'Wegpunkt loeschen', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
         scannerNone: 'Keine Schiffe oder Stationen in Reichweite.', noWeaponSlots: 'Keine Waffen-Slots vorhanden.', emptyWeapon: 'Leer', noGunMounted: 'Keine Waffe montiert',
         scannerShip: 'Schiff', scannerPlanet: 'Planet', scannerJumpGate: 'Sprungtor', scannerJumpHole: 'Sprungloch', scannerTradeLane: 'Tradelane', scannerStation: 'Station', scannerWaypoint: 'Wegpunkt', scannerObject: 'Objekt', weaponSlot: 'Waffe',
         repChanged: 'Ruf geändert', repHostile: 'FEINDLICH', repFriendly: 'FREUNDLICH', repNeutral: 'NEUTRAL', noReputationData: 'Keine Rufdaten geladen.',
@@ -866,7 +867,7 @@ const I18N = {
         maxSavesReached: 'Maximum of 5 savegames. Delete one first.', deleteSaveConfirm: 'Delete savegame "{name}"?', modDataMissing: '{mod} data not found. Starting with Vanilla DE.',
         hudHull: 'HULL', hudShield: 'SHIELD', hudEnergy: 'ENERGY', loadoutTitle: 'WEAPONS', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Shield Batteries',
         ammoTab: 'Ammo', missileAmmo: 'Missiles', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
-        selected: 'Selected', distance: 'Distance', clearSelection: '[-] Clear', selectionCleared: 'Selection cleared.', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
+        selected: 'Selected', distance: 'Distance', clearSelection: '[-] Clear', selectionCleared: 'Selection cleared.', waypointFromSelection: 'WP FROM SELECTION', noWaypointSelection: 'No suitable object selected.', clearWaypoint: 'Clear waypoint', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
         scannerNone: 'No ships or stations in range.', noWeaponSlots: 'No weapon slots available.', emptyWeapon: 'Empty', noGunMounted: 'No weapon mounted',
         scannerShip: 'Ship', scannerPlanet: 'Planet', scannerJumpGate: 'Jump Gate', scannerJumpHole: 'Jump Hole', scannerTradeLane: 'Trade Lane', scannerStation: 'Station', scannerWaypoint: 'Waypoint', scannerObject: 'Object', weaponSlot: 'Weapon',
         repChanged: 'Reputation changed', repHostile: 'HOSTILE', repFriendly: 'FRIENDLY', repNeutral: 'NEUTRAL', noReputationData: 'No reputation data loaded.',
@@ -2208,7 +2209,8 @@ function updatePopulationNpcs(dt) {
 function applyLanguage() {
     const labels = [
         ['btn-freeflight', 'freeflight'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-cruise', 'cruise'], ['btn-map', 'map'],
-        ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-menu', 'menu'], ['btn-launch', 'launch'], ['btn-clear-selection', 'clearSelection']
+        ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-menu', 'menu'], ['btn-launch', 'launch'], ['btn-clear-selection', 'clearSelection'],
+        ['btn-waypoint-selection', 'waypointFromSelection'], ['btn-clear-waypoint', 'clearWaypoint']
     ];
     for (const [id, key] of labels) {
         const el = document.getElementById(id);
@@ -2501,6 +2503,17 @@ function setFreeSpaceWaypoint(x, z) {
         return game.waypoint;
     }
     return setWaypointTarget({ x, z, name: 'Waypoint', type: 'Waypoint' }, 'Waypoint');
+}
+
+function createWaypointFromSelection() {
+    const target = game.selectedTarget;
+    if (!target || !Number.isFinite(target.x) || !Number.isFinite(target.z)) {
+        addLog(t('noWaypointSelection'), 'alert');
+        return null;
+    }
+    const waypoint = setWaypointTarget(target, target.name || scannerObjectKind(target));
+    if (waypoint === target || waypoint?.linkedTarget === target) game.selectedTarget = waypoint;
+    return waypoint;
 }
 
 function clearNavigationSelection() {
@@ -3265,11 +3278,41 @@ function inferPlanetBaseId(planet) {
     return '';
 }
 
+function zoneRadius(zone) {
+    return Math.max(1, Number(zone?.size_x || zone?.sizeX || zone?.size || 0));
+}
+
+function matchingPlanetDeathZone(planet, zones) {
+    const px = Number(planet?.x || 0);
+    const pz = Number(planet?.z || 0);
+    const rawRadius = Number(planet?.solar_radius || planet?.size || 1000);
+    const planetId = String(planet?.nickname || '').toLowerCase();
+    const candidates = (zones || []).filter(zone => {
+        const damage = Number(zone.damage || 0);
+        if (damage < 1000 || !Number.isFinite(zone.x) || !Number.isFinite(zone.z)) return false;
+        const radius = zoneRadius(zone);
+        const distance = Math.hypot(Number(zone.x || 0) - px, Number(zone.z || 0) - pz);
+        const id = String(zone.nickname || zone.zone || '').toLowerCase();
+        const namedForPlanet = planetId && id.includes(planetId) && id.includes('death');
+        return namedForPlanet || distance <= Math.max(1200, radius * 0.12, rawRadius * 0.12);
+    });
+    return candidates
+        .map(zone => ({ zone, distance: Math.hypot(Number(zone.x || 0) - px, Number(zone.z || 0) - pz) }))
+        .sort((a, b) => a.distance - b.distance)[0]?.zone || null;
+}
+
+function planetRadiusFromDeathZone(planet, zones) {
+    const deathZone = matchingPlanetDeathZone(planet, zones);
+    if (!deathZone) return Math.max(160, (planet.solar_radius || planet.size || 1000) * 0.38);
+    return Math.max(160, zoneRadius(deathZone) - 100);
+}
+
 function buildSystemData(systemId) {
     const raw = getSystemRecord(systemId);
     const jumpgates = raw.jumpgates || [];
     const jumpholes = raw.jumpholes || [];
     const rawPlanets = raw.planets || [];
+    const rawZones = raw.zones || [];
     const suns = (raw.suns && raw.suns.length ? raw.suns : rawPlanets.filter(p => String(p.archetype || '').includes('sun')));
     const planets = rawPlanets.filter(p => !String(p.archetype || '').includes('sun'));
     return {
@@ -3292,7 +3335,7 @@ function buildSystemData(systemId) {
         name: displayName(p.name, p.nickname),
         x: p.x,
         z: p.z,
-        radius: Math.max(160, (p.solar_radius || p.size || 1000) * 0.38),
+        radius: planetRadiusFromDeathZone(p, rawZones),
         atmosphereRange: p.atmosphere_range || p.atmosphereRange || 0,
         hasRing: !!(p.has_ring || p.hasRing),
         info: p.info || '',
@@ -3434,7 +3477,90 @@ function planetPalette(archetype = '') {
     return ['#2f597d', '#6f9eb6', '#314f42', '#d8f4ff'];
 }
 
+const PLANET_TEXTURE_PATHS = {
+    planet_ice: 'data/planet_textures/planet_ice.png',
+    planet_mercury: 'data/planet_textures/planet_mercury.png',
+    planet_icemoon: 'data/planet_textures/planet_icemoon.png',
+    planet_ice_purple: 'data/planet_textures/planet_ice_purple.png',
+    planet_moonblu: 'data/planet_textures/planet_moonblu.png',
+    planet_gasblucld: 'data/planet_textures/planet_gasblucld.png',
+    planet_desert: 'data/planet_textures/planet_desert.png',
+    planet_earthgrncld: 'data/planet_textures/planet_earthgrncld.png',
+    planet_watblucld: 'data/planet_textures/planet_watblucld.png',
+    planet_desored: 'data/planet_textures/planet_desored.png',
+    planet_crater: 'data/planet_textures/planet_crater.png',
+    planet_rckbrn: 'data/planet_textures/planet_rckbrn.png',
+    planet_earthgaia: 'data/planet_textures/planet_earthgaia.png',
+    planet_desorgrck: 'data/planet_textures/planet_desorgrck.png',
+    planet_moonred: 'data/planet_textures/planet_moonred.png',
+    planet_storm: 'data/planet_textures/planet_storm.png'
+};
+
+function planetTextureFamily(archetype = '') {
+    return String(archetype || '').toLowerCase().replace(/_\d+$/, '');
+}
+
+function planetTexturePath(archetype = '') {
+    const family = planetTextureFamily(archetype);
+    if (PLANET_TEXTURE_PATHS[family]) return PLANET_TEXTURE_PATHS[family];
+    if (family.includes('custom')) {
+        const customChoices = [
+            PLANET_TEXTURE_PATHS.planet_crater,
+            PLANET_TEXTURE_PATHS.planet_desorgrck,
+            PLANET_TEXTURE_PATHS.planet_rckbrn,
+            PLANET_TEXTURE_PATHS.planet_ice_purple,
+            PLANET_TEXTURE_PATHS.planet_storm,
+            PLANET_TEXTURE_PATHS.planet_mercury
+        ];
+        const index = Math.abs(hashString(family)) % customChoices.length;
+        return customChoices[index];
+    }
+    if (family.includes('saturn') || family.includes('uranus') || family.includes('neptune')) return PLANET_TEXTURE_PATHS.planet_storm;
+    if (family.includes('neutron')) return PLANET_TEXTURE_PATHS.planet_crater;
+    if (family.includes('earthsnw') || family.includes('earthgrnice')) return PLANET_TEXTURE_PATHS.planet_icemoon;
+    if (family.includes('earthcity')) return PLANET_TEXTURE_PATHS.planet_earthgrncld;
+    if (family.includes('earthgrncld')) return PLANET_TEXTURE_PATHS.planet_earthgrncld;
+    if (family.includes('earthgaia')) return PLANET_TEXTURE_PATHS.planet_earthgaia;
+    if (family.includes('earth')) return PLANET_TEXTURE_PATHS.planet_earthgaia;
+    if (family.includes('watblu') || family.includes('watgrn') || family.includes('watdrk') || family.includes('icewat')) return PLANET_TEXTURE_PATHS.planet_watblucld;
+    if (family.includes('gasice')) return PLANET_TEXTURE_PATHS.planet_ice_purple;
+    if (family.includes('gasorg') || family.includes('gaspur')) return PLANET_TEXTURE_PATHS.planet_storm;
+    if (family.includes('gasgrn') || family.includes('gasblu')) return PLANET_TEXTURE_PATHS.planet_gasblucld;
+    if (family.includes('desorgrck')) return PLANET_TEXTURE_PATHS.planet_desorgrck;
+    if (family.includes('desored')) return PLANET_TEXTURE_PATHS.planet_desored;
+    if (family.includes('desormed') || family.includes('desorcld') || family.includes('rckdes')) return PLANET_TEXTURE_PATHS.planet_desorgrck;
+    if (family.includes('desert') || family.includes('des')) return PLANET_TEXTURE_PATHS.planet_desert;
+    if (family.includes('moonred')) return PLANET_TEXTURE_PATHS.planet_moonred;
+    if (family.includes('moonblu')) return PLANET_TEXTURE_PATHS.planet_moonblu;
+    if (family.includes('icemoon')) return PLANET_TEXTURE_PATHS.planet_icemoon;
+    if (family.includes('ice_purple')) return PLANET_TEXTURE_PATHS.planet_ice_purple;
+    if (family.includes('icemnt') || family.includes('icelnd')) return PLANET_TEXTURE_PATHS.planet_icemoon;
+    if (family.includes('ice')) return PLANET_TEXTURE_PATHS.planet_ice;
+    if (family.includes('mercury')) return PLANET_TEXTURE_PATHS.planet_mercury;
+    if (family.includes('crater')) return PLANET_TEXTURE_PATHS.planet_crater;
+    if (family.includes('rckmnt')) return PLANET_TEXTURE_PATHS.planet_crater;
+    if (family.includes('rckbrn')) return PLANET_TEXTURE_PATHS.planet_rckbrn;
+    if (family.includes('storm')) return PLANET_TEXTURE_PATHS.planet_storm;
+    return '';
+}
+
+function loadPlanetTextureImage(archetype = '') {
+    const path = planetTexturePath(archetype);
+    if (!path) return null;
+    const key = 'asset:' + path;
+    if (!game.planetTextures[key]) {
+        const image = new Image();
+        image.src = path;
+        image.onload = () => { if (game.running) render(); };
+        game.planetTextures[key] = image;
+    }
+    const image = game.planetTextures[key];
+    return image.complete && image.naturalWidth > 0 ? image : null;
+}
+
 function makePlanetTexture(planet) {
+    const asset = loadPlanetTextureImage(planet.type);
+    if (asset) return asset;
     const key = currentSystemId + ':' + planet.id + ':' + planet.type;
     if (game.planetTextures[key]) return game.planetTextures[key];
     const canvas = document.createElement('canvas');
@@ -3667,7 +3793,7 @@ function isPointInsideExpandedZone(zone, x, z, margin = 0) {
 }
 
 function damagingZones() {
-    return (systemData.zones || []).filter(zone => Number(zone.damage || 0) > 0 && Number.isFinite(zone.x) && Number.isFinite(zone.z));
+    return (systemData.zones || []).filter(zone => Number(zone.damage || 0) >= 1000 && Number.isFinite(zone.x) && Number.isFinite(zone.z));
 }
 
 function segmentCrossesExpandedZone(zone, x1, z1, x2, z2, margin = 0) {
@@ -4649,7 +4775,7 @@ class PlanetLocation {
         this.weaponCooldown = 0;
         this.nextWeaponIndex = 0;
         this.weaponRange = 3000;
-        this.radius = Math.max(180, Math.min(1200, (data.radius || 500) * 0.45));
+        this.radius = Math.max(180, Number(data.radius || 500));
         this.type = 'Planet';
     }
     update(dt) { updateStaticWeapons(this, dt); }
@@ -7205,39 +7331,38 @@ function setupInput() {
     
     canvas.addEventListener('contextmenu', e => e.preventDefault());
     
+    const findCanvasTargetAtWorld = (world) => {
+        for (const npc of game.npcs) {
+            const dx = npc.x - world.x;
+            const dz = npc.z - world.y;
+            if (Math.hypot(dx, dz) <= Math.max(22, npc.radius + 12)) return npc;
+        }
+        for (const entity of game.entities) {
+            if (entity.containsPoint && entity.containsPoint(world.x, world.y)) return entity;
+        }
+        return null;
+    };
+
     // Click on canvas to select target
     canvas.addEventListener('click', (e) => {
         ensureAudio();
         if (!game.mouseDown && !game.running) return;
         
         const world = screenToWorld(e.clientX, e.clientY);
-
-        for (const npc of game.npcs) {
-            const dx = npc.x - world.x;
-            const dz = npc.z - world.y;
-            if (Math.hypot(dx, dz) <= Math.max(22, npc.radius + 12)) {
-                game.selectedTarget = npc;
-                addLog('Selected: ' + (npc.name || npc.id));
-                playSound('select', 0.7);
-                updateHUD();
-                return;
-            }
-        }
-        
-        // Check entities
-        for (const entity of game.entities) {
-            if (entity.containsPoint && entity.containsPoint(world.x, world.y)) {
-                game.selectedTarget = entity;
-                addLog('Selected: ' + entity.name);
-                playSound('select', 0.7);
-                updateHUD();
-                return;
-            }
-        }
-        
-        // Deselect
-        game.selectedTarget = null;
+        const target = findCanvasTargetAtWorld(world);
+        if (!target) return;
+        game.selectedTarget = target;
+        addLog('Selected: ' + (target.name || target.id || scannerObjectKind(target)));
+        playSound('select', 0.7);
         updateHUD();
+    });
+
+    canvas.addEventListener('dblclick', (e) => {
+        ensureAudio();
+        if (!game.running) return;
+        const world = screenToWorld(e.clientX, e.clientY);
+        if (findCanvasTargetAtWorld(world)) return;
+        clearNavigationSelection();
     });
     
     window.addEventListener('keydown', (e) => {
@@ -8333,6 +8458,7 @@ document.getElementById('map-canvas')?.addEventListener('click', (e) => {
 });
 
 document.getElementById('btn-clear-waypoint')?.addEventListener('click', clearWaypoint);
+document.getElementById('btn-waypoint-selection')?.addEventListener('click', createWaypointFromSelection);
 document.getElementById('btn-close-map')?.addEventListener('click', toggleMap);
 document.getElementById('btn-close-inventory')?.addEventListener('click', () => toggleInventoryPanel(false));
 document.getElementById('btn-close-universe')?.addEventListener('click', () => {
