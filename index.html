@@ -515,7 +515,7 @@ body[data-theme="crossfire"] .mod-btn.active {
             </div>
         </div>
         <div class="start-footer">
-            <span>Made by Aldenmar Odin - flathack - v0.6.2</span>
+            <span>Made by Aldenmar Odin - flathack - v0.6.3</span>
             <a class="start-home-link" href="https://flathack.github.io/" target="_blank" rel="noopener noreferrer">Startseite</a>
         </div>
     </div>
@@ -2676,6 +2676,7 @@ const MISSION_SPAWN_DISTANCE = 1700;
 const MISSION_ENEMY_MIN_COUNT = 3;
 const MISSION_ENEMY_MAX_COUNT = 7;
 const SOLAR_OBJECT_RENDER_SCALE = 0.18;
+const SOLAR_OBJECT_VISUAL_RENDER_SCALE = 0.82;
 const SOLAR_OBJECT_ICON_RADIUS_BOOST = 1.1;
 const SOLAR_OBJECT_MIN_SCREEN_RADIUS = 12;
 const SOLAR_OBJECT_FALLBACK_RADII = {
@@ -2708,8 +2709,16 @@ function solarObjectWorldRadius(value, archetype = '', fallback = 600) {
     return Math.max(1, solarObjectSourceRadius(value, archetype, fallback) * SOLAR_OBJECT_RENDER_SCALE);
 }
 
+function solarObjectVisualWorldRadius(value, archetype = '', fallback = 600) {
+    return Math.max(1, solarObjectSourceRadius(value, archetype, fallback) * SOLAR_OBJECT_VISUAL_RENDER_SCALE);
+}
+
 function solarObjectScreenRadius(worldRadius) {
     return Math.max(SOLAR_OBJECT_MIN_SCREEN_RADIUS, worldRadius * game.zoom * SOLAR_OBJECT_ICON_RADIUS_BOOST);
+}
+
+function solarObjectRawRadiusFromData(data, archetype = '', fallback = 600) {
+    return solarObjectSourceRadius(data?.solar_radius ?? data?.solarRadius ?? data?.radius, archetype || data?.archetype || data?.type, fallback);
 }
 
 function cruiseSpeedForMod(modId = game.activeModId) {
@@ -5365,18 +5374,20 @@ class Station {
         this.weaponCooldown = 0;
         this.nextWeaponIndex = 0;
         this.weaponRange = 2800;
-        this.sourceRadius = solarObjectSourceRadius(data.radius, this.type, 600);
-        this.radius = solarObjectWorldRadius(this.sourceRadius, this.type, 600);
+        this.archetype = data.archetype || this.type || '';
+        this.sourceRadius = solarObjectRawRadiusFromData(data, this.archetype, 600);
+        this.radius = solarObjectWorldRadius(this.sourceRadius, this.archetype, 600);
+        this.visualRadius = solarObjectVisualWorldRadius(this.sourceRadius, this.archetype, 600);
         this.rotation = flYawToCanvasRotation(this.rotateY || 0);
     }
     update(dt) { updateStaticWeapons(this, dt); }
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
-        const objectImage = getObjectImage(this.type);
+        const objectImage = getObjectImage(this.archetype || this.type);
         ctx.save();
         ctx.translate(pos.x, pos.y);
         
-        const size = solarObjectScreenRadius(this.radius);
+        const size = solarObjectScreenRadius(this.visualRadius || this.radius);
         
         ctx.rotate(this.rotation);
         if (objectImage) {
@@ -5421,7 +5432,7 @@ class Station {
     
     containsPoint(px, pz) {
         const dx = this.x - px, dz = this.z - pz;
-        return Math.sqrt(dx * dx + dz * dz) < Math.max(45, this.radius);
+        return Math.sqrt(dx * dx + dz * dz) < Math.max(45, this.visualRadius || this.radius);
     }
 }
 
@@ -5436,12 +5447,13 @@ class JumpGate {
         this.nextWeaponIndex = 0;
         this.weaponRange = 3000;
         const archetype = data.archetype || (data.kind === 'hole' ? 'jumphole' : 'jumpgate');
-        this.sourceRadius = solarObjectSourceRadius(data.radius, archetype, 600);
+        this.sourceRadius = solarObjectRawRadiusFromData(data, archetype, 600);
         this.radius = solarObjectWorldRadius(this.sourceRadius, archetype, 600);
         this.rotation = flYawToCanvasRotation(this.rotateY || 0);
         this.kind = data.kind || 'gate';
         this.type = data.type || (this.kind === 'hole' ? 'Jump Hole' : 'Jump Gate');
         this.archetype = archetype;
+        this.visualRadius = solarObjectVisualWorldRadius(this.sourceRadius, archetype, 600);
     }
     update(dt) {
         if (this.kind === 'hole') this.rotation += 0.02 * dt;
@@ -5450,7 +5462,7 @@ class JumpGate {
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
         const isHole = this.kind === 'hole';
-        const size = solarObjectScreenRadius(this.radius);
+        const size = solarObjectScreenRadius(this.visualRadius || this.radius);
         ctx.save();
         ctx.translate(pos.x, pos.y);
         ctx.rotate(isHole ? -this.rotation * 1.8 : this.rotation);
@@ -5491,15 +5503,17 @@ class JumpGate {
     
     containsPoint(px, pz) {
         const dx = this.x - px, dz = this.z - pz;
-        return Math.sqrt(dx * dx + dz * dz) < Math.max(60, this.radius);
+        return Math.sqrt(dx * dx + dz * dz) < Math.max(60, this.visualRadius || this.radius);
     }
 }
 
 // Trade Lane Ring
 class TradeLaneRing {
     constructor(x, z, index) {
+        let sourceData = {};
         if (typeof x === 'object') {
             const data = x;
+            sourceData = data;
             this.x = data.x;
             this.z = data.z;
             this.index = z || 0;
@@ -5528,8 +5542,9 @@ class TradeLaneRing {
         this.weaponCooldown = 0;
         this.nextWeaponIndex = 0;
         this.weaponRange = 2400;
-        this.sourceRadius = solarObjectSourceRadius(null, 'trade_lane_ring', 300);
+        this.sourceRadius = solarObjectRawRadiusFromData(sourceData, 'trade_lane_ring', 300);
         this.radius = solarObjectWorldRadius(this.sourceRadius, 'trade_lane_ring', 300);
+        this.visualRadius = solarObjectVisualWorldRadius(this.sourceRadius, 'trade_lane_ring', 300);
         this.rotation = Number.isFinite(this.visualRotation) ? this.visualRotation : flYawToCanvasRotation(this.rotateY || 0);
         this.type = 'trade_lane_ring';
     }
@@ -5537,7 +5552,7 @@ class TradeLaneRing {
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
         const objectImage = getObjectImage(this.type);
-        const size = solarObjectScreenRadius(this.radius) * 2.2;
+        const size = solarObjectScreenRadius(this.visualRadius || this.radius) * 2.2;
         const glowRadius = Math.max(16, size * 0.43);
         ctx.save();
         ctx.translate(pos.x, pos.y);
@@ -5576,7 +5591,7 @@ class TradeLaneRing {
     containsPoint(px, pz) {
         const dx = this.x - px;
         const dz = this.z - pz;
-        return Math.sqrt(dx * dx + dz * dz) < Math.max(120, this.radius);
+        return Math.sqrt(dx * dx + dz * dz) < Math.max(120, this.visualRadius || this.radius);
     }
 }
 
@@ -8371,7 +8386,8 @@ function drawMapCanvas() {
         const pos = systemMapToScreen(station.x, station.z, mapTransform);
         const ex = pos.x;
         const ey = pos.y;
-        const mapRadius = Math.max(2, solarObjectWorldRadius(station.radius, station.type, 600) * mapTransform.scaleX);
+        const archetype = station.archetype || station.type || '';
+        const mapRadius = Math.max(2, solarObjectVisualWorldRadius(solarObjectRawRadiusFromData(station, archetype, 600), archetype, 600) * mapTransform.scaleX);
         ctx.fillStyle = '#00aaff';
         ctx.beginPath();
         ctx.arc(ex, ey, mapRadius, 0, Math.PI * 2);
@@ -8388,7 +8404,7 @@ function drawMapCanvas() {
         
         ctx.fillStyle = '#00aaff';
         ctx.font = '8px Courier New';
-        ctx.fillText(station.name, ex, ey + 18);
+        ctx.fillText(station.name, ex, ey + mapRadius + 12);
     }
     
     // Jump Gates and Holes
@@ -8396,7 +8412,8 @@ function drawMapCanvas() {
         const pos = systemMapToScreen(gate.x, gate.z, mapTransform);
         const ex = pos.x;
         const ey = pos.y;
-        const mapRadius = Math.max(3, solarObjectWorldRadius(gate.radius, gate.archetype || (gate.kind === 'hole' ? 'jumphole' : 'jumpgate'), 600) * mapTransform.scaleX);
+        const archetype = gate.archetype || (gate.kind === 'hole' ? 'jumphole' : 'jumpgate');
+        const mapRadius = Math.max(3, solarObjectVisualWorldRadius(solarObjectRawRadiusFromData(gate, archetype, 600), archetype, 600) * mapTransform.scaleX);
         ctx.strokeStyle = gate.kind === 'hole' ? '#33ddff' : '#8844ff';
         ctx.lineWidth = 2;
         ctx.beginPath();
@@ -8413,7 +8430,7 @@ function drawMapCanvas() {
         }
 
         ctx.fillStyle = gate.kind === 'hole' ? '#66eaff' : '#aa66ff';
-        ctx.fillText(gate.name, ex, ey + 20);
+        ctx.fillText(gate.name, ex, ey + mapRadius + 12);
     }
 
     const mapPlayerPos = game.player ? systemMapToScreen(game.player.x, game.player.z, mapTransform) : null;
