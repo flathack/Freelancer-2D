@@ -3420,7 +3420,7 @@ function matchingPlanetDeathZone(planet, zones) {
     const px = Number(planet?.x || 0);
     const pz = Number(planet?.z || 0);
     const rawRadius = Number(planet?.solar_radius || planet?.size || 1000);
-    const planetId = String(planet?.nickname || '').toLowerCase();
+    const planetId = String(planet?.nickname || planet?.id || '').toLowerCase();
     const candidates = (zones || []).filter(zone => {
         const damage = Number(zone.damage || 0);
         if (damage < 1000 || !Number.isFinite(zone.x) || !Number.isFinite(zone.z)) return false;
@@ -3439,6 +3439,11 @@ function planetRadiusFromDeathZone(planet, zones) {
     const deathZone = matchingPlanetDeathZone(planet, zones);
     if (!deathZone) return Math.max(160, (planet.solar_radius || planet.size || 1000) * 0.38);
     return Math.max(160, zoneRadius(deathZone) - 100);
+}
+
+function planetDeathZoneRadius(planet, zones) {
+    const deathZone = matchingPlanetDeathZone(planet, zones);
+    return deathZone ? zoneRadius(deathZone) : 0;
 }
 
 function buildSystemData(systemId) {
@@ -3464,22 +3469,26 @@ function buildSystemData(systemId) {
         info: s.info || '',
         type: s.archetype || 'sun'
     })),
-    planets: planets.map(p => ({
-        id: p.nickname,
-        name: displayName(p.name, p.nickname),
-        x: p.x,
-        z: p.z,
-        radius: planetRadiusFromDeathZone(p, rawZones),
-        atmosphereRange: p.atmosphere_range || p.atmosphereRange || 0,
-        hasRing: !!(p.has_ring || p.hasRing),
-        info: p.info || '',
-        color: getPlanetColor(p.archetype),
-        faction: normalizeFactionId(p.faction || p.reputation || ''),
-        loadout: p.loadout || '',
-        base: p.base || inferPlanetBaseId(p),
-        dockWith: p.dock_with || p.dockWith || inferPlanetBaseId(p),
-        type: p.archetype || 'Planet'
-    })),
+    planets: planets.map(p => {
+        const deathZoneRadius = planetDeathZoneRadius(p, rawZones);
+        return {
+            id: p.nickname,
+            name: displayName(p.name, p.nickname),
+            x: p.x,
+            z: p.z,
+            radius: deathZoneRadius ? Math.max(160, deathZoneRadius - 100) : planetRadiusFromDeathZone(p, rawZones),
+            deathZoneRadius,
+            atmosphereRange: deathZoneRadius ? deathZoneRadius + 80 : (p.atmosphere_range || p.atmosphereRange || 0),
+            hasRing: !!(p.has_ring || p.hasRing),
+            info: p.info || '',
+            color: getPlanetColor(p.archetype),
+            faction: normalizeFactionId(p.faction || p.reputation || ''),
+            loadout: p.loadout || '',
+            base: p.base || inferPlanetBaseId(p),
+            dockWith: p.dock_with || p.dockWith || inferPlanetBaseId(p),
+            type: p.archetype || 'Planet'
+        };
+    }),
     stations: (raw.stations || []).map(s => ({
         id: s.nickname,
         name: displayName(s.name, s.nickname),
@@ -3744,6 +3753,8 @@ function makePlanetTexture(planet) {
 }
 
 function planetAtmosphereRadius(planet) {
+    const deathZoneRadius = Number(planet.deathZoneRadius || 0);
+    if (deathZoneRadius > 0) return deathZoneRadius + 80;
     const iniRange = Number(planet.atmosphereRange || 0);
     if (iniRange > planet.radius) return Math.max(planet.radius * 1.18, iniRange * 0.72);
     return planet.radius * 1.55 + 260;
