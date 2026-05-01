@@ -809,7 +809,9 @@ const VOICE_SOUND_PATHS = {
     dockDisallowed: { en: 'assets/audio/EN-dock-disallowed.mp3', de: 'assets/audio/DE-dock-disallowed.mp3' },
     dockDisallowedTooFar: { en: 'assets/audio/EN-dock-disallowed-toofar.mp3', de: 'assets/audio/DE-dock-disallowed-toofar.mp3' },
     launch: { en: 'assets/audio/EN-launch.mp3', de: 'assets/audio/DE-launch.mp3' },
-    shipPurchase: { en: 'assets/audio/EN-ship-purchase.mp3', de: 'assets/audio/DE-ship-purchase.mp3' }
+    shipPurchase: { en: 'assets/audio/EN-ship-purchase.mp3', de: 'assets/audio/DE-ship-purchase.mp3' },
+    atmosphere: { en: 'assets/audio/EN-atmosphere.mp3', de: 'assets/audio/DE-atmosphere.mp3' },
+    hullBreach: { en: 'assets/audio/EN-hull-breach.mp3', de: 'assets/audio/DE-hull-breach.mp3' }
 };
 const MUSIC_TRACKS = {
     space: [
@@ -3628,6 +3630,7 @@ const PLANET_TEXTURE_PATHS = {
     planet_moonblu: 'data/planet_textures/planet_moonblu.png',
     planet_gasblucld: 'data/planet_textures/planet_gasblucld.png',
     planet_desert: 'data/planet_textures/planet_desert.png',
+    planet_earthgrncld_4000: 'data/planet_textures/planet_earthgrncld_4000.png',
     planet_earthgrncld: 'data/planet_textures/planet_earthgrncld.png',
     planet_watblucld: 'data/planet_textures/planet_watblucld.png',
     planet_desored: 'data/planet_textures/planet_desored.png',
@@ -3644,6 +3647,8 @@ function planetTextureFamily(archetype = '') {
 }
 
 function planetTexturePath(archetype = '') {
+    const exact = String(archetype || '').toLowerCase();
+    if (PLANET_TEXTURE_PATHS[exact]) return PLANET_TEXTURE_PATHS[exact];
     const family = planetTextureFamily(archetype);
     if (PLANET_TEXTURE_PATHS[family]) return PLANET_TEXTURE_PATHS[family];
     if (family.includes('custom')) {
@@ -3885,12 +3890,18 @@ function renderDamageZones(ctx) {
 
 function checkPlanetAtmosphereHazards(dt) {
     if (!game.player || game.isDocked || game.player.destroyed) return;
+    let activeAtmospherePlanetId = '';
     for (const planet of systemData.planets) {
         const dx = game.player.x - planet.x;
         const dz = game.player.z - planet.z;
         const dist = Math.sqrt(dx * dx + dz * dz);
         const atmosphere = planetAtmosphereRadius(planet);
         if (dist > atmosphere) continue;
+        activeAtmospherePlanetId = planet.id || planet.name || '';
+        if (game.player.atmospherePlanetId !== activeAtmospherePlanetId) {
+            playVoice('atmosphere', 1);
+            game.player.atmospherePlanetId = activeAtmospherePlanetId;
+        }
         game.player.cancelCruise?.();
         game.player.afterburnerActive = false;
         game.player.reverseActive = false;
@@ -3913,6 +3924,7 @@ function checkPlanetAtmosphereHazards(dt) {
         }
         break;
     }
+    if (!activeAtmospherePlanetId) game.player.atmospherePlanetId = '';
 }
 
 function isPointInsideZone(zone, x, z) {
@@ -4860,6 +4872,7 @@ class PlayerShip {
     }
     
     takeDamage(amount) {
+        const previousHull = this.hull;
         if (this.maxShield > 0 && this.shield > 0) {
             const sDamage = Math.min(this.shield, amount);
             this.shield -= sDamage;
@@ -4867,6 +4880,7 @@ class PlayerShip {
         }
         this.hull -= amount;
         if (amount > 4) playSound('hit', Math.min(1.4, amount / 16));
+        this.checkHullBreachVoice(previousHull);
         if (this.hull <= 0) {
             this.hull = 0;
             addLog('Ship destroyed!', 'alert');
@@ -4877,13 +4891,21 @@ class PlayerShip {
     takeHullDamage(amount, source = 'Hull damage') {
         const damage = Math.max(0, Number(amount) || 0);
         if (damage <= 0) return;
+        const previousHull = this.hull;
         this.hull -= damage;
         if (damage > 4) playSound('hit', Math.min(1.4, damage / 16));
+        this.checkHullBreachVoice(previousHull);
         if (this.hull <= 0) {
             this.hull = 0;
             addLog(source + ': ship destroyed!', 'alert');
             destroyPlayerShip();
         }
+    }
+
+    checkHullBreachVoice(previousHull) {
+        const maxHull = Math.max(1, Number(this.maxHull) || 1);
+        const threshold = maxHull * 0.2;
+        if (previousHull > threshold && this.hull > 0 && this.hull <= threshold) playVoice('hullBreach', 1);
     }
 
     useNanobot() {
