@@ -31,6 +31,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "armor_scale_-1": {
@@ -62,6 +67,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_-2": {
@@ -93,6 +103,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_-3": {
@@ -124,6 +139,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_-4": {
@@ -155,6 +175,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_-5": {
@@ -186,6 +211,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_0": {
@@ -217,6 +247,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_1": {
@@ -248,6 +283,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_10": {
@@ -279,6 +319,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_11": {
@@ -310,6 +355,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_12": {
@@ -341,6 +391,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_13": {
@@ -372,6 +427,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_17": {
@@ -403,6 +463,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_2": {
@@ -434,6 +499,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_21": {
@@ -465,6 +535,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_3": {
@@ -496,6 +571,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_4": {
@@ -527,6 +607,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_5": {
@@ -558,6 +643,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_6": {
@@ -589,6 +679,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_7": {
@@ -620,6 +715,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_8": {
@@ -651,6 +751,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_9": {
@@ -682,6 +787,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "armor_scale_invincible": {
@@ -713,6 +823,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "artifacts_1": {
@@ -744,6 +859,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "artifacts_2": {
@@ -775,6 +895,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "artifacts_3": {
@@ -806,6 +931,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "attached_escape_pod": {
@@ -837,6 +967,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "attached_research": {
@@ -868,6 +1003,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "attached_shipyard": {
@@ -899,6 +1039,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "attached_shipyard2": {
@@ -930,6 +1075,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "attached_space_dome01": {
@@ -961,6 +1111,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "attached_space_tankl2x2": {
@@ -992,6 +1147,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "attached_space_tanks2": {
@@ -1023,6 +1183,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "b_elite_shield01": {
@@ -1054,6 +1219,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "b_fighter_shield01": {
@@ -1085,6 +1255,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "b_freighter_shield01": {
@@ -1116,6 +1291,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "basic_trade_lane_eq": {
@@ -1147,6 +1327,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "bh_elite2_power01": {
@@ -1178,6 +1363,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "bh_elite_power01": {
@@ -1209,6 +1399,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "bh_elite_shield01": {
@@ -1240,6 +1435,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "bh_fighter_power01": {
@@ -1271,6 +1471,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "bh_fighter_shield01": {
@@ -1302,6 +1507,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "blhazard_effect": {
@@ -1333,6 +1543,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "blue": {
@@ -1364,6 +1579,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "br_battleship_flak_turret01": {
@@ -1397,6 +1617,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -1414,7 +1639,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "br_battleship_flak_turret01_motor",
     "explosionRadius": 2.0,
     "explosionHullDamage": 102.0,
@@ -1454,6 +1678,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_battleship_flak_turret01_explosion": {
@@ -1485,6 +1714,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_battleship_flak_turret01_motor": {
@@ -1516,6 +1750,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_battleship_missile_turret01": {
@@ -1549,6 +1788,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -1566,7 +1810,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "br_battleship_missile_turret01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 102.0,
@@ -1606,6 +1849,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_battleship_missile_turret01_explosion": {
@@ -1637,6 +1885,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_battleship_missile_turret01_motor": {
@@ -1668,6 +1921,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_battleship_turret01": {
@@ -1701,6 +1959,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -1718,7 +1981,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -1751,6 +2013,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_battleship_turret02": {
@@ -1784,6 +2051,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -1801,7 +2073,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -1834,6 +2105,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_battleship_turret03": {
@@ -1867,6 +2143,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -1884,7 +2165,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -1917,6 +2197,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_battleship_turret04": {
@@ -1950,6 +2235,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -1967,7 +2257,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -2000,6 +2289,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_destroyer_missile_turret01": {
@@ -2033,6 +2327,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -2050,7 +2349,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "br_destroyer_missile_turret01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 102.0,
@@ -2090,6 +2388,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_destroyer_missile_turret01_explosion": {
@@ -2121,6 +2424,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_destroyer_missile_turret01_motor": {
@@ -2152,6 +2460,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_destroyer_turret01": {
@@ -2185,6 +2498,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -2202,7 +2520,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -2235,6 +2552,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_destroyer_turret02": {
@@ -2268,6 +2590,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -2285,7 +2612,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -2318,6 +2644,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_destroyer_turret03": {
@@ -2351,6 +2682,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -2368,7 +2704,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -2401,6 +2736,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_destroyer_turret04": {
@@ -2434,6 +2774,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -2451,7 +2796,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -2484,6 +2828,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_elite_power01": {
@@ -2515,6 +2864,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "br_fighter_power01": {
@@ -2546,6 +2900,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "br_freighter_power01": {
@@ -2577,6 +2936,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "br_gun01_mark01": {
@@ -2610,6 +2974,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -2627,7 +2996,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -2660,6 +3028,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gun01_mark02": {
@@ -2693,6 +3066,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 101.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -2710,7 +3088,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -2743,6 +3120,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gun01_mark03": {
@@ -2776,6 +3158,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -2793,7 +3180,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -2826,6 +3212,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gun01_mark04": {
@@ -2859,6 +3250,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 174.3,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -2876,7 +3272,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -2909,6 +3304,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gun02_mark01": {
@@ -2942,6 +3342,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 94.8,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -2959,7 +3364,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -2992,6 +3396,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gun02_mark02": {
@@ -3025,6 +3434,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 121.2,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -3042,7 +3456,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -3075,6 +3488,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gun02_mark03": {
@@ -3108,6 +3526,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.1,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -3125,7 +3548,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -3158,6 +3580,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gun02_mark04": {
@@ -3191,6 +3618,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 209.1,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -3208,7 +3640,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -3241,6 +3672,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gunboat_forward_gun01": {
@@ -3274,6 +3710,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -3291,7 +3732,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -3324,6 +3764,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gunboat_missile_turret01": {
@@ -3357,6 +3802,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -3374,7 +3824,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "br_gunboat_missile_turret01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 102.0,
@@ -3414,6 +3863,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gunboat_missile_turret01_explosion": {
@@ -3445,6 +3899,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gunboat_missile_turret01_motor": {
@@ -3476,6 +3935,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gunboat_turret01": {
@@ -3509,6 +3973,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -3526,7 +3995,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -3559,6 +4027,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_gunboat_turret02": {
@@ -3592,6 +4065,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -3609,7 +4087,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -3642,6 +4119,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_large_station_turret01_mark01": {
@@ -3675,6 +4157,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -3692,7 +4179,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -3725,6 +4211,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_large_station_turret01_mark02": {
@@ -3758,6 +4249,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -3775,7 +4271,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -3808,6 +4303,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_large_station_turret01_mark03": {
@@ -3841,6 +4341,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -3858,7 +4363,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -3891,6 +4395,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_prison_turret01": {
@@ -3924,6 +4433,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -3941,7 +4455,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -3974,6 +4487,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_small_station_turret01_mark01": {
@@ -4007,6 +4525,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -4024,7 +4547,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -4057,6 +4579,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_small_station_turret01_mark02": {
@@ -4090,6 +4617,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -4107,7 +4639,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -4140,6 +4671,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_small_station_turret01_mark03": {
@@ -4173,6 +4709,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -4190,7 +4731,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -4223,6 +4763,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_turret01_mark01": {
@@ -4256,6 +4801,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -4273,7 +4823,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -4306,6 +4855,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_turret01_mark02": {
@@ -4339,6 +4893,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 101.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -4356,7 +4915,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -4389,6 +4947,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_turret01_mark03": {
@@ -4422,6 +4985,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -4439,7 +5007,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -4472,6 +5039,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_turret02_mark01": {
@@ -4505,6 +5077,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 94.8,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -4522,7 +5099,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -4555,6 +5131,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_turret02_mark02": {
@@ -4588,6 +5169,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 121.2,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -4605,7 +5191,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -4638,6 +5223,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_turret02_mark03": {
@@ -4671,6 +5261,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.1,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -4688,7 +5283,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -4721,6 +5315,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wp_turret01_mark01": {
@@ -4754,6 +5353,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -4771,7 +5375,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -4804,6 +5407,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wp_turret01_mark02": {
@@ -4837,6 +5445,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -4854,7 +5467,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -4887,6 +5499,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wp_turret01_mark03": {
@@ -4920,6 +5537,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -4937,7 +5559,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -4970,6 +5591,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wp_turret02_mark01": {
@@ -5003,6 +5629,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -5020,7 +5651,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "br_wp_turret02_mark01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 306.0,
@@ -5060,6 +5690,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wp_turret02_mark01_explosion": {
@@ -5091,6 +5726,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wp_turret02_mark01_motor": {
@@ -5122,6 +5762,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wp_turret02_mark02": {
@@ -5155,6 +5800,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -5172,7 +5822,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "br_wp_turret02_mark02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 474.0,
@@ -5212,6 +5861,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wp_turret02_mark02_explosion": {
@@ -5243,6 +5897,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wp_turret02_mark02_motor": {
@@ -5274,6 +5933,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wp_turret02_mark03": {
@@ -5307,6 +5971,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -5324,7 +5993,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "br_wp_turret02_mark03_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 790.5,
@@ -5364,6 +6032,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wp_turret02_mark03_explosion": {
@@ -5395,6 +6068,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wp_turret02_mark03_motor": {
@@ -5426,6 +6104,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wps_gun01_mark01": {
@@ -5459,6 +6142,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -5476,7 +6164,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -5509,6 +6196,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wps_gun01_mark02": {
@@ -5542,6 +6234,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -5559,7 +6256,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -5592,6 +6288,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wps_gun01_mark03": {
@@ -5625,6 +6326,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -5642,7 +6348,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -5675,6 +6380,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wps_mlauncher01_mark01": {
@@ -5708,6 +6418,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -5725,7 +6440,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "br_wps_mlauncher01_mark01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 244.5,
@@ -5765,6 +6479,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wps_mlauncher01_mark01_explosion": {
@@ -5796,6 +6515,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wps_mlauncher01_mark01_motor": {
@@ -5827,6 +6551,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wps_mlauncher01_mark02": {
@@ -5860,6 +6589,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -5877,7 +6611,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "br_wps_mlauncher01_mark02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 306.0,
@@ -5917,6 +6650,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wps_mlauncher01_mark02_explosion": {
@@ -5948,6 +6686,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wps_mlauncher01_mark02_motor": {
@@ -5979,6 +6722,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wps_mlauncher01_mark03": {
@@ -6012,6 +6760,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -6029,7 +6782,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "br_wps_mlauncher01_mark03_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 373.5,
@@ -6069,6 +6821,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wps_mlauncher01_mark03_explosion": {
@@ -6100,6 +6857,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "br_wps_mlauncher01_mark03_motor": {
@@ -6131,6 +6893,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "buoygreen": {
@@ -6162,6 +6929,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "bw_elite2_power01": {
@@ -6193,6 +6965,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "bw_elite_power01": {
@@ -6224,6 +7001,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "bw_elite_shield01": {
@@ -6255,6 +7037,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "bw_fighter_power01": {
@@ -6286,6 +7073,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "bw_fighter_shield01": {
@@ -6317,6 +7109,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "bw_freighter_power01": {
@@ -6348,6 +7145,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "bw_freighter_shield01": {
@@ -6379,6 +7181,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "bw_vheavy_shield01": {
@@ -6410,6 +7217,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cargopod_blue": {
@@ -6441,6 +7253,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cargopod_drab": {
@@ -6472,6 +7289,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cargopod_green": {
@@ -6503,6 +7325,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cargopod_grey": {
@@ -6534,6 +7361,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cargopod_hanging": {
@@ -6565,6 +7397,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cargopod_red": {
@@ -6596,6 +7433,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cargopod_white": {
@@ -6627,6 +7469,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cargopod_yellow": {
@@ -6658,6 +7505,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cloak_battleship": {
@@ -6689,6 +7541,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cloak_cruiser": {
@@ -6720,6 +7577,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cloak_fighter": {
@@ -6751,6 +7613,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cloak_gunboat": {
@@ -6782,6 +7649,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cloak_nomad": {
@@ -6813,6 +7685,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cloak_nomad_battleship": {
@@ -6844,6 +7721,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cloak_nomad_gunboat": {
@@ -6875,6 +7757,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cloak_nomad_srtc": {
@@ -6906,6 +7793,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cloak_osiris": {
@@ -6937,6 +7829,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_elite2_power01": {
@@ -6968,6 +7865,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "co_elite2_shield01": {
@@ -6999,6 +7901,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "co_elite_power01": {
@@ -7030,6 +7937,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "co_elite_shield01": {
@@ -7061,6 +7973,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "co_fighter_power01": {
@@ -7092,6 +8009,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "co_fighter_shield01": {
@@ -7123,6 +8045,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "co_gun01_mark01": {
@@ -7156,6 +8083,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 14.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -7173,7 +8105,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -7206,6 +8137,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_gun01_mark02": {
@@ -7239,6 +8175,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 18.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -7256,7 +8197,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -7289,6 +8229,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_gun01_mark03": {
@@ -7322,6 +8267,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 22.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -7339,7 +8289,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -7372,6 +8321,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_gun01_mark04": {
@@ -7405,6 +8359,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 47.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -7422,7 +8381,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -7455,6 +8413,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_gun01_mark05": {
@@ -7488,6 +8451,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 62.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -7505,7 +8473,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -7538,6 +8505,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_gun01_mark06": {
@@ -7571,6 +8543,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 95.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -7588,7 +8565,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -7621,6 +8597,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_gun02_mark01": {
@@ -7654,6 +8635,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 4.6,
     "energyDamage": 153.0,
     "weaponType": "W_Pulse01",
@@ -7671,7 +8657,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -7704,6 +8689,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_gun02_mark02": {
@@ -7737,6 +8727,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 5.6,
     "energyDamage": 186.8,
     "weaponType": "W_Pulse01",
@@ -7754,7 +8749,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -7787,6 +8781,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_gun02_mark03": {
@@ -7820,6 +8819,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 15.7,
     "energyDamage": 522.8,
     "weaponType": "W_Pulse01",
@@ -7837,7 +8841,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -7870,6 +8873,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_gun02_mark04": {
@@ -7903,6 +8911,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 23.9,
     "energyDamage": 795.0,
     "weaponType": "W_Pulse01",
@@ -7920,7 +8933,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -7953,6 +8965,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_large_station_turret01_mark01": {
@@ -7986,6 +9003,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8003,7 +9025,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -8036,6 +9057,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_large_station_turret01_mark02": {
@@ -8069,6 +9095,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8086,7 +9117,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -8119,6 +9149,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_large_station_turret01_mark03": {
@@ -8152,6 +9187,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8169,7 +9209,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -8202,6 +9241,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_lifter_turret01": {
@@ -8235,6 +9279,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 124.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8252,7 +9301,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -8285,6 +9333,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_liner_turret01": {
@@ -8318,6 +9371,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 62.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8335,7 +9393,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -8368,6 +9425,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_miner_turret01": {
@@ -8401,6 +9463,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 124.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8418,7 +9485,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -8451,6 +9517,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_miner_turret02": {
@@ -8484,6 +9555,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 41.1,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8501,7 +9577,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -8534,6 +9609,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_miner_turret03": {
@@ -8567,6 +9647,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 62.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8584,7 +9669,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -8617,6 +9701,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_repair_turret01": {
@@ -8650,6 +9739,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 124.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8667,7 +9761,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -8700,6 +9793,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_small_station_turret01_mark01": {
@@ -8733,6 +9831,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8750,7 +9853,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -8783,6 +9885,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_small_station_turret01_mark02": {
@@ -8816,6 +9923,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8833,7 +9945,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -8866,6 +9977,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_small_station_turret01_mark03": {
@@ -8899,6 +10015,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8916,7 +10037,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -8949,6 +10069,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_train_turret01_mark01": {
@@ -8982,6 +10107,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -8999,7 +10129,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -9032,6 +10161,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_train_turret01_mark02": {
@@ -9065,6 +10199,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -9082,7 +10221,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -9115,6 +10253,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_train_turret01_mark03": {
@@ -9148,6 +10291,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 124.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -9165,7 +10313,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -9198,6 +10345,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_train_turret02_mark01": {
@@ -9231,6 +10383,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 26.9,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -9248,7 +10405,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -9281,6 +10437,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_train_turret02_mark02": {
@@ -9314,6 +10475,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 33.7,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -9331,7 +10497,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -9364,6 +10529,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_train_turret02_mark03": {
@@ -9397,6 +10567,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 41.1,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -9414,7 +10589,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -9447,6 +10621,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_train_turret03_mark01": {
@@ -9480,6 +10659,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -9497,7 +10681,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -9530,6 +10713,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_train_turret03_mark02": {
@@ -9563,6 +10751,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -9580,7 +10773,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -9613,6 +10805,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_train_turret03_mark03": {
@@ -9646,6 +10843,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 62.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -9663,7 +10865,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -9696,6 +10897,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_transport_turret01_mark01": {
@@ -9729,6 +10935,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -9746,7 +10957,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -9779,6 +10989,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_transport_turret01_mark02": {
@@ -9812,6 +11027,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -9829,7 +11049,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -9862,6 +11081,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_transport_turret01_mark03": {
@@ -9895,6 +11119,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 124.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -9912,7 +11141,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -9945,6 +11173,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_transport_turret02_mark01": {
@@ -9978,6 +11211,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -9995,7 +11233,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -10028,6 +11265,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_transport_turret02_mark02": {
@@ -10061,6 +11303,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -10078,7 +11325,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -10111,6 +11357,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_transport_turret02_mark03": {
@@ -10144,6 +11395,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 62.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -10161,7 +11417,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -10194,6 +11449,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_turret01_mark01": {
@@ -10227,6 +11487,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 14.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -10244,7 +11509,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -10277,6 +11541,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_turret01_mark02": {
@@ -10310,6 +11579,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 22.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -10327,7 +11601,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -10360,6 +11633,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_turret01_mark03": {
@@ -10393,6 +11671,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 62.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -10410,7 +11693,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -10443,6 +11725,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_turret02_mark01": {
@@ -10476,6 +11763,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 4.6,
     "energyDamage": 153.0,
     "weaponType": "W_Pulse01",
@@ -10493,7 +11785,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -10526,6 +11817,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_turret02_mark02": {
@@ -10559,6 +11855,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 11.9,
     "energyDamage": 395.3,
     "weaponType": "W_Pulse01",
@@ -10576,7 +11877,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -10609,6 +11909,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_turret02_mark03": {
@@ -10642,6 +11947,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 23.9,
     "energyDamage": 795.0,
     "weaponType": "W_Pulse01",
@@ -10659,7 +11969,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -10692,6 +12001,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wp_turret01_mark01": {
@@ -10725,6 +12039,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -10742,7 +12061,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -10775,6 +12093,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wp_turret01_mark02": {
@@ -10808,6 +12131,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -10825,7 +12153,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -10858,6 +12185,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wp_turret01_mark03": {
@@ -10891,6 +12223,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -10908,7 +12245,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -10941,6 +12277,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wp_turret02_mark01": {
@@ -10974,6 +12315,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -10991,7 +12337,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "co_wp_turret02_mark01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 306.0,
@@ -11031,6 +12376,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wp_turret02_mark01_explosion": {
@@ -11062,6 +12412,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wp_turret02_mark01_motor": {
@@ -11093,6 +12448,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wp_turret02_mark02": {
@@ -11126,6 +12486,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -11143,7 +12508,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "co_wp_turret02_mark02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 474.0,
@@ -11183,6 +12547,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wp_turret02_mark02_explosion": {
@@ -11214,6 +12583,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wp_turret02_mark02_motor": {
@@ -11245,6 +12619,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wp_turret02_mark03": {
@@ -11278,6 +12657,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -11295,7 +12679,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "co_wp_turret02_mark03_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 790.5,
@@ -11335,6 +12718,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wp_turret02_mark03_explosion": {
@@ -11366,6 +12754,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wp_turret02_mark03_motor": {
@@ -11397,6 +12790,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wps_gun01_mark01": {
@@ -11430,6 +12828,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -11447,7 +12850,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -11480,6 +12882,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wps_gun01_mark02": {
@@ -11513,6 +12920,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -11530,7 +12942,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -11563,6 +12974,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wps_gun01_mark03": {
@@ -11596,6 +13012,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -11613,7 +13034,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -11646,6 +13066,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wps_mlauncher01_mark01": {
@@ -11679,6 +13104,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -11696,7 +13126,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "co_wps_mlauncher01_mark01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 244.5,
@@ -11736,6 +13165,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wps_mlauncher01_mark01_explosion": {
@@ -11767,6 +13201,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wps_mlauncher01_mark01_motor": {
@@ -11798,6 +13237,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wps_mlauncher01_mark02": {
@@ -11831,6 +13275,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -11848,7 +13297,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "co_wps_mlauncher01_mark02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 306.0,
@@ -11888,6 +13336,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wps_mlauncher01_mark02_explosion": {
@@ -11919,6 +13372,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wps_mlauncher01_mark02_motor": {
@@ -11950,6 +13408,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wps_mlauncher01_mark03": {
@@ -11983,6 +13446,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -12000,7 +13468,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "co_wps_mlauncher01_mark03_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 373.5,
@@ -12040,6 +13507,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wps_mlauncher01_mark03_explosion": {
@@ -12071,6 +13543,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "co_wps_mlauncher01_mark03_motor": {
@@ -12102,6 +13579,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "commodity_alien_artifacts": {
@@ -12133,6 +13615,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_alien_organisms": {
@@ -12164,6 +13651,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_basic_alloys": {
@@ -12195,6 +13687,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_beryllium": {
@@ -12226,6 +13723,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_boron": {
@@ -12257,6 +13759,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_cardamine": {
@@ -12288,6 +13795,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_cobalt": {
@@ -12319,6 +13831,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_construction_machinery": {
@@ -12350,6 +13867,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_consumer_goods": {
@@ -12381,6 +13903,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_copper": {
@@ -12412,6 +13939,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_diamonds": {
@@ -12443,6 +13975,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_engine_components": {
@@ -12474,6 +14011,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_fertilizers": {
@@ -12505,6 +14047,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_food": {
@@ -12536,6 +14083,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_gold": {
@@ -12567,6 +14119,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_h_fuel": {
@@ -12598,6 +14155,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_high_temp_alloys": {
@@ -12629,6 +14191,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_hydrocarbons": {
@@ -12660,6 +14227,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_luxury_consumer_goods": {
@@ -12691,6 +14263,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_luxury_food": {
@@ -12722,6 +14299,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_mining_machinery": {
@@ -12753,6 +14335,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_mox_fuel": {
@@ -12784,6 +14371,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_niobium": {
@@ -12815,6 +14407,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_optical_chips": {
@@ -12846,6 +14443,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_optronics": {
@@ -12877,6 +14479,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_oxygen": {
@@ -12908,6 +14515,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_pharm": {
@@ -12939,6 +14551,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_polymers": {
@@ -12970,6 +14587,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_prisoners": {
@@ -13001,6 +14623,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_scrap_metal": {
@@ -13032,6 +14659,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_ship_hull_panels": {
@@ -13063,6 +14695,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_sidearms": {
@@ -13094,6 +14731,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_silver": {
@@ -13125,6 +14767,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_super_alloys": {
@@ -13156,6 +14803,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_superconductors": {
@@ -13187,6 +14839,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_terraforming_gases": {
@@ -13218,6 +14875,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_toxic_waste": {
@@ -13249,6 +14911,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_tradelane_parts": {
@@ -13280,6 +14947,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_vips": {
@@ -13311,6 +14983,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "commodity_water": {
@@ -13342,6 +15019,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "consumer_1": {
@@ -13373,6 +15055,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "consumer_2": {
@@ -13404,6 +15091,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "consumer_3": {
@@ -13435,6 +15127,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "contraband_1": {
@@ -13466,6 +15163,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "contraband_2": {
@@ -13497,6 +15199,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "contraband_3": {
@@ -13528,6 +15235,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "contrail01": {
@@ -13559,6 +15271,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "conveyor": {
@@ -13590,6 +15307,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "crude_1": {
@@ -13621,6 +15343,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "crude_2": {
@@ -13652,6 +15379,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "crude_3": {
@@ -13683,6 +15415,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "cruise_disruptor01_mark01": {
@@ -13716,6 +15453,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -13733,7 +15475,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "cruise_disruptor01_mark01_motor",
     "explosionRadius": 50.0,
     "explosionHullDamage": 37.4,
@@ -13775,6 +15516,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cruise_disruptor01_mark01_explosion": {
@@ -13806,6 +15552,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cruise_disruptor01_mark01_motor": {
@@ -13837,6 +15588,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cruise_disruptor01_mark02": {
@@ -13870,6 +15626,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -13887,7 +15648,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "cruise_disruptor01_mark02_motor",
     "explosionRadius": 50.0,
     "explosionHullDamage": 159.0,
@@ -13929,6 +15689,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cruise_disruptor01_mark02_explosion": {
@@ -13960,6 +15725,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "cruise_disruptor01_mark02_motor": {
@@ -13991,6 +15761,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "csv_shield01": {
@@ -14022,6 +15797,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cv_elite_shield01": {
@@ -14053,6 +15833,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cv_fighter4_shield01": {
@@ -14084,6 +15869,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cv_fighter5_shield01": {
@@ -14115,6 +15905,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cv_fighter6_shield01": {
@@ -14146,6 +15941,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cv_fighter_shield01": {
@@ -14177,6 +15977,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "cv_freighter_shield01": {
@@ -14208,6 +16013,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "depot_wallah": {
@@ -14239,6 +16049,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "dockinglightred": {
@@ -14270,6 +16085,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "dockinglightredsmall": {
@@ -14301,6 +16121,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "dyson_city_shield01": {
@@ -14332,6 +16157,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "dyson_city_shield_gen01": {
@@ -14363,6 +16193,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "electronics_1": {
@@ -14394,6 +16229,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "electronics_2": {
@@ -14425,6 +16265,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "electronics_3": {
@@ -14456,6 +16301,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "engine_glow_blue": {
@@ -14487,6 +16337,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "engine_glow_green": {
@@ -14518,6 +16373,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "engine_glow_red": {
@@ -14549,6 +16409,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "engine_glow_white": {
@@ -14580,6 +16445,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "engine_glow_yellow": {
@@ -14611,6 +16481,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "escape_lifeboat": {
@@ -14644,6 +16519,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "escape_pod": {
@@ -14677,6 +16557,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "escape_pod_engine": {
@@ -14708,6 +16593,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 160.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "extend": {
@@ -14739,6 +16629,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "fastlargeblue": {
@@ -14770,6 +16665,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "fastlargered": {
@@ -14801,6 +16701,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "fastmediumblue": {
@@ -14832,6 +16737,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "fastmediumgreen": {
@@ -14863,6 +16773,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "fastsmallblue": {
@@ -14894,6 +16809,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "fastsmallgreen": {
@@ -14925,6 +16845,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "fastsmallred": {
@@ -14956,6 +16881,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "fastsmallyellow": {
@@ -14987,6 +16917,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "fasttrackred": {
@@ -15018,6 +16953,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "fc_b_gun01_mark01": {
@@ -15051,6 +16991,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 210.8,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -15068,7 +17013,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -15101,6 +17045,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_b_gun01_mark02": {
@@ -15134,6 +17083,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 278.8,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -15151,7 +17105,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -15184,6 +17137,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_b_gun01_mark03": {
@@ -15217,6 +17175,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 424.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -15234,7 +17197,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -15267,6 +17229,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_b_turret01_mark01": {
@@ -15300,6 +17267,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 210.8,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -15317,7 +17289,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -15350,6 +17321,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_b_turret01_mark02": {
@@ -15383,6 +17359,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 424.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -15400,7 +17381,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -15433,6 +17413,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_bd_gun01_mark01": {
@@ -15466,6 +17451,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -15483,7 +17473,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -15516,6 +17505,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_bd_gun01_mark02": {
@@ -15549,6 +17543,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 52.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -15566,7 +17565,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -15599,6 +17597,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_bd_gun01_mark03": {
@@ -15632,6 +17635,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 69.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -15649,7 +17657,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -15682,6 +17689,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_bd_gun01_mark04": {
@@ -15715,6 +17727,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 106.0,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -15732,7 +17749,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -15765,6 +17781,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_bd_turret01_mark01": {
@@ -15798,6 +17819,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 52.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -15815,7 +17841,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -15848,6 +17873,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_bd_turret01_mark02": {
@@ -15881,6 +17911,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 106.0,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -15898,7 +17933,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -15931,6 +17965,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_gun01_mark01": {
@@ -15964,6 +18003,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 121.2,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -15981,7 +18025,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -16014,6 +18057,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_gun01_mark02": {
@@ -16047,6 +18095,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.1,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -16064,7 +18117,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -16097,6 +18149,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_gun01_mark03": {
@@ -16130,6 +18187,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 209.1,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -16147,7 +18209,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -16180,6 +18241,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_gun01_mark04": {
@@ -16213,6 +18279,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 318.0,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -16230,7 +18301,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -16263,6 +18333,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_gun01_mark05": {
@@ -16296,6 +18371,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 489.0,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -16313,7 +18393,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -16346,6 +18425,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_gun02_mark01": {
@@ -16379,6 +18463,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 10.1,
     "energyDamage": 303.0,
     "weaponType": "W_Pulse01",
@@ -16396,7 +18485,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -16429,6 +18517,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_gun02_mark02": {
@@ -16462,6 +18555,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 17.4,
     "energyDamage": 522.8,
     "weaponType": "W_Pulse01",
@@ -16479,7 +18577,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -16512,6 +18609,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_gun02_mark03": {
@@ -16545,6 +18647,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.8,
     "energyDamage": 1222.5,
     "weaponType": "W_Pulse01",
@@ -16562,7 +18669,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -16595,6 +18701,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_turret01_mark01": {
@@ -16628,6 +18739,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 121.2,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -16645,7 +18761,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -16678,6 +18793,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_turret01_mark02": {
@@ -16711,6 +18831,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 209.1,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -16728,7 +18853,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -16761,6 +18885,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_turret01_mark03": {
@@ -16794,6 +18923,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 489.0,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -16811,7 +18945,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -16844,6 +18977,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_turret02_mark01": {
@@ -16877,6 +19015,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 13.2,
     "energyDamage": 395.3,
     "weaponType": "W_Pulse01",
@@ -16894,7 +19037,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -16927,6 +19069,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_c_turret02_mark02": {
@@ -16960,6 +19107,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 26.5,
     "energyDamage": 795.0,
     "weaponType": "W_Pulse01",
@@ -16977,7 +19129,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -17010,6 +19161,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_fa_gun01_mark01": {
@@ -17043,6 +19199,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 126.4,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -17060,7 +19221,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -17093,6 +19253,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_fa_gun01_mark02": {
@@ -17126,6 +19291,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 161.6,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -17143,7 +19313,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -17176,6 +19345,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_fa_gun01_mark03": {
@@ -17209,6 +19383,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 210.8,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -17226,7 +19405,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -17259,6 +19437,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_g_gun01_mark01": {
@@ -17292,6 +19475,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 41.5,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -17309,7 +19497,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -17342,6 +19529,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_g_gun01_mark02": {
@@ -17375,6 +19567,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 52.7,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -17392,7 +19589,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -17425,6 +19621,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_g_gun01_mark03": {
@@ -17458,6 +19659,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 67.3,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -17475,7 +19681,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -17508,6 +19713,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_g_gun01_mark04": {
@@ -17541,6 +19751,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 87.8,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -17558,7 +19773,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -17591,6 +19805,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_gc_gun01_mark01": {
@@ -17624,6 +19843,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 52.7,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -17641,7 +19865,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -17674,6 +19897,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_gc_gun01_mark02": {
@@ -17707,6 +19935,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 87.8,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -17724,7 +19957,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -17757,6 +19989,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_gc_gun01_mark03": {
@@ -17790,6 +20027,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 176.7,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -17807,7 +20049,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -17840,6 +20081,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_h_gun01_mark01": {
@@ -17873,6 +20119,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.1,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -17890,7 +20141,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -17923,6 +20173,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_h_gun01_mark02": {
@@ -17956,6 +20211,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 209.1,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -17973,7 +20233,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -18006,6 +20265,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_h_gun01_mark03": {
@@ -18039,6 +20303,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 318.0,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -18056,7 +20325,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -18089,6 +20357,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_h_turret01_mark01": {
@@ -18122,6 +20395,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.1,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -18139,7 +20417,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -18172,6 +20449,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_h_turret01_mark02": {
@@ -18205,6 +20487,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 318.0,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -18222,7 +20509,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -18255,6 +20541,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_j_gun01_mark01": {
@@ -18288,6 +20579,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 30.6,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -18305,7 +20601,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -18338,6 +20633,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_j_gun01_mark02": {
@@ -18371,6 +20671,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 47.4,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -18388,7 +20693,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -18421,6 +20725,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_j_gun01_mark03": {
@@ -18454,6 +20763,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.1,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -18471,7 +20785,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -18504,6 +20817,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_j_turret01_mark01": {
@@ -18537,6 +20855,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 30.6,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -18554,7 +20877,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -18587,6 +20909,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_j_turret01_mark02": {
@@ -18620,6 +20947,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 47.4,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -18637,7 +20969,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -18670,6 +21001,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_j_turret01_mark03": {
@@ -18703,6 +21039,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.1,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -18720,7 +21061,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -18753,6 +21093,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lh_gun01_mark01": {
@@ -18786,6 +21131,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -18803,7 +21153,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -18836,6 +21185,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lh_gun01_mark02": {
@@ -18869,6 +21223,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 101.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -18886,7 +21245,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -18919,6 +21277,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lh_gun01_mark03": {
@@ -18952,6 +21315,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -18969,7 +21337,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19002,6 +21369,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lh_turret01_mark01": {
@@ -19035,6 +21407,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -19052,7 +21429,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19085,6 +21461,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lh_turret01_mark02": {
@@ -19118,6 +21499,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -19135,7 +21521,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19168,6 +21553,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lr_gun01_mark01": {
@@ -19201,6 +21591,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 19.6,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -19218,7 +21613,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19251,6 +21645,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lr_gun01_mark02": {
@@ -19284,6 +21683,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 29.9,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -19301,7 +21705,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19334,6 +21737,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lr_gun01_mark03": {
@@ -19367,6 +21775,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 37.9,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -19384,7 +21797,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19417,6 +21829,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lr_gun01_mark04": {
@@ -19450,6 +21867,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 48.5,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -19467,7 +21889,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19500,6 +21921,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lr_gun01_mark05": {
@@ -19533,6 +21959,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 83.6,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -19550,7 +21981,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19583,6 +22013,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lr_turret01_mark01": {
@@ -19616,6 +22051,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 19.6,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -19633,7 +22073,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19666,6 +22105,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lr_turret01_mark02": {
@@ -19699,6 +22143,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 29.9,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -19716,7 +22165,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19749,6 +22197,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lr_turret01_mark03": {
@@ -19782,6 +22235,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 48.5,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -19799,7 +22257,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19832,6 +22289,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lr_turret01_mark04": {
@@ -19865,6 +22327,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 83.6,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -19882,7 +22349,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19915,6 +22381,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lwb_gun01_mark01": {
@@ -19948,6 +22419,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 134.7,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -19965,7 +22441,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -19998,6 +22473,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lwb_gun01_mark02": {
@@ -20031,6 +22511,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 175.7,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -20048,7 +22533,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -20081,6 +22565,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lwb_gun01_mark03": {
@@ -20114,6 +22603,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 232.3,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -20131,7 +22625,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -20164,6 +22657,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_lwb_gun01_mark04": {
@@ -20197,6 +22695,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 353.3,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -20214,7 +22717,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -20247,6 +22749,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_m_gun01_mark01": {
@@ -20280,6 +22787,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 101.0,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -20297,7 +22809,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -20330,6 +22841,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_m_gun01_mark02": {
@@ -20363,6 +22879,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -20380,7 +22901,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -20413,6 +22933,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_m_gun01_mark03": {
@@ -20446,6 +22971,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 174.3,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -20463,7 +22993,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -20496,6 +23025,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_m_turret01_mark01": {
@@ -20529,6 +23063,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 101.0,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -20546,7 +23085,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -20579,6 +23117,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_m_turret01_mark02": {
@@ -20612,6 +23155,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 174.3,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -20629,7 +23177,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -20662,6 +23209,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_or_gun01_mark01": {
@@ -20695,6 +23247,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -20712,7 +23269,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -20745,6 +23301,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_or_gun01_mark01_m1": {
@@ -20778,6 +23339,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 16.3,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -20795,7 +23361,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -20828,6 +23393,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_or_gun01_mark02": {
@@ -20861,6 +23431,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 52.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -20878,7 +23453,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -20911,6 +23485,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_or_gun01_mark03": {
@@ -20944,6 +23523,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 69.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -20961,7 +23545,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -20994,6 +23577,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_or_gun02_mark01": {
@@ -21027,6 +23615,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 101.0,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -21044,7 +23637,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -21077,6 +23669,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_or_gun02_mark02": {
@@ -21110,6 +23707,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -21127,7 +23729,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -21160,6 +23761,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_or_gun02_mark03": {
@@ -21193,6 +23799,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 174.3,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -21210,7 +23821,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -21243,6 +23853,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_or_turret01_mark01": {
@@ -21276,6 +23891,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -21293,7 +23913,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -21326,6 +23945,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_or_turret01_mark02": {
@@ -21359,6 +23983,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 69.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -21376,7 +24005,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -21409,6 +24037,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_or_turret02_mark01": {
@@ -21442,6 +24075,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 101.0,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -21459,7 +24097,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -21492,6 +24129,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_or_turret02_mark02": {
@@ -21525,6 +24167,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 174.3,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -21542,7 +24189,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -21575,6 +24221,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_gun01_mark01": {
@@ -21608,6 +24259,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 126.4,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -21625,7 +24281,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -21658,6 +24313,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_gun01_mark02": {
@@ -21691,6 +24351,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 161.6,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -21708,7 +24373,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -21741,6 +24405,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_gun01_mark03": {
@@ -21774,6 +24443,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 210.8,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -21791,7 +24465,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -21824,6 +24497,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_gun01_mark04": {
@@ -21857,6 +24535,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 424.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -21874,7 +24557,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -21907,6 +24589,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_gun01_mark05": {
@@ -21940,6 +24627,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 652.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -21957,7 +24649,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -21990,6 +24681,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_gun02_mark01": {
@@ -22023,6 +24719,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 113.8,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -22040,7 +24741,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -22073,6 +24773,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_gun02_mark02": {
@@ -22106,6 +24811,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 145.4,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -22123,7 +24833,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -22156,6 +24865,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_gun02_mark03": {
@@ -22189,6 +24903,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 189.7,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -22206,7 +24925,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -22239,6 +24957,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_gun02_mark04": {
@@ -22272,6 +24995,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 381.6,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -22289,7 +25017,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -22322,6 +25049,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_gun02_mark05": {
@@ -22355,6 +25087,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 586.8,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -22372,7 +25109,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -22405,6 +25141,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_turret01_mark01": {
@@ -22438,6 +25179,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 94.8,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -22455,7 +25201,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -22488,6 +25233,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_turret01_mark02": {
@@ -22521,6 +25271,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.1,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -22538,7 +25293,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -22571,6 +25325,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_turret01_mark03": {
@@ -22604,6 +25363,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 318.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -22621,7 +25385,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -22654,6 +25417,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_turret02_mark01": {
@@ -22687,6 +25455,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 113.8,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -22704,7 +25477,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -22737,6 +25509,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_turret02_mark02": {
@@ -22770,6 +25547,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 189.7,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -22787,7 +25569,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -22820,6 +25601,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_ou_turret02_mark03": {
@@ -22853,6 +25639,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 381.6,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -22870,7 +25661,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -22903,6 +25693,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_rh_gun01_mark01": {
@@ -22936,6 +25731,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 53.9,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -22953,7 +25753,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -22986,6 +25785,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_rh_gun01_mark02": {
@@ -23019,6 +25823,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 70.3,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -23036,7 +25845,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -23069,6 +25877,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_rh_gun01_mark03": {
@@ -23102,6 +25915,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 92.9,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -23119,7 +25937,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -23152,6 +25969,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_rh_gun01_mark04": {
@@ -23185,6 +26007,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 141.3,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -23202,7 +26029,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -23235,6 +26061,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_rh_turret01_mark01": {
@@ -23268,6 +26099,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 53.9,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -23285,7 +26121,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -23318,6 +26153,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_rh_turret01_mark02": {
@@ -23351,6 +26191,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 92.9,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -23368,7 +26213,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -23401,6 +26245,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_u_gun01_mark01": {
@@ -23434,6 +26283,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -23451,7 +26305,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -23484,6 +26337,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_u_gun01_mark02": {
@@ -23517,6 +26375,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -23534,7 +26397,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -23567,6 +26429,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_u_gun01_mark03": {
@@ -23600,6 +26467,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 265.0,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -23617,7 +26489,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -23650,6 +26521,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_x_gun01_mark01": {
@@ -23683,6 +26559,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 73.4,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -23700,7 +26581,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -23733,6 +26613,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_x_gun01_mark02": {
@@ -23766,6 +26651,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 89.6,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -23783,7 +26673,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -23816,6 +26705,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_x_gun01_mark03": {
@@ -23849,6 +26743,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 145.4,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -23866,7 +26765,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -23899,6 +26797,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "fc_x_gun01_mark04": {
@@ -23932,6 +26835,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 189.7,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -23949,7 +26857,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -23982,6 +26889,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "food_1": {
@@ -24013,6 +26925,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "food_2": {
@@ -24044,6 +26961,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "food_3": {
@@ -24075,6 +26997,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "fx_dyson_city_beam": {
@@ -24106,6 +27033,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "fx_dyson_city_mainbeam": {
@@ -24137,6 +27069,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "fx_dyson_city_platformglow": {
@@ -24168,6 +27105,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "fx_dyson_city_reactorglow": {
@@ -24199,6 +27141,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "fx_dyson_city_shield": {
@@ -24230,6 +27177,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "fx_dyson_shieldgen": {
@@ -24261,6 +27213,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "fx_dysonscape_shield": {
@@ -24292,6 +27249,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "fx_nomad_battleship_engine": {
@@ -24323,6 +27285,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "fx_nomadlair_powersource": {
@@ -24354,6 +27321,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "fx_nomadlair_shield": {
@@ -24385,6 +27357,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "fx_nomadlair_shieldgen": {
@@ -24416,6 +27393,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "fx_nomadwormhole": {
@@ -24447,6 +27429,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "gas_collector_animate1": {
@@ -24478,6 +27465,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "gas_miner": {
@@ -24509,6 +27501,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "gasminer_exhaust": {
@@ -24540,6 +27537,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "gasminer_intake": {
@@ -24571,6 +27573,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "gd_bh_gun01_mark01": {
@@ -24604,6 +27611,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 20.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -24621,7 +27633,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -24654,6 +27665,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_gun01_mark02": {
@@ -24687,6 +27703,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 31.6,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -24704,7 +27725,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -24737,6 +27757,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_gun01_mark03": {
@@ -24770,6 +27795,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 52.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -24787,7 +27817,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -24820,6 +27849,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_gun01_mark04": {
@@ -24853,6 +27887,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 69.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -24870,7 +27909,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -24903,6 +27941,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_gun01_mark05": {
@@ -24936,6 +27979,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 106.0,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -24953,7 +28001,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -24986,6 +28033,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_gun01_mark06": {
@@ -25019,6 +28071,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 163.0,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -25036,7 +28093,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -25069,6 +28125,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_gun02_mark01": {
@@ -25102,6 +28163,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 49.0,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -25119,7 +28185,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -25152,6 +28217,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_gun02_mark02": {
@@ -25185,6 +28255,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 75.8,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -25202,7 +28277,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -25235,6 +28309,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_gun02_mark03": {
@@ -25268,6 +28347,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 126.5,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -25285,7 +28369,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -25318,6 +28401,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_gun02_mark04": {
@@ -25351,6 +28439,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 167.3,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -25368,7 +28461,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -25401,6 +28493,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_gun02_mark05": {
@@ -25434,6 +28531,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 391.2,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -25451,7 +28553,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -25484,6 +28585,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_turret01_mark01": {
@@ -25517,6 +28623,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 20.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -25534,7 +28645,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -25567,6 +28677,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_turret01_mark02": {
@@ -25600,6 +28715,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 31.6,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -25617,7 +28737,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -25650,6 +28769,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_turret01_mark03": {
@@ -25683,6 +28807,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 52.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -25700,7 +28829,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -25733,6 +28861,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_turret01_mark04": {
@@ -25766,6 +28899,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 106.0,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -25783,7 +28921,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -25816,6 +28953,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_turret02_mark01": {
@@ -25849,6 +28991,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 75.8,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -25866,7 +29013,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -25899,6 +29045,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_turret02_mark02": {
@@ -25932,6 +29083,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 167.3,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -25949,7 +29105,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -25982,6 +29137,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_bh_turret02_mark03": {
@@ -26015,6 +29175,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 391.2,
     "energyDamage": 0.0,
     "weaponType": "W_Particle01",
@@ -26032,7 +29197,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -26065,6 +29229,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_gun01_mark01": {
@@ -26098,6 +29267,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.1,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -26115,7 +29289,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -26148,6 +29321,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_gun01_mark02": {
@@ -26181,6 +29359,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 104.6,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -26198,7 +29381,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -26231,6 +29413,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_gun01_mark03": {
@@ -26264,6 +29451,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 159.0,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -26281,7 +29473,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -26314,6 +29505,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_gun01_mark04": {
@@ -26347,6 +29543,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 244.5,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -26364,7 +29565,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -26397,6 +29597,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_train_turret01_mark01": {
@@ -26430,6 +29635,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -26447,7 +29657,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -26480,6 +29689,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_train_turret01_mark02": {
@@ -26513,6 +29727,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -26530,7 +29749,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -26563,6 +29781,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_train_turret01_mark03": {
@@ -26596,6 +29819,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 124.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -26613,7 +29841,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -26646,6 +29873,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_train_turret02_mark01": {
@@ -26679,6 +29911,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 26.9,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -26696,7 +29933,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -26729,6 +29965,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_train_turret02_mark02": {
@@ -26762,6 +30003,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 33.7,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -26779,7 +30025,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -26812,6 +30057,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_train_turret02_mark03": {
@@ -26845,6 +30095,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 41.1,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -26862,7 +30117,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -26895,6 +30149,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_train_turret03_mark01": {
@@ -26928,6 +30187,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -26945,7 +30209,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -26978,6 +30241,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_train_turret03_mark02": {
@@ -27011,6 +30279,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -27028,7 +30301,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -27061,6 +30333,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_train_turret03_mark03": {
@@ -27094,6 +30371,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 62.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -27111,7 +30393,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -27144,6 +30425,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_transport_turret01_mark01": {
@@ -27177,6 +30463,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -27194,7 +30485,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -27227,6 +30517,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_transport_turret01_mark02": {
@@ -27260,6 +30555,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -27277,7 +30577,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -27310,6 +30609,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_transport_turret01_mark03": {
@@ -27343,6 +30647,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 124.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -27360,7 +30669,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -27393,6 +30701,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_transport_turret02_mark01": {
@@ -27426,6 +30739,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -27443,7 +30761,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -27476,6 +30793,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_transport_turret02_mark02": {
@@ -27509,6 +30831,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -27526,7 +30853,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -27559,6 +30885,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_transport_turret02_mark03": {
@@ -27592,6 +30923,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 62.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -27609,7 +30945,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -27642,6 +30977,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_turret01_mark01": {
@@ -27675,6 +31015,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.1,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -27692,7 +31037,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -27725,6 +31069,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_turret01_mark02": {
@@ -27758,6 +31107,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 159.0,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -27775,7 +31129,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -27808,6 +31161,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_gm_turret01_mark03": {
@@ -27841,6 +31199,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 244.5,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -27858,7 +31221,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -27891,6 +31253,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_gun01_mark01": {
@@ -27924,6 +31291,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 49.8,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -27941,7 +31313,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -27974,6 +31345,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_gun01_mark02": {
@@ -28007,6 +31383,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 63.2,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -28024,7 +31405,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -28057,6 +31437,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_gun01_mark03": {
@@ -28090,6 +31475,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 105.4,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -28107,7 +31497,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -28140,6 +31529,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_gun01_mark04": {
@@ -28173,6 +31567,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 139.4,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -28190,7 +31589,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -28223,6 +31621,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_gun01_mark05": {
@@ -28256,6 +31659,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 212.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -28273,7 +31681,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -28306,6 +31713,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_miner_turret01": {
@@ -28339,6 +31751,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 124.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -28356,7 +31773,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -28389,6 +31805,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_miner_turret02": {
@@ -28422,6 +31843,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 41.1,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -28439,7 +31865,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -28472,6 +31897,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_miner_turret03": {
@@ -28505,6 +31935,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 62.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -28522,7 +31957,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -28555,6 +31989,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_train_turret01_mark01": {
@@ -28588,6 +32027,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -28605,7 +32049,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -28638,6 +32081,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_train_turret01_mark02": {
@@ -28671,6 +32119,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -28688,7 +32141,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -28721,6 +32173,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_train_turret01_mark03": {
@@ -28754,6 +32211,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 124.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -28771,7 +32233,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -28804,6 +32265,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_train_turret02_mark01": {
@@ -28837,6 +32303,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 26.9,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -28854,7 +32325,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -28887,6 +32357,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_train_turret02_mark02": {
@@ -28920,6 +32395,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 33.7,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -28937,7 +32417,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -28970,6 +32449,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_train_turret02_mark03": {
@@ -29003,6 +32487,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 41.1,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -29020,7 +32509,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -29053,6 +32541,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_train_turret03_mark01": {
@@ -29086,6 +32579,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -29103,7 +32601,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -29136,6 +32633,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_train_turret03_mark02": {
@@ -29169,6 +32671,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -29186,7 +32693,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -29219,6 +32725,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_train_turret03_mark03": {
@@ -29252,6 +32763,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 62.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -29269,7 +32785,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -29302,6 +32817,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_transport_turret01_mark01": {
@@ -29335,6 +32855,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -29352,7 +32877,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -29385,6 +32909,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_transport_turret01_mark02": {
@@ -29418,6 +32947,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -29435,7 +32969,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -29468,6 +33001,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_transport_turret01_mark03": {
@@ -29501,6 +33039,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 124.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -29518,7 +33061,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -29551,6 +33093,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_transport_turret02_mark01": {
@@ -29584,6 +33131,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -29601,7 +33153,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -29634,6 +33185,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_transport_turret02_mark02": {
@@ -29667,6 +33223,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -29684,7 +33245,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -29717,6 +33277,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_transport_turret02_mark03": {
@@ -29750,6 +33315,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 62.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -29767,7 +33337,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -29800,6 +33369,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_turret01_mark01": {
@@ -29833,6 +33407,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 49.8,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -29850,7 +33429,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -29883,6 +33461,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_turret01_mark02": {
@@ -29916,6 +33499,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 105.4,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -29933,7 +33521,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -29966,6 +33553,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_im_turret01_mark03": {
@@ -29999,6 +33591,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 212.0,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -30016,7 +33613,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -30049,6 +33645,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_z_gun01_mark01": {
@@ -30082,6 +33683,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 41.5,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -30099,7 +33705,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -30132,6 +33737,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_z_gun01_mark02": {
@@ -30165,6 +33775,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 52.7,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -30182,7 +33797,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -30215,6 +33829,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_z_gun01_mark03": {
@@ -30248,6 +33867,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 87.8,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -30265,7 +33889,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -30298,6 +33921,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_z_gun01_mark04": {
@@ -30331,6 +33959,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 116.2,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -30348,7 +33981,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -30381,6 +34013,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_z_gun01_mark05": {
@@ -30414,6 +34051,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 176.7,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -30431,7 +34073,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -30464,6 +34105,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_z_turret01_mark01": {
@@ -30497,6 +34143,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 52.7,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -30514,7 +34165,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -30547,6 +34197,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_z_turret01_mark02": {
@@ -30580,6 +34235,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 87.8,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -30597,7 +34257,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -30630,6 +34289,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gd_z_turret01_mark03": {
@@ -30663,6 +34327,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 176.7,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -30680,7 +34349,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -30713,6 +34381,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ge_bb_engine_01": {
@@ -30744,6 +34417,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 3000000.0,
+    "linearDrag": 100000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_bd_engine_01": {
@@ -30775,6 +34453,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 300000.0,
+    "linearDrag": 10000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_be_engine_01": {
@@ -30806,6 +34489,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_bf_engine_01": {
@@ -30837,6 +34525,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_bfr_engine_01": {
@@ -30868,6 +34561,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_bg_engine_01": {
@@ -30899,6 +34597,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 360000.0,
+    "linearDrag": 3000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_bhe2_engine_01": {
@@ -30930,6 +34633,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_bhe_engine_01": {
@@ -30961,6 +34669,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_bhf_engine_01": {
@@ -30992,6 +34705,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_bwe2_engine_01": {
@@ -31023,6 +34741,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_bwe_engine_01": {
@@ -31054,6 +34777,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_bwf_engine_01": {
@@ -31085,6 +34813,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_bwfr_engine_01": {
@@ -31116,6 +34849,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_coe2_engine_01": {
@@ -31147,6 +34885,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_coe_engine_01": {
@@ -31178,6 +34921,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_cof_engine_01": {
@@ -31209,6 +34957,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_csv_engine_01": {
@@ -31240,6 +34993,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_fighter2_power01": {
@@ -31271,6 +35029,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_fighter4_power01": {
@@ -31302,6 +35065,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_fighter5_power01": {
@@ -31333,6 +35101,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_fighter6_power01": {
@@ -31364,6 +35137,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_fighter_power01": {
@@ -31395,6 +35173,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_gf1_engine_01": {
@@ -31426,6 +35209,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_gf2_engine_01": {
@@ -31457,6 +35245,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_gf3_engine_01": {
@@ -31488,6 +35281,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_gf4_engine_01": {
@@ -31519,6 +35317,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_gf5_engine_01": {
@@ -31550,6 +35353,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_gf6_engine_01": {
@@ -31581,6 +35389,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_kb_engine_01": {
@@ -31612,6 +35425,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 3000000.0,
+    "linearDrag": 100000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_kd_engine_01": {
@@ -31643,6 +35461,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 300000.0,
+    "linearDrag": 10000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_ke_engine_01": {
@@ -31674,6 +35497,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_kf_engine_01": {
@@ -31705,6 +35533,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_kfr_engine_01": {
@@ -31736,6 +35569,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_kg_engine_01": {
@@ -31767,6 +35605,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 360000.0,
+    "linearDrag": 3000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_lb_engine_01": {
@@ -31798,6 +35641,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 3000000.0,
+    "linearDrag": 100000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_lbd_engine_01": {
@@ -31829,6 +35677,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 3000000.0,
+    "linearDrag": 100000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_lc_engine_01": {
@@ -31860,6 +35713,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 300000.0,
+    "linearDrag": 10000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_le_engine_01": {
@@ -31891,6 +35749,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_lf_engine_01": {
@@ -31922,6 +35785,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_lfr_engine_01": {
@@ -31953,6 +35821,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_lft_engine_01": {
@@ -31984,6 +35857,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 120000.0,
+    "linearDrag": 3000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_lnr_engine_01": {
@@ -32015,6 +35893,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 300000.0,
+    "linearDrag": 10000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_mnr_engine_01": {
@@ -32046,6 +35929,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 240000.0,
+    "linearDrag": 3000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_nb_engine_01": {
@@ -32077,6 +35965,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 3000000.0,
+    "linearDrag": 100000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_nf_engine_01": {
@@ -32108,6 +36001,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_ng_engine_01": {
@@ -32139,6 +36037,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 360000.0,
+    "linearDrag": 3000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_ob_engine_01": {
@@ -32170,6 +36073,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 3000000.0,
+    "linearDrag": 100000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_oe_engine_01": {
@@ -32201,6 +36109,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_pe_engine_01": {
@@ -32232,6 +36145,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_pf_engine_01": {
@@ -32263,6 +36181,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_pfr_engine_01": {
@@ -32294,6 +36217,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_psn_engine_01": {
@@ -32325,6 +36253,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 300000.0,
+    "linearDrag": 10000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_rb_engine_01": {
@@ -32356,6 +36289,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 3000000.0,
+    "linearDrag": 100000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_rc_engine_01": {
@@ -32387,6 +36325,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 300000.0,
+    "linearDrag": 10000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_re_engine_01": {
@@ -32418,6 +36361,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_rf_engine_01": {
@@ -32449,6 +36397,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_rfr_engine_01": {
@@ -32480,6 +36433,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 48000.0,
+    "linearDrag": 599.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_rg_engine_01": {
@@ -32511,6 +36469,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 360000.0,
+    "linearDrag": 3000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_rpr_engine_01": {
@@ -32542,6 +36505,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 120000.0,
+    "linearDrag": 3000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_s_battery_01": {
@@ -32575,6 +36543,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_battery_01_loot": {
@@ -32606,6 +36579,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_cm_01": {
@@ -32639,6 +36617,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_cm_01_ammo": {
@@ -32672,6 +36655,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.5,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_cm_01_ammo_crate": {
@@ -32703,6 +36691,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_cm_02": {
@@ -32736,6 +36729,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_cm_02_ammo": {
@@ -32769,6 +36767,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.5,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_cm_02_ammo_crate": {
@@ -32800,6 +36803,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_cm_03": {
@@ -32833,6 +36841,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_cm_03_ammo": {
@@ -32866,6 +36879,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.5,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_cm_03_ammo_crate": {
@@ -32897,6 +36915,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_repair_01": {
@@ -32930,6 +36953,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_repair_01_loot": {
@@ -32961,6 +36989,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_scanner_01": {
@@ -32992,6 +37025,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_scanner_02": {
@@ -33023,6 +37061,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_thruster_01": {
@@ -33056,6 +37099,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 72000.0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "ge_s_thruster_02": {
@@ -33089,6 +37137,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 72000.0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "ge_s_thruster_03": {
@@ -33122,6 +37175,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 72000.0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "ge_s_thruster_04": {
@@ -33155,6 +37213,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 72000.0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "ge_s_tractor_01": {
@@ -33186,6 +37249,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_t_engine_01": {
@@ -33217,6 +37285,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 240000.0,
+    "linearDrag": 3000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_ta_engine_01": {
@@ -33248,6 +37321,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 240000.0,
+    "linearDrag": 3000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_tl_engine_01": {
@@ -33279,6 +37357,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 240000.0,
+    "linearDrag": 3000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_tt_engine_01": {
@@ -33310,6 +37393,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 240000.0,
+    "linearDrag": 3000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_ttl_engine_01": {
@@ -33341,6 +37429,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 240000.0,
+    "linearDrag": 3000.0,
+    "reverseFraction": 1.0,
+    "cruiseChargeTime": 5.0,
+    "cruisePowerUsage": 20.0,
     "sourceFile": "engine_equip.ini"
   },
   "ge_wps_gun_01": {
@@ -33374,6 +37467,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -33391,7 +37489,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -33424,6 +37521,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ge_wps_mlauncher_01": {
@@ -33457,6 +37559,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -33474,7 +37581,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "ge_wps_mlauncher_01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 244.5,
@@ -33514,6 +37620,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ge_wps_mlauncher_01_explosion": {
@@ -33545,6 +37656,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ge_wps_mlauncher_01_motor": {
@@ -33576,6 +37692,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "gravity_well": {
@@ -33607,6 +37728,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "green": {
@@ -33638,6 +37764,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "heavy_fighter_invulnerable_shield": {
@@ -33669,6 +37800,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "hightech_1": {
@@ -33700,6 +37836,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "hightech_2": {
@@ -33731,6 +37872,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "hightech_3": {
@@ -33762,6 +37908,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "industrial_1": {
@@ -33793,6 +37944,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "industrial_2": {
@@ -33824,6 +37980,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "industrial_3": {
@@ -33855,6 +38016,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "infinite_power": {
@@ -33886,6 +38052,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 1000.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "jumphole_effect": {
@@ -33917,6 +38088,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "jumphole_effect_green": {
@@ -33948,6 +38124,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "jumphole_effect_light": {
@@ -33979,6 +38160,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "jumphole_effect_orange": {
@@ -34010,6 +38196,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "jumphole_effect_red": {
@@ -34041,6 +38232,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "k_elite_shield01": {
@@ -34072,6 +38268,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "k_fighter_shield01": {
@@ -34103,6 +38304,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "k_freighter_shield01": {
@@ -34134,6 +38340,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "ku_battleship_flak_turret01": {
@@ -34167,6 +38378,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -34184,7 +38400,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "ku_battleship_flak_turret01_motor",
     "explosionRadius": 2.0,
     "explosionHullDamage": 263.5,
@@ -34224,6 +38439,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_battleship_flak_turret01_explosion": {
@@ -34255,6 +38475,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_battleship_flak_turret01_motor": {
@@ -34286,6 +38511,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_battleship_missile_turret01": {
@@ -34319,6 +38549,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -34336,7 +38571,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "ku_battleship_missile_turret01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 1264.0,
@@ -34376,6 +38610,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_battleship_missile_turret01_explosion": {
@@ -34407,6 +38646,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_battleship_missile_turret01_motor": {
@@ -34438,6 +38682,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_battleship_turret01": {
@@ -34471,6 +38720,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -34488,7 +38742,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -34521,6 +38774,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_battleship_turret02": {
@@ -34554,6 +38812,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -34571,7 +38834,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -34604,6 +38866,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_battleship_turret03": {
@@ -34637,6 +38904,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -34654,7 +38926,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -34687,6 +38958,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_battleship_turret04": {
@@ -34720,6 +38996,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -34737,7 +39018,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -34770,6 +39050,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_destroyer_missile_turret01": {
@@ -34803,6 +39088,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -34820,7 +39110,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "ku_destroyer_missile_turret01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 263.5,
@@ -34860,6 +39149,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_destroyer_missile_turret01_explosion": {
@@ -34891,6 +39185,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_destroyer_missile_turret01_motor": {
@@ -34922,6 +39221,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_destroyer_turret01": {
@@ -34955,6 +39259,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -34972,7 +39281,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -35005,6 +39313,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_destroyer_turret02": {
@@ -35038,6 +39351,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -35055,7 +39373,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -35088,6 +39405,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_destroyer_turret03": {
@@ -35121,6 +39443,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -35138,7 +39465,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -35171,6 +39497,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_elite_power01": {
@@ -35202,6 +39533,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ku_fighter_power01": {
@@ -35233,6 +39569,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ku_freighter_power01": {
@@ -35264,6 +39605,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "ku_gun01_mark01": {
@@ -35297,6 +39643,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 101.0,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -35314,7 +39665,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -35347,6 +39697,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_gun01_mark02": {
@@ -35380,6 +39735,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -35397,7 +39757,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -35430,6 +39789,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_gun01_mark03": {
@@ -35463,6 +39827,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 174.3,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -35480,7 +39849,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -35513,6 +39881,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_gun01_mark04": {
@@ -35546,6 +39919,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 265.0,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -35563,7 +39941,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -35596,6 +39973,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_gun02_mark01": {
@@ -35629,6 +40011,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 50.5,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -35646,7 +40033,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -35679,6 +40065,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_gun02_mark02": {
@@ -35712,6 +40103,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 65.9,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -35729,7 +40125,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -35762,6 +40157,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_gun02_mark03": {
@@ -35795,6 +40195,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 87.1,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -35812,7 +40217,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -35845,6 +40249,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_gun02_mark04": {
@@ -35878,6 +40287,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 132.5,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -35895,7 +40309,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -35928,6 +40341,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_gunboat_forward_gun01": {
@@ -35961,6 +40379,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 815.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -35978,7 +40401,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -36011,6 +40433,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_gunboat_missile_turret01": {
@@ -36044,6 +40471,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -36061,7 +40493,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "ku_gunboat_missile_turret01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 263.5,
@@ -36101,6 +40532,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_gunboat_missile_turret01_explosion": {
@@ -36132,6 +40568,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_gunboat_missile_turret01_motor": {
@@ -36163,6 +40604,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_gunboat_turret01": {
@@ -36196,6 +40642,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -36213,7 +40664,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -36246,6 +40696,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_large_station_turret01_mark01": {
@@ -36279,6 +40734,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -36296,7 +40756,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -36329,6 +40788,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_large_station_turret01_mark02": {
@@ -36362,6 +40826,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -36379,7 +40848,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -36412,6 +40880,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_large_station_turret01_mark03": {
@@ -36445,6 +40918,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -36462,7 +40940,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -36495,6 +40972,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_prison_turret01": {
@@ -36528,6 +41010,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 62.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -36545,7 +41032,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -36578,6 +41064,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_small_station_turret01_mark01": {
@@ -36611,6 +41102,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -36628,7 +41124,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -36661,6 +41156,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_small_station_turret01_mark02": {
@@ -36694,6 +41194,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -36711,7 +41216,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -36744,6 +41248,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_small_station_turret01_mark03": {
@@ -36777,6 +41286,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -36794,7 +41308,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -36827,6 +41340,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_turret01_mark01": {
@@ -36860,6 +41378,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 101.0,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -36877,7 +41400,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -36910,6 +41432,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_turret01_mark02": {
@@ -36943,6 +41470,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -36960,7 +41492,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -36993,6 +41524,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_turret01_mark03": {
@@ -37026,6 +41562,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 174.3,
     "energyDamage": 0.0,
     "weaponType": "W_Neutron01",
@@ -37043,7 +41584,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -37076,6 +41616,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_turret02_mark01": {
@@ -37109,6 +41654,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 50.5,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -37126,7 +41676,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -37159,6 +41708,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_turret02_mark02": {
@@ -37192,6 +41746,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 65.9,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -37209,7 +41768,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -37242,6 +41800,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_turret02_mark03": {
@@ -37275,6 +41838,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 87.1,
     "energyDamage": 0.0,
     "weaponType": "W_Photon01",
@@ -37292,7 +41860,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -37325,6 +41892,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wp_turret01_mark01": {
@@ -37358,6 +41930,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -37375,7 +41952,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -37408,6 +41984,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wp_turret01_mark02": {
@@ -37441,6 +42022,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -37458,7 +42044,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -37491,6 +42076,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wp_turret01_mark03": {
@@ -37524,6 +42114,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -37541,7 +42136,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -37574,6 +42168,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wp_turret02_mark01": {
@@ -37607,6 +42206,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -37624,7 +42228,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "ku_wp_turret02_mark01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 306.0,
@@ -37664,6 +42267,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wp_turret02_mark01_explosion": {
@@ -37695,6 +42303,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wp_turret02_mark01_motor": {
@@ -37726,6 +42339,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wp_turret02_mark02": {
@@ -37759,6 +42377,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -37776,7 +42399,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "ku_wp_turret02_mark02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 474.0,
@@ -37816,6 +42438,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wp_turret02_mark02_explosion": {
@@ -37847,6 +42474,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wp_turret02_mark02_motor": {
@@ -37878,6 +42510,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wp_turret02_mark03": {
@@ -37911,6 +42548,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -37928,7 +42570,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "ku_wp_turret02_mark03_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 790.5,
@@ -37968,6 +42609,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wp_turret02_mark03_explosion": {
@@ -37999,6 +42645,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wp_turret02_mark03_motor": {
@@ -38030,6 +42681,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wps_gun01_mark01": {
@@ -38063,6 +42719,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -38080,7 +42741,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -38113,6 +42773,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wps_gun01_mark02": {
@@ -38146,6 +42811,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -38163,7 +42833,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -38196,6 +42865,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wps_gun01_mark03": {
@@ -38229,6 +42903,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -38246,7 +42925,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -38279,6 +42957,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wps_mlauncher01_mark01": {
@@ -38312,6 +42995,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -38329,7 +43017,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "ku_wps_mlauncher01_mark01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 244.5,
@@ -38369,6 +43056,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wps_mlauncher01_mark01_explosion": {
@@ -38400,6 +43092,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wps_mlauncher01_mark01_motor": {
@@ -38431,6 +43128,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wps_mlauncher01_mark02": {
@@ -38464,6 +43166,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -38481,7 +43188,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "ku_wps_mlauncher01_mark02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 306.0,
@@ -38521,6 +43227,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wps_mlauncher01_mark02_explosion": {
@@ -38552,6 +43263,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wps_mlauncher01_mark02_motor": {
@@ -38583,6 +43299,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wps_mlauncher01_mark03": {
@@ -38616,6 +43337,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -38633,7 +43359,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "ku_wps_mlauncher01_mark03_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 373.5,
@@ -38673,6 +43398,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wps_mlauncher01_mark03_explosion": {
@@ -38704,6 +43434,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "ku_wps_mlauncher01_mark03_motor": {
@@ -38735,6 +43470,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "l_elite2_shield01": {
@@ -38766,6 +43506,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "l_elite_shield01": {
@@ -38797,6 +43542,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "l_fighter_shield01": {
@@ -38828,6 +43578,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "l_freighter_shield01": {
@@ -38859,6 +43614,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lair_chamber_animate": {
@@ -38890,6 +43650,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lair_power_cell": {
@@ -38923,6 +43688,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lair_turret01": {
@@ -38956,6 +43726,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 176.7,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -38973,7 +43748,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -39006,6 +43780,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "lair_turret02": {
@@ -39039,6 +43818,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 88.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -39056,7 +43840,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -39089,6 +43872,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "large_station_turret": {
@@ -39122,6 +43910,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -39139,7 +43932,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -39172,6 +43964,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "largeblue": {
@@ -39203,6 +44000,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "largebluesource": {
@@ -39234,6 +44036,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "largegreen": {
@@ -39265,6 +44072,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "largeorange": {
@@ -39296,6 +44108,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "largeorangestrobe": {
@@ -39327,6 +44144,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "largered": {
@@ -39358,6 +44180,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "largeredtrade": {
@@ -39389,6 +44216,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "largewhite": {
@@ -39420,6 +44252,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "largewhitespecial": {
@@ -39451,6 +44288,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "largewhitestrobe": {
@@ -39482,6 +44324,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "largeyellow": {
@@ -39513,6 +44360,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "li_battleship_flak_turret01": {
@@ -39546,6 +44398,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -39563,7 +44420,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "li_battleship_flak_turret01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 81.5,
@@ -39603,6 +44459,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_battleship_flak_turret01_explosion": {
@@ -39634,6 +44495,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_battleship_flak_turret01_motor": {
@@ -39665,6 +44531,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_battleship_missile_turret01": {
@@ -39698,6 +44569,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -39715,7 +44591,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "li_battleship_missile_turret01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 81.5,
@@ -39755,6 +44630,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_battleship_missile_turret01_explosion": {
@@ -39786,6 +44666,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_battleship_missile_turret01_motor": {
@@ -39817,6 +44702,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_battleship_turret01": {
@@ -39850,6 +44740,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -39867,7 +44762,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -39900,6 +44794,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_battleship_turret02": {
@@ -39933,6 +44832,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -39950,7 +44854,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -39983,6 +44886,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_battleship_turret03": {
@@ -40016,6 +44924,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -40033,7 +44946,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -40066,6 +44978,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_battleship_turret04": {
@@ -40099,6 +45016,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -40116,7 +45038,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -40149,6 +45070,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_cruiser_forward_gun01": {
@@ -40182,6 +45108,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 202.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -40199,7 +45130,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -40232,6 +45162,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_cruiser_missile_turret01": {
@@ -40265,6 +45200,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -40282,7 +45222,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "li_cruiser_missile_turret01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 81.5,
@@ -40322,6 +45261,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_cruiser_missile_turret01_explosion": {
@@ -40353,6 +45297,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_cruiser_missile_turret01_motor": {
@@ -40384,6 +45333,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_cruiser_turret01": {
@@ -40417,6 +45371,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -40434,7 +45393,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -40467,6 +45425,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_elite_power01": {
@@ -40498,6 +45461,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "li_fighter_power01": {
@@ -40529,6 +45497,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "li_freighter_power01": {
@@ -40560,6 +45533,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "li_gun01_mark01": {
@@ -40593,6 +45571,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 16.3,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -40610,7 +45593,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -40643,6 +45625,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_gun01_mark02": {
@@ -40676,6 +45663,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 20.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -40693,7 +45685,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -40726,6 +45717,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_gun01_mark03": {
@@ -40759,6 +45755,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 24.9,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -40776,7 +45777,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -40809,6 +45809,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_gun01_mark04": {
@@ -40842,6 +45847,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 31.6,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -40859,7 +45869,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -40892,6 +45901,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_gun01_mark05": {
@@ -40925,6 +45939,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -40942,7 +45961,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -40975,6 +45993,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_gun01_mark06": {
@@ -41008,6 +46031,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 52.7,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -41025,7 +46053,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -41058,6 +46085,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_gun01_mark06_m11": {
@@ -41091,6 +46123,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 106.0,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -41108,7 +46145,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -41141,6 +46177,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_gun02_mark01": {
@@ -41174,6 +46215,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 97.8,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -41191,7 +46237,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -41224,6 +46269,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_gun02_mark02": {
@@ -41257,6 +46307,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 122.4,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -41274,7 +46329,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -41307,6 +46361,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_gun02_mark03": {
@@ -41340,6 +46399,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 149.4,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -41357,7 +46421,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -41390,6 +46453,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_gun02_mark04": {
@@ -41423,6 +46491,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 189.6,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -41440,7 +46513,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -41473,6 +46545,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_gun02_mark05": {
@@ -41506,6 +46583,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 242.4,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -41523,7 +46605,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -41556,6 +46637,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_gun02_mark06": {
@@ -41589,6 +46675,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 316.2,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -41606,7 +46697,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -41639,6 +46729,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_large_station_turret01_mark01": {
@@ -41672,6 +46767,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -41689,7 +46789,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -41722,6 +46821,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_large_station_turret01_mark02": {
@@ -41755,6 +46859,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -41772,7 +46881,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -41805,6 +46913,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_large_station_turret01_mark03": {
@@ -41838,6 +46951,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -41855,7 +46973,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -41888,6 +47005,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_prison_turret01": {
@@ -41921,6 +47043,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -41938,7 +47065,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -41971,6 +47097,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_small_station_turret01_mark01": {
@@ -42004,6 +47135,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -42021,7 +47157,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -42054,6 +47189,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_small_station_turret01_mark02": {
@@ -42087,6 +47227,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -42104,7 +47249,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -42137,6 +47281,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_small_station_turret01_mark03": {
@@ -42170,6 +47319,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -42187,7 +47341,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -42220,6 +47373,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_turret01_mark01": {
@@ -42253,6 +47411,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 16.3,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -42270,7 +47433,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -42303,6 +47465,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_turret01_mark02": {
@@ -42336,6 +47503,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 24.9,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -42353,7 +47525,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -42386,6 +47557,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_turret01_mark03": {
@@ -42419,6 +47595,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 40.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -42436,7 +47617,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -42469,6 +47649,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_turret02_mark01": {
@@ -42502,6 +47687,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 97.8,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -42519,7 +47709,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -42552,6 +47741,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_turret02_mark02": {
@@ -42585,6 +47779,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 149.4,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -42602,7 +47801,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -42635,6 +47833,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_turret02_mark03": {
@@ -42668,6 +47871,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 242.4,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -42685,7 +47893,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -42718,6 +47925,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret01": {
@@ -42751,6 +47963,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -42768,7 +47985,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -42801,6 +48017,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret01_mark01": {
@@ -42834,6 +48055,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -42851,7 +48077,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -42884,6 +48109,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret01_mark02": {
@@ -42917,6 +48147,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -42934,7 +48169,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -42967,6 +48201,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret01_mark03": {
@@ -43000,6 +48239,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -43017,7 +48261,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -43050,6 +48293,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret01_mark04": {
@@ -43083,6 +48331,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -43100,7 +48353,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -43133,6 +48385,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02": {
@@ -43166,6 +48423,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -43183,7 +48445,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "li_wp_turret02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 244.5,
@@ -43223,6 +48484,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_explosion": {
@@ -43254,6 +48520,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_mark01": {
@@ -43287,6 +48558,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -43304,7 +48580,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "li_wp_turret02_mark01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 306.0,
@@ -43344,6 +48619,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_mark01_explosion": {
@@ -43375,6 +48655,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_mark01_motor": {
@@ -43406,6 +48691,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_mark02": {
@@ -43439,6 +48729,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -43456,7 +48751,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "li_wp_turret02_mark02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 474.0,
@@ -43496,6 +48790,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_mark02_explosion": {
@@ -43527,6 +48826,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_mark02_motor": {
@@ -43558,6 +48862,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_mark03": {
@@ -43591,6 +48900,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -43608,7 +48922,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "li_wp_turret02_mark03_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 790.5,
@@ -43648,6 +48961,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_mark03_explosion": {
@@ -43679,6 +48997,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_mark03_motor": {
@@ -43710,6 +49033,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_mark04": {
@@ -43743,6 +49071,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -43760,7 +49093,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "li_wp_turret02_mark04_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 790.5,
@@ -43800,6 +49132,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_mark04_explosion": {
@@ -43831,6 +49168,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_mark04_motor": {
@@ -43862,6 +49204,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wp_turret02_motor": {
@@ -43893,6 +49240,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wps_gun01_mark01": {
@@ -43926,6 +49278,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -43943,7 +49300,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -43976,6 +49332,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wps_gun01_mark02": {
@@ -44009,6 +49370,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -44026,7 +49392,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -44059,6 +49424,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wps_gun01_mark03": {
@@ -44092,6 +49462,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -44109,7 +49484,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -44142,6 +49516,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wps_mlauncher01_mark01": {
@@ -44175,6 +49554,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -44192,7 +49576,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "li_wps_mlauncher01_mark01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 244.5,
@@ -44232,6 +49615,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wps_mlauncher01_mark01_explosion": {
@@ -44263,6 +49651,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wps_mlauncher01_mark01_motor": {
@@ -44294,6 +49687,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wps_mlauncher01_mark02": {
@@ -44327,6 +49725,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -44344,7 +49747,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "li_wps_mlauncher01_mark02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 306.0,
@@ -44384,6 +49786,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wps_mlauncher01_mark02_explosion": {
@@ -44415,6 +49822,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wps_mlauncher01_mark02_motor": {
@@ -44446,6 +49858,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wps_mlauncher01_mark03": {
@@ -44479,6 +49896,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -44496,7 +49918,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "li_wps_mlauncher01_mark03_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 373.5,
@@ -44536,6 +49957,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wps_mlauncher01_mark03_explosion": {
@@ -44567,6 +49993,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "li_wps_mlauncher01_mark03_motor": {
@@ -44598,6 +50029,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "libertycockpitglow": {
@@ -44629,6 +50065,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "light_fighter_invulnerable_shield": {
@@ -44660,6 +50101,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "lightbluespecial": {
@@ -44691,6 +50137,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "loot_turret01": {
@@ -44724,6 +50175,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 37.4,
     "energyDamage": 0.0,
     "weaponType": "W_Laser01",
@@ -44741,7 +50197,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -44774,6 +50229,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "lootcrate_ast_loot_artifacts": {
@@ -44805,6 +50265,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_ast_loot_beryl": {
@@ -44836,6 +50301,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_ast_loot_coal": {
@@ -44867,6 +50337,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_ast_loot_cobalt": {
@@ -44898,6 +50373,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_ast_loot_copper": {
@@ -44929,6 +50409,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_ast_loot_diamonds": {
@@ -44960,6 +50445,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_ast_loot_gold": {
@@ -44991,6 +50481,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_ast_loot_metal": {
@@ -45022,6 +50517,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_ast_loot_niobium": {
@@ -45053,6 +50553,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_ast_loot_organisms": {
@@ -45084,6 +50589,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_ast_loot_oxygen": {
@@ -45115,6 +50625,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_ast_loot_silver": {
@@ -45146,6 +50661,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_ast_loot_water": {
@@ -45177,6 +50697,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_blue": {
@@ -45208,6 +50733,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_drab": {
@@ -45239,6 +50769,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_escape_pod": {
@@ -45270,6 +50805,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_green": {
@@ -45301,6 +50841,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_grey": {
@@ -45332,6 +50877,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_lair_power_cell": {
@@ -45363,6 +50913,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_lifeboat": {
@@ -45394,6 +50949,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_red": {
@@ -45425,6 +50985,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_white": {
@@ -45456,6 +51021,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "lootcrate_yellow": {
@@ -45487,6 +51057,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "machines_1": {
@@ -45518,6 +51093,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "machines_2": {
@@ -45549,6 +51129,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "machines_3": {
@@ -45580,6 +51165,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "medical_1": {
@@ -45611,6 +51201,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "medical_2": {
@@ -45642,6 +51237,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "medical_3": {
@@ -45673,6 +51273,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "mediumblue": {
@@ -45704,6 +51309,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "mediumbluesource": {
@@ -45735,6 +51345,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "mediumgreen": {
@@ -45766,6 +51381,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "mediumorange": {
@@ -45797,6 +51417,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "mediumred": {
@@ -45828,6 +51453,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "mediumwhite": {
@@ -45859,6 +51489,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "mediumyellow": {
@@ -45890,6 +51525,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "medtrackgreen": {
@@ -45921,12 +51561,17 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "mine01_mark01": {
     "id": "mine01_mark01",
     "equipmentId": "mine01_mark01",
-    "name": "Drone-Mine",
+    "name": "Drone-Minen-Werfer",
     "category": "mine",
     "rawCategory": "equipment",
     "price": 500,
@@ -45954,6 +51599,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -45971,7 +51621,6 @@ const FL_EQUIPMENT = {
     "seekDist": 400.0,
     "topSpeed": 60.0,
     "acceleration": 200.0,
-    "linearDrag": 0.4,
     "motor": "",
     "explosionRadius": 16.0,
     "explosionHullDamage": 326.0,
@@ -46010,6 +51659,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine01_mark01_explosion": {
@@ -46041,12 +51695,17 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine01_mark02": {
     "id": "mine01_mark02",
     "equipmentId": "mine01_mark02",
-    "name": "Wardog-Mine",
+    "name": "Wardog-Minen-Werfer",
     "category": "mine",
     "rawCategory": "equipment",
     "price": 1830,
@@ -46074,6 +51733,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -46091,7 +51755,6 @@ const FL_EQUIPMENT = {
     "seekDist": 400.0,
     "topSpeed": 60.0,
     "acceleration": 200.0,
-    "linearDrag": 0.4,
     "motor": "",
     "explosionRadius": 16.0,
     "explosionHullDamage": 498.0,
@@ -46130,6 +51793,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine01_mark02_explosion": {
@@ -46161,12 +51829,17 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine01_mark03": {
     "id": "mine01_mark03",
     "equipmentId": "mine01_mark03",
-    "name": "Tadpole-Mine",
+    "name": "Tadpole-Minen-Werfer",
     "category": "mine",
     "rawCategory": "equipment",
     "price": 7460,
@@ -46194,6 +51867,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -46211,7 +51889,6 @@ const FL_EQUIPMENT = {
     "seekDist": 400.0,
     "topSpeed": 60.0,
     "acceleration": 200.0,
-    "linearDrag": 0.4,
     "motor": "",
     "explosionRadius": 16.0,
     "explosionHullDamage": 808.0,
@@ -46250,6 +51927,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine01_mark03_explosion": {
@@ -46281,12 +51963,17 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine01_mark04": {
     "id": "mine01_mark04",
     "equipmentId": "mine01_mark04",
-    "name": "Swatter-Mine",
+    "name": "Swatter-Minen-Werfer",
     "category": "mine",
     "rawCategory": "equipment",
     "price": 24790,
@@ -46314,6 +52001,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -46331,7 +52023,6 @@ const FL_EQUIPMENT = {
     "seekDist": 400.0,
     "topSpeed": 60.0,
     "acceleration": 200.0,
-    "linearDrag": 0.4,
     "motor": "",
     "explosionRadius": 16.0,
     "explosionHullDamage": 1394.0,
@@ -46370,6 +52061,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine01_mark04_explosion": {
@@ -46401,12 +52097,17 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine01_mark05": {
     "id": "mine01_mark05",
     "equipmentId": "mine01_mark05",
-    "name": "Screamer-Mine",
+    "name": "Screamer-Minen-Werfer",
     "category": "mine",
     "rawCategory": "equipment",
     "price": 120480,
@@ -46434,6 +52135,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -46451,7 +52157,6 @@ const FL_EQUIPMENT = {
     "seekDist": 400.0,
     "topSpeed": 60.0,
     "acceleration": 200.0,
-    "linearDrag": 0.4,
     "motor": "",
     "explosionRadius": 16.0,
     "explosionHullDamage": 3260.0,
@@ -46490,6 +52195,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine01_mark05_explosion": {
@@ -46521,12 +52231,17 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine02_mark01": {
     "id": "mine02_mark01",
     "equipmentId": "mine02_mark01",
-    "name": "Seeker-Mine",
+    "name": "Seeker-Minen-Werfer",
     "category": "mine",
     "rawCategory": "equipment",
     "price": 860,
@@ -46554,6 +52269,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -46571,7 +52291,6 @@ const FL_EQUIPMENT = {
     "seekDist": 400.0,
     "topSpeed": 80.0,
     "acceleration": 200.0,
-    "linearDrag": 0.4,
     "motor": "",
     "explosionRadius": 16.0,
     "explosionHullDamage": 408.0,
@@ -46610,6 +52329,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine02_mark01_explosion": {
@@ -46641,12 +52365,17 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine02_mark02": {
     "id": "mine02_mark02",
     "equipmentId": "mine02_mark02",
-    "name": "Razor-Mine",
+    "name": "Razor-Minen-Werfer",
     "category": "mine",
     "rawCategory": "equipment",
     "price": 3710,
@@ -46674,6 +52403,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -46691,7 +52425,6 @@ const FL_EQUIPMENT = {
     "seekDist": 400.0,
     "topSpeed": 80.0,
     "acceleration": 200.0,
-    "linearDrag": 0.4,
     "motor": "",
     "explosionRadius": 16.0,
     "explosionHullDamage": 632.0,
@@ -46730,6 +52463,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine02_mark02_explosion": {
@@ -46761,12 +52499,17 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine02_mark03": {
     "id": "mine02_mark03",
     "equipmentId": "mine02_mark03",
-    "name": "Driller-Mine",
+    "name": "Driller-Minen-Werfer",
     "category": "mine",
     "rawCategory": "equipment",
     "price": 14300,
@@ -46794,6 +52537,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -46811,7 +52559,6 @@ const FL_EQUIPMENT = {
     "seekDist": 400.0,
     "topSpeed": 80.0,
     "acceleration": 200.0,
-    "linearDrag": 0.4,
     "motor": "",
     "explosionRadius": 16.0,
     "explosionHullDamage": 1054.0,
@@ -46850,6 +52597,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine02_mark03_explosion": {
@@ -46881,12 +52633,17 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine02_mark04": {
     "id": "mine02_mark04",
     "equipmentId": "mine02_mark04",
-    "name": "Cutter-Mine",
+    "name": "Cutter-Minen-Werfer",
     "category": "mine",
     "rawCategory": "equipment",
     "price": 54810,
@@ -46914,6 +52671,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -46931,7 +52693,6 @@ const FL_EQUIPMENT = {
     "seekDist": 400.0,
     "topSpeed": 80.0,
     "acceleration": 200.0,
-    "linearDrag": 0.4,
     "motor": "",
     "explosionRadius": 16.0,
     "explosionHullDamage": 2120.0,
@@ -46970,6 +52731,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine02_mark04_explosion": {
@@ -47001,12 +52767,17 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine02_mark05": {
     "id": "mine02_mark05",
     "equipmentId": "mine02_mark05",
-    "name": "Ripper-Mine",
+    "name": "Ripper-Minen-Werfer",
     "category": "mine",
     "rawCategory": "equipment",
     "price": 144580,
@@ -47034,6 +52805,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -47051,7 +52827,6 @@ const FL_EQUIPMENT = {
     "seekDist": 400.0,
     "topSpeed": 80.0,
     "acceleration": 200.0,
-    "linearDrag": 0.4,
     "motor": "",
     "explosionRadius": 16.0,
     "explosionHullDamage": 3912.0,
@@ -47090,6 +52865,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0.4,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mine02_mark05_explosion": {
@@ -47121,6 +52901,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mining_ship_armhit01": {
@@ -47152,6 +52937,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mining_ship_armhit02": {
@@ -47183,6 +52973,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mining_ship_arms": {
@@ -47214,6 +53009,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mining_ship_dust01": {
@@ -47245,6 +53045,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mining_ship_dust02": {
@@ -47276,6 +53081,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mining_ship_engine_sound": {
@@ -47307,6 +53117,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mining_ship_enhaust": {
@@ -47338,6 +53153,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mining_ship_hitsparks": {
@@ -47369,6 +53189,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mining_ship_sucking01": {
@@ -47400,6 +53225,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mining_ship_sucking02": {
@@ -47431,6 +53261,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "missile01_mark01": {
@@ -47464,6 +53299,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -47481,7 +53321,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile01_mark01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 489.0,
@@ -47523,6 +53362,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark01_explosion": {
@@ -47554,6 +53398,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark01_motor": {
@@ -47585,6 +53434,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark01_rtc": {
@@ -47618,6 +53472,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -47635,7 +53494,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile01_mark01_rtc_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 489.0,
@@ -47677,6 +53535,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark01_rtc_explosion": {
@@ -47708,6 +53571,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark01_rtc_motor": {
@@ -47739,6 +53607,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark02": {
@@ -47772,6 +53645,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -47789,7 +53667,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile01_mark02_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 747.0,
@@ -47831,6 +53708,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark02_explosion": {
@@ -47862,6 +53744,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark02_motor": {
@@ -47893,6 +53780,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark03": {
@@ -47926,6 +53818,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -47943,7 +53840,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile01_mark03_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 1212.0,
@@ -47985,6 +53881,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark03_explosion": {
@@ -48016,6 +53917,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark03_motor": {
@@ -48047,6 +53953,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark04": {
@@ -48080,6 +53991,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -48097,7 +54013,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile01_mark04_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 2091.0,
@@ -48139,6 +54054,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark04_explosion": {
@@ -48170,6 +54090,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark04_motor": {
@@ -48201,6 +54126,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark05": {
@@ -48234,6 +54164,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -48251,7 +54186,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile01_mark05_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 4890.0,
@@ -48293,6 +54227,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark05_explosion": {
@@ -48324,6 +54263,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile01_mark05_motor": {
@@ -48355,6 +54299,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark01": {
@@ -48388,6 +54337,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -48405,7 +54359,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile02_mark01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 244.5,
@@ -48447,6 +54400,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark01_explosion": {
@@ -48478,6 +54436,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark01_motor": {
@@ -48509,6 +54472,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark02": {
@@ -48542,6 +54510,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -48559,7 +54532,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile02_mark02_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 373.5,
@@ -48601,6 +54573,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark02_explosion": {
@@ -48632,6 +54609,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark02_motor": {
@@ -48663,6 +54645,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark03": {
@@ -48696,6 +54683,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -48713,7 +54705,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile02_mark03_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 606.0,
@@ -48755,6 +54746,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark03_explosion": {
@@ -48786,6 +54782,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark03_motor": {
@@ -48817,6 +54818,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark04": {
@@ -48850,6 +54856,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -48867,7 +54878,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile02_mark04_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 1045.5,
@@ -48909,6 +54919,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark04_explosion": {
@@ -48940,6 +54955,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark04_motor": {
@@ -48971,6 +54991,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark05": {
@@ -49004,6 +55029,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -49021,7 +55051,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile02_mark05_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 2445.0,
@@ -49063,6 +55092,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark05_explosion": {
@@ -49094,6 +55128,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile02_mark05_motor": {
@@ -49125,6 +55164,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile03_mark01": {
@@ -49158,6 +55202,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -49175,7 +55224,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile03_mark01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 16.3,
@@ -49217,6 +55265,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile03_mark01_explosion": {
@@ -49248,6 +55301,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile03_mark01_motor": {
@@ -49279,6 +55337,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile03_mark02": {
@@ -49312,6 +55375,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -49329,7 +55397,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile03_mark02_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 31.6,
@@ -49371,6 +55438,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile03_mark02_explosion": {
@@ -49402,6 +55474,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile03_mark02_motor": {
@@ -49433,6 +55510,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile03_mark03": {
@@ -49466,6 +55548,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -49483,7 +55570,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile03_mark03_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 69.7,
@@ -49525,6 +55611,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile03_mark03_explosion": {
@@ -49556,6 +55647,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile03_mark03_motor": {
@@ -49587,6 +55683,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile03_mark04": {
@@ -49620,6 +55721,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -49637,7 +55743,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "missile03_mark04_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 195.6,
@@ -49679,6 +55784,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile03_mark04_explosion": {
@@ -49710,6 +55820,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "missile03_mark04_motor": {
@@ -49741,6 +55856,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "mission01_prison_smoke": {
@@ -49772,6 +55892,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mission02_derelict2_fire": {
@@ -49803,6 +55928,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mission02_derelict2_smallfires": {
@@ -49834,6 +55964,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mission02_derelict2_smoke": {
@@ -49865,6 +56000,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mission02_derelict2_sparks": {
@@ -49896,6 +56036,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mission02_derelict2_tail_sparks": {
@@ -49927,6 +56072,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mission02_derelict_electric": {
@@ -49958,6 +56108,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mission02_derelict_engine01": {
@@ -49989,6 +56144,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mission02_derelict_engine02": {
@@ -50020,6 +56180,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mission02_derelict_smoke": {
@@ -50051,6 +56216,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mission02_derelict_sparks": {
@@ -50082,6 +56252,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mplatform_animate1": {
@@ -50113,6 +56288,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mplatform_smoke_black": {
@@ -50144,6 +56324,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mplatform_smoke_green": {
@@ -50175,6 +56360,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mplatform_smoke_red": {
@@ -50206,6 +56396,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "mplatform_smoke_white": {
@@ -50237,6 +56432,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "msn11_armor_scale_wplatform": {
@@ -50268,6 +56468,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "msn_battleship_armor": {
@@ -50299,6 +56504,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "munitions_1": {
@@ -50330,6 +56540,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "munitions_2": {
@@ -50361,6 +56576,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "munitions_3": {
@@ -50392,6 +56612,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "neutron_star": {
@@ -50423,6 +56648,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "no_thruster": {
@@ -50456,6 +56686,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 72000.0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "nomad_cruise_disruptor01": {
@@ -50489,6 +56724,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -50506,7 +56746,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "nomad_cruise_disruptor01_motor",
     "explosionRadius": 25.0,
     "explosionHullDamage": 530.0,
@@ -50546,6 +56785,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "nomad_cruise_disruptor01_explosion": {
@@ -50577,6 +56821,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "nomad_cruise_disruptor01_motor": {
@@ -50608,6 +56857,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "nomad_dyson_turret01": {
@@ -50641,6 +56895,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 530.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -50658,7 +56917,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -50691,6 +56949,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "nomad_gun01_mark01": {
@@ -50724,6 +56987,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 232.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -50741,7 +57009,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -50774,6 +57041,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "nomad_gun01_mark02": {
@@ -50807,6 +57079,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 1630.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -50824,7 +57101,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -50857,6 +57133,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "nomad_gun01_mark03": {
@@ -50890,6 +57171,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 1956.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -50907,7 +57193,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -50940,6 +57225,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "nomad_lair_turret01": {
@@ -50973,6 +57263,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 530.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -50990,7 +57285,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -51023,6 +57317,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "nomad_lair_turret02": {
@@ -51056,6 +57355,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 265.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -51073,7 +57377,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -51106,6 +57409,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "nomad_torpedo01_rtc": {
@@ -51139,6 +57447,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 163.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -51156,7 +57469,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -51189,6 +57501,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "nomad_turret01_mark01": {
@@ -51222,6 +57539,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 697.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -51239,7 +57561,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -51272,6 +57593,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "npc_shield01_mark01": {
@@ -51305,6 +57631,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield01_mark02": {
@@ -51338,6 +57669,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield01_mark03": {
@@ -51371,6 +57707,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield01_mark04": {
@@ -51404,6 +57745,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield01_mark05": {
@@ -51437,6 +57783,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield01_mark06": {
@@ -51470,6 +57821,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield01_mark07": {
@@ -51503,6 +57859,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield01_mark08": {
@@ -51536,6 +57897,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield01_mark09": {
@@ -51569,6 +57935,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield01_mark10": {
@@ -51602,6 +57973,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield02_mark01": {
@@ -51635,6 +58011,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield02_mark02": {
@@ -51668,6 +58049,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield02_mark03": {
@@ -51701,6 +58087,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield02_mark04": {
@@ -51734,6 +58125,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield02_mark05": {
@@ -51767,6 +58163,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield02_mark06": {
@@ -51800,6 +58201,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield02_mark07": {
@@ -51833,6 +58239,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield02_mark08": {
@@ -51866,6 +58277,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield02_mark09": {
@@ -51899,6 +58315,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield02_mark10": {
@@ -51932,6 +58353,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield03_mark01": {
@@ -51965,6 +58391,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield03_mark02": {
@@ -51998,6 +58429,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield03_mark03": {
@@ -52031,6 +58467,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield03_mark04": {
@@ -52064,6 +58505,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield03_mark05": {
@@ -52097,6 +58543,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield03_mark06": {
@@ -52130,6 +58581,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield03_mark07": {
@@ -52163,6 +58619,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield03_mark08": {
@@ -52196,6 +58657,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield03_mark09": {
@@ -52229,6 +58695,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "npc_shield03_mark10": {
@@ -52262,6 +58733,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "or_elite_power01": {
@@ -52293,6 +58769,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "or_elite_shield01": {
@@ -52324,6 +58805,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "orange": {
@@ -52355,6 +58841,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "order_shield": {
@@ -52388,6 +58879,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "order_thruster": {
@@ -52421,6 +58917,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 72000.0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "outer_sanctum_lightning": {
@@ -52452,6 +58953,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "outer_sanctum_shield": {
@@ -52483,6 +58989,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "outer_sanctum_shieldgen": {
@@ -52514,6 +59025,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "outpost_wallah": {
@@ -52545,6 +59061,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "pi_elite_power01": {
@@ -52576,6 +59097,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "pi_elite_shield01": {
@@ -52607,6 +59133,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "pi_fighter_power01": {
@@ -52638,6 +59169,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "pi_fighter_shield01": {
@@ -52669,6 +59205,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "pi_freighter_power01": {
@@ -52700,6 +59241,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "pi_freighter_shield01": {
@@ -52731,6 +59277,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "pi_large_station_turret01_mark01": {
@@ -52764,6 +59315,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -52781,7 +59337,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -52814,6 +59369,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_large_station_turret01_mark02": {
@@ -52847,6 +59407,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -52864,7 +59429,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -52897,6 +59461,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_large_station_turret01_mark03": {
@@ -52930,6 +59499,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -52947,7 +59521,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -52980,6 +59553,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_small_station_turret01_mark01": {
@@ -53013,6 +59591,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -53030,7 +59613,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -53063,6 +59645,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_small_station_turret01_mark02": {
@@ -53096,6 +59683,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -53113,7 +59705,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -53146,6 +59737,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_small_station_turret01_mark03": {
@@ -53179,6 +59775,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -53196,7 +59797,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -53229,6 +59829,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wp_turret01_mark01": {
@@ -53262,6 +59867,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -53279,7 +59889,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -53312,6 +59921,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wp_turret01_mark02": {
@@ -53345,6 +59959,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -53362,7 +59981,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -53395,6 +60013,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wp_turret01_mark03": {
@@ -53428,6 +60051,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -53445,7 +60073,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -53478,6 +60105,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wp_turret02_mark01": {
@@ -53511,6 +60143,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -53528,7 +60165,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "pi_wp_turret02_mark01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 306.0,
@@ -53568,6 +60204,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wp_turret02_mark01_explosion": {
@@ -53599,6 +60240,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wp_turret02_mark01_motor": {
@@ -53630,6 +60276,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wp_turret02_mark02": {
@@ -53663,6 +60314,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -53680,7 +60336,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "pi_wp_turret02_mark02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 474.0,
@@ -53720,6 +60375,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wp_turret02_mark02_explosion": {
@@ -53751,6 +60411,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wp_turret02_mark02_motor": {
@@ -53782,6 +60447,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wp_turret02_mark03": {
@@ -53815,6 +60485,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -53832,7 +60507,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "pi_wp_turret02_mark03_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 790.5,
@@ -53872,6 +60546,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wp_turret02_mark03_explosion": {
@@ -53903,6 +60582,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wp_turret02_mark03_motor": {
@@ -53934,6 +60618,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wps_gun01_mark01": {
@@ -53967,6 +60656,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -53984,7 +60678,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -54017,6 +60710,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wps_gun01_mark02": {
@@ -54050,6 +60748,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -54067,7 +60770,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -54100,6 +60802,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wps_gun01_mark03": {
@@ -54133,6 +60840,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -54150,7 +60862,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -54183,6 +60894,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wps_mlauncher01_mark01": {
@@ -54216,6 +60932,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -54233,7 +60954,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "pi_wps_mlauncher01_mark01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 244.5,
@@ -54273,6 +60993,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wps_mlauncher01_mark01_explosion": {
@@ -54304,6 +61029,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wps_mlauncher01_mark01_motor": {
@@ -54335,6 +61065,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wps_mlauncher01_mark02": {
@@ -54368,6 +61103,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -54385,7 +61125,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "pi_wps_mlauncher01_mark02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 306.0,
@@ -54425,6 +61164,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wps_mlauncher01_mark02_explosion": {
@@ -54456,6 +61200,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wps_mlauncher01_mark02_motor": {
@@ -54487,6 +61236,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wps_mlauncher01_mark03": {
@@ -54520,6 +61274,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -54537,7 +61296,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "pi_wps_mlauncher01_mark03_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 373.5,
@@ -54577,6 +61335,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wps_mlauncher01_mark03_explosion": {
@@ -54608,6 +61371,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "pi_wps_mlauncher01_mark03_motor": {
@@ -54639,6 +61407,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "planet_storm_5000": {
@@ -54670,6 +61443,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "r_elite_shield01": {
@@ -54701,6 +61479,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "r_fighter_shield01": {
@@ -54732,6 +61515,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "r_freighter_shield01": {
@@ -54763,6 +61551,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "red": {
@@ -54794,6 +61587,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "refined_1": {
@@ -54825,6 +61623,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "refined_2": {
@@ -54856,6 +61659,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "refined_3": {
@@ -54887,6 +61695,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rh_battleship_flak_turret01": {
@@ -54920,6 +61733,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -54937,7 +61755,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "rh_battleship_flak_turret01_motor",
     "explosionRadius": 2.0,
     "explosionHullDamage": 158.0,
@@ -54979,6 +61796,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -54996,7 +61818,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "rh_battleship_flak_turret01_a_motor",
     "explosionRadius": 2.0,
     "explosionHullDamage": 530.0,
@@ -55036,6 +61857,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_flak_turret01_a_explosion": {
@@ -55067,6 +61893,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_flak_turret01_a_motor": {
@@ -55098,6 +61929,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_flak_turret01_ammo": {
@@ -55129,6 +61965,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_flak_turret01_explosion": {
@@ -55160,6 +62001,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_flak_turret01_motor": {
@@ -55191,6 +62037,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_missile_turret01": {
@@ -55224,6 +62075,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -55241,7 +62097,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "rh_battleship_missile_turret01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 348.5,
@@ -55283,6 +62138,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -55300,7 +62160,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "rh_battleship_missile_turret01_a_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 815.0,
@@ -55340,6 +62199,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_missile_turret01_a_explosion": {
@@ -55371,6 +62235,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_missile_turret01_a_motor": {
@@ -55402,6 +62271,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_missile_turret01_ammo": {
@@ -55433,6 +62307,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_missile_turret01_explosion": {
@@ -55464,6 +62343,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_missile_turret01_motor": {
@@ -55495,6 +62379,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_turret01": {
@@ -55528,6 +62417,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 52.1,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -55545,7 +62439,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -55580,6 +62473,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 174.9,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -55597,7 +62495,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -55630,6 +62527,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_turret01_ammo": {
@@ -55661,6 +62563,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_turret02": {
@@ -55694,6 +62601,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -55711,7 +62623,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -55746,6 +62657,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 265.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -55763,7 +62679,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -55796,6 +62711,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_turret02_ammo": {
@@ -55827,6 +62747,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_turret03": {
@@ -55860,6 +62785,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -55877,7 +62807,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -55912,6 +62841,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 265.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -55929,7 +62863,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -55962,6 +62895,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_turret03_ammo": {
@@ -55993,6 +62931,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_turret04": {
@@ -56026,6 +62969,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -56043,7 +62991,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -56078,6 +63025,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 530.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -56095,7 +63047,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -56128,6 +63079,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_battleship_turret04_ammo": {
@@ -56159,6 +63115,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_cruiser_missile_turret01": {
@@ -56192,6 +63153,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -56209,7 +63175,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "rh_cruiser_missile_turret01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 202.0,
@@ -56249,6 +63214,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_cruiser_missile_turret01_explosion": {
@@ -56280,6 +63250,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_cruiser_missile_turret01_motor": {
@@ -56311,6 +63286,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_cruiser_turret01": {
@@ -56344,6 +63324,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 52.1,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -56361,7 +63346,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -56394,6 +63378,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_cruiser_turret01_rtc": {
@@ -56427,6 +63416,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 5.4,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -56444,7 +63438,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -56477,6 +63470,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_cruiser_turret02": {
@@ -56510,6 +63508,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -56527,7 +63530,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -56560,6 +63562,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_cruiser_turret02_rtc": {
@@ -56593,6 +63600,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 8.2,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -56610,7 +63622,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -56643,6 +63654,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_cruiser_turret03": {
@@ -56676,6 +63692,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -56693,7 +63714,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -56726,6 +63746,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_cruiser_turret03_rtc": {
@@ -56759,6 +63784,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 8.2,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -56776,7 +63806,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -56809,6 +63838,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_cruiser_turret04": {
@@ -56842,6 +63876,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -56859,7 +63898,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -56892,6 +63930,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_cruiser_turret04_rtc": {
@@ -56925,6 +63968,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 16.3,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -56942,7 +63990,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -56975,6 +64022,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_elite_power01": {
@@ -57006,6 +64058,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "rh_fighter_power01": {
@@ -57037,6 +64094,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "rh_freighter_power01": {
@@ -57068,6 +64130,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 1000.0,
     "thrustChargeRate": 100.0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "misc_equip.ini"
   },
   "rh_gun01_mark01": {
@@ -57101,6 +64168,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 70.3,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -57118,7 +64190,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -57151,6 +64222,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gun01_mark01_m1": {
@@ -57184,6 +64260,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 21.7,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -57201,7 +64282,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -57234,6 +64314,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gun01_mark01_m3": {
@@ -57267,6 +64352,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 33.2,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -57284,7 +64374,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -57317,6 +64406,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gun01_mark02": {
@@ -57350,6 +64444,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 92.9,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -57367,7 +64466,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -57400,6 +64498,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gun01_mark03": {
@@ -57433,6 +64536,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 141.3,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -57450,7 +64558,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -57483,6 +64590,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gun01_mark04": {
@@ -57516,6 +64628,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 217.3,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -57533,7 +64650,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -57566,6 +64682,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gun02_mark01": {
@@ -57599,6 +64720,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 316.2,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -57616,7 +64742,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -57649,6 +64774,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gun02_mark02": {
@@ -57682,6 +64812,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 418.2,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -57699,7 +64834,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -57732,6 +64866,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gun02_mark03": {
@@ -57765,6 +64904,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 636.0,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -57782,7 +64926,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -57815,6 +64958,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gun02_mark04": {
@@ -57848,6 +64996,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 978.0,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -57865,7 +65018,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -57898,6 +65050,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gunboat_forward_gun01": {
@@ -57931,6 +65088,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 530.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -57948,7 +65110,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -57981,6 +65142,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gunboat_missile_turret01": {
@@ -58014,6 +65180,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -58031,7 +65202,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "rh_gunboat_missile_turret01_motor",
     "explosionRadius": 16.0,
     "explosionHullDamage": 202.0,
@@ -58071,6 +65241,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gunboat_missile_turret01_explosion": {
@@ -58102,6 +65277,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gunboat_missile_turret01_motor": {
@@ -58133,6 +65313,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gunboat_turret01": {
@@ -58166,6 +65351,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -58183,7 +65373,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -58216,6 +65405,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_gunboat_turret02": {
@@ -58249,6 +65443,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -58266,7 +65465,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -58299,6 +65497,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_large_station_turret01_mark01": {
@@ -58332,6 +65535,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -58349,7 +65557,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -58382,6 +65589,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_large_station_turret01_mark02": {
@@ -58415,6 +65627,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -58432,7 +65649,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -58465,6 +65681,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_large_station_turret01_mark03": {
@@ -58498,6 +65719,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -58515,7 +65741,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -58548,6 +65773,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_prison_turret01": {
@@ -58581,6 +65811,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -58598,7 +65833,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -58631,6 +65865,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_small_station_turret01_mark01": {
@@ -58664,6 +65903,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -58681,7 +65925,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -58714,6 +65957,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_small_station_turret01_mark02": {
@@ -58747,6 +65995,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -58764,7 +66017,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -58797,6 +66049,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_small_station_turret01_mark03": {
@@ -58830,6 +66087,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -58847,7 +66109,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -58880,6 +66141,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_turret01_mark01": {
@@ -58913,6 +66179,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 70.3,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -58930,7 +66201,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -58963,6 +66233,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_turret01_mark02": {
@@ -58996,6 +66271,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 92.9,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -59013,7 +66293,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -59046,6 +66325,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_turret01_mark03": {
@@ -59079,6 +66363,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 141.3,
     "energyDamage": 0.0,
     "weaponType": "W_Tachyon01",
@@ -59096,7 +66385,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -59129,6 +66417,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_turret02_mark01": {
@@ -59162,6 +66455,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 316.2,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -59179,7 +66477,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -59212,6 +66509,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_turret02_mark02": {
@@ -59245,6 +66547,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 418.2,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -59262,7 +66569,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -59295,6 +66601,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_turret02_mark03": {
@@ -59328,6 +66639,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 636.0,
     "energyDamage": 0.0,
     "weaponType": "W_Plasma01",
@@ -59345,7 +66661,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -59378,6 +66693,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wp_turret01_mark01": {
@@ -59411,6 +66731,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 51.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -59428,7 +66753,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -59461,6 +66785,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wp_turret01_mark02": {
@@ -59494,6 +66823,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 79.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -59511,7 +66845,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -59544,6 +66877,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wp_turret01_mark03": {
@@ -59577,6 +66915,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 131.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -59594,7 +66937,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -59627,6 +66969,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wp_turret02_mark01": {
@@ -59660,6 +67007,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -59677,7 +67029,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "rh_wp_turret02_mark01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 306.0,
@@ -59717,6 +67068,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wp_turret02_mark01_explosion": {
@@ -59748,6 +67104,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wp_turret02_mark01_motor": {
@@ -59779,6 +67140,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wp_turret02_mark02": {
@@ -59812,6 +67178,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -59829,7 +67200,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "rh_wp_turret02_mark02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 474.0,
@@ -59869,6 +67239,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wp_turret02_mark02_explosion": {
@@ -59900,6 +67275,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wp_turret02_mark02_motor": {
@@ -59931,6 +67311,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wp_turret02_mark03": {
@@ -59964,6 +67349,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -59981,7 +67371,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "rh_wp_turret02_mark03_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 790.5,
@@ -60021,6 +67410,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wp_turret02_mark03_explosion": {
@@ -60052,6 +67446,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wp_turret02_mark03_motor": {
@@ -60083,6 +67482,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wps_gun01_mark01": {
@@ -60116,6 +67520,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 102.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -60133,7 +67542,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -60166,6 +67574,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wps_gun01_mark02": {
@@ -60199,6 +67612,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 158.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -60216,7 +67634,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -60249,6 +67666,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wps_gun01_mark03": {
@@ -60282,6 +67704,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 263.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -60299,7 +67726,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -60332,6 +67758,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wps_mlauncher01_mark01": {
@@ -60365,6 +67796,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -60382,7 +67818,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "rh_wps_mlauncher01_mark01_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 244.5,
@@ -60422,6 +67857,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wps_mlauncher01_mark01_explosion": {
@@ -60453,6 +67893,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wps_mlauncher01_mark01_motor": {
@@ -60484,6 +67929,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wps_mlauncher01_mark02": {
@@ -60517,6 +67967,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -60534,7 +67989,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "rh_wps_mlauncher01_mark02_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 306.0,
@@ -60574,6 +68028,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wps_mlauncher01_mark02_explosion": {
@@ -60605,6 +68064,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wps_mlauncher01_mark02_motor": {
@@ -60636,6 +68100,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wps_mlauncher01_mark03": {
@@ -60669,6 +68138,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -60686,7 +68160,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "rh_wps_mlauncher01_mark03_motor",
     "explosionRadius": 8.0,
     "explosionHullDamage": 373.5,
@@ -60726,6 +68199,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wps_mlauncher01_mark03_explosion": {
@@ -60757,6 +68235,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rh_wps_mlauncher01_mark03_motor": {
@@ -60788,6 +68271,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "rm_alias_list": {
@@ -60821,6 +68309,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_anti-personnel_weapons": {
@@ -60854,6 +68347,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_antimatter_bomb_components": {
@@ -60887,6 +68385,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_biohazardous_material": {
@@ -60920,6 +68423,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_biotoxic_nanobots": {
@@ -60953,6 +68461,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_biowarfare_ampules": {
@@ -60986,6 +68499,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_blistering_agents": {
@@ -61019,6 +68537,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_carnivorous_insectoids": {
@@ -61052,6 +68575,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_chemical_waste": {
@@ -61085,6 +68613,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_classified_alien_research_": {
@@ -61118,6 +68651,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_classified_artifact_reports": {
@@ -61151,6 +68689,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_classified_artifact_research": {
@@ -61184,6 +68727,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_classified_base_plans": {
@@ -61217,6 +68765,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_classified_battleship_specs": {
@@ -61250,6 +68803,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_classified_defense_plans": {
@@ -61283,6 +68841,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_classified_military_research": {
@@ -61316,6 +68879,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_commodity_exchange_access_codes": {
@@ -61349,6 +68917,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_dangerous_alien_artifacts": {
@@ -61382,6 +68955,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_escape_pod": {
@@ -61415,6 +68993,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_experimental_cloning_materials": {
@@ -61448,6 +69031,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_experimental_ship_research": {
@@ -61481,6 +69069,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_experimental_troop_enhancement_research": {
@@ -61514,6 +69107,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_experimental_weapon_research": {
@@ -61547,6 +69145,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_fusion_weapon_components": {
@@ -61580,6 +69183,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_genetically_enhanced_bacteria": {
@@ -61613,6 +69221,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_genetically_enhanced_phage": {
@@ -61646,6 +69259,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_government_agents_list": {
@@ -61679,6 +69297,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_government_research_on_jump_holes": {
@@ -61712,6 +69335,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_harvested_human_organs": {
@@ -61745,6 +69373,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_hazardous_single_cell_innoculin": {
@@ -61778,6 +69411,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_heavy_water": {
@@ -61811,6 +69449,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_hidden_base_map": {
@@ -61844,6 +69487,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_holoviral_counterfeiting_technology": {
@@ -61877,6 +69525,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_holstein_sea_serpent_venom": {
@@ -61910,6 +69563,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_human_bomb_implants": {
@@ -61943,6 +69601,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_hunter-killer_robots": {
@@ -61976,6 +69639,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_incendiary_planet_bombs": {
@@ -62009,6 +69677,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_infectious_waste": {
@@ -62042,6 +69715,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_list_of_civilians_under_surveillance": {
@@ -62075,6 +69753,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_list_of_defense_network_backdoors": {
@@ -62108,6 +69791,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_list_of_double_agents": {
@@ -62141,6 +69829,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_military_arms_data": {
@@ -62174,6 +69867,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_military_defensive_weakness_profiles": {
@@ -62207,6 +69905,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_military_scramble_codes": {
@@ -62240,6 +69943,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_military_threat_assessments": {
@@ -62273,6 +69981,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_military_troop_assignments": {
@@ -62306,6 +70019,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_mutagens": {
@@ -62339,6 +70057,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_neophage_weapons": {
@@ -62372,6 +70095,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_nerve_toxin": {
@@ -62405,6 +70133,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_old_fashioned_nuclear_devices": {
@@ -62438,6 +70171,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_poisonous_plants": {
@@ -62471,6 +70209,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_quantum_bomb_components": {
@@ -62504,6 +70247,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_secret_files_on_government_officials": {
@@ -62537,6 +70285,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_secret_industrial_research": {
@@ -62570,6 +70323,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_secret_military_codes": {
@@ -62603,6 +70361,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_smuggled_military_secrets": {
@@ -62636,6 +70399,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_station_blueprints": {
@@ -62669,6 +70437,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_stolen_financial_codes": {
@@ -62702,6 +70475,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_stolen_industrial_secrets": {
@@ -62735,6 +70513,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_unstable_isotopes": {
@@ -62768,6 +70551,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_viroids": {
@@ -62801,6 +70589,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rm_water_poisoning_supplies": {
@@ -62834,6 +70627,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rtc_lifeboat_tumble": {
@@ -62865,6 +70663,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rtc_mis5view_effect": {
@@ -62896,6 +70699,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "rtcprop_hardware_br_fission_generator": {
@@ -62927,6 +70735,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_br_protective_armor": {
@@ -62958,6 +70771,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_br_radar_jammer1": {
@@ -62989,6 +70807,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_br_stealth_armor": {
@@ -63020,6 +70843,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_br_xenon_ion_drive": {
@@ -63051,6 +70879,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_co_compact_toroidal_nuclear_drive": {
@@ -63082,6 +70915,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_co_radar_jammer2": {
@@ -63113,6 +70951,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_co_stealth1": {
@@ -63144,6 +70987,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_co_stealth2": {
@@ -63175,6 +71023,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_blueprinting": {
@@ -63206,6 +71059,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_chemical_storage_cells": {
@@ -63237,6 +71095,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_engine_reheater": {
@@ -63268,6 +71131,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_engine_supercooler": {
@@ -63299,6 +71167,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_exhaust_dampening_field": {
@@ -63330,6 +71203,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_field_magnifier_coils": {
@@ -63361,6 +71239,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_heavy_power_converter": {
@@ -63392,6 +71275,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_heavy_tractor_beam": {
@@ -63423,6 +71311,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_high_temp_nuclear_core": {
@@ -63454,6 +71347,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_nano_weavers1": {
@@ -63485,6 +71383,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_shield_capacitor": {
@@ -63516,6 +71419,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_tractor_beam": {
@@ -63547,6 +71455,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ge_weapon_cooler": {
@@ -63578,6 +71491,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ku_cylindrical_nuclear_drive": {
@@ -63609,6 +71527,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ku_guard_armor": {
@@ -63640,6 +71563,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ku_phase_wave_generator": {
@@ -63671,6 +71599,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_ku_stealth3": {
@@ -63702,6 +71635,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_li_free_flow_ion_drive": {
@@ -63733,6 +71671,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_li_fusion_reactor": {
@@ -63764,6 +71707,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_li_policing_armor": {
@@ -63795,6 +71743,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_no_cargo_extender": {
@@ -63826,6 +71779,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_no_invulnerability": {
@@ -63857,6 +71815,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_no_key": {
@@ -63888,6 +71851,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_no_power_boost": {
@@ -63919,6 +71887,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_rh_coaxial_nuclear_drive": {
@@ -63950,6 +71923,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_rh_combat_armor": {
@@ -63981,6 +71959,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_rh_he4_fusion_reactor": {
@@ -64012,6 +71995,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_rh_nano_weavers2": {
@@ -64043,6 +72031,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_hardware_rh_toroidal_nuclear_drive": {
@@ -64074,6 +72067,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_mines_br_plasma_mine": {
@@ -64105,6 +72103,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_mines_co_beartrap": {
@@ -64136,6 +72139,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_mines_ge_explosive_mine": {
@@ -64167,6 +72175,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_pilot_li_pilot": {
@@ -64198,6 +72211,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_st_br_conversion_shield": {
@@ -64229,6 +72247,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_st_br_thruster": {
@@ -64260,6 +72283,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_st_ku_advanced_thruster": {
@@ -64291,6 +72319,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_st_ku_displacement_shield": {
@@ -64322,6 +72355,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_st_ku_thruster": {
@@ -64353,6 +72391,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_st_li_disruptor_shield": {
@@ -64384,6 +72427,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_st_li_refractor_shield": {
@@ -64415,6 +72463,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_st_li_thruster": {
@@ -64446,6 +72499,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_st_rh_radiation_shield": {
@@ -64477,6 +72535,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_st_rh_thruster": {
@@ -64508,6 +72571,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_st_tlr_sheild": {
@@ -64539,6 +72607,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_st_tlr_sheild_gen": {
@@ -64570,6 +72643,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_torpedoes_ge_torpedo": {
@@ -64601,6 +72679,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_torpedoes_ku_dragon_torpedo": {
@@ -64632,6 +72715,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_torpedoes_li_plasma_torpedo": {
@@ -64663,6 +72751,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_torpedoes_rh_micro_nuke_torpedo": {
@@ -64694,6 +72787,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_br_auto_shotgun": {
@@ -64725,6 +72823,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_br_mass_driver": {
@@ -64756,6 +72859,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_br_railgun": {
@@ -64787,6 +72895,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_br_slugger_launcher": {
@@ -64818,6 +72931,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_br_slugger_missile": {
@@ -64849,6 +72967,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_co_proton_cooker": {
@@ -64880,6 +73003,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_co_raildaddy": {
@@ -64911,6 +73039,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_co_shock_therapy": {
@@ -64942,6 +73075,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_ge_shredder_shotgun": {
@@ -64973,6 +73111,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_ku_auto_tesla": {
@@ -65004,6 +73147,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_ku_hornet_launcher": {
@@ -65035,6 +73183,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_ku_hornet_missile": {
@@ -65066,6 +73219,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_ku_hornet_round": {
@@ -65097,6 +73255,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_ku_ion_blaster": {
@@ -65128,6 +73291,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_ku_recognizer_launcher": {
@@ -65159,6 +73327,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_ku_recognizer_missile": {
@@ -65190,6 +73363,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_li_auto_cannon": {
@@ -65221,6 +73399,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_li_heavy_ion_blaster": {
@@ -65252,6 +73435,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_li_laser_beam": {
@@ -65283,6 +73471,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_li_plasma_blaster": {
@@ -65314,6 +73507,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_li_rad_launcher": {
@@ -65345,6 +73543,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_li_rad_missile": {
@@ -65376,6 +73579,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_rh_gamma_beamer": {
@@ -65407,6 +73615,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_rh_plasma_gat_cannon": {
@@ -65438,6 +73651,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_rh_proton_blaster": {
@@ -65469,6 +73687,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_rh_seeker_launcher": {
@@ -65500,6 +73723,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_rh_seeker_missile": {
@@ -65531,6 +73759,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "rtcprop_weapons_rh_seeker_round": {
@@ -65562,6 +73795,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "sfx_rumble_battleship": {
@@ -65593,6 +73831,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_cruiser": {
@@ -65624,6 +73867,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_destroyer": {
@@ -65655,6 +73903,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_gas_collector": {
@@ -65686,6 +73939,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_gas_miner": {
@@ -65717,6 +73975,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_gunvessel": {
@@ -65748,6 +74011,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_lifter": {
@@ -65779,6 +74047,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_liner": {
@@ -65810,6 +74083,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_nomad": {
@@ -65841,6 +74119,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_platform": {
@@ -65872,6 +74155,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_solar_plant": {
@@ -65903,6 +74191,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_station_large": {
@@ -65934,6 +74227,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_station_small": {
@@ -65965,6 +74263,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_trading_depot": {
@@ -65996,6 +74299,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_trading_outpost": {
@@ -66027,6 +74335,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_train": {
@@ -66058,6 +74371,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_ut_large": {
@@ -66089,6 +74407,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_ut_miner": {
@@ -66120,6 +74443,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "sfx_rumble_ut_small": {
@@ -66151,6 +74479,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "shield01_mark01_fr": {
@@ -66184,6 +74517,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark01_hf": {
@@ -66217,6 +74555,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark01_lf": {
@@ -66250,6 +74593,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark02_fr": {
@@ -66283,6 +74631,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark02_hf": {
@@ -66316,6 +74669,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark02_lf": {
@@ -66349,6 +74707,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark03_fr": {
@@ -66382,6 +74745,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark03_hf": {
@@ -66415,6 +74783,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark03_lf": {
@@ -66448,6 +74821,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark04_fr": {
@@ -66481,6 +74859,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark04_hf": {
@@ -66514,6 +74897,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark04_lf": {
@@ -66547,6 +74935,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark05_fr": {
@@ -66580,6 +74973,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark05_hf": {
@@ -66613,6 +75011,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark05_lf": {
@@ -66646,6 +75049,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark06_fr": {
@@ -66679,6 +75087,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark06_hf": {
@@ -66712,6 +75125,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark06_lf": {
@@ -66745,6 +75163,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark07_fr": {
@@ -66778,6 +75201,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark07_hf": {
@@ -66811,6 +75239,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark07_lf": {
@@ -66844,6 +75277,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark08_fr": {
@@ -66877,6 +75315,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark08_hf": {
@@ -66910,6 +75353,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark08_lf": {
@@ -66943,6 +75391,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark09_fr": {
@@ -66976,6 +75429,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark09_hf": {
@@ -67009,6 +75467,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark09_lf": {
@@ -67042,6 +75505,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark10_fr": {
@@ -67075,6 +75543,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark10_hf": {
@@ -67108,6 +75581,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield01_mark10_lf": {
@@ -67141,6 +75619,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Graviton01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark01_fr": {
@@ -67174,6 +75657,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark01_hf": {
@@ -67207,6 +75695,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark01_lf": {
@@ -67240,6 +75733,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark02_fr": {
@@ -67273,6 +75771,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark02_hf": {
@@ -67306,6 +75809,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark02_lf": {
@@ -67339,6 +75847,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark03_fr": {
@@ -67372,6 +75885,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark03_hf": {
@@ -67405,6 +75923,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark03_lf": {
@@ -67438,6 +75961,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark04_fr": {
@@ -67471,6 +75999,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark04_hf": {
@@ -67504,6 +76037,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark04_lf": {
@@ -67537,6 +76075,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark05_fr": {
@@ -67570,6 +76113,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark05_hf": {
@@ -67603,6 +76151,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark05_lf": {
@@ -67636,6 +76189,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark06_fr": {
@@ -67669,6 +76227,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark06_hf": {
@@ -67702,6 +76265,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark06_lf": {
@@ -67735,6 +76303,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark07_fr": {
@@ -67768,6 +76341,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark07_hf": {
@@ -67801,6 +76379,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark07_lf": {
@@ -67834,6 +76417,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark08_fr": {
@@ -67867,6 +76455,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark08_hf": {
@@ -67900,6 +76493,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark08_lf": {
@@ -67933,6 +76531,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark09_fr": {
@@ -67966,6 +76569,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark09_hf": {
@@ -67999,6 +76607,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark09_lf": {
@@ -68032,6 +76645,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark10_fr": {
@@ -68065,6 +76683,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark10_hf": {
@@ -68098,6 +76721,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield02_mark10_lf": {
@@ -68131,6 +76759,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Molecular01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark01_fr": {
@@ -68164,6 +76797,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark01_hf": {
@@ -68197,6 +76835,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark01_lf": {
@@ -68230,6 +76873,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark02_fr": {
@@ -68263,6 +76911,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark02_hf": {
@@ -68296,6 +76949,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark02_lf": {
@@ -68329,6 +76987,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark03_fr": {
@@ -68362,6 +77025,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark03_hf": {
@@ -68395,6 +77063,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark03_lf": {
@@ -68428,6 +77101,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark04_fr": {
@@ -68461,6 +77139,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark04_hf": {
@@ -68494,6 +77177,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark04_lf": {
@@ -68527,6 +77215,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark05_fr": {
@@ -68560,6 +77253,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark05_hf": {
@@ -68593,6 +77291,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark05_lf": {
@@ -68626,6 +77329,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark06_fr": {
@@ -68659,6 +77367,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark06_hf": {
@@ -68692,6 +77405,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark06_lf": {
@@ -68725,6 +77443,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark07_fr": {
@@ -68758,6 +77481,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark07_hf": {
@@ -68791,6 +77519,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark07_lf": {
@@ -68824,6 +77557,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark08_fr": {
@@ -68857,6 +77595,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark08_hf": {
@@ -68890,6 +77633,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark08_lf": {
@@ -68923,6 +77671,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark09_fr": {
@@ -68956,6 +77709,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark09_hf": {
@@ -68989,6 +77747,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark09_lf": {
@@ -69022,6 +77785,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark10_fr": {
@@ -69055,6 +77823,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark10_hf": {
@@ -69088,6 +77861,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "shield03_mark10_lf": {
@@ -69121,6 +77899,11 @@ const FL_EQUIPMENT = {
     "shieldType": "S_Positron01",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "st_equip.ini"
   },
   "slowlargeblue": {
@@ -69152,6 +77935,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowlargegreen": {
@@ -69183,6 +77971,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowlargered": {
@@ -69214,6 +78007,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowlargewhite": {
@@ -69245,6 +78043,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowlargeyellow": {
@@ -69276,6 +78079,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowmediumblue": {
@@ -69307,6 +78115,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowmediumgreen": {
@@ -69338,6 +78151,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowmediumred": {
@@ -69369,6 +78187,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowmediumwhite": {
@@ -69400,6 +78223,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowmediumyellow": {
@@ -69431,6 +78259,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowsmallblue": {
@@ -69462,6 +78295,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowsmallgreen": {
@@ -69493,6 +78331,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowsmallorange": {
@@ -69524,6 +78367,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowsmallpurple": {
@@ -69555,6 +78403,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowsmallred": {
@@ -69586,6 +78439,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowsmallwhite": {
@@ -69617,6 +78475,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowsmallyellow": {
@@ -69648,6 +78511,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowxlargeblue": {
@@ -69679,6 +78547,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowxlargegreen": {
@@ -69710,6 +78583,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "slowxlargered": {
@@ -69741,6 +78619,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "small_station_e3_2001": {
@@ -69772,6 +78655,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "small_station_turret": {
@@ -69805,6 +78693,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 81.5,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -69822,7 +78715,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -69855,6 +78747,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "smallblue": {
@@ -69886,6 +78783,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "smallgreen": {
@@ -69917,6 +78819,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "smallorange": {
@@ -69948,6 +78855,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "smallred": {
@@ -69979,6 +78891,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "smallstation_animate1": {
@@ -70010,6 +78927,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "smallstation_animate2": {
@@ -70041,6 +78963,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "smallwhite": {
@@ -70072,6 +78999,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "smallyellow": {
@@ -70103,6 +79035,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "space_arch_shield01": {
@@ -70134,6 +79071,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "space_arch_shield_gen01": {
@@ -70165,6 +79107,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "special_gun01": {
@@ -70198,6 +79145,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 1075.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -70215,7 +79167,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -70248,6 +79199,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun02": {
@@ -70281,6 +79237,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 880.2,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -70298,7 +79259,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -70331,6 +79291,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun03": {
@@ -70364,6 +79329,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 652.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -70381,7 +79351,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -70414,6 +79383,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun04": {
@@ -70447,6 +79421,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 1173.6,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -70464,7 +79443,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -70497,6 +79475,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun05": {
@@ -70530,6 +79513,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 880.2,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -70547,7 +79535,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -70580,6 +79567,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun06": {
@@ -70613,6 +79605,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 717.2,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -70630,7 +79627,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -70663,6 +79659,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun07": {
@@ -70696,6 +79697,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 782.4,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -70713,7 +79719,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -70746,6 +79751,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun08": {
@@ -70779,6 +79789,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 1075.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -70796,7 +79811,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -70829,6 +79843,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun09": {
@@ -70862,6 +79881,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 978.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -70879,7 +79903,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -70912,6 +79935,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun10": {
@@ -70945,6 +79973,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 1075.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -70962,7 +79995,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -70995,6 +80027,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun11": {
@@ -71028,6 +80065,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 880.2,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -71045,7 +80087,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -71078,6 +80119,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun12": {
@@ -71111,6 +80157,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 586.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -71128,7 +80179,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -71161,6 +80211,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun13": {
@@ -71194,6 +80249,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 1075.8,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -71211,7 +80271,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -71244,6 +80303,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun14": {
@@ -71277,6 +80341,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 1173.6,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -71294,7 +80363,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -71327,6 +80395,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_gun15": {
@@ -71360,6 +80433,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 978.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -71377,7 +80455,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -71410,6 +80487,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_nomad_gun01": {
@@ -71443,6 +80525,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 635.7,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -71460,7 +80547,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -71493,6 +80579,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_nomad_gun02": {
@@ -71526,6 +80617,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 847.6,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -71543,7 +80639,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -71576,6 +80671,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "special_nomad_gun03": {
@@ -71609,6 +80709,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 302.0,
     "energyDamage": 0.0,
     "weaponType": "",
@@ -71626,7 +80731,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "",
     "sourceFile": "weapon_equip.ini"
   },
@@ -71659,6 +80763,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "stackblue_manufgoods": {
@@ -71690,6 +80799,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "stackdrab_oremetals": {
@@ -71721,6 +80835,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "stackgreen_refgoods": {
@@ -71752,6 +80871,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "stackgrey_hivalue": {
@@ -71783,6 +80907,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "stackred_lightgoods": {
@@ -71814,6 +80943,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "stackwhite_liquidgas": {
@@ -71845,6 +80979,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "stackyellow_radioactive": {
@@ -71876,6 +81015,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "tlr_shield01": {
@@ -71907,6 +81051,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "tlr_shield_gen01": {
@@ -71938,6 +81087,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "torpedo01_mark01": {
@@ -71971,6 +81125,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -71988,7 +81147,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "torpedo01_mark01_motor",
     "explosionRadius": 25.0,
     "explosionHullDamage": 2424.0,
@@ -72030,6 +81188,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "torpedo01_mark01_explosion": {
@@ -72061,6 +81224,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "torpedo01_mark01_motor": {
@@ -72092,6 +81260,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "torpedo01_mark02": {
@@ -72125,6 +81298,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "hullDamage": 0,
     "energyDamage": 0,
     "weaponType": "",
@@ -72142,7 +81320,6 @@ const FL_EQUIPMENT = {
     "seekDist": 0,
     "topSpeed": 0,
     "acceleration": 0,
-    "linearDrag": 0,
     "motor": "torpedo01_mark02_motor",
     "explosionRadius": 25.0,
     "explosionHullDamage": 11736.0,
@@ -72184,6 +81361,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "torpedo01_mark02_explosion": {
@@ -72215,6 +81397,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "torpedo01_mark02_motor": {
@@ -72246,6 +81433,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weapon_equip.ini"
   },
   "trackgreen": {
@@ -72277,6 +81469,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "tradelanegreen": {
@@ -72308,6 +81505,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "trading_outpost": {
@@ -72339,6 +81541,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "transportation_1": {
@@ -72370,6 +81577,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "transportation_2": {
@@ -72401,6 +81613,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "transportation_3": {
@@ -72432,6 +81649,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "prop_equip.ini"
   },
   "w_laser01": {
@@ -72463,6 +81685,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_laser02": {
@@ -72494,6 +81721,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_laser03": {
@@ -72525,6 +81757,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_neutron01": {
@@ -72556,6 +81793,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_neutron02": {
@@ -72587,6 +81829,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_neutron03": {
@@ -72618,6 +81865,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_particle01": {
@@ -72649,6 +81901,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_particle02": {
@@ -72680,6 +81937,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_particle03": {
@@ -72711,6 +81973,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_photon01": {
@@ -72742,6 +82009,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_photon02": {
@@ -72773,6 +82045,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_photon03": {
@@ -72804,6 +82081,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_plasma01": {
@@ -72835,6 +82117,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_plasma02": {
@@ -72866,6 +82153,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_plasma03": {
@@ -72897,6 +82189,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_pulse01": {
@@ -72928,6 +82225,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_pulse02": {
@@ -72959,6 +82261,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_pulse03": {
@@ -72990,6 +82297,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_tachyon01": {
@@ -73021,6 +82333,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_tachyon02": {
@@ -73052,6 +82369,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "w_tachyon03": {
@@ -73083,6 +82405,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "weaponmoddb.ini"
   },
   "weapon_platform_radar1": {
@@ -73114,6 +82441,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "weapon_platform_radar2": {
@@ -73145,6 +82477,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "weapon_platform_tower1": {
@@ -73176,6 +82513,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "weapon_platform_tower2": {
@@ -73207,6 +82549,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "select_equip.ini"
   },
   "white": {
@@ -73238,6 +82585,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "whitecone": {
@@ -73269,6 +82621,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "whitestationspecial": {
@@ -73300,6 +82657,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   },
   "yellow": {
@@ -73331,6 +82693,11 @@ const FL_EQUIPMENT = {
     "shieldType": "",
     "thrustCapacity": 0,
     "thrustChargeRate": 0,
+    "maxForce": 0,
+    "linearDrag": 0,
+    "reverseFraction": 0,
+    "cruiseChargeTime": 0,
+    "cruisePowerUsage": 0,
     "sourceFile": "light_equip.ini"
   }
 };

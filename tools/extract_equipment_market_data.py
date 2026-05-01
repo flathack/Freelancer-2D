@@ -53,6 +53,30 @@ def classify_equipment(nickname: str, category: str, equipment_id: str) -> str:
     return category or "equipment"
 
 
+def is_mine_dropper_item(item: dict) -> bool:
+    return (
+        str(item.get("category", "")).lower() == "mine"
+        and not bool(item.get("combinable"))
+        and bool(str(item.get("projectileArchetype", "")).strip())
+    )
+
+
+def mine_dropper_display_name(name: str) -> str:
+    text = fl_text(name).strip()
+    lowered = text.lower()
+    if "dropper" in lowered or "werfer" in lowered:
+        return text
+    if text.endswith("-Mine"):
+        return text[:-5] + "-Minen-Werfer"
+    if text.endswith("-Mines"):
+        return text[:-6] + "-Minen-Werfer"
+    if text.endswith(" Mine"):
+        return text + " Dropper"
+    if text.endswith(" Mines"):
+        return text[:-1] + " Dropper"
+    return text + " Dropper"
+
+
 def to_float(value: str, default: float = 0.0) -> float:
     try:
         return float(str(value).split(",", 1)[0].strip())
@@ -213,9 +237,16 @@ def enrich_from_equipment_files(equipment: dict[str, dict]) -> dict[str, dict]:
             item["shieldType"] = first(props, "shield_type", item.get("shieldType", ""))
             item["thrustCapacity"] = to_float(first(props, "thrust_capacity"), item.get("thrustCapacity", 0))
             item["thrustChargeRate"] = to_float(first(props, "thrust_charge_rate"), item.get("thrustChargeRate", 0))
+            item["maxForce"] = to_float(first(props, "max_force"), item.get("maxForce", 0))
+            item["linearDrag"] = to_float(first(props, "linear_drag"), item.get("linearDrag", 0))
+            item["reverseFraction"] = to_float(first(props, "reverse_fraction"), item.get("reverseFraction", 0))
+            item["cruiseChargeTime"] = to_float(first(props, "cruise_charge_time"), item.get("cruiseChargeTime", 0))
+            item["cruisePowerUsage"] = to_float(first(props, "cruise_power_usage"), item.get("cruisePowerUsage", 0))
             munition = munitions.get(str(item.get("projectileArchetype", "")).lower())
             if munition:
                 item.update(munition)
+            if is_mine_dropper_item(item):
+                item["name"] = mine_dropper_display_name(item.get("name", title_from_nickname(nickname)))
             item["sourceFile"] = ini_path.name
             equipment[item["id"]] = item
     return equipment

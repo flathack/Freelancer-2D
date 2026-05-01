@@ -1283,8 +1283,30 @@ function currentPowerPlantItem() {
     };
 }
 
+function currentEngineItem() {
+    if (!game.player) return null;
+    const mountedEngine = getEquipment(game.player.mountedEquipment?.engine);
+    if (mountedEngine) return mountedEngine;
+    const packageEngine = currentShipPackage()?.engine || null;
+    const equipmentEngine = getEquipment(game.player.engineId);
+    if (equipmentEngine) return equipmentEngine;
+    if (!packageEngine && !game.player.engineId) return null;
+    return {
+        id: game.player.engineId || packageEngine?.id || 'ship_engine',
+        name: game.player.engineName || packageEngine?.name || 'Engine',
+        category: 'engine',
+        maxForce: packageEngine?.maxForce || 0,
+        linearDrag: packageEngine?.linearDrag || 0,
+        powerUsage: packageEngine?.powerUsage || 0,
+        reverseFraction: packageEngine?.reverseFraction || 1,
+        cruiseChargeTime: packageEngine?.cruiseChargeTime || CRUISE_CHARGE_SECONDS,
+        cruisePowerUsage: packageEngine?.cruisePowerUsage || 20
+    };
+}
+
 function mountedEquipmentItem(slot) {
     if (slot === 'powerplant') return currentPowerPlantItem();
+    if (slot === 'engine') return currentEngineItem();
     return getEquipment(game.player?.mountedEquipment?.[slot]);
 }
 
@@ -1457,12 +1479,46 @@ function addEquipmentInventoryCopy(itemId) {
     return true;
 }
 
+function ensureEquipmentInventoryCopy(itemId) {
+    const item = getEquipment(itemId);
+    if (!item || !game.player) return false;
+    let inv = findEquipmentItem(item.id);
+    if (!inv) {
+        inv = { id: item.id, name: item.name, quantity: 0, category: item.category };
+        game.player.equipmentInventory.push(inv);
+    }
+    inv.quantity = Math.max(1, Number(inv.quantity) || 0);
+    return true;
+}
+
+function ensureFixedShipEquipment() {
+    if (!game.player) return;
+    const shipPackage = currentShipPackage();
+    const fixed = [
+        ['powerplant', shipPackage?.powerplant?.id],
+        ['engine', shipPackage?.engine?.id]
+    ];
+    const fixedIds = new Set(fixed.map(([, itemId]) => String(itemId || '').toLowerCase()).filter(Boolean));
+    game.player.equipmentInventory = (game.player.equipmentInventory || []).filter(entry => {
+        const item = getEquipment(entry.id);
+        const category = String(item?.category || entry.category || '').toLowerCase();
+        if ((category === 'engine' || category === 'powerplant') && !fixedIds.has(String(entry.id || '').toLowerCase())) return false;
+        return true;
+    });
+    for (const [slot, itemId] of fixed) {
+        if (!itemId) continue;
+        game.player.mountedEquipment[slot] = itemId;
+        ensureEquipmentInventoryCopy(itemId);
+    }
+}
+
 function mountedEquipmentCount() {
     return Object.values(game.player?.mountedEquipment || {}).filter(Boolean).length;
 }
 
 function ensureStarterEquipmentForEmptyLoadout() {
-    if (!game.player || mountedEquipmentCount() > 0 || (game.player.equipmentInventory || []).length > 0) return;
+    ensureFixedShipEquipment();
+    if (!game.player || mountedEquipmentCount() > 2 || (game.player.equipmentInventory || []).some(item => !['engine', 'powerplant'].includes(String(getEquipment(item.id)?.category || item.category || '').toLowerCase()))) return;
     const defaults = STARTER_MOUNTED_EQUIPMENT[game.player.shipPackageId] || [];
     for (const entry of defaults) {
         if (!addEquipmentInventoryCopy(entry.id)) continue;
@@ -3192,6 +3248,8 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.maxCargo = stats.holdSize || game.player.maxCargo;
     game.player.powerPlantId = shipPackage.powerplant?.id || '';
     game.player.powerPlantName = shipPackage.powerplant?.name || 'Powerplant';
+    game.player.engineId = shipPackage.engine?.id || '';
+    game.player.engineName = shipPackage.engine?.name || 'Engine';
     game.player.maxEnergy = Number.isFinite(stats.powerCapacity) ? stats.powerCapacity : game.player.maxEnergy;
     game.player.powerGen = Number.isFinite(stats.powerChargeRate) ? stats.powerChargeRate : game.player.powerGen;
     game.player.thrustCapacity = Number.isFinite(stats.thrustCapacity) ? stats.thrustCapacity : game.player.thrustCapacity;
@@ -3211,6 +3269,7 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.shieldClassMax = game.player.weaponClassMax;
     game.player.shieldFamily = shipShieldFamily();
     game.player.radius = Math.max(18, Math.min(34, Math.sqrt(game.player.maxHull) * 0.28));
+    ensureFixedShipEquipment();
     ensureStarterEquipmentForEmptyLoadout();
     if (logPurchase) {
         addLog('Purchased ship: ' + shipPackage.name);
@@ -8967,6 +9026,11 @@ function equipmentSlot(itemOrCategory) {
     return firstAvailableSlot(itemOrCategory);
 }
 
+function isFixedEquipmentItem(item) {
+    const mountType = equipmentMountType(item);
+    return mountType === 'powerplant' || mountType === 'engine';
+}
+
 function applyMountedEquipmentEffects() {
     if (!game.player) return;
     game.player.firePower = Math.max(1, game.player.baseFirePower || game.player.firePower || 1);
@@ -9177,20 +9241,23 @@ function renderEquipmentDealer() {
     for (const slot of slots) {
         const item = mountedEquipmentItem(slot);
         const itemMeta = item ? `${equipmentMountType(item)} class ${equipmentClass(item)}` : '';
-        const lockedSlot = slot === 'powerplant';
+        const lockedSlot = slot === 'powerplant' || slot === 'engine';
         html += `<div class="slot-row"><div><strong>${escapeHtml(equipmentSlotLabel(slot))}</strong><br><span style="color:${item ? '#b9efff' : '#667f8f'};">${item ? escapeHtml(item.name) : 'Empty'}</span>${item ? `<br><span style="color:#88a;">${escapeHtml(itemMeta)}${lockedSlot ? ' | fixed' : ''}</span>` : ''}</div><button class="trade-button" onclick="unmountEquipment('${slot}')" ${item && !lockedSlot ? '' : 'disabled'}>Unmount</button></div>`;
     }
     html += '</div><div class="equipment-panel"><h4>Inventory</h4>';
-    const availableInventory = inventory.map(inv => ({ ...inv, availableQuantity: availableEquipmentQuantity(inv.id) })).filter(inv => inv.availableQuantity > 0);
+    const availableInventory = inventory.map(inv => {
+        const item = getEquipment(inv.id);
+        return { ...inv, availableQuantity: isFixedEquipmentItem(item) ? Math.max(1, Number(inv.quantity) || 0) : availableEquipmentQuantity(inv.id) };
+    }).filter(inv => inv.availableQuantity > 0);
     if (availableInventory.length) {
         for (const inv of availableInventory) {
             const sellPrice = equipmentSellPrice(inv.id);
             const inventoryItem = getEquipment(inv.id);
             const compatibility = equipmentCompatibility(inventoryItem);
-            const isPowerplant = equipmentMountType(inventoryItem) === 'powerplant';
-            const canMount = !inventoryItem?.combinable && compatibility.ok && !isPowerplant;
+            const isFixed = isFixedEquipmentItem(inventoryItem);
+            const canMount = !inventoryItem?.combinable && compatibility.ok && !isFixed;
             const meta = `${equipmentMountType(inventoryItem)} class ${equipmentClass(inventoryItem)} x${inv.availableQuantity} | ${sellPrice.toLocaleString()} CR`;
-            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}${isPowerplant ? ' | fixed' : ''}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 && !isPowerplant ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
+            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}${isFixed ? ' | fixed' : ''}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 && !isFixed ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
         }
     } else {
         html += '<div style="color:#667f8f;">No equipment in inventory.</div>';
@@ -9304,8 +9371,8 @@ function buyEquipment(itemId) {
 function sellEquipment(itemId) {
     const inv = findEquipmentItem(itemId);
     if (!inv || availableEquipmentQuantity(itemId) <= 0) return;
-    if (equipmentMountType(getEquipment(itemId)) === 'powerplant') {
-        addLog('Powerplants are fixed equipment and cannot be sold.', 'alert');
+    if (isFixedEquipmentItem(getEquipment(itemId))) {
+        addLog('Fixed ship equipment cannot be sold.', 'alert');
         return;
     }
     const sellPrice = equipmentSellPrice(itemId);
@@ -9324,8 +9391,8 @@ function mountEquipment(itemId) {
     const inv = findEquipmentItem(itemId);
     const slot = equipmentSlot(item);
     if (!item || !inv || inv.quantity <= 0 || !slot) return;
-    if (equipmentMountType(item) === 'powerplant') {
-        addLog('Powerplants are fixed equipment and cannot be mounted manually.', 'alert');
+    if (isFixedEquipmentItem(item)) {
+        addLog('Fixed ship equipment cannot be mounted manually.', 'alert');
         return;
     }
     const compatibility = equipmentCompatibility(item, slot);
@@ -9349,8 +9416,8 @@ function mountEquipment(itemId) {
 
 function unmountEquipment(slot) {
     if (!game.player?.mountedEquipment?.[slot]) return;
-    if (slot === 'powerplant') {
-        addLog('Powerplants are fixed equipment and cannot be unmounted.', 'alert');
+    if (slot === 'powerplant' || slot === 'engine') {
+        addLog('Fixed ship equipment cannot be unmounted.', 'alert');
         return;
     }
     const item = getEquipment(game.player.mountedEquipment[slot]);
