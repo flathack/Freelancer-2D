@@ -35,6 +35,18 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
     --hud-highlight-soft: #fff2c2;
     --hud-highlight-bg: rgba(110,44,0,0.42);
 }
+body[data-theme="crossfire"] {
+    --hud-accent: #ff6b6b;
+    --hud-accent-strong: #ff3b3b;
+    --hud-accent-soft: #ffb0a7;
+    --hud-panel-top: rgba(104,22,22,0.9);
+    --hud-panel-bottom: rgba(34,6,10,0.88);
+    --hud-panel-shadow: rgba(255,59,59,0.28);
+    --hud-panel-inner: rgba(255,120,90,0.14);
+    --hud-highlight: #ffd166;
+    --hud-highlight-soft: #fff2c2;
+    --hud-highlight-bg: rgba(110,44,0,0.42);
+}
 #command-bar, #utility-bar { display: flex; gap: 4px; pointer-events: auto; flex-wrap: wrap; padding: 5px; background: linear-gradient(180deg, var(--hud-panel-top), var(--hud-panel-bottom)); border: 1px solid var(--hud-accent); box-shadow: 0 0 16px var(--hud-panel-shadow), inset 0 0 18px var(--hud-panel-inner); }
 #utility-bar { position: absolute; top: 0; right: 0; }
 #music-player { position: absolute; top: 0; left: 0; width: min(360px, calc(100vw - 28px)); pointer-events: auto; display: grid; grid-template-columns: auto 1fr auto auto; gap: 5px; align-items: center; padding: 5px; background: linear-gradient(180deg, var(--hud-panel-top), var(--hud-panel-bottom)); border: 1px solid var(--hud-accent); box-shadow: 0 0 16px var(--hud-panel-shadow), inset 0 0 18px var(--hud-panel-inner); }
@@ -231,6 +243,108 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .rumor-box { margin-top: 10px; padding: 10px; border: 1px solid #33566d; color: #dff7ff; background: rgba(0,12,24,0.72); }
 .equipment-panel { flex: 1 1 280px; min-width: 240px; }
 .equipment-panel h4 { margin: 0 0 8px; color: #ffaa00; font-size: 13px; }
+
+#hud, #map-overlay, #inventory-overlay, #universe-overlay, #landing-overlay, #reputation-overlay {
+    --ui-cut-panel: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
+    --ui-cut-button: polygon(0 9px, 9px 0, 35% 0, 40% 7px, 60% 7px, 65% 0, calc(100% - 9px) 0, 100% 9px, 100% calc(100% - 9px), calc(100% - 9px) 100%, 65% 100%, 60% calc(100% - 7px), 40% calc(100% - 7px), 35% 100%, 9px 100%, 0 calc(100% - 9px));
+}
+
+#command-bar, #utility-bar, #music-player, #hud-left, .hud-panel, #info-panel,
+#map-overlay, #inventory-overlay, #universe-overlay, #landing-overlay, #reputation-overlay {
+    background: linear-gradient(180deg, var(--hud-panel-top), var(--hud-panel-bottom)) !important;
+    border: 1px solid color-mix(in srgb, var(--hud-accent) 72%, transparent) !important;
+    box-shadow: 0 0 22px var(--hud-panel-shadow), inset 0 0 22px var(--hud-panel-inner) !important;
+    clip-path: var(--ui-cut-panel);
+}
+
+#map-header, #inventory-header, #universe-overlay > div:first-child, #landing-header, #reputation-header,
+#landing-tabs, #map-tabs, #map-universe-sector-tabs, #universe-sector-tabs {
+    border-color: color-mix(in srgb, var(--hud-accent) 34%, transparent) !important;
+    background: rgba(2, 12, 28, 0.34);
+}
+
+#map-header h3, #inventory-header h3, #universe-overlay h2, #landing-title, #reputation-title,
+#info-panel h3, .controls h3 {
+    color: var(--hud-accent-soft) !important;
+    text-shadow: 0 0 10px color-mix(in srgb, var(--hud-accent-strong) 54%, transparent);
+}
+
+.cmd-btn, .hud-action-btn, .map-btn, .landing-tab, .bar-subtab, .trade-button, .speech-button,
+#music-toggle, #touch-joystick-toggle, #music-track-select, .trade-qty-input, .save-name-row input {
+    background: linear-gradient(180deg, rgba(24,34,92,0.82), rgba(6,13,48,0.78)) !important;
+    border: 1px solid color-mix(in srgb, var(--hud-accent) 74%, transparent) !important;
+    color: var(--hud-accent-soft) !important;
+    box-shadow: 0 0 14px color-mix(in srgb, var(--hud-accent-strong) 24%, transparent), inset 0 0 16px var(--hud-panel-inner) !important;
+}
+
+.cmd-btn, .hud-action-btn, .map-btn, .landing-tab, .bar-subtab, .trade-button, .speech-button,
+#music-toggle, #touch-joystick-toggle {
+    clip-path: var(--ui-cut-button);
+}
+
+.cmd-btn:hover, .hud-action-btn:hover, .map-btn:hover, .landing-tab:hover, .bar-subtab:hover,
+.trade-button:hover:not(:disabled), .speech-button:hover:not(:disabled),
+#music-toggle:hover, #touch-joystick-toggle:hover {
+    color: #ffffff !important;
+    border-color: var(--hud-accent-soft) !important;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--hud-accent-strong) 42%, rgba(24,34,92,0.92)), color-mix(in srgb, var(--hud-panel-bottom) 82%, rgba(10,24,70,0.9))) !important;
+}
+
+.cmd-btn.active, .landing-tab.active, .bar-subtab.active, .mod-btn.active,
+.hud-row:hover, .hud-row.selected, .trade-table tr.selected, .mission-active {
+    border-color: var(--hud-highlight) !important;
+    color: var(--hud-highlight-soft) !important;
+    background: var(--hud-highlight-bg) !important;
+}
+
+.inventory-stat, .inventory-section, .inventory-row, .reputation-row, .trade-info-panel,
+.mission-row, .npc-row, .slot-row, .rumor-box, .consumable-box, .hud-row {
+    border-color: color-mix(in srgb, var(--hud-accent) 28%, transparent) !important;
+    background: rgba(4, 18, 38, 0.68) !important;
+}
+
+.inventory-stat strong, .inventory-section-title, .trade-info-title, .equipment-panel h4,
+.hud-kind, #music-label, #target-name {
+    color: var(--hud-highlight) !important;
+}
+
+.trade-table th, .trade-info-table th {
+    background: color-mix(in srgb, var(--hud-accent-strong) 22%, rgba(0, 18, 38, 0.92)) !important;
+    color: var(--hud-accent-soft) !important;
+}
+
+.trade-table td, .trade-info-table td, .inventory-row, .npc-row, .slot-row {
+    border-bottom-color: color-mix(in srgb, var(--hud-accent) 18%, transparent) !important;
+}
+
+.trade-commodity-link {
+    color: var(--hud-accent-soft) !important;
+}
+
+.trade-button:disabled, .speech-button:disabled {
+    background: rgba(18, 20, 24, 0.72) !important;
+    border-color: rgba(120, 130, 140, 0.38) !important;
+    color: #667f8f !important;
+    box-shadow: none !important;
+}
+
+#btn-close-map, #btn-close-inventory, #btn-close-universe {
+    border-color: #ff6666 !important;
+    color: #ffd0d0 !important;
+    background: linear-gradient(180deg, rgba(82,20,32,0.9), rgba(28,6,16,0.84)) !important;
+}
+
+body[data-theme="crossfire"] .mod-btn.active {
+    border-color: #ff7a6c !important;
+    color: #ffe0dc !important;
+    background: rgba(112, 24, 20, 0.74) !important;
+}
+
+@media (max-width: 720px) {
+    #map-overlay, #landing-overlay {
+        width: calc(100vw - 24px) !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -2395,8 +2509,9 @@ function toggleLanguage() {
 
 function applyHudTheme() {
     const hud = document.getElementById('hud');
-    if (!hud) return;
-    hud.dataset.theme = game.activeModId === 'crossfire' ? 'crossfire' : 'default';
+    const theme = game.activeModId === 'crossfire' ? 'crossfire' : 'default';
+    if (hud) hud.dataset.theme = theme;
+    document.body.dataset.theme = theme;
 }
 
 // Load real LI01 data from Freelancer INI files
@@ -2755,6 +2870,7 @@ async function loadActiveModData() {
         game.activeModId = 'vanilla';
         localStorage.setItem(ACTIVE_MOD_KEY, 'vanilla');
         game.modData = null;
+        applyHudTheme();
     }
 }
 
