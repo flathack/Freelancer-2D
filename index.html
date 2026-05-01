@@ -11,6 +11,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 #game-canvas { display: block; background: #000005; }
 #hud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
 #hud-top { position: absolute; top: 10px; left: 10px; right: 10px; display: flex; justify-content: center; align-items: flex-start; pointer-events: none; }
+#missile-warning { position: absolute; top: 58px; left: 50%; transform: translateX(-50%); min-width: min(360px, calc(100vw - 32px)); padding: 8px 22px; z-index: 10; color: #ffd6d6; background: linear-gradient(180deg, rgba(128,12,24,0.92), rgba(44,4,10,0.88)); border: 1px solid #ff5656; box-shadow: 0 0 22px rgba(255,40,40,0.5), inset 0 0 18px rgba(255,120,120,0.18); clip-path: polygon(0 10px, 10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px)); text-align: center; font-size: 15px; font-weight: 700; text-transform: uppercase; text-shadow: 0 0 10px rgba(255,70,70,0.95); pointer-events: none; }
 :root {
     --hud-accent: #53b4ff;
     --hud-accent-strong: #0088ff;
@@ -100,6 +101,8 @@ body[data-theme="crossfire"] {
 .scanner-actions { pointer-events: auto; display: flex; justify-content: flex-end; margin-bottom: 6px; }
 .hud-action-btn { min-width: 118px; height: 28px; padding: 0 10px; background: rgba(0,34,58,0.82); border: 1px solid color-mix(in srgb, var(--hud-accent) 76%, transparent); color: var(--hud-accent-soft); cursor: pointer; font-family: 'Courier New', monospace; font-size: 11px; }
 .hud-action-btn:hover { border-color: var(--hud-highlight); color: var(--hud-highlight-soft); background: var(--hud-highlight-bg); }
+.hud-toggle-btn { min-width: 74px; height: 26px; padding: 0 8px; font-size: 10px; }
+.hud-toggle-btn.active { border-color: #66ff99 !important; color: #d8ffe4 !important; background: rgba(0,92,40,0.64) !important; }
 .loadout-consumables { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; margin-top: 7px; }
 .consumable-box { border: 1px solid rgba(70,130,170,0.28); background: rgba(0,18,34,0.55); padding: 6px; color: #d8f7ff; font-size: 12px; }
 
@@ -352,6 +355,7 @@ body[data-theme="crossfire"] .mod-btn.active {
         <canvas id="game-canvas"></canvas>
         
         <div id="hud">
+            <div id="missile-warning" class="hidden">Rakete im Anflug!</div>
             <div id="hud-top">
                 <div id="music-player">
                     <span id="music-label">MUSIC</span>
@@ -443,6 +447,7 @@ body[data-theme="crossfire"] .mod-btn.active {
                         <div class="consumable-box"><span id="label-shield-batteries">Shield Batteries</span> <span id="shield-battery-count">0</span></div>
                         <div class="consumable-box"><span id="label-missile-ammo">Missiles</span> <span id="missile-ammo-count">0</span></div>
                         <div class="consumable-box"><span id="label-mines">Mines</span> <span id="mine-count">0</span></div>
+                        <div class="consumable-box"><span id="label-countermeasures">CM</span> <span id="countermeasure-count">0</span></div>
                     </div>
                 </div>
             </div>
@@ -505,6 +510,7 @@ body[data-theme="crossfire"] .mod-btn.active {
                 <p id="control-nanobots">G / N - Use nanobot</p>
                 <p id="control-batteries">F / B - Use shield battery</p>
                 <p id="control-mines">E - Drop mine</p>
+                <p id="control-countermeasures">C - Drop countermeasure</p>
                 <p id="control-zoom">Mouse Wheel - Zoom</p>
             </div>
         </div>
@@ -955,12 +961,12 @@ const I18N = {
         startGame: 'SPIEL STARTEN', continueGame: 'WEITER', startNew: 'NEUES SPIEL', startDelete: 'SAVE LOESCHEN', saveNamePlaceholder: 'Name fuer neues Savegame', mainMenuLanguage: 'SPRACHE',
         startControls: 'Steuerung', controlRotate: 'Linke Maustaste halten - Schiff drehen', controlCursor: 'Linke Maustaste loslassen - Cursor-Modus', controlFire: 'Rechte Maustaste - Primärwaffen | Q - Raketen',
         controlSelect: 'Objekt anklicken - Ziel auswählen', controlThrottleUp: 'W - Schub erhöhen', controlThrottleDown: 'S - Schub verringern / Reiseflug abbrechen', controlReverse: 'X - Rückwärtsschub', controlAfterburner: 'Tab - Nachbrenner halten', controlMines: 'E - Mine abwerfen',
-        controlDock: 'D - Schiff driftet nach rechts', controlApproach: 'A - Schiff driftet nach links', controlMap: 'M - Karte umschalten', controlNanobots: 'G / N - Nanobot benutzen', controlBatteries: 'F / B - Schildbatterie benutzen', controlZoom: 'Mausrad - Zoom',
+        controlDock: 'D - Schiff driftet nach rechts', controlApproach: 'A - Schiff driftet nach links', controlMap: 'M - Karte umschalten', controlNanobots: 'G / N - Nanobot benutzen', controlBatteries: 'F / B - Schildbatterie benutzen', controlCountermeasures: 'C - Gegenmaßnahme abwerfen', controlZoom: 'Mausrad - Zoom',
         noSaveForMod: 'Kein Savegame fuer diesen Mod vorhanden', separateSaves: 'Vanilla DE, Vanilla EN und Crossfire haben getrennte Spielstaende',
         noSavedGameFound: 'Kein gespeicherter Spielstand gefunden.', savegameLabel: 'Spielstand', activeLabel: 'AKTIV', loadLabel: 'LADEN', unknownDate: 'unbekannt',
         maxSavesReached: 'Maximal 5 Savegames. Bitte zuerst einen Spielstand loeschen.', deleteSaveConfirm: 'Savegame "{name}" loeschen?', modDataMissing: '{mod}-Daten nicht gefunden. Starte mit Vanilla DE.',
         hudHull: 'HÜLLE', hudShield: 'SCHILD', hudEnergy: 'ENERGIE', loadoutTitle: 'WAFFEN', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Schildbatterien',
-        ammoTab: 'Ammo', missileAmmo: 'Raketen', mines: 'Minen', mineAmmoCount: 'Minen: {count}/{max}', mineDropped: 'Mine abgeworfen.', mineAmmoEmpty: 'Keine Minen uebrig.', mineAmmoFull: 'Minenlager voll.', mineDropperMissing: 'Kein Minenwerfer montiert.', mineDropLocked: 'Minen nur bei Kampfgeschwindigkeit bis 80 m/s, nicht in Cruise, Tradelane oder Sprung.', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
+        ammoTab: 'Ammo', missileAmmo: 'Raketen', mines: 'Minen', countermeasures: 'Gegenmaßnahmen', countermeasureAmmoCount: 'Gegenmaßnahmen: {count}', countermeasureDropped: 'Gegenmaßnahme abgeworfen.', countermeasureAmmoEmpty: 'Keine Gegenmaßnahmen uebrig.', countermeasureDropperMissing: 'Kein Gegenmaßnahmen-Werfer montiert.', countermeasureDropLocked: 'Gegenmaßnahmen nicht beim Andocken, in Tradelanes oder Sprüngen nutzbar.', countermeasureAutoOn: 'AUTO AN', countermeasureAutoOff: 'AUTO AUS', missileIncoming: 'Rakete im Anflug!', mineAmmoCount: 'Minen: {count}/{max}', mineDropped: 'Mine abgeworfen.', mineAmmoEmpty: 'Keine Minen uebrig.', mineAmmoFull: 'Minenlager voll.', mineDropperMissing: 'Kein Minenwerfer montiert.', mineDropLocked: 'Minen nur bei Kampfgeschwindigkeit bis 80 m/s, nicht in Cruise, Tradelane oder Sprung.', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
         selected: 'Ausgewählt', distance: 'Distanz', clearSelection: '[-] Ziel/WP', selectionCleared: 'Zielauswahl geloescht.', waypointFromSelection: 'WP AUS AUSWAHL', noWaypointSelection: 'Kein geeignetes Objekt ausgewaehlt.', clearWaypoint: 'Wegpunkt loeschen', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
         scannerNone: 'Keine Schiffe oder Stationen in Reichweite.', noWeaponSlots: 'Keine Waffen-Slots vorhanden.', emptyWeapon: 'Leer', noGunMounted: 'Keine Waffe montiert',
         scannerShip: 'Schiff', scannerPlanet: 'Planet', scannerJumpGate: 'Sprungtor', scannerJumpHole: 'Sprungloch', scannerTradeLane: 'Tradelane', scannerStation: 'Station', scannerWaypoint: 'Wegpunkt', scannerObject: 'Objekt', weaponSlot: 'Waffe',
@@ -979,12 +985,12 @@ const I18N = {
         startGame: 'START GAME', continueGame: 'CONTINUE', startNew: 'NEW GAME', startDelete: 'DELETE SAVE', saveNamePlaceholder: 'Name for new savegame', mainMenuLanguage: 'LANGUAGE',
         startControls: 'Controls', controlRotate: 'Left Mouse (hold) - Rotate ship', controlCursor: 'Left Mouse (release) - Cursor mode', controlFire: 'Right Mouse - Primary fire | Q - Missiles',
         controlSelect: 'Click object - Select target', controlThrottleUp: 'W - Increase throttle', controlThrottleDown: 'S - Reduce throttle / cancel cruise', controlReverse: 'X - Reverse thrust', controlAfterburner: 'Tab - Hold afterburner', controlMines: 'E - Drop mine',
-        controlDock: 'D - Drift ship right', controlApproach: 'A - Drift ship left', controlMap: 'M - Toggle map', controlNanobots: 'G / N - Use nanobot', controlBatteries: 'F / B - Use shield battery', controlZoom: 'Mouse Wheel - Zoom',
+        controlDock: 'D - Drift ship right', controlApproach: 'A - Drift ship left', controlMap: 'M - Toggle map', controlNanobots: 'G / N - Use nanobot', controlBatteries: 'F / B - Use shield battery', controlCountermeasures: 'C - Drop countermeasure', controlZoom: 'Mouse Wheel - Zoom',
         noSaveForMod: 'No savegame exists for this mod yet', separateSaves: 'Vanilla DE, Vanilla EN, and Crossfire use separate save slots',
         noSavedGameFound: 'No saved game found.', savegameLabel: 'Savegame', activeLabel: 'ACTIVE', loadLabel: 'LOAD', unknownDate: 'unknown',
         maxSavesReached: 'Maximum of 5 savegames. Delete one first.', deleteSaveConfirm: 'Delete savegame "{name}"?', modDataMissing: '{mod} data not found. Starting with Vanilla DE.',
         hudHull: 'HULL', hudShield: 'SHIELD', hudEnergy: 'ENERGY', loadoutTitle: 'WEAPONS', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Shield Batteries',
-        ammoTab: 'Ammo', missileAmmo: 'Missiles', mines: 'Mines', mineAmmoCount: 'Mines: {count}/{max}', mineDropped: 'Mine dropped.', mineAmmoEmpty: 'No mines left.', mineAmmoFull: 'Mine bay full.', mineDropperMissing: 'No mine dropper mounted.', mineDropLocked: 'Mines only at combat speed up to 80 m/s, not in cruise, trade lane, or jump.', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
+        ammoTab: 'Ammo', missileAmmo: 'Missiles', mines: 'Mines', countermeasures: 'Countermeasures', countermeasureAmmoCount: 'Countermeasures: {count}', countermeasureDropped: 'Countermeasure dropped.', countermeasureAmmoEmpty: 'No countermeasures left.', countermeasureDropperMissing: 'No countermeasure dropper mounted.', countermeasureDropLocked: 'Countermeasures cannot be used while docked, in trade lanes, or during jumps.', countermeasureAutoOn: 'AUTO ON', countermeasureAutoOff: 'AUTO OFF', missileIncoming: 'Incoming missile!', mineAmmoCount: 'Mines: {count}/{max}', mineDropped: 'Mine dropped.', mineAmmoEmpty: 'No mines left.', mineAmmoFull: 'Mine bay full.', mineDropperMissing: 'No mine dropper mounted.', mineDropLocked: 'Mines only at combat speed up to 80 m/s, not in cruise, trade lane, or jump.', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
         selected: 'Selected', distance: 'Distance', clearSelection: '[-] Clear', selectionCleared: 'Selection cleared.', waypointFromSelection: 'WP FROM SELECTION', noWaypointSelection: 'No suitable object selected.', clearWaypoint: 'Clear waypoint', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
         scannerNone: 'No ships or stations in range.', noWeaponSlots: 'No weapon slots available.', emptyWeapon: 'Empty', noGunMounted: 'No weapon mounted',
         scannerShip: 'Ship', scannerPlanet: 'Planet', scannerJumpGate: 'Jump Gate', scannerJumpHole: 'Jump Hole', scannerTradeLane: 'Trade Lane', scannerStation: 'Station', scannerWaypoint: 'Waypoint', scannerObject: 'Object', weaponSlot: 'Weapon',
@@ -1145,6 +1151,7 @@ function equipmentMountType(item) {
     const name = String(item?.name || '').toLowerCase();
     const category = String(item?.category || '').toLowerCase();
     if (category === 'mine' && item?.combinable) return 'mine ammo';
+    if (category === 'countermeasure' && item?.combinable) return 'countermeasure ammo';
     if (category === 'weapon') return 'weapon';
     if (category === 'turret') return 'turret';
     if (category === 'shield') return 'shield';
@@ -1568,6 +1575,105 @@ function mineStatsFromEquipment(item) {
         radius: Math.max(6, Math.min(18, Number(ammo?.explosionRadius || 12) * 0.75)),
         turnRate: Math.max(0.3, Number(ammo?.maxAngularVelocity) || 0.85)
     };
+}
+
+function isCountermeasureDropper(item) {
+    return String(item?.category || '').toLowerCase() === 'countermeasure' && !item?.combinable && Boolean(item?.projectileArchetype);
+}
+
+function isCountermeasureAmmo(item) {
+    return String(item?.category || '').toLowerCase() === 'countermeasure' && Boolean(item?.combinable);
+}
+
+function equippedCountermeasureDropperItem() {
+    const item = mountedEquipmentItem('countermeasure');
+    return isCountermeasureDropper(item) ? item : null;
+}
+
+function countermeasureAmmoItemId(item) {
+    if (!isCountermeasureDropper(item)) return '';
+    return String(item?.projectileArchetype || '').toLowerCase();
+}
+
+function countermeasureAmmoInventoryEntries() {
+    return (game.player?.equipmentInventory || []).filter(entry => isCountermeasureAmmo(getEquipment(entry.id)));
+}
+
+function totalCountermeasureAmmoCount() {
+    return countermeasureAmmoInventoryEntries().reduce((sum, entry) => sum + Math.max(0, Number(entry.quantity) || 0), 0);
+}
+
+function countermeasureAmmoCount(itemOrAmmoId) {
+    const ammoId = typeof itemOrAmmoId === 'string' ? String(itemOrAmmoId || '').toLowerCase() : countermeasureAmmoItemId(itemOrAmmoId);
+    if (!ammoId) return 0;
+    return Math.max(0, Number(findEquipmentItem(ammoId)?.quantity) || 0);
+}
+
+function consumeCountermeasureAmmo(item) {
+    const ammoId = countermeasureAmmoItemId(item);
+    if (!ammoId) return false;
+    const inv = findEquipmentItem(ammoId);
+    if (!inv || (Number(inv.quantity) || 0) <= 0) return false;
+    inv.quantity = Math.max(0, (Number(inv.quantity) || 0) - 1);
+    game.player.equipmentInventory = (game.player.equipmentInventory || []).filter(entry => (Number(entry.quantity) || 0) > 0);
+    return true;
+}
+
+function countermeasureStatsFromEquipment(item) {
+    const ammo = getEquipment(countermeasureAmmoItemId(item));
+    return {
+        name: ammo?.name || item?.name || t('countermeasures'),
+        cooldown: Math.max(0.1, Number(item?.refireDelay) || 0.25),
+        speed: Math.max(1, Number(item?.muzzleVelocity) || 10),
+        lifetime: Math.max(0.5, Number(ammo?.projectileLifetime || ammo?.lifetime) || COUNTERMEASURE_LIFETIME),
+        range: Math.max(100, Number(ammo?.countermeasureRange || ammo?.range) || COUNTERMEASURE_RANGE),
+        diversionChance: clamp((Number(ammo?.diversionPctg || ammo?.diversionPercent) || (COUNTERMEASURE_DIVERSION * 100)) / 100, 0, 1),
+        linearDrag: Math.max(0, Number(ammo?.linearDrag) || 0)
+    };
+}
+
+function countermeasureTargetById(id) {
+    if (!id) return null;
+    return game.projectiles.find(projectile => projectile.type === 'countermeasure' && projectile.id === id && projectile.lifetime > 0) || null;
+}
+
+function tryDivertMissileWithCountermeasure(missile, countermeasure) {
+    if (!missile || !countermeasure || missile.owner === 'player' || !missile.homing || missile.targetId !== 'player') return false;
+    const dx = countermeasure.x - missile.x;
+    const dz = countermeasure.z - missile.z;
+    if (Math.hypot(dx, dz) > (countermeasure.range || COUNTERMEASURE_RANGE)) return false;
+    missile.countermeasureChecks = missile.countermeasureChecks || {};
+    if (missile.countermeasureChecks[countermeasure.id]) return false;
+    missile.countermeasureChecks[countermeasure.id] = true;
+    if (Math.random() > (countermeasure.diversionChance ?? COUNTERMEASURE_DIVERSION)) return false;
+    missile.targetId = countermeasure.id;
+    missile.trailColor = missile.trailColor || 'rgba(255,180,60,0.55)';
+    return true;
+}
+
+function divertIncomingMissiles(countermeasure) {
+    let diverted = 0;
+    for (const projectile of game.projectiles) {
+        if (projectile === countermeasure) continue;
+        if (tryDivertMissileWithCountermeasure(projectile, countermeasure)) diverted += 1;
+    }
+    return diverted;
+}
+
+function isIncomingPlayerMissile(projectile) {
+    return Boolean(projectile
+        && projectile.owner !== 'player'
+        && projectile.homing
+        && projectile.targetId === 'player'
+        && projectile.lifetime > 0);
+}
+
+function incomingPlayerMissiles() {
+    return (game.projectiles || []).filter(isIncomingPlayerMissile);
+}
+
+function hasIncomingPlayerMissile() {
+    return incomingPlayerMissiles().length > 0;
 }
 
 function safeDomId(value) {
@@ -2481,13 +2587,17 @@ function applyLanguage() {
     if (batteryLabel) batteryLabel.textContent = t('labelShieldBatteries');
     const mineLabel = document.getElementById('label-mines');
     if (mineLabel) mineLabel.textContent = t('mines');
+    const countermeasureLabel = document.getElementById('label-countermeasures');
+    if (countermeasureLabel) countermeasureLabel.textContent = t('countermeasures');
+    const missileWarning = document.getElementById('missile-warning');
+    if (missileWarning) missileWarning.textContent = t('missileIncoming');
     const controlsTitle = document.getElementById('controls-title');
     if (controlsTitle) controlsTitle.textContent = t('startControls');
     const startControls = [
         ['control-rotate', 'controlRotate'], ['control-cursor', 'controlCursor'], ['control-fire', 'controlFire'], ['control-select', 'controlSelect'],
         ['control-throttle-up', 'controlThrottleUp'], ['control-throttle-down', 'controlThrottleDown'], ['control-reverse', 'controlReverse'], ['control-afterburner', 'controlAfterburner'],
         ['control-dock', 'controlDock'], ['control-approach', 'controlApproach'], ['control-map', 'controlMap'], ['control-nanobots', 'controlNanobots'], ['control-mines', 'controlMines'],
-        ['control-batteries', 'controlBatteries'], ['control-zoom', 'controlZoom']
+        ['control-countermeasures', 'controlCountermeasures'], ['control-batteries', 'controlBatteries'], ['control-zoom', 'controlZoom']
     ];
     for (const [id, key] of startControls) {
         const el = document.getElementById(id);
@@ -2552,6 +2662,9 @@ const MINE_SPEED = 34;
 const MINE_LIFETIME = 36;
 const MINE_SEEK_RANGE = 5200;
 const MINE_DAMAGE = 420;
+const COUNTERMEASURE_LIFETIME = 3;
+const COUNTERMEASURE_RANGE = 1000;
+const COUNTERMEASURE_DIVERSION = 0.7;
 const CRUISE_CHARGE_SECONDS = 5;
 const NORMAL_FLIGHT_EXIT_SPEED = COMBAT_MAX_SPEED;
 const TRADE_LANE_ACCELERATION = 1250;
@@ -3016,6 +3129,7 @@ function createSaveGameState() {
             nanobots: game.player.nanobots,
             shieldBatteries: game.player.shieldBatteries,
             mineAmmo: game.player.mineAmmo,
+            countermeasureAutoEnabled: game.player.countermeasureAutoEnabled,
             shipPackageId: game.player.shipPackageId,
             faction: game.player.faction,
             reputations: game.player.reputations
@@ -3090,6 +3204,7 @@ function restorePlayerFromSave(save) {
     game.player.nanobots = Number.isFinite(savedPlayer.nanobots) ? savedPlayer.nanobots : game.player.nanobots;
     game.player.shieldBatteries = Number.isFinite(savedPlayer.shieldBatteries) ? savedPlayer.shieldBatteries : game.player.shieldBatteries;
     game.player.mineAmmo = Number.isFinite(savedPlayer.mineAmmo) ? clamp(savedPlayer.mineAmmo, 0, game.player.maxMineAmmo || MAX_MINE_AMMO) : game.player.mineAmmo;
+    game.player.countermeasureAutoEnabled = typeof savedPlayer.countermeasureAutoEnabled === 'boolean' ? savedPlayer.countermeasureAutoEnabled : game.player.countermeasureAutoEnabled;
     game.player.faction = normalizeFactionId(savedPlayer.faction || game.player.faction || 'li_n_grp');
     game.player.reputations = savedPlayer.reputations && typeof savedPlayer.reputations === 'object' ? { ...savedPlayer.reputations } : null;
     if (!game.player.reputations) initializePlayerReputations(game.player.faction);
@@ -4521,9 +4636,11 @@ class PlayerShip {
         this.maxMissileAmmo = 50;
         this.mineAmmo = MAX_MINE_AMMO;
         this.maxMineAmmo = MAX_MINE_AMMO;
+        this.countermeasureAutoEnabled = true;
         this.primaryCooldown = 0;
         this.missileCooldown = 0;
         this.mineCooldown = 0;
+        this.countermeasureCooldown = 0;
         this.radius = 20;
         this.inTradeLane = false; this.laneSpeed = 2500;
         this.laneRoute = null; this.laneIndex = 0; this.laneDirection = 1;
@@ -4745,6 +4862,10 @@ class PlayerShip {
         if (this.primaryCooldown > 0) this.primaryCooldown -= dt;
         if (this.missileCooldown > 0) this.missileCooldown -= dt;
         if (this.mineCooldown > 0) this.mineCooldown -= dt;
+        if (this.countermeasureCooldown > 0) this.countermeasureCooldown -= dt;
+        if (this.countermeasureAutoEnabled && this.countermeasureCooldown <= 0 && hasIncomingPlayerMissile()) {
+            this.dropCountermeasure({ automatic: true });
+        }
         
         // Fire (right mouse held)
         if (!this.inTradeLane && !this.cruiseActive && !this.cruiseCharging && this.fireHeld && this.primaryCooldown <= 0 && this.energy >= 5) {
@@ -4925,6 +5046,61 @@ class PlayerShip {
         addLog(t('mineDropped') + ' ' + mine.name);
         playTone(180, 0.12, 'sawtooth', 0.34, 90);
         saveGame();
+        updateHUD();
+        return true;
+    }
+
+    canDropCountermeasure() {
+        return !game.isDocked
+            && !game.jumpTransition
+            && !this.inTradeLane
+            && this.countermeasureCooldown <= 0;
+    }
+
+    dropCountermeasure(options = {}) {
+        const automatic = Boolean(options.automatic);
+        if (!this.canDropCountermeasure()) {
+            if (!automatic) addLog(t('countermeasureDropLocked'), 'alert');
+            return false;
+        }
+        const dropper = equippedCountermeasureDropperItem();
+        if (!dropper) {
+            if (!automatic) addLog(t('countermeasureDropperMissing'), 'alert');
+            return false;
+        }
+        if (countermeasureAmmoCount(dropper) <= 0) {
+            if (!automatic) addLog(t('countermeasureAmmoEmpty'), 'alert');
+            return false;
+        }
+        const cm = countermeasureStatsFromEquipment(dropper);
+        consumeCountermeasureAmmo(dropper);
+        this.countermeasureCooldown = cm.cooldown;
+        const backAngle = this.rotation + Math.PI;
+        const carrySpeed = Math.min(Math.max(Number(this.speed) || 0, -40), this.cruiseActive ? this.cruiseSpeed : 180);
+        const countermeasure = {
+            id: 'countermeasure_' + Math.round(performance.now() * 1000) + '_' + Math.floor(Math.random() * 10000),
+            x: this.x + Math.cos(backAngle) * 44,
+            z: this.z + Math.sin(backAngle) * 44,
+            vx: Math.cos(backAngle) * cm.speed + Math.cos(this.rotation) * carrySpeed * 0.24,
+            vz: Math.sin(backAngle) * cm.speed + Math.sin(this.rotation) * carrySpeed * 0.24,
+            damage: 0,
+            radius: 7,
+            lifetime: cm.lifetime,
+            owner: 'player',
+            type: 'countermeasure',
+            color: '#b7f6ff',
+            trailColor: 'rgba(150,230,255,0.34)',
+            homing: false,
+            targetId: '',
+            range: cm.range,
+            diversionChance: cm.diversionChance,
+            linearDrag: cm.linearDrag
+        };
+        game.projectiles.push(countermeasure);
+        const diverted = divertIncomingMissiles(countermeasure);
+        if (!automatic || diverted) addLog(t('countermeasureDropped') + (diverted ? ` ${diverted}` : ''));
+        playTone(640, 0.08, 'triangle', 0.22, 240);
+        if (!automatic) saveGame();
         updateHUD();
         return true;
     }
@@ -6304,7 +6480,7 @@ function setupMusicPlayer() {
 
 function combatMusicActive() {
     if (!game.running || game.isDocked || !game.player) return false;
-    if (game.projectiles.some(p => p.targetId === 'player')) return true;
+    if (hasIncomingPlayerMissile()) return true;
     return game.npcs.some(npc => {
         if (!npc || npc.hull <= 0) return false;
         const distance = Math.hypot(npc.x - game.player.x, npc.z - game.player.z);
@@ -7095,10 +7271,19 @@ function update(dt) {
                 p.targetId = best?.npc?.id || '';
             }
         }
+        if (p.type === 'countermeasure') {
+            divertIncomingMissiles(p);
+            const drag = Math.max(0, Number(p.linearDrag) || 0);
+            if (drag > 0) {
+                const dragFactor = Math.max(0, 1 - drag * dt);
+                p.vx *= dragFactor;
+                p.vz *= dragFactor;
+            }
+        }
         if (p.homing && p.targetId) {
             const target = p.targetId === 'player'
                 ? game.player
-                : game.npcs.find(npc => npc.id === p.targetId) || game.entities.find(entity => entity.id === p.targetId) || null;
+                : countermeasureTargetById(p.targetId) || game.npcs.find(npc => npc.id === p.targetId) || game.entities.find(entity => entity.id === p.targetId) || null;
             if (target && Number.isFinite(target.x) && Number.isFinite(target.z)) {
                 const dx = target.x - p.x;
                 const dz = target.z - p.z;
@@ -7130,6 +7315,12 @@ function update(dt) {
                 game.player.takeDamage(p.damage);
                 p.lifetime = 0;
             } else if (p.targetId && p.targetId !== 'player') {
+                const countermeasure = countermeasureTargetById(p.targetId);
+                if (countermeasure && Math.hypot(countermeasure.x - p.x, countermeasure.z - p.z) < countermeasure.radius + hitRadius) {
+                    countermeasure.lifetime = 0;
+                    p.lifetime = 0;
+                    continue;
+                }
                 const targetNpc = game.npcs.find(npc => npc.id === p.targetId);
                 if (armed && targetNpc && Math.hypot(targetNpc.x - p.x, targetNpc.z - p.z) < targetNpc.radius + hitRadius) {
                     damageNpc(targetNpc, p.damage, game.npcs.find(npc => npc.id === p.ownerId) || null);
@@ -7137,6 +7328,10 @@ function update(dt) {
                 }
             }
         } else {
+            if (p.type === 'countermeasure') {
+                if (p.lifetime <= 0) game.projectiles.splice(i, 1);
+                continue;
+            }
             const hitRadius = Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0);
             const armed = p.type !== 'mine' || p.age >= (p.armedAfter || 0);
             for (const npc of game.npcs) {
@@ -7299,28 +7494,45 @@ function updateLoadoutPanel() {
     if (!list || !game.player) return;
     const weaponSlots = getWeaponSlotKeys();
     const mountedWeapons = weaponSlots.map(slot => ({ slot, item: mountedEquipmentItem(slot) }));
+    const countermeasureDropper = equippedCountermeasureDropperItem();
     const mountedCount = mountedWeapons.filter(entry => entry.item).length;
     const weaponCount = document.getElementById('weapon-count');
     if (weaponCount) weaponCount.textContent = mountedCount + '/' + weaponSlots.length;
-    list.innerHTML = mountedWeapons.length ? mountedWeapons.map(entry => {
+    const rows = mountedWeapons.map(entry => {
         const item = entry.item;
         const damage = item ? Math.round(Number(item.hullDamage || 0) + Number(item.energyDamage || 0)) : 0;
         const label = item ? escapeHtml(item.name || item.id) : escapeHtml(t('emptyWeapon'));
         const meta = item ? `${escapeHtml(item.category || 'weapon')} ${damage ? '| ' + damage + ' dmg' : ''}` : escapeHtml(t('noGunMounted'));
         return `<div class="hud-row"><span class="hud-kind">✦</span><span>${label}<br><span style="color:#7299aa;">${meta}</span></span><span class="hud-distance">${escapeHtml(equipmentSlotLabel(entry.slot))}</span></div>`;
-    }).join('') : `<div class="hud-row-muted">${escapeHtml(t('noWeaponSlots'))}</div>`;
+    });
+    if (countermeasureDropper) {
+        const autoEnabled = game.player.countermeasureAutoEnabled !== false;
+        rows.push(`<div class="hud-row"><span class="hud-kind">CM</span><span>${escapeHtml(countermeasureDropper.name || t('countermeasures'))}<br><span style="color:#7299aa;">${escapeHtml(t('countermeasures'))} ${totalCountermeasureAmmoCount()}</span></span><button type="button" class="hud-action-btn hud-toggle-btn${autoEnabled ? ' active' : ''}" onclick="toggleCountermeasureAuto()">${escapeHtml(autoEnabled ? t('countermeasureAutoOn') : t('countermeasureAutoOff'))}</button></div>`);
+    }
+    list.innerHTML = rows.length ? rows.join('') : `<div class="hud-row-muted">${escapeHtml(t('noWeaponSlots'))}</div>`;
     const nanobots = document.getElementById('nanobot-count');
     const batteries = document.getElementById('shield-battery-count');
     const missileAmmo = document.getElementById('missile-ammo-count');
     const missileAmmoLabel = document.getElementById('label-missile-ammo');
     const mines = document.getElementById('mine-count');
     const mineLabel = document.getElementById('label-mines');
+    const countermeasures = document.getElementById('countermeasure-count');
+    const countermeasureLabel = document.getElementById('label-countermeasures');
     if (nanobots) nanobots.textContent = `${game.player.nanobots}/${game.player.maxNanobots}`;
     if (batteries) batteries.textContent = `${game.player.shieldBatteries}/${game.player.maxShieldBatteries}`;
     if (missileAmmo) missileAmmo.textContent = `${totalMissileAmmoCount()}/${game.player.maxMissileAmmo}`;
     if (missileAmmoLabel) missileAmmoLabel.textContent = t('missileAmmo');
     if (mines) mines.textContent = `${totalMineAmmoCount()}/${game.player.maxMineAmmo}`;
     if (mineLabel) mineLabel.textContent = t('mines');
+    if (countermeasures) countermeasures.textContent = `${totalCountermeasureAmmoCount()}`;
+    if (countermeasureLabel) countermeasureLabel.textContent = t('countermeasures');
+}
+
+function toggleCountermeasureAuto() {
+    if (!game.player) return;
+    game.player.countermeasureAutoEnabled = game.player.countermeasureAutoEnabled === false;
+    saveGame();
+    updateLoadoutPanel();
 }
 
 function isSpeedSliderLocked() {
@@ -7393,6 +7605,7 @@ function updateHUD() {
     updateCommandModeButtons();
     updateScannerPanel();
     updateLoadoutPanel();
+    updateMissileWarning();
     if (!document.getElementById('inventory-overlay')?.classList.contains('hidden')) renderInventoryPanel();
     
     // Mode indicator
@@ -7545,6 +7758,27 @@ function render() {
             ctx.stroke();
             ctx.beginPath();
             ctx.arc(pos.x, pos.y, Math.max(2, p.radius * 0.45 * game.zoom), 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+            continue;
+        }
+        if (p.type === 'countermeasure') {
+            const pulse = (Math.sin((p.age || 0) * 16) + 1) * 0.5;
+            ctx.save();
+            ctx.globalCompositeOperation = 'lighter';
+            ctx.strokeStyle = 'rgba(170,245,255,0.54)';
+            ctx.fillStyle = p.color || '#b7f6ff';
+            ctx.lineWidth = Math.max(1, game.zoom * 1.6);
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, Math.max(3, (p.radius + pulse * 3) * game.zoom), 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.globalAlpha = 0.42;
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, Math.max(8, Math.min(30, (p.range || COUNTERMEASURE_RANGE) * 0.018 * game.zoom)), 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.globalAlpha = 0.95;
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, Math.max(2, p.radius * 0.42 * game.zoom), 0, Math.PI * 2);
             ctx.fill();
             ctx.restore();
             continue;
@@ -7866,6 +8100,9 @@ function setupInput() {
             case 'KeyE':
                 game.player.dropMine();
                 break;
+            case 'KeyC':
+                game.player.dropCountermeasure();
+                break;
             case 'Tab':
                 e.preventDefault();
                 if (canUseAfterburner()) {
@@ -7908,7 +8145,7 @@ function setupInput() {
         updateSpeedControl();
     });
 
-    addLog('W/S: throttle | A/D: drift left/right | Q: missiles | E: mine | M: map');
+    addLog('W/S: throttle | A/D: drift left/right | Q: missiles | E: mine | C: countermeasure | M: map');
     
     // Continuous fire while right mouse held
     setInterval(() => {
@@ -8960,6 +9197,7 @@ function renderInventoryPanel() {
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('labelNanobots'))}</strong>${p.nanobots}/${p.maxNanobots}</div>`;
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('labelShieldBatteries'))}</strong>${p.shieldBatteries}/${p.maxShieldBatteries}</div>`;
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('missileAmmo'))}</strong>${totalMissileAmmoCount()}/${p.maxMissileAmmo}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('countermeasures'))}</strong>${totalCountermeasureAmmoCount()}</div>`;
     html += '</div>';
 
     html += `<div class="inventory-section"><div class="inventory-section-title">${escapeHtml(t('cargo'))}</div>`;
@@ -9175,6 +9413,13 @@ function equipmentSlot(itemOrCategory) {
     return firstAvailableSlot(itemOrCategory);
 }
 
+function updateMissileWarning() {
+    const warning = document.getElementById('missile-warning');
+    if (!warning) return;
+    warning.textContent = t('missileIncoming');
+    warning.classList.toggle('hidden', !hasIncomingPlayerMissile());
+}
+
 function isFixedEquipmentItem(item) {
     const mountType = equipmentMountType(item);
     return mountType === 'powerplant' || mountType === 'engine';
@@ -9377,7 +9622,7 @@ function renderEquipmentDealer() {
     const inventory = game.player.equipmentInventory || [];
     const repairCost = shipRepairCost();
     const dealerTab = game.equipmentDealerTab || 'equipment';
-    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Thrust: ${Math.round(game.player.thrustEnergy || 0).toLocaleString()}/${Math.round(game.player.thrustCapacity || 0).toLocaleString()} / +${Math.round(game.player.thrustChargeRate || 0).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span><span>${tf('missileAmmoCount', { count: totalMissileAmmoCount(), max: game.player.maxMissileAmmo })}</span><span>${tf('mineAmmoCount', { count: totalMineAmmoCount(), max: game.player.maxMineAmmo })}</span></div>`;
+    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Thrust: ${Math.round(game.player.thrustEnergy || 0).toLocaleString()}/${Math.round(game.player.thrustCapacity || 0).toLocaleString()} / +${Math.round(game.player.thrustChargeRate || 0).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span><span>${tf('missileAmmoCount', { count: totalMissileAmmoCount(), max: game.player.maxMissileAmmo })}</span><span>${tf('mineAmmoCount', { count: totalMineAmmoCount(), max: game.player.maxMineAmmo })}</span><span>${tf('countermeasureAmmoCount', { count: totalCountermeasureAmmoCount() })}</span></div>`;
     html += `<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;padding:8px;border:1px solid #24445c;background:#07141f;"><span style="color:#b9efff;">Ship repair: ${repairCost > 0 ? repairCost.toLocaleString() + ' CR' : 'no damage'}</span><button class="trade-button" onclick="repairPlayerShip()" ${repairCost > 0 && game.player.credits >= repairCost ? '' : 'disabled'}>REPAIR</button></div>`;
     if (!market.length) {
         html += `<div style="color:#ffaa00;">${t('noEquipment')}</div>`;
@@ -9415,11 +9660,11 @@ function renderEquipmentDealer() {
     const marketEntries = dealerTab === 'ammo'
         ? market.filter(entry => {
             const item = getEquipment(entry.id);
-            return item && ((String(item.category || '').toLowerCase() === 'missile' && item.combinable) || isMineAmmo(item));
+            return item && ((String(item.category || '').toLowerCase() === 'missile' && item.combinable) || isMineAmmo(item) || isCountermeasureAmmo(item));
         })
         : market.filter(entry => {
             const item = getEquipment(entry.id);
-            return item && !(String(item.category || '').toLowerCase() === 'missile' && item.combinable) && !isMineAmmo(item);
+            return item && !(String(item.category || '').toLowerCase() === 'missile' && item.combinable) && !isMineAmmo(item) && !isCountermeasureAmmo(item);
         });
     html += '<table class="trade-table"><tr><th>Item</th><th>Type</th><th>Class</th><th>Power</th><th>Damage</th><th>Price</th><th>Stock</th><th>Owned</th><th></th></tr>';
     for (const entry of marketEntries.slice(0, 120)) {

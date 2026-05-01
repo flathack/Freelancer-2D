@@ -165,14 +165,14 @@ def enrich_from_equipment_files(equipment: dict[str, dict]) -> dict[str, dict]:
         munitions: dict[str, dict] = {}
         for section, props in sections:
             section_name = section.lower()
-            if section_name not in {"munition", "mine"}:
+            if section_name not in {"munition", "mine", "countermeasure"}:
                 continue
             nickname = first(props, "nickname").lower()
             if not nickname:
                 continue
             explosion_arch = first(props, "explosion_arch").lower()
             motor = first(props, "motor").lower()
-            munitions[nickname] = {
+            munition = {
                 "hullDamage": to_float(first(props, "hull_damage"), 0),
                 "energyDamage": to_float(first(props, "energy_damage"), 0),
                 "weaponType": first(props, "weapon_type"),
@@ -195,6 +195,10 @@ def enrich_from_equipment_files(equipment: dict[str, dict]) -> dict[str, dict]:
                 **explosions.get(explosion_arch, {}),
                 **motors.get(motor, {}),
             }
+            if section_name == "countermeasure":
+                munition["countermeasureRange"] = to_float(first(props, "range"), 0)
+                munition["diversionPctg"] = to_float(first(props, "diversion_pctg"), 0)
+            munitions[nickname] = munition
         for section, props in sections:
             if section.lower() == "good":
                 continue
@@ -242,7 +246,7 @@ def enrich_from_equipment_files(equipment: dict[str, dict]) -> dict[str, dict]:
             item["reverseFraction"] = to_float(first(props, "reverse_fraction"), item.get("reverseFraction", 0))
             item["cruiseChargeTime"] = to_float(first(props, "cruise_charge_time"), item.get("cruiseChargeTime", 0))
             item["cruisePowerUsage"] = to_float(first(props, "cruise_power_usage"), item.get("cruisePowerUsage", 0))
-            munition = munitions.get(str(item.get("projectileArchetype", "")).lower())
+            munition = munitions.get(str(item.get("projectileArchetype", "")).lower()) or munitions.get(nickname)
             if munition:
                 item.update(munition)
             if is_mine_dropper_item(item):
