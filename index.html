@@ -841,6 +841,7 @@ const game = {
     stars: [],
     approachTarget: null,
     dockTarget: null,
+    dockLandingTarget: null,
     dockApproachVoicePlayed: false,
     commandMode: 'freeflight',
     obstacles: [],
@@ -2821,6 +2822,7 @@ function startTradeLaneFromRing(ring) {
     game.player.tradeLaneCooldownUntil = 0;
     game.approachTarget = null;
     game.dockTarget = null;
+    game.dockLandingTarget = null;
     const next = ring.laneRings[start.targetIndex];
     if (next) game.player.rotation = Math.atan2(next.z - ring.z, next.x - ring.x);
     addLog('Entered trade lane at ring ' + (ring.index + 1) + ' of ' + ring.laneRings.length);
@@ -2888,6 +2890,7 @@ function clearNavigationSelection() {
     game.selectedTarget = null;
     game.approachTarget = null;
     game.dockTarget = null;
+    game.dockLandingTarget = null;
     addLog(t('selectionCleared'));
     playSound('select', 0.45);
     updateHUD();
@@ -3290,6 +3293,7 @@ function updateSaveHint(save = readSavedGame()) {
 function returnToFreeflight(message = '', options = {}) {
     game.approachTarget = null;
     game.dockTarget = null;
+    game.dockLandingTarget = null;
     game.approachArrivalLogged = false;
     game.dockApproachVoicePlayed = false;
     game.commandMode = 'freeflight';
@@ -3558,27 +3562,32 @@ function startDocking(target) {
         }
         return false;
     }
-    if (game.player && Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z) > 10000) {
+    const docking = resolveDockingTargets(target);
+    const flightTarget = docking.flightTarget;
+    const landingTarget = docking.landingTarget;
+    if (game.player && Math.hypot((flightTarget.x || 0) - game.player.x, (flightTarget.z || 0) - game.player.z) > 10000) {
         playVoice('dockDisallowedTooFar', 1);
         addLog('Docking denied - target is more than 10 km away', 'alert');
         return false;
     }
-    if (!canPlayerDockWithTarget(target)) {
+    if (!canPlayerDockWithTarget(landingTarget) || !canPlayerDockWithTarget(flightTarget)) {
         playVoice('dockDisallowed', 1);
-        addLog(tf('dockingDeniedHostile', { faction: factionDisplayName(targetFaction(target)) }), 'alert');
+        addLog(tf('dockingDeniedHostile', { faction: factionDisplayName(targetFaction(landingTarget)) }), 'alert');
         return false;
     }
-    game.approachTarget = target;
-    game.dockTarget = target;
+    game.approachTarget = flightTarget;
+    game.dockTarget = flightTarget;
+    game.dockLandingTarget = landingTarget;
     game.approachArrivalLogged = false;
     game.dockApproachVoicePlayed = false;
     game.commandMode = 'dock';
     updateCommandModeButtons();
     startAutopilotCruise();
     updateSpeedControl();
-    const destination = target.dest ? ' -> ' + target.dest.toUpperCase() : '';
-    addLog((target instanceof TradeLaneRing ? 'Docking with trade lane: ' : 'Docking at: ') + target.name + destination);
-    playSound('dock', target instanceof TradeLaneRing ? 0.8 : 0.65);
+    const destination = flightTarget.dest ? ' -> ' + flightTarget.dest.toUpperCase() : '';
+    const ringHint = flightTarget !== landingTarget ? ' via ' + flightTarget.name : '';
+    addLog((flightTarget instanceof TradeLaneRing ? 'Docking with trade lane: ' : 'Docking at: ') + landingTarget.name + ringHint + destination);
+    playSound('dock', flightTarget instanceof TradeLaneRing ? 0.8 : 0.65);
     return true;
 }
 
@@ -3601,6 +3610,7 @@ function startJumpTransition(target) {
     };
     game.dockTarget = null;
     game.approachTarget = null;
+    game.dockLandingTarget = null;
     game.player.cancelCruise?.();
     game.player.afterburnerActive = false;
     game.player.reverseActive = false;
@@ -4370,6 +4380,18 @@ function findDockingRingForPlanet(planet) {
         .sort((a, b) => a.distance - b.distance)[0]?.ring || null;
 }
 
+function resolveDockingTargets(target) {
+    if (isPlanetDockTarget(target)) {
+        const dockingRing = findDockingRingForPlanet(target);
+        if (dockingRing) return { flightTarget: dockingRing, landingTarget: target };
+    }
+    if (isDockingRingTarget(target)) {
+        const planet = findPlanetForBase(getBaseId(target));
+        if (planet) return { flightTarget: target, landingTarget: planet };
+    }
+    return { flightTarget: target, landingTarget: target };
+}
+
 function launchPointFromDockTarget(target) {
     if (!target) return null;
     const baseId = getBaseId(target);
@@ -4444,6 +4466,7 @@ function respawnAtLastLanding() {
     game.selectedTarget = target;
     game.approachTarget = null;
     game.dockTarget = null;
+    game.dockLandingTarget = null;
     game.running = true;
     addLog('Respawn at last landing: ' + target.name, 'alert');
     openLandingWindow(target);
@@ -4547,6 +4570,7 @@ function loadSystem(systemId, arrivalObjectId = null) {
     game.selectedTarget = null;
     game.approachTarget = null;
     game.dockTarget = null;
+    game.dockLandingTarget = null;
     game.loot = [];
     game.missionOffers = {};
     game.npcs = previousSystemId === currentSystemId ? game.npcs.filter(npc => !npc.missionId) : [];
@@ -7228,8 +7252,10 @@ function update(dt) {
         const dz = game.dockTarget.z - game.player.z;
         if (Math.sqrt(dx * dx + dz * dz) < 180) {
             const target = game.dockTarget;
+            const landingTarget = game.dockLandingTarget || target;
             game.dockTarget = null;
             game.approachTarget = null;
+            game.dockLandingTarget = null;
             game.player.cancelCruise?.();
             game.player.afterburnerActive = false;
             game.player.reverseActive = false;
@@ -7241,6 +7267,7 @@ function update(dt) {
                 playVoice('dockDisallowed', 1);
                 game.dockTarget = null;
                 game.approachTarget = null;
+                game.dockLandingTarget = null;
                 return;
             }
             if (target instanceof TradeLaneRing) {
@@ -7248,7 +7275,7 @@ function update(dt) {
             } else if (target instanceof JumpGate) {
                 startJumpTransition(target);
             } else {
-                openLandingWindow(target);
+                openLandingWindow(landingTarget);
             }
         }
     }
@@ -7433,6 +7460,7 @@ function startApproachFromScanner(target) {
     game.selectedTarget = target;
     game.approachTarget = target;
     game.dockTarget = null;
+    game.dockLandingTarget = null;
     game.approachArrivalLogged = false;
     game.commandMode = 'approach';
     updateCommandModeButtons();
@@ -9174,6 +9202,7 @@ function setMode(mode) {
             playVoice('goingTo', 1);
             game.approachTarget = game.selectedTarget;
             game.dockTarget = null;
+            game.dockLandingTarget = null;
             game.approachArrivalLogged = false;
             game.commandMode = 'approach';
             updateCommandModeButtons();
