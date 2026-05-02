@@ -1481,7 +1481,7 @@ function missileAmmoItemId(item) {
 function missileAmmoInventoryEntries() {
     return (game.player?.equipmentInventory || []).filter(entry => {
         const item = getEquipment(entry.id);
-        return item && String(item.category || '').toLowerCase() === 'missile' && item.combinable;
+        return item && String(item.category || '').toLowerCase() === 'missile' && item.combinable && ammoFitsAnyMountedLauncher(item);
     });
 }
 
@@ -1535,7 +1535,10 @@ function mineAmmoItemId(item) {
 }
 
 function mineAmmoInventoryEntries() {
-    return (game.player?.equipmentInventory || []).filter(entry => isMineAmmo(getEquipment(entry.id)));
+    return (game.player?.equipmentInventory || []).filter(entry => {
+        const item = getEquipment(entry.id);
+        return isMineAmmo(item) && ammoFitsAnyMountedLauncher(item);
+    });
 }
 
 function totalMineAmmoCount() {
@@ -1597,7 +1600,10 @@ function countermeasureAmmoItemId(item) {
 }
 
 function countermeasureAmmoInventoryEntries() {
-    return (game.player?.equipmentInventory || []).filter(entry => isCountermeasureAmmo(getEquipment(entry.id)));
+    return (game.player?.equipmentInventory || []).filter(entry => {
+        const item = getEquipment(entry.id);
+        return isCountermeasureAmmo(item) && ammoFitsAnyMountedLauncher(item);
+    });
 }
 
 function totalCountermeasureAmmoCount() {
@@ -1631,6 +1637,35 @@ function countermeasureStatsFromEquipment(item) {
         diversionChance: clamp((Number(ammo?.diversionPctg || ammo?.diversionPercent) || (COUNTERMEASURE_DIVERSION * 100)) / 100, 0, 1),
         linearDrag: Math.max(0, Number(ammo?.linearDrag) || 0)
     };
+}
+
+function launcherAmmoItemId(item) {
+    if (isMissileLauncher(item)) return missileAmmoItemId(item);
+    if (isMineDropper(item)) return mineAmmoItemId(item);
+    if (isCountermeasureDropper(item)) return countermeasureAmmoItemId(item);
+    return '';
+}
+
+function ammoFitsLauncher(ammo, launcher) {
+    const ammoId = String(ammo?.id || ammo?.equipmentId || '').toLowerCase();
+    const launcherAmmoId = launcherAmmoItemId(launcher);
+    return Boolean(ammoId && launcherAmmoId && ammoId === launcherAmmoId);
+}
+
+function ammoFitsAnyMountedLauncher(ammo) {
+    if (!ammo || !ammo.combinable) return false;
+    return Object.values(game.player?.mountedEquipment || {}).some(itemId => ammoFitsLauncher(ammo, getEquipment(itemId)));
+}
+
+function isAmmoItem(item) {
+    return Boolean(item?.combinable && (isMineAmmo(item) || isCountermeasureAmmo(item) || String(item?.category || '').toLowerCase() === 'missile'));
+}
+
+function ammoCompatibilityReason(item) {
+    if (!isAmmoItem(item) || ammoFitsAnyMountedLauncher(item)) return '';
+    if (isMineAmmo(item)) return 'No matching mine dropper mounted.';
+    if (isCountermeasureAmmo(item)) return 'No matching countermeasure dropper mounted.';
+    return 'No matching missile launcher mounted.';
 }
 
 function countermeasureTargetById(id) {
@@ -9710,7 +9745,8 @@ function renderEquipmentDealer() {
         const owned = inv ? availableEquipmentQuantity(item.id) : 0;
         const needsShipCompatibility = !item.combinable && categorySlotKeys(item.category).length > 0;
         const compatibility = needsShipCompatibility ? equipmentCompatibility(item) : { ok: true, reason: '' };
-        const canBuy = entry.forSale && game.player.credits >= entry.price && compatibility.ok;
+        const ammoReason = ammoCompatibilityReason(item);
+        const canBuy = entry.forSale && game.player.credits >= entry.price && compatibility.ok && !ammoReason;
         const damageLabel = isMineDropper(item)
             ? `${Math.round(mineStatsFromEquipment(item).damage)}`
             : isMissileLauncher(item)
@@ -9720,11 +9756,12 @@ function renderEquipmentDealer() {
             ? `${Math.round(thrusterPowerUsage(item)).toLocaleString()}/s thrust`
             : (item.powerUsage ? Number(item.powerUsage).toFixed(1) : (item.capacity ? `${Math.round(item.capacity).toLocaleString()} / +${Math.round(item.chargeRate || 0).toLocaleString()}` : '-'));
         const typeLabel = equipmentMountType(item);
-        const muted = !compatibility.ok;
+        const muted = !compatibility.ok || Boolean(ammoReason);
         const rowStyle = muted ? ' style="opacity:0.48;color:#778899;"' : '';
         const mutedCellStyle = muted ? ' style="color:#778899;"' : '';
-        const reasonHtml = muted ? `<br><span style="color:#ff7777;font-size:11px;">${escapeHtml(compatibility.reason)}</span>` : '';
-        const titleAttr = muted ? ` title="${escapeHtml(compatibility.reason)}"` : '';
+        const reasonText = compatibility.reason || ammoReason;
+        const reasonHtml = muted ? `<br><span style="color:#ff7777;font-size:11px;">${escapeHtml(reasonText)}</span>` : '';
+        const titleAttr = muted ? ` title="${escapeHtml(reasonText)}"` : '';
         html += `<tr${rowStyle}${titleAttr}><td style="color:${muted ? '#778899' : '#00ff00'};">${escapeHtml(item.name)}${reasonHtml}</td><td${mutedCellStyle}>${escapeHtml(typeLabel)}</td><td${mutedCellStyle}>${equipmentClass(item)}</td><td${mutedCellStyle}>${escapeHtml(powerLabel)}</td><td${mutedCellStyle}>${escapeHtml(damageLabel)}</td><td style="color:${muted ? '#777' : '#ffaa00'};">${entry.price.toLocaleString()} CR</td><td${mutedCellStyle}>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td${mutedCellStyle}>${owned}</td><td><button class="trade-button" onclick="buyEquipment('${item.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td></tr>`;
     }
     html += '</table>';
@@ -9767,6 +9804,11 @@ function buyEquipment(itemId) {
     if (!marketEntry || !item || !marketEntry.forSale || game.player.credits < marketEntry.price) return;
     if (isFixedEquipmentItem(item)) {
         addLog('Engine and powerplant are fixed ship equipment.', 'alert');
+        return;
+    }
+    const ammoReason = ammoCompatibilityReason(item);
+    if (ammoReason) {
+        addLog(ammoReason, 'alert');
         return;
     }
     const needsShipCompatibility = !item.combinable && categorySlotKeys(item.category).length > 0;
