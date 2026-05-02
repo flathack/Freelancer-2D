@@ -1702,16 +1702,14 @@ function addEquipmentInventoryCopy(itemId) {
     return true;
 }
 
-function ensureEquipmentInventoryCopy(itemId) {
-    const item = getEquipment(itemId);
-    if (!item || !game.player) return false;
-    let inv = findEquipmentItem(item.id);
-    if (!inv) {
-        inv = { id: item.id, name: item.name, quantity: 0, category: item.category };
-        game.player.equipmentInventory.push(inv);
-    }
-    inv.quantity = Math.max(1, Number(inv.quantity) || 0);
-    return true;
+function isFixedEquipmentInventoryEntry(entry) {
+    const item = getEquipment(entry?.id);
+    const category = String(item?.category || entry?.category || '').toLowerCase();
+    return category === 'engine' || category === 'powerplant';
+}
+
+function cleanEquipmentInventory(entries = game.player?.equipmentInventory || []) {
+    return (entries || []).filter(entry => !isFixedEquipmentInventoryEntry(entry));
 }
 
 function ensureFixedShipEquipment() {
@@ -1721,17 +1719,10 @@ function ensureFixedShipEquipment() {
         ['powerplant', shipPackage?.powerplant?.id],
         ['engine', shipPackage?.engine?.id]
     ];
-    const fixedIds = new Set(fixed.map(([, itemId]) => String(itemId || '').toLowerCase()).filter(Boolean));
-    game.player.equipmentInventory = (game.player.equipmentInventory || []).filter(entry => {
-        const item = getEquipment(entry.id);
-        const category = String(item?.category || entry.category || '').toLowerCase();
-        if ((category === 'engine' || category === 'powerplant') && !fixedIds.has(String(entry.id || '').toLowerCase())) return false;
-        return true;
-    });
+    game.player.equipmentInventory = cleanEquipmentInventory(game.player.equipmentInventory || []);
     for (const [slot, itemId] of fixed) {
         if (!itemId) continue;
         game.player.mountedEquipment[slot] = itemId;
-        ensureEquipmentInventoryCopy(itemId);
     }
 }
 
@@ -3136,7 +3127,7 @@ function createSaveGameState() {
             thrustEnergy: game.player.thrustEnergy,
             credits: game.player.credits,
             cargo: game.player.cargo,
-            equipmentInventory: game.player.equipmentInventory,
+            equipmentInventory: cleanEquipmentInventory(game.player.equipmentInventory),
             mountedEquipment: game.player.mountedEquipment,
             nanobots: game.player.nanobots,
             shieldBatteries: game.player.shieldBatteries,
@@ -3210,7 +3201,7 @@ function restorePlayerFromSave(save) {
     game.player.thrustEnergy = Math.max(0, Math.min(game.player.thrustCapacity, Number.isFinite(savedPlayer.thrustEnergy) ? savedPlayer.thrustEnergy : game.player.thrustCapacity));
     game.player.credits = Number.isFinite(savedPlayer.credits) ? savedPlayer.credits : game.player.credits;
     game.player.cargo = Array.isArray(savedPlayer.cargo) ? savedPlayer.cargo : [];
-    game.player.equipmentInventory = Array.isArray(savedPlayer.equipmentInventory) ? savedPlayer.equipmentInventory : [];
+    game.player.equipmentInventory = cleanEquipmentInventory(Array.isArray(savedPlayer.equipmentInventory) ? savedPlayer.equipmentInventory : []);
     game.player.mountedEquipment = savedPlayer.mountedEquipment && typeof savedPlayer.mountedEquipment === 'object' ? savedPlayer.mountedEquipment : {};
     ensureStarterEquipmentForEmptyLoadout();
     game.player.nanobots = Number.isFinite(savedPlayer.nanobots) ? savedPlayer.nanobots : game.player.nanobots;
@@ -9274,7 +9265,7 @@ function renderInventoryPanel() {
     html += '</div>';
 
     html += `<div class="inventory-section"><div class="inventory-section-title">Equipment Inventory</div>`;
-    const inventory = (p.equipmentInventory || []).filter(item => (Number(item.quantity) || 0) > 0);
+    const inventory = cleanEquipmentInventory(p.equipmentInventory || []).filter(item => (Number(item.quantity) || 0) > 0);
     if (inventory.length) {
         for (const item of inventory) {
             const equipment = getEquipment(item.id);
@@ -9665,7 +9656,7 @@ function renderEquipmentDealer() {
     const content = document.getElementById('landing-content');
     if (!content) return;
     const market = getEquipmentMarket();
-    const inventory = game.player.equipmentInventory || [];
+    const inventory = cleanEquipmentInventory(game.player.equipmentInventory || []);
     const repairCost = shipRepairCost();
     const dealerTab = game.equipmentDealerTab || 'equipment';
     let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Thrust: ${Math.round(game.player.thrustEnergy || 0).toLocaleString()}/${Math.round(game.player.thrustCapacity || 0).toLocaleString()} / +${Math.round(game.player.thrustChargeRate || 0).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span><span>${tf('missileAmmoCount', { count: totalMissileAmmoCount(), max: game.player.maxMissileAmmo })}</span><span>${tf('mineAmmoCount', { count: totalMineAmmoCount(), max: game.player.maxMineAmmo })}</span><span>${tf('countermeasureAmmoCount', { count: totalCountermeasureAmmoCount() })}</span></div>`;
@@ -9687,17 +9678,16 @@ function renderEquipmentDealer() {
     html += '</div><div class="equipment-panel"><h4>Inventory</h4>';
     const availableInventory = inventory.map(inv => {
         const item = getEquipment(inv.id);
-        return { ...inv, availableQuantity: isFixedEquipmentItem(item) ? Math.max(1, Number(inv.quantity) || 0) : availableEquipmentQuantity(inv.id) };
+        return { ...inv, availableQuantity: availableEquipmentQuantity(inv.id) };
     }).filter(inv => inv.availableQuantity > 0);
     if (availableInventory.length) {
         for (const inv of availableInventory) {
             const sellPrice = equipmentSellPrice(inv.id);
             const inventoryItem = getEquipment(inv.id);
             const compatibility = equipmentCompatibility(inventoryItem);
-            const isFixed = isFixedEquipmentItem(inventoryItem);
-            const canMount = !inventoryItem?.combinable && compatibility.ok && !isFixed;
+            const canMount = !inventoryItem?.combinable && compatibility.ok;
             const meta = `${equipmentMountType(inventoryItem)} class ${equipmentClass(inventoryItem)} x${inv.availableQuantity} | ${sellPrice.toLocaleString()} CR`;
-            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}${isFixed ? ' | fixed' : ''}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 && !isFixed ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
+            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
         }
     } else {
         html += '<div style="color:#667f8f;">No equipment in inventory.</div>';
@@ -9710,7 +9700,7 @@ function renderEquipmentDealer() {
         })
         : market.filter(entry => {
             const item = getEquipment(entry.id);
-            return item && !(String(item.category || '').toLowerCase() === 'missile' && item.combinable) && !isMineAmmo(item) && !isCountermeasureAmmo(item);
+            return item && !isFixedEquipmentItem(item) && !(String(item.category || '').toLowerCase() === 'missile' && item.combinable) && !isMineAmmo(item) && !isCountermeasureAmmo(item);
         });
     html += '<table class="trade-table"><tr><th>Item</th><th>Type</th><th>Class</th><th>Power</th><th>Damage</th><th>Price</th><th>Stock</th><th>Owned</th><th></th></tr>';
     for (const entry of marketEntries.slice(0, 120)) {
@@ -9775,6 +9765,10 @@ function buyEquipment(itemId) {
     const marketEntry = getEquipmentMarket().find(entry => entry.id === itemId);
     const item = getEquipment(itemId);
     if (!marketEntry || !item || !marketEntry.forSale || game.player.credits < marketEntry.price) return;
+    if (isFixedEquipmentItem(item)) {
+        addLog('Engine and powerplant are fixed ship equipment.', 'alert');
+        return;
+    }
     const needsShipCompatibility = !item.combinable && categorySlotKeys(item.category).length > 0;
     if (needsShipCompatibility) {
         const compatibility = equipmentCompatibility(item);
