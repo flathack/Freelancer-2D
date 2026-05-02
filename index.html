@@ -4362,6 +4362,48 @@ function damagingZones() {
     return [...zones, ...minefields];
 }
 
+function autopilotHazardZones() {
+    const hazards = damagingZones().map(zone => ({
+        ...zone,
+        hazardKind: zone.hazardKind || 'death_zone',
+        blockRadius: circularDeathZoneRadius(zone),
+        orbitRadius: circularDeathZoneRadius(zone) + 500
+    }));
+    for (const planet of systemData.planets || []) {
+        const deathRadius = Number(planet.deathZoneRadius || 0);
+        const atmosphereRadius = planetAtmosphereRadius(planet);
+        const blockRadius = Math.max(deathRadius, atmosphereRadius);
+        if (blockRadius <= 0) continue;
+        const duplicate = hazards.find(zone => Math.hypot(zone.x - planet.x, zone.z - planet.z) <= Math.max(1000, blockRadius * 0.08));
+        if (duplicate) {
+            duplicate.blockRadius = Math.max(duplicate.blockRadius || 0, blockRadius);
+            duplicate.orbitRadius = Math.max(duplicate.orbitRadius || 0, blockRadius + 500);
+            duplicate.atmosphereRadius = Math.max(Number(duplicate.atmosphereRadius || 0), atmosphereRadius);
+            duplicate.name = duplicate.name || planet.name;
+            duplicate.hazardKind = 'planet_hazard';
+            continue;
+        }
+        hazards.push({
+            id: planet.id + '_autopilot_hazard',
+            name: planet.name,
+            x: planet.x,
+            z: planet.z,
+            size: blockRadius,
+            sizeX: blockRadius,
+            sizeZ: blockRadius,
+            shape: 'SPHERE',
+            rotateY: 0,
+            damage: 1000,
+            blockRadius,
+            deathRadius,
+            atmosphereRadius,
+            orbitRadius: blockRadius + 500,
+            hazardKind: 'planet_hazard'
+        });
+    }
+    return hazards;
+}
+
 function segmentCrossesActiveZone(zone, x1, z1, x2, z2, margin = 0) {
     const distance = Math.hypot(x2 - x1, z2 - z1);
     const steps = clamp(Math.ceil(distance / 1000), 10, 96);
@@ -4415,13 +4457,23 @@ function autopilotZoneSide(zone, x, z, targetX, targetZ, routeNormalX, routeNorm
             z: zone.z + Math.sin(angle) * avoidRadius,
             side
         };
-        const blocked = damagingZones().some(other => other !== zone && isPointInsideActiveZone(other, point.x, point.z, 500));
+        const blocked = autopilotHazardZones().some(other => (other.id || other.name) !== (zone.id || zone.name) && Math.hypot(point.x - other.x, point.z - other.z) <= (other.blockRadius || circularDeathZoneRadius(other)) + 500);
         const pathCost = Math.hypot(point.x - x, point.z - z) + Math.hypot(targetX - point.x, targetZ - point.z);
         return { side, score: pathCost + (blocked ? 100000000 : 0) };
     });
     const centerSide = Math.sign((zone.x - x) * routeNormalX + (zone.z - z) * routeNormalZ);
     routeCandidates.sort((a, b) => a.score - b.score || (a.side === -centerSide ? -1 : 1));
     return routeCandidates[0]?.side || 1;
+}
+
+function segmentCrossesAutopilotHazard(zone, x1, z1, x2, z2, margin = 0) {
+    if (zone.isMinefieldHazard) return segmentCrossesActiveZone(zone, x1, z1, x2, z2, margin);
+    return segmentCircleIntersection(zone, x1, z1, x2, z2, (zone.blockRadius || circularDeathZoneRadius(zone)) + margin)?.enter ?? -1;
+}
+
+function pointInsideAutopilotHazard(zone, x, z, margin = 0) {
+    if (zone.isMinefieldHazard) return isPointInsideActiveZone(zone, x, z, margin);
+    return Math.hypot(x - zone.x, z - zone.z) <= (zone.blockRadius || circularDeathZoneRadius(zone)) + margin;
 }
 
 function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
@@ -4435,34 +4487,42 @@ function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
     const nx = -uz;
     const nz = ux;
     let threat = null;
-    for (const zone of damagingZones()) {
-        if (isPointInsideZone(zone, targetX, targetZ) && !isPointInsideZoneExclusion(zone, targetX, targetZ)) continue;
-        const activeHit = segmentCrossesActiveZone(zone, x, z, targetX, targetZ, 0);
+    for (const zone of autopilotHazardZones()) {
+        if (pointInsideAutopilotHazard(zone, targetX, targetZ)) continue;
+        const activeHit = segmentCrossesAutopilotHazard(zone, x, z, targetX, targetZ, 0);
         if (activeHit >= 0 && (!threat || activeHit < threat.t)) threat = { zone, t: activeHit };
     }
     if (!threat) return { x: 0, z: 0, magnitude: 0 };
 
     const zone = threat.zone;
-    const deathRadius = circularDeathZoneRadius(zone);
-    const avoidRadius = deathRadius + clearance;
+    const blockRadius = Math.max(zone.blockRadius || 0, circularDeathZoneRadius(zone));
+    const avoidRadius = Math.max(zone.orbitRadius || 0, blockRadius + clearance);
     const avoidHit = segmentCircleIntersection(zone, x, z, targetX, targetZ, avoidRadius);
-    if (!avoidHit) return { x: 0, z: 0, magnitude: 0 };
+    if (!avoidHit && Math.hypot(x - zone.x, z - zone.z) > avoidRadius + 1200) return { x: 0, z: 0, magnitude: 0 };
 
     const currentRadius = Math.hypot(x - zone.x, z - zone.z);
     const entry = {
-        x: x + dx * avoidHit.enter,
-        z: z + dz * avoidHit.enter
+        x: avoidHit ? x + dx * avoidHit.enter : zone.x + ((x - zone.x) / Math.max(1, currentRadius)) * avoidRadius,
+        z: avoidHit ? z + dz * avoidHit.enter : zone.z + ((z - zone.z) / Math.max(1, currentRadius)) * avoidRadius
     };
     const distanceToEntry = Math.hypot(entry.x - x, entry.z - z);
     let detour = entry;
-    if (currentRadius <= avoidRadius + 900 || distanceToEntry < 900) {
+    if (currentRadius <= avoidRadius + 1200 || distanceToEntry < 1100) {
         const side = autopilotZoneSide(zone, x, z, targetX, targetZ, nx, nz, avoidRadius);
         const currentAngle = Math.atan2(z - zone.z, x - zone.x);
-        const stepAngle = clamp(Math.max(0.28, 1400 / avoidRadius), 0.28, 0.95);
+        const stepAngle = clamp(Math.max(0.22, 1800 / avoidRadius), 0.22, 0.72);
         detour = {
             x: zone.x + Math.cos(currentAngle + side * stepAngle) * avoidRadius,
             z: zone.z + Math.sin(currentAngle + side * stepAngle) * avoidRadius
         };
+        const radiusError = Math.abs(currentRadius - avoidRadius);
+        if (radiusError > 650) {
+            const radialAngle = Math.atan2(z - zone.z, x - zone.x);
+            detour = {
+                x: zone.x + Math.cos(radialAngle + side * stepAngle * 0.45) * avoidRadius,
+                z: zone.z + Math.sin(radialAngle + side * stepAngle * 0.45) * avoidRadius
+            };
+        }
     }
     const vx = detour.x - x;
     const vz = detour.z - z;
