@@ -151,6 +151,9 @@ body[data-theme="crossfire"] {
 .save-slot.empty { color: #667f8f; cursor: default; }
 .save-name-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .save-name-row input { flex: 1 1 220px; min-width: 0; padding: 10px 12px; background: rgba(0,0,0,0.55); border: 1px solid #33566d; color: #dff7ff; font-family: 'Courier New', monospace; }
+.save-name-row input:disabled { opacity: 0.62; color: #7fa7bd; cursor: not-allowed; }
+.save-name-row button { min-height: 38px !important; padding: 0 14px !important; font-size: 12px !important; clip-path: none !important; }
+#btn-save-name { border-color: #33cc88 !important; color: #b7ffe2 !important; }
 .mod-select { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 10px; }
 .mod-btn { padding: 9px 12px !important; font-size: 13px !important; }
 .mod-btn.active { border-color: #ffaa00 !important; color: #fff1c7 !important; background: rgba(65,45,0,0.62) !important; }
@@ -492,6 +495,8 @@ body[data-theme="crossfire"] .mod-btn.active {
                 <div id="save-slot-list" class="save-slot-list"></div>
                 <div class="save-name-row">
                     <input id="save-name-input" maxlength="32" placeholder="Name for new savegame" value="Pilot">
+                    <button id="btn-edit-save-name" class="hidden">EDIT</button>
+                    <button id="btn-save-name" class="hidden">SAVE</button>
                 </div>
             </div>
             <div class="controls">
@@ -856,6 +861,8 @@ const game = {
     modData: null,
     activeSaveSlotId: '',
     saveSlotName: 'Pilot',
+    saveNameEditing: false,
+    suppressAutoSave: false,
     lastSavedAt: 0,
     lastAutoSaveAt: 0,
     autoSaveInterval: 5000,
@@ -959,7 +966,7 @@ const I18N = {
         landedAt: 'Gelandet auf', noCommodityMarket: 'Dieser Ort hat keinen Commodity-Markt.', noEquipment: 'Equipment-Handel ist noch nicht implementiert.', barText: 'Piloten, Gerüchte und Jobangebote folgen später.',
         buy: 'KAUFEN', sell: 'VERKAUFEN', owned: 'BESITZ', credits: 'Credits', cargo: 'Laderaum', price: 'Preis', stock: 'Bestand', commodity: 'Ware', quantity: 'Menge', tradeInfo: 'Trade-Informationen', tradeInfoHint: 'Ware anklicken, um Verkaufsziele zu sehen.', sellAt: 'Verkaufen bei', jumps: 'Spruenge', profit: 'Profit', noSellTargets: 'Keine Verkaufsziele fuer diese Ware gefunden.', unreachable: 'nicht erreichbar',
         shipDealerDockOnly: 'Schiffe koennen nur nach dem Andocken gekauft werden.', noShipsSold: 'Hier werden keine Schiffe verkauft.', atmosphereWarning: 'Atmosphaereneintritt', planetImpact: 'Planetare Kollision',
-        startGame: 'SPIEL STARTEN', continueGame: 'WEITER', startNew: 'NEUES SPIEL', startDelete: 'SAVE LOESCHEN', saveNamePlaceholder: 'Name fuer neues Savegame', mainMenuLanguage: 'SPRACHE',
+        startGame: 'SPIEL STARTEN', continueGame: 'WEITER', startNew: 'NEUES SPIEL', startDelete: 'SAVE LOESCHEN', saveNamePlaceholder: 'Name fuer neues Savegame', mainMenuLanguage: 'SPRACHE', editSaveName: 'EDIT', saveSaveName: 'SAVE',
         startControls: 'Steuerung', controlRotate: 'Linke Maustaste halten - Schiff drehen', controlCursor: 'Linke Maustaste loslassen - Cursor-Modus', controlFire: 'Rechte Maustaste - Primärwaffen | Q - Raketen',
         controlSelect: 'Objekt anklicken - Ziel auswählen', controlThrottleUp: 'W - Schub erhöhen', controlThrottleDown: 'S - Schub verringern / Reiseflug abbrechen', controlReverse: 'X - Rückwärtsschub', controlAfterburner: 'Tab - Nachbrenner halten', controlMines: 'E - Mine abwerfen',
         controlDock: 'D - Schiff driftet nach rechts', controlApproach: 'A - Schiff driftet nach links', controlMap: 'M - Karte umschalten', controlNanobots: 'G / N - Nanobot benutzen', controlBatteries: 'F / B - Schildbatterie benutzen', controlCountermeasures: 'C - Gegenmaßnahme abwerfen', controlZoom: 'Mausrad - Zoom',
@@ -983,7 +990,7 @@ const I18N = {
         landedAt: 'Landed at', noCommodityMarket: 'This location has no commodity market.', noEquipment: 'Equipment trading is not implemented yet.', barText: 'Pilots, rumors, and job offers will arrive later.',
         buy: 'BUY', sell: 'SELL', owned: 'OWNED', credits: 'Credits', cargo: 'Cargo', price: 'Price', stock: 'Stock', commodity: 'Commodity', quantity: 'Qty', tradeInfo: 'Trade Information', tradeInfoHint: 'Click a commodity to see sell destinations.', sellAt: 'Sell at', jumps: 'Jumps', profit: 'Profit', noSellTargets: 'No sell destinations found for this commodity.', unreachable: 'unreachable',
         shipDealerDockOnly: 'Ships can only be bought while docked.', noShipsSold: 'No ships are sold here.', atmosphereWarning: 'Atmosphere entry', planetImpact: 'Planetary collision',
-        startGame: 'START GAME', continueGame: 'CONTINUE', startNew: 'NEW GAME', startDelete: 'DELETE SAVE', saveNamePlaceholder: 'Name for new savegame', mainMenuLanguage: 'LANGUAGE',
+        startGame: 'START GAME', continueGame: 'CONTINUE', startNew: 'NEW GAME', startDelete: 'DELETE SAVE', saveNamePlaceholder: 'Name for new savegame', mainMenuLanguage: 'LANGUAGE', editSaveName: 'EDIT', saveSaveName: 'SAVE',
         startControls: 'Controls', controlRotate: 'Left Mouse (hold) - Rotate ship', controlCursor: 'Left Mouse (release) - Cursor mode', controlFire: 'Right Mouse - Primary fire | Q - Missiles',
         controlSelect: 'Click object - Select target', controlThrottleUp: 'W - Increase throttle', controlThrottleDown: 'S - Reduce throttle / cancel cruise', controlReverse: 'X - Reverse thrust', controlAfterburner: 'Tab - Hold afterburner', controlMines: 'E - Drop mine',
         controlDock: 'D - Drift ship right', controlApproach: 'A - Drift ship left', controlMap: 'M - Toggle map', controlNanobots: 'G / N - Use nanobot', controlBatteries: 'F / B - Use shield battery', controlCountermeasures: 'C - Drop countermeasure', controlZoom: 'Mouse Wheel - Zoom',
@@ -2598,6 +2605,10 @@ function applyLanguage() {
     if (deleteButton) deleteButton.textContent = t('startDelete');
     const saveNameInput = document.getElementById('save-name-input');
     if (saveNameInput) saveNameInput.placeholder = t('saveNamePlaceholder');
+    const editSaveNameButton = document.getElementById('btn-edit-save-name');
+    if (editSaveNameButton) editSaveNameButton.textContent = t('editSaveName');
+    const saveNameButton = document.getElementById('btn-save-name');
+    if (saveNameButton) saveNameButton.textContent = t('saveSaveName');
     const hullLabel = document.getElementById('label-hull');
     if (hullLabel) hullLabel.textContent = t('hudHull');
     const shieldLabel = document.getElementById('label-shield');
@@ -3091,10 +3102,18 @@ function setActiveSaveSlot(slotId) {
     const slots = readSaveSlots();
     const slot = slots.find(item => item.id === slotId);
     if (!slot) return;
+    if (slot.id === game.activeSaveSlotId) {
+        updateSaveHint(slot.save);
+        return;
+    }
+    if (game.hasStarted || game.saveLoaded) saveGame();
     game.activeSaveSlotId = slot.id;
     game.saveSlotName = slot.name || 'Pilot';
     localStorage.setItem(activeSaveStorageKey(), slot.id);
+    if (game.activeModId === 'vanilla') localStorage.setItem(ACTIVE_SAVE_SLOT_KEY, slot.id);
+    game.suppressAutoSave = true;
     updateSaveHint(slot.save);
+    window.location.reload();
 }
 
 function selectedSaveName() {
@@ -3103,16 +3122,50 @@ function selectedSaveName() {
     return raw || 'Pilot ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
+function startSaveNameEdit() {
+    const slots = readSaveSlots();
+    const slot = slots.find(item => item.id === game.activeSaveSlotId);
+    if (!slot) return;
+    game.saveNameEditing = true;
+    const input = document.getElementById('save-name-input');
+    if (input) {
+        input.disabled = false;
+        input.value = slot.name || 'Pilot';
+        input.focus();
+        input.select();
+    }
+    updateSaveHint(slot.save);
+}
+
+function commitSaveNameEdit() {
+    const slots = readSaveSlots();
+    const index = slots.findIndex(item => item.id === game.activeSaveSlotId);
+    if (index < 0) return;
+    const input = document.getElementById('save-name-input');
+    const nextName = (input?.value || '').trim() || slots[index].name || 'Pilot';
+    slots[index] = {
+        ...slots[index],
+        name: nextName,
+        save: slots[index].save ? { ...slots[index].save, name: nextName } : slots[index].save
+    };
+    writeSaveSlots(slots);
+    game.saveSlotName = nextName;
+    game.saveNameEditing = false;
+    updateSaveHint(slots[index].save);
+}
+
 function createNewSaveSlot() {
     const slots = readSaveSlots();
     if (slots.length >= MAX_SAVE_SLOTS) {
         alert(t('maxSavesReached'));
         return false;
     }
+    if (game.hasStarted || game.saveLoaded) saveGame();
     const slotId = 'slot_' + Date.now().toString(36);
     game.activeSaveSlotId = slotId;
     game.saveSlotName = selectedSaveName();
     localStorage.setItem(activeSaveStorageKey(), slotId);
+    game.suppressAutoSave = true;
     sessionStorage.setItem('freelancer2d.forceNewGame', '1');
     return true;
 }
@@ -3176,6 +3229,7 @@ function createSaveGameState() {
 }
 
 function saveGame(showMessage = false) {
+    if (game.suppressAutoSave) return;
     if (!game.hasStarted && !game.saveLoaded) return;
     const state = createSaveGameState();
     if (!state) return;
@@ -3287,6 +3341,8 @@ function updateSaveHint(save = readSavedGame()) {
     const deleteButton = document.getElementById('btn-delete-save');
     const slotList = document.getElementById('save-slot-list');
     const nameInput = document.getElementById('save-name-input');
+    const editNameButton = document.getElementById('btn-edit-save-name');
+    const saveNameButton = document.getElementById('btn-save-name');
     const slots = readSaveSlots();
     if (!game.activeSaveSlotId) game.activeSaveSlotId = getActiveSaveSlotId(slots);
     const activeSlot = slots.find(slot => slot.id === game.activeSaveSlotId);
@@ -3299,7 +3355,12 @@ function updateSaveHint(save = readSavedGame()) {
             return `<div class="save-slot${activeClass}" onclick="setActiveSaveSlot('${slot.id}')"><div><div class="save-slot-title">${escapeHtml(slot.name || 'Pilot')}</div><div class="save-slot-meta">${escapeHtml(slot.currentSystemId || slot.save?.currentSystemId || 'Li01')} - ${escapeHtml(savedLabel)}</div></div><span>${slot.id === game.activeSaveSlotId ? t('activeLabel') : t('loadLabel')}</span></div>`;
         }).join('') : `<div class="save-slot empty"><div><div class="save-slot-title">${escapeHtml(t('noSaveForMod'))}</div><div class="save-slot-meta">${escapeHtml(t('separateSaves'))}</div></div></div>`;
     }
-    if (nameInput && activeSlot && document.activeElement !== nameInput) nameInput.value = activeSlot.name || 'Pilot';
+    if (nameInput) {
+        if (activeSlot && document.activeElement !== nameInput) nameInput.value = activeSlot.name || 'Pilot';
+        nameInput.disabled = Boolean(activeSlot && !game.saveNameEditing);
+    }
+    if (editNameButton) editNameButton.classList.toggle('hidden', !activeSlot || game.saveNameEditing);
+    if (saveNameButton) saveNameButton.classList.toggle('hidden', !activeSlot || !game.saveNameEditing);
     if (!hint || !startButton || !newButton || !deleteButton) return;
     if (!save) {
         hint.textContent = activeModConfig().name + ': ' + t('noSavedGameFound');
@@ -10369,8 +10430,10 @@ async function init() {
         if (!activeSlot) return;
         if (confirm(tf('deleteSaveConfirm', { name: activeSlot.name || 'Pilot' }))) clearSavedGame(activeSlot.id);
     });
-    document.getElementById('save-name-input')?.addEventListener('change', (event) => {
-        game.saveSlotName = event.target.value.trim() || game.saveSlotName || 'Pilot';
+    document.getElementById('btn-edit-save-name')?.addEventListener('click', startSaveNameEdit);
+    document.getElementById('btn-save-name')?.addEventListener('click', commitSaveNameEdit);
+    document.getElementById('save-name-input')?.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && game.saveNameEditing) commitSaveNameEdit();
     });
     window.addEventListener('beforeunload', () => saveGame());
 }
