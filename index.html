@@ -3724,6 +3724,46 @@ function planetDeathZoneRadius(planet, zones) {
     return deathZone ? zoneRadius(deathZone) : 0;
 }
 
+function normalizeAsteroidFieldData(field) {
+    const fieldKind = String(field.fieldKind || field.field_kind || 'asteroid').toLowerCase();
+    const hazardKind = String(field.hazardKind || field.hazard_kind || '').toLowerCase();
+    return {
+        ...field,
+        id: field.nickname || field.zone || field.id || 'asteroid_field',
+        name: field.name || field.nickname || field.zone || 'Asteroid Field',
+        x: Number(field.x || 0),
+        y: Number(field.y || 0),
+        z: Number(field.z || 0),
+        size: Number(field.size || 2000),
+        sizeX: Number(field.size_x || field.sizeX || field.size || 2000),
+        sizeY: Number(field.size_y || field.sizeY || field.size || 2000),
+        sizeZ: Number(field.size_z || field.sizeZ || field.size || 2000),
+        shape: field.shape || 'ELLIPSOID',
+        rotateY: Number(field.rotate_y || field.rotateY || 0),
+        fieldKind,
+        hazardKind,
+        fieldFlags: Array.isArray(field.fieldFlags) ? field.fieldFlags : [],
+        texturePanelFiles: Array.isArray(field.texturePanelFiles) ? field.texturePanelFiles : [],
+        cubeObjects: Array.isArray(field.cubeObjects) ? field.cubeObjects : [],
+        cubeRoles: Array.isArray(field.cubeRoles) ? field.cubeRoles : [],
+        billboardShapes: Array.isArray(field.billboardShapes) ? field.billboardShapes : [],
+        dynamicAsteroids: Array.isArray(field.dynamicAsteroids) ? field.dynamicAsteroids : [],
+        exclusionZoneIds: Array.isArray(field.exclusionZoneIds) ? field.exclusionZoneIds : [],
+        exclusionZones: (field.exclusionZones || []).map(z => ({
+            id: z.nickname || z.zone,
+            name: z.name || z.nickname || z.zone,
+            x: Number(z.x || 0),
+            z: Number(z.z || 0),
+            size: Number(z.size || 1000),
+            sizeX: Number(z.size_x || z.sizeX || z.size || 1000),
+            sizeZ: Number(z.size_z || z.sizeZ || z.size || 1000),
+            shape: z.shape || 'ELLIPSOID',
+            rotateY: Number(z.rotate_y || z.rotateY || 0)
+        })),
+        densityHint: field.densityHint || field.density_hint || ''
+    };
+}
+
 function buildSystemData(systemId) {
     const raw = getSystemRecord(systemId);
     const jumpgates = raw.jumpgates || [];
@@ -3817,7 +3857,7 @@ function buildSystemData(systemId) {
         }))
     ],
     tradeLanes: raw.tradeLanes || raw.tradelanes || [],
-    asteroidfields: raw.asteroidfields || [],
+    asteroidfields: (raw.asteroidfields || []).map(normalizeAsteroidFieldData),
     nebulae: raw.nebulae || [],
     missionZones: (raw.missionZones || []).map(z => ({
         id: z.nickname || z.zone,
@@ -4208,8 +4248,12 @@ function isPointInsideZone(zone, x, z) {
     const local = rotatePoint(x - zone.x, z - zone.z, rotation);
     const radiusX = Math.max(1, zone.sizeX || zone.size || 1);
     const radiusZ = Math.max(1, zone.sizeZ || zone.size || 1);
-    if (String(zone.shape || '').toUpperCase() === 'SPHERE') {
+    const shape = String(zone.shape || '').toUpperCase();
+    if (shape === 'SPHERE') {
         return Math.sqrt(local.x * local.x + local.z * local.z) <= Math.max(radiusX, radiusZ);
+    }
+    if (shape === 'BOX') {
+        return Math.abs(local.x) <= radiusX && Math.abs(local.z) <= radiusZ;
     }
     return (local.x * local.x) / (radiusX * radiusX) + (local.z * local.z) / (radiusZ * radiusZ) <= 1;
 }
@@ -4219,14 +4263,54 @@ function isPointInsideExpandedZone(zone, x, z, margin = 0) {
     const local = rotatePoint(x - zone.x, z - zone.z, rotation);
     const radiusX = Math.max(1, zone.sizeX || zone.size || 1) + margin;
     const radiusZ = Math.max(1, zone.sizeZ || zone.size || 1) + margin;
-    if (String(zone.shape || '').toUpperCase() === 'SPHERE') {
+    const shape = String(zone.shape || '').toUpperCase();
+    if (shape === 'SPHERE') {
         return Math.sqrt(local.x * local.x + local.z * local.z) <= Math.max(radiusX, radiusZ);
+    }
+    if (shape === 'BOX') {
+        return Math.abs(local.x) <= radiusX && Math.abs(local.z) <= radiusZ;
     }
     return (local.x * local.x) / (radiusX * radiusX) + (local.z * local.z) / (radiusZ * radiusZ) <= 1;
 }
 
+function isPointInsideZoneExclusion(zone, x, z, margin = 0) {
+    return (zone.exclusionZones || []).some(exclusion => isPointInsideExpandedZone(exclusion, x, z, margin));
+}
+
+function isPointInsideActiveZone(zone, x, z, margin = 0) {
+    if (!isPointInsideExpandedZone(zone, x, z, margin)) return false;
+    return !isPointInsideZoneExclusion(zone, x, z, 0);
+}
+
 function damagingZones() {
-    return (systemData.zones || []).filter(zone => Number(zone.damage || 0) >= 1000 && Number.isFinite(zone.x) && Number.isFinite(zone.z));
+    const zones = (systemData.zones || []).filter(zone => Number(zone.damage || 0) >= 1000 && Number.isFinite(zone.x) && Number.isFinite(zone.z));
+    const minefields = (systemData.asteroidfields || [])
+        .filter(field => field.hazardKind === 'explosive_mines' && Number.isFinite(field.x) && Number.isFinite(field.z))
+        .map(field => ({
+            ...field,
+            id: field.id || field.nickname || field.zone,
+            name: field.name || field.id || field.zone || 'Minefield',
+            damage: Math.max(1000, Number(field.zone_damage || field.zoneDamage || 0)),
+            size: field.size || 2000,
+            sizeX: field.sizeX || field.size_x || field.size || 2000,
+            sizeZ: field.sizeZ || field.size_z || field.size || 2000,
+            rotateY: field.rotateY || field.rotate_y || 0,
+            exclusionZones: field.exclusionZones || [],
+            isMinefieldHazard: true
+        }));
+    return [...zones, ...minefields];
+}
+
+function segmentCrossesActiveZone(zone, x1, z1, x2, z2, margin = 0) {
+    const distance = Math.hypot(x2 - x1, z2 - z1);
+    const steps = clamp(Math.ceil(distance / 1000), 10, 96);
+    for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        const x = x1 + (x2 - x1) * t;
+        const z = z1 + (z2 - z1) * t;
+        if (isPointInsideActiveZone(zone, x, z, margin)) return t;
+    }
+    return -1;
 }
 
 function segmentCrossesExpandedZone(zone, x1, z1, x2, z2, margin = 0) {
@@ -4270,7 +4354,7 @@ function autopilotZoneSide(zone, x, z, targetX, targetZ, routeNormalX, routeNorm
             z: zone.z + Math.sin(angle) * avoidRadius,
             side
         };
-        const blocked = damagingZones().some(other => other !== zone && isPointInsideExpandedZone(other, point.x, point.z, 500));
+        const blocked = damagingZones().some(other => other !== zone && isPointInsideActiveZone(other, point.x, point.z, 500));
         const pathCost = Math.hypot(point.x - x, point.z - z) + Math.hypot(targetX - point.x, targetZ - point.z);
         return { side, score: pathCost + (blocked ? 100000000 : 0) };
     });
@@ -4291,9 +4375,9 @@ function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
     const nz = ux;
     let threat = null;
     for (const zone of damagingZones()) {
-        if (isPointInsideZone(zone, targetX, targetZ)) continue;
-        const hit = segmentCircleIntersection(zone, x, z, targetX, targetZ, circularDeathZoneRadius(zone));
-        if (hit && (!threat || hit.enter < threat.t)) threat = { zone, t: hit.enter };
+        if (isPointInsideZone(zone, targetX, targetZ) && !isPointInsideZoneExclusion(zone, targetX, targetZ)) continue;
+        const activeHit = segmentCrossesActiveZone(zone, x, z, targetX, targetZ, 0);
+        if (activeHit >= 0 && (!threat || activeHit < threat.t)) threat = { zone, t: activeHit };
     }
     if (!threat) return { x: 0, z: 0, magnitude: 0 };
 
@@ -4326,6 +4410,20 @@ function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
 
 function checkZoneHazards(dt) {
     if (!game.player || game.isDocked || game.player.destroyed) return;
+    for (const field of systemData.asteroidfields || []) {
+        if (field.hazardKind !== 'explosive_mines' || !isPointInsideActiveZone(field, game.player.x, game.player.z)) continue;
+        game.player.cancelCruise?.();
+        game.player.afterburnerActive = false;
+        game.player.reverseActive = false;
+        updateCruiseButton();
+        game.player.takeHullDamage(260 * dt, 'Minefield damage');
+        game.player.speed *= 0.82;
+        if (!game.player.lastMinefieldWarning || performance.now() - game.player.lastMinefieldWarning > 1200) {
+            addLog('Minefield hazard: ' + (field.name || field.id || 'minefield'), 'alert');
+            game.player.lastMinefieldWarning = performance.now();
+        }
+        break;
+    }
     for (const zone of systemData.zones || []) {
         const damage = Number(zone.damage || 0);
         if (damage <= 0 || !isPointInsideZone(zone, game.player.x, game.player.z)) continue;
@@ -4505,7 +4603,13 @@ function getCurrentSystemKey() {
 
 function createFieldObstacles(field, kind) {
     const rng = seededRandom(hashString(currentSystemId + ':' + field.id + ':' + kind));
-    const count = kind === 'asteroid' ? Math.min(340, Math.max(52, Math.floor(field.size / 185))) : Math.min(46, Math.max(10, Math.floor(field.size / 1100)));
+    const count = kind === 'mine'
+        ? Math.min(520, Math.max(90, Math.floor(field.size / 120)))
+        : kind === 'debris'
+            ? Math.min(360, Math.max(70, Math.floor(field.size / 165)))
+            : kind === 'asteroid'
+                ? Math.min(340, Math.max(52, Math.floor(field.size / 185)))
+                : Math.min(46, Math.max(10, Math.floor(field.size / 1100)));
     const radiusX = Math.max(800, (field.sizeX || field.size || 2000) * 0.75);
     const radiusZ = Math.max(800, (field.sizeZ || field.size || 2000) * 0.75);
     const fieldRotation = flYawToCanvasRotation(field.rotateY || 0);
@@ -4516,21 +4620,34 @@ function createFieldObstacles(field, kind) {
         const localX = Math.cos(angle) * dist * radiusX;
         const localZ = Math.sin(angle) * dist * radiusZ;
         const rotated = rotatePoint(localX, localZ, fieldRotation);
-        const radius = kind === 'asteroid' ? 55 + rng() * 190 : 120 + rng() * 420;
+        const worldX = field.x + rotated.x;
+        const worldZ = field.z + rotated.z;
+        if (isPointInsideZoneExclusion(field, worldX, worldZ)) {
+            i--;
+            continue;
+        }
+        const radius = kind === 'mine'
+            ? 32 + rng() * 56
+            : kind === 'debris'
+                ? 65 + rng() * 260
+                : kind === 'asteroid'
+                    ? 55 + rng() * 190
+                    : 120 + rng() * 420;
         obstacles.push({
             id: field.id + '_obstacle_' + i,
             fieldId: field.id,
             kind,
             localX,
             localZ,
-            x: field.x + rotated.x,
-            z: field.z + rotated.z,
+            x: worldX,
+            z: worldZ,
             radius,
             rotation: rng() * Math.PI * 2,
-            spinSpeed: kind === 'asteroid' ? (rng() - 0.5) * 0.18 : 0,
+            spinSpeed: kind === 'mine' ? 0 : (kind === 'nebula' ? 0 : (rng() - 0.5) * 0.18),
             driftPhase: rng() * Math.PI * 2,
-            driftSpeed: kind === 'asteroid' ? 0.045 + rng() * 0.075 : 0,
-            driftRadius: kind === 'asteroid' ? 18 + rng() * 70 : 0
+            driftSpeed: kind === 'asteroid' || kind === 'debris' ? 0.045 + rng() * 0.075 : 0,
+            driftRadius: kind === 'asteroid' || kind === 'debris' ? 18 + rng() * 70 : 0,
+            damage: kind === 'mine' ? 2000000 : (kind === 'debris' ? 14 : 8)
         });
     }
     return obstacles;
@@ -5189,8 +5306,8 @@ class PlayerShip {
     }
 
     resolveObstacleCollisions(oldX, oldZ) {
-        if (this.inTradeLane) return;
         for (const obstacle of game.obstacles) {
+            if (this.inTradeLane && obstacle.kind !== 'mine') continue;
             const dx = this.x - obstacle.x;
             const dz = this.z - obstacle.z;
             const dist = Math.sqrt(dx * dx + dz * dz);
@@ -5207,8 +5324,10 @@ class PlayerShip {
                 this.speed *= 0.25;
                 this.throttle = Math.min(this.throttle, 0.25);
                 if (!this.lastObstacleHit || performance.now() - this.lastObstacleHit > 1200) {
-                    this.takeDamage(obstacle.kind === 'asteroid' ? 8 : 3);
-                    addLog('Obstacle impact: ' + (obstacle.kind === 'asteroid' ? 'asteroid' : 'nebula debris'), 'alert');
+                    const impactDamage = obstacle.kind === 'mine' ? Number(obstacle.damage || 2000000) : (obstacle.kind === 'debris' ? 14 : (obstacle.kind === 'asteroid' ? 8 : 3));
+                    this.takeDamage(impactDamage);
+                    const label = obstacle.kind === 'mine' ? 'explosive mine' : (obstacle.kind === 'debris' ? 'debris' : (obstacle.kind === 'asteroid' ? 'asteroid' : 'nebula debris'));
+                    addLog('Obstacle impact: ' + label, 'alert');
                     this.lastObstacleHit = performance.now();
                 }
                 if (this.inTradeLane) {
@@ -5657,7 +5776,16 @@ class AsteroidField {
         this.sizeZ = data.size_z || data.sizeZ || this.size;
         this.shape = data.shape || 'ELLIPSOID';
         this.rotation = flYawToCanvasRotation(data.rotate_y || data.rotateY || 0);
-        this.obstacles = createFieldObstacles(this, 'asteroid');
+        this.fieldKind = String(data.fieldKind || data.field_kind || 'asteroid').toLowerCase();
+        this.hazardKind = String(data.hazardKind || data.hazard_kind || '').toLowerCase();
+        this.densityHint = data.densityHint || data.density_hint || '';
+        this.exclusionZones = data.exclusionZones || [];
+        this.obstacleKind = this.hazardKind === 'explosive_mines'
+            ? 'mine'
+            : this.fieldKind === 'debris'
+                ? 'debris'
+                : 'asteroid';
+        this.obstacles = createFieldObstacles(this, this.obstacleKind);
     }
     update(dt) {
         for (const obstacle of this.obstacles) {
@@ -5672,8 +5800,8 @@ class AsteroidField {
     }
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
-        const screenRadiusX = this.sizeX * 0.8 * game.zoom;
-        const screenRadiusZ = this.sizeZ * 0.8 * game.zoom;
+        const screenRadiusX = this.sizeX * game.zoom;
+        const screenRadiusZ = this.sizeZ * game.zoom;
         const screenSize = Math.max(screenRadiusX, screenRadiusZ);
         
         // Only render if visible
@@ -5682,9 +5810,10 @@ class AsteroidField {
         ctx.save();
         ctx.translate(pos.x, pos.y);
         
-        // Debris/cloud appearance
-        ctx.fillStyle = 'rgba(100, 90, 70, 0.3)';
-        ctx.strokeStyle = 'rgba(120, 110, 80, 0.4)';
+        const isMinefield = this.hazardKind === 'explosive_mines';
+        const isDebris = this.fieldKind === 'debris';
+        ctx.fillStyle = isMinefield ? 'rgba(160, 30, 20, 0.28)' : isDebris ? 'rgba(95, 105, 108, 0.28)' : 'rgba(100, 90, 70, 0.3)';
+        ctx.strokeStyle = isMinefield ? 'rgba(255, 70, 40, 0.5)' : isDebris ? 'rgba(170, 185, 185, 0.35)' : 'rgba(120, 110, 80, 0.4)';
         ctx.lineWidth = 1;
         
         for (const obstacle of this.obstacles) {
@@ -5694,17 +5823,41 @@ class AsteroidField {
             ctx.save();
             ctx.translate(px, pz);
             ctx.rotate(obstacle.rotation + this.rotation);
-            ctx.beginPath();
-            ctx.moveTo(pSize, 0);
-            for (let j = 1; j < 7; j++) {
-                const angle = (j / 7) * Math.PI * 2;
-                const rough = j % 2 === 0 ? 0.72 : 1;
-                ctx.lineTo(Math.cos(angle) * pSize * rough, Math.sin(angle) * pSize * rough);
+            if (obstacle.kind === 'mine') {
+                const glow = pSize * 2.9;
+                const gradient = ctx.createRadialGradient(0, 0, pSize * 0.3, 0, 0, glow);
+                gradient.addColorStop(0, 'rgba(255,210,90,0.55)');
+                gradient.addColorStop(0.32, 'rgba(255,50,20,0.24)');
+                gradient.addColorStop(1, 'rgba(255,0,0,0)');
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(0, 0, glow, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(255,80,40,0.85)';
+                ctx.lineWidth = Math.max(1, game.zoom * 2);
+                ctx.beginPath();
+                ctx.arc(0, 0, pSize, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.beginPath();
+                for (let j = 0; j < 8; j++) {
+                    const angle = (j / 8) * Math.PI * 2;
+                    ctx.moveTo(Math.cos(angle) * pSize * 0.45, Math.sin(angle) * pSize * 0.45);
+                    ctx.lineTo(Math.cos(angle) * pSize * 1.45, Math.sin(angle) * pSize * 1.45);
+                }
+                ctx.stroke();
+            } else {
+                ctx.beginPath();
+                ctx.moveTo(pSize, 0);
+                for (let j = 1; j < (isDebris ? 5 : 7); j++) {
+                    const angle = (j / (isDebris ? 5 : 7)) * Math.PI * 2;
+                    const rough = j % 2 === 0 ? (isDebris ? 0.45 : 0.72) : 1;
+                    ctx.lineTo(Math.cos(angle) * pSize * rough, Math.sin(angle) * pSize * rough);
+                }
+                ctx.closePath();
+                ctx.fill();
+                ctx.strokeStyle = isDebris ? 'rgba(210,225,220,0.32)' : 'rgba(210,190,150,0.35)';
+                ctx.stroke();
             }
-            ctx.closePath();
-            ctx.fill();
-            ctx.strokeStyle = 'rgba(210,190,150,0.35)';
-            ctx.stroke();
             ctx.restore();
         }
         
@@ -5717,15 +5870,33 @@ class AsteroidField {
         } else {
             ctx.ellipse(0, 0, screenRadiusX, screenRadiusZ, 0, 0, Math.PI * 2);
         }
-        ctx.strokeStyle = 'rgba(150, 130, 100, 0.15)';
+        ctx.strokeStyle = isMinefield ? 'rgba(255,70,40,0.32)' : isDebris ? 'rgba(150,170,175,0.18)' : 'rgba(150, 130, 100, 0.15)';
         ctx.stroke();
         ctx.restore();
+
+        for (const exclusion of this.exclusionZones || []) {
+            const ex = worldToScreen(exclusion.x, exclusion.z);
+            ctx.save();
+            ctx.translate(ex.x - pos.x, ex.y - pos.y);
+            ctx.rotate(flYawToCanvasRotation(exclusion.rotateY || 0));
+            const exRx = Math.max(1, (exclusion.sizeX || exclusion.size || 1) * game.zoom);
+            const exRz = Math.max(1, (exclusion.sizeZ || exclusion.size || 1) * game.zoom);
+            ctx.strokeStyle = isMinefield ? 'rgba(120,255,210,0.42)' : 'rgba(150,230,255,0.22)';
+            ctx.lineWidth = Math.max(1, game.zoom * 2);
+            ctx.setLineDash([10, 7]);
+            ctx.beginPath();
+            if (String(exclusion.shape || '').toUpperCase() === 'BOX') ctx.rect(-exRx, -exRz, exRx * 2, exRz * 2);
+            else ctx.ellipse(0, 0, exRx, exRz, 0, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.restore();
+        }
         
         ctx.restore();
         
         // Label
         if (screenSize > 50) {
-            ctx.fillStyle = 'rgba(150, 130, 100, 0.5)';
+            ctx.fillStyle = isMinefield ? 'rgba(255,100,70,0.72)' : isDebris ? 'rgba(170,190,190,0.58)' : 'rgba(150, 130, 100, 0.5)';
             ctx.font = '9px Courier New';
             ctx.textAlign = 'center';
             ctx.fillText(this.name, pos.x, pos.y + screenSize * 0.8 + 12);
@@ -8416,20 +8587,39 @@ function drawMapCanvas() {
         const pos = systemMapToScreen(field.x, field.z, mapTransform);
         const ex = pos.x;
         const ey = pos.y;
-        const rx = Math.max(8, (field.size_x || field.size || 0) * 0.8 * mapTransform.scaleX);
-        const rz = Math.max(8, (field.size_z || field.size || 0) * 0.8 * mapTransform.scaleY);
-        ctx.fillStyle = 'rgba(130,110,70,0.12)';
-        ctx.strokeStyle = 'rgba(180,150,90,0.25)';
+        const rx = Math.max(8, (field.sizeX || field.size_x || field.size || 0) * mapTransform.scaleX);
+        const rz = Math.max(8, (field.sizeZ || field.size_z || field.size || 0) * mapTransform.scaleY);
+        const isMinefield = field.hazardKind === 'explosive_mines';
+        const isDebris = field.fieldKind === 'debris';
+        ctx.fillStyle = isMinefield ? 'rgba(255,45,20,0.12)' : (isDebris ? 'rgba(150,165,165,0.10)' : 'rgba(130,110,70,0.12)');
+        ctx.strokeStyle = isMinefield ? 'rgba(255,70,45,0.42)' : (isDebris ? 'rgba(175,195,195,0.25)' : 'rgba(180,150,90,0.25)');
         ctx.beginPath();
         ctx.ellipse(ex, ey, rx, rz, flYawToCanvasRotation(field.rotate_y || field.rotateY || 0), 0, Math.PI * 2);
         ctx.fill();
         ctx.stroke();
+        for (const exclusion of field.exclusionZones || []) {
+            const exclusionPos = systemMapToScreen(exclusion.x, exclusion.z, mapTransform);
+            const exRx = Math.max(3, (exclusion.sizeX || exclusion.size || 0) * mapTransform.scaleX);
+            const exRz = Math.max(3, (exclusion.sizeZ || exclusion.size || 0) * mapTransform.scaleY);
+            ctx.save();
+            ctx.translate(exclusionPos.x, exclusionPos.y);
+            ctx.rotate(flYawToCanvasRotation(exclusion.rotateY || 0));
+            ctx.strokeStyle = isMinefield ? 'rgba(120,255,210,0.58)' : 'rgba(150,230,255,0.32)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([6, 4]);
+            ctx.beginPath();
+            if (String(exclusion.shape || '').toUpperCase() === 'BOX') ctx.rect(-exRx, -exRz, exRx * 2, exRz * 2);
+            else ctx.ellipse(0, 0, exRx, exRz, 0, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.restore();
+        }
     }
     for (const obstacle of game.obstacles) {
         const pos = systemMapToScreen(obstacle.x, obstacle.z, mapTransform);
         const ex = pos.x;
         const ey = pos.y;
-        ctx.fillStyle = obstacle.kind === 'asteroid' ? '#aa8855' : '#66ddee';
+        ctx.fillStyle = obstacle.kind === 'mine' ? '#ff5038' : (obstacle.kind === 'debris' ? '#aab8b8' : (obstacle.kind === 'asteroid' ? '#aa8855' : '#66ddee'));
         ctx.beginPath();
         ctx.arc(ex, ey, Math.max(2, obstacle.radius * mapTransform.scaleX), 0, Math.PI * 2);
         ctx.fill();
