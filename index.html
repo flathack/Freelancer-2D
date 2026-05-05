@@ -834,6 +834,7 @@ const FALLBACK_GAME_SYSTEMS = {
 const game = {
     canvas: null, ctx: null, width: 0, height: 0,
     running: false, lastTime: 0, gameTime: 0,
+    loopErrorCount: 0,
     player: null, entities: [], npcs: [], npcFleets: [], projectiles: [], loot: [],
     isDocked: false, showMap: false, showCursor: false,
     hasStarted: false,
@@ -852,6 +853,8 @@ const game = {
     commandMode: 'freeflight',
     obstacles: [],
     jumpTransition: null,
+    jumpHoleCapture: null,
+    jumpHoleCaptureCooldownUntil: 0,
     shipImages: {},
     objectImages: {},
     systemWallpapers: {},
@@ -2713,6 +2716,8 @@ const TRADE_LANE_DECELERATION = 1850;
 const TRADE_LANE_BRAKE_DISTANCE = 5200;
 const JUMP_TRANSITION_TOTAL_DURATION = 8;
 const JUMP_TRANSITION_PHASE_DURATION = JUMP_TRANSITION_TOTAL_DURATION / 2;
+const JUMP_HOLE_CAPTURE_DISTANCE = 520;
+const JUMP_HOLE_PULL_DURATION = 1.45;
 const MISSION_SPAWN_DISTANCE = 1700;
 const MISSION_ENEMY_MIN_COUNT = 3;
 const MISSION_ENEMY_MAX_COUNT = 7;
@@ -3715,17 +3720,24 @@ function startJumpTransition(target) {
         return false;
     }
     const angle = Math.atan2(target.z - game.player.z, target.x - game.player.x);
+    const isHole = target instanceof JumpGate && target.kind === 'hole';
     game.jumpTransition = {
         phase: 'out',
         timer: 0,
         elapsed: 0,
+        startedAt: performance.now(),
         duration: JUMP_TRANSITION_PHASE_DURATION,
         totalDuration: JUMP_TRANSITION_TOTAL_DURATION,
+        mode: isHole ? 'hole' : 'gate',
         angle,
+        originX: target.x,
+        originZ: target.z,
+        depthScale: 1,
         targetSystem: jumpTargetSystem(target),
         targetObject: target.destObject,
         gateName: target.name
     };
+    game.jumpHoleCapture = null;
     game.dockTarget = null;
     game.approachTarget = null;
     game.dockLandingTarget = null;
@@ -3740,6 +3752,75 @@ function startJumpTransition(target) {
     addLog('Jumping through ' + target.name + (sameSystemJump ? ' to another point in ' : ' to ') + jumpTargetSystem(target));
     playSound('jump', 1.2);
     return true;
+}
+
+function startJumpHoleCapture(hole) {
+    if (!hole || game.jumpTransition || game.jumpHoleCapture || !hasJumpDestination(hole)) return false;
+    game.jumpHoleCapture = {
+        target: hole,
+        timer: 0,
+        duration: JUMP_HOLE_PULL_DURATION,
+        startX: game.player.x,
+        startZ: game.player.z,
+        startRotation: game.player.rotation
+    };
+    game.selectedTarget = hole;
+    game.approachTarget = null;
+    game.dockTarget = null;
+    game.dockLandingTarget = null;
+    game.commandMode = 'dock';
+    game.player.cancelCruise?.();
+    game.player.afterburnerActive = false;
+    game.player.reverseActive = false;
+    game.player.throttle = 0;
+    game.player.speed = 0;
+    updateCommandModeButtons();
+    updateCruiseButton();
+    updateSpeedControl();
+    addLog('Sprungloch-Sog erfasst: ' + hole.name);
+    playSound('select', 1.1);
+    return true;
+}
+
+function updateJumpHoleCapture(dt) {
+    const capture = game.jumpHoleCapture;
+    if (!capture || !game.player) return false;
+    const target = capture.target;
+    if (!target || !hasJumpDestination(target)) {
+        game.jumpHoleCapture = null;
+        return false;
+    }
+    capture.timer += dt;
+    const progress = clamp(capture.timer / capture.duration, 0, 1);
+    const pull = smoothStep(progress);
+    const wobble = Math.sin(progress * Math.PI * 4) * (1 - pull) * 18;
+    const angle = Math.atan2(target.z - capture.startZ, target.x - capture.startX);
+    game.player.x = capture.startX + (target.x - capture.startX) * pull + Math.cos(angle + Math.PI / 2) * wobble;
+    game.player.z = capture.startZ + (target.z - capture.startZ) * pull + Math.sin(angle + Math.PI / 2) * wobble;
+    game.player.rotation = angle;
+    game.player.speed = 0;
+    game.player.throttle = 0;
+    if (progress >= 1) {
+        game.player.x = target.x;
+        game.player.z = target.z;
+        game.jumpHoleCapture = null;
+        startJumpTransition(target);
+    }
+    return true;
+}
+
+function updateAutomaticJumpHoleCapture() {
+    if (!game.player || game.jumpTransition || game.jumpHoleCapture || game.isDocked || game.player.inTradeLane) return;
+    if (performance.now() < (game.jumpHoleCaptureCooldownUntil || 0)) return;
+    const holes = game.entities.filter(entity => entity instanceof JumpGate && entity.kind === 'hole' && hasJumpDestination(entity));
+    for (const hole of holes) {
+        const distance = Math.hypot(hole.x - game.player.x, hole.z - game.player.z);
+        const captureDistance = Math.max(JUMP_HOLE_CAPTURE_DISTANCE, (hole.visualRadius || hole.radius || 0) * 1.45);
+        if (distance <= captureDistance) {
+            startJumpHoleCapture(hole);
+            return;
+        }
+    }
 }
 
 let currentSystemId = 'Li01';
@@ -4851,8 +4932,11 @@ function jumpArrivalPose(arrival, fallbackAngle) {
     const angle = arrival instanceof JumpGate || arrival?.kind
         ? flYawToCanvasRotation(arrival.rotateY || 0)
         : fallbackAngle;
+    const isJumpHole = arrival instanceof JumpGate && arrival.kind === 'hole' || arrival?.kind === 'hole';
     const distance = arrival instanceof JumpGate || arrival?.kind
-        ? Math.max(650, Math.min(1600, (arrival.radius || 600) + 260))
+        ? (isJumpHole
+            ? Math.max(1800, (arrival.visualRadius || arrival.radius || 600) * 2.2)
+            : Math.max(650, Math.min(1600, (arrival.radius || 600) + 260)))
         : 200;
     return {
         x: (arrival?.x || 0) + Math.cos(angle) * distance,
@@ -4890,6 +4974,7 @@ function loadSystem(systemId, arrivalObjectId = null) {
         game.player.laneRoute = null;
         game.player.laneDirection = 1;
         game.player.tradeLaneCooldownUntil = performance.now() + 1800;
+        game.jumpHoleCaptureCooldownUntil = performance.now() + 3200;
         setNormalFlightSpeed(game.player);
     }
     returnToFreeflight('', { preserveMotion: true });
@@ -5570,7 +5655,9 @@ class PlayerShip {
         ctx.save();
         ctx.translate(pos.x, pos.y);
         ctx.rotate(this.rotation);
-        const visualScale = Math.max(0.2, Math.min(3.2, game.zoom));
+        const depthScale = game.jumpTransition?.mode === 'hole' ? Math.max(0.035, Number(game.jumpTransition.depthScale) || 1) : 1;
+        if (game.jumpTransition?.mode === 'hole') ctx.globalAlpha = Math.max(0.05, Number(game.jumpTransition.depthAlpha ?? 1));
+        const visualScale = Math.max(0.2, Math.min(3.2, game.zoom)) * depthScale;
         
         // Shield (blue glow) - always visible
         if (this.maxShield > 0 && this.shield > 0) {
@@ -7575,30 +7662,54 @@ function renderSystemWallpaper() {
 function updateJumpTransition(dt) {
     const transition = game.jumpTransition;
     if (!transition) return false;
+    if (transition.startedAt && performance.now() - transition.startedAt > (transition.totalDuration + 2.5) * 1000) {
+        game.jumpTransition = null;
+        game.jumpHoleCapture = null;
+        game.jumpHoleCaptureCooldownUntil = performance.now() + 3200;
+        setNormalFlightSpeed(game.player);
+        return false;
+    }
     transition.timer += dt;
     transition.elapsed = (transition.elapsed || 0) + dt;
     game.player.rotation = transition.angle;
 
     if (transition.phase === 'out') {
         const progress = Math.min(1, transition.timer / transition.duration);
-        const speed = 2600 + smoothStep(progress) * 11000;
-        game.player.x += Math.cos(transition.angle) * speed * dt;
-        game.player.z += Math.sin(transition.angle) * speed * dt;
+        if (transition.mode === 'hole') {
+            const depth = smoothStep(progress);
+            game.player.x = transition.originX;
+            game.player.z = transition.originZ;
+            transition.depthScale = Math.max(0.045, 1 - depth * 0.955);
+            transition.depthAlpha = Math.max(0, 1 - depth * 1.08);
+        } else {
+            const speed = 2600 + smoothStep(progress) * 11000;
+            game.player.x += Math.cos(transition.angle) * speed * dt;
+            game.player.z += Math.sin(transition.angle) * speed * dt;
+        }
         if (progress >= 1) {
             loadSystem(transition.targetSystem, transition.targetObject);
             game.jumpTransition = {
                 ...transition,
                 phase: 'in',
                 timer: 0,
-                duration: JUMP_TRANSITION_PHASE_DURATION
+                duration: transition.mode === 'hole' ? 2.2 : JUMP_TRANSITION_PHASE_DURATION,
+                depthScale: transition.mode === 'hole' ? 0.045 : 1,
+                depthAlpha: 1
             };
         }
         return true;
     }
 
     const progress = Math.min(1, transition.timer / transition.duration);
+    if (transition.mode === 'hole') {
+        const depth = smoothStep(progress);
+        transition.depthScale = 0.045 + depth * 0.955;
+        transition.depthAlpha = depth;
+    }
     if (progress >= 1) {
         game.jumpTransition = null;
+        game.jumpHoleCapture = null;
+        if (transition.mode === 'hole') game.jumpHoleCaptureCooldownUntil = performance.now() + 3200;
         setNormalFlightSpeed(game.player);
     }
     return true;
@@ -7620,6 +7731,45 @@ function renderJumpTunnel() {
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
     ctx.translate(cx, cy);
+    if (transition.mode === 'hole') {
+        const dir = transition.phase === 'out' ? 1 : -1;
+        const depth = transition.phase === 'out' ? smoothStep(progress) : 1 - smoothStep(progress);
+        for (let i = 0; i < 52; i++) {
+            const lane = i / 52;
+            const angle = lane * Math.PI * 2 + (i % 7) * 0.19 + now * 0.45 * dir;
+            const phase = ((lane + now * (0.58 + (i % 9) * 0.022) * dir + totalProgress) % 1 + 1) % 1;
+            const start = 28 + phase * Math.max(game.width, game.height) * 0.16;
+            const end = start + 70 + depth * 760 + (i % 11) * 18;
+            const flatten = 0.62 + Math.sin(now + i) * 0.08;
+            const alpha = (0.05 + depth * 0.34) * (1 - phase * 0.52);
+            ctx.strokeStyle = `rgba(${120 + i % 5 * 18},${210 + i % 4 * 12},255,${alpha})`;
+            ctx.lineWidth = 1 + depth * 4 + (i % 3);
+            ctx.beginPath();
+            ctx.moveTo(Math.cos(angle) * start, Math.sin(angle) * start * flatten);
+            ctx.lineTo(Math.cos(angle) * end, Math.sin(angle) * end * flatten);
+            ctx.stroke();
+        }
+        for (let ring = 0; ring < 10; ring++) {
+            const ringT = ((ring / 10 + now * 0.0011 * dir + depth * 0.8) % 1 + 1) % 1;
+            const radius = 70 + ringT * Math.max(game.width, game.height) * 0.72;
+            const alpha = (1 - ringT) * (0.08 + depth * 0.24);
+            ctx.strokeStyle = `rgba(165,245,255,${alpha})`;
+            ctx.lineWidth = 1 + (1 - ringT) * 5;
+            ctx.beginPath();
+            ctx.ellipse(0, 0, radius, radius * (0.34 + ringT * 0.08), now * 0.25, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+        const core = ctx.createRadialGradient(0, 0, 16, 0, 0, Math.max(game.width, game.height) * (0.18 + depth * 0.36));
+        core.addColorStop(0, `rgba(245,255,255,${0.32 + depth * 0.48})`);
+        core.addColorStop(0.24, `rgba(70,235,255,${0.16 + depth * 0.24})`);
+        core.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = core;
+        ctx.beginPath();
+        ctx.arc(0, 0, Math.max(game.width, game.height), 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+        return;
+    }
     ctx.rotate(transition.angle);
     for (let ring = 0; ring < 18; ring++) {
         const ringT = (ring / 18 + now * 0.00045 + totalProgress * 0.9) % 1;
@@ -7754,8 +7904,14 @@ function update(dt) {
         updateHUD();
         return;
     }
+
+    if (updateJumpHoleCapture(dt)) {
+        updateHUD();
+        return;
+    }
     
     game.player.update(dt);
+    updateAutomaticJumpHoleCapture();
 
     if (game.dockTarget) {
         const dx = game.dockTarget.x - game.player.x;
@@ -8349,12 +8505,14 @@ function render() {
         ctx.fill();
     }
     
+    if (game.jumpTransition?.mode === 'hole') renderJumpTunnel();
+
     // Player
     game.player.render(ctx);
 
     renderWaypointLine(ctx);
 
-    renderJumpTunnel();
+    if (game.jumpTransition?.mode !== 'hole') renderJumpTunnel();
     renderTradeLaneWarpBubble();
     renderApproachEdgeMarker(ctx);
     
@@ -8457,8 +8615,20 @@ function gameLoop(currentTime) {
     const dt = Math.min((currentTime - game.lastTime) / 1000, 0.1);
     game.lastTime = currentTime;
     game.frameCount = (game.frameCount || 0) + 1;
-    update(dt);
-    render();
+    try {
+        update(dt);
+        render();
+    } catch (error) {
+        game.loopErrorCount = (game.loopErrorCount || 0) + 1;
+        console.error('Game loop error:', error);
+        if (game.jumpTransition) {
+            game.jumpTransition = null;
+            game.jumpHoleCapture = null;
+            game.jumpHoleCaptureCooldownUntil = performance.now() + 3200;
+            if (game.player) setNormalFlightSpeed(game.player);
+        }
+        if (game.loopErrorCount <= 3) addLog('Runtime error recovered - continuing flight.', 'alert');
+    }
     requestAnimationFrame(gameLoop);
 }
 
