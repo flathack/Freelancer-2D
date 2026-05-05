@@ -927,6 +927,7 @@ const SAVE_VERSION = 1;
 const MAX_SAVE_SLOTS = 5;
 const GAME_TITLE = 'Freelancer 2D - a 2d adventure';
 const JUSTICE_FIRE_SOUND_PATH = 'assets/audio/justice-fire.wav';
+const UNIVERSE_BACKGROUND_IMAGE_PATH = 'assets/universe-nebula-background.png';
 const MUSIC_VOLUME = 0.315;
 const MUSIC_CROSSFADE_MS = 1400;
 const VOICE_SOUND_PATHS = {
@@ -8983,26 +8984,82 @@ function toggleUniverseView() {
     }
 }
 
+let universeBackgroundImage = null;
+let universeBackgroundImageRequested = false;
+
+function getUniverseBackgroundImage() {
+    if (!universeBackgroundImage && !universeBackgroundImageRequested && typeof Image !== 'undefined') {
+        universeBackgroundImageRequested = true;
+        universeBackgroundImage = new Image();
+        universeBackgroundImage.onload = () => {
+            drawUniverseMapInMapDialog();
+            drawUniverseMap();
+        };
+        universeBackgroundImage.src = UNIVERSE_BACKGROUND_IMAGE_PATH;
+    }
+    return universeBackgroundImage && universeBackgroundImage.complete && universeBackgroundImage.naturalWidth > 0
+        ? universeBackgroundImage
+        : null;
+}
+
+function drawUniverseBackground(ctx, w, h) {
+    ctx.fillStyle = '#000508';
+    ctx.fillRect(0, 0, w, h);
+
+    const image = getUniverseBackgroundImage();
+    if (image) {
+        const imageRatio = image.naturalWidth / Math.max(1, image.naturalHeight);
+        const canvasRatio = w / Math.max(1, h);
+        let drawW = w;
+        let drawH = h;
+        let drawX = 0;
+        let drawY = 0;
+        if (imageRatio > canvasRatio) {
+            drawH = h;
+            drawW = h * imageRatio;
+            drawX = (w - drawW) / 2;
+        } else {
+            drawW = w;
+            drawH = w / imageRatio;
+            drawY = (h - drawH) / 2;
+        }
+        ctx.save();
+        ctx.globalAlpha = 0.72;
+        ctx.drawImage(image, drawX, drawY, drawW, drawH);
+        ctx.globalAlpha = 1;
+        const fade = ctx.createRadialGradient(w * 0.5, h * 0.48, Math.min(w, h) * 0.18, w * 0.5, h * 0.48, Math.max(w, h) * 0.72);
+        fade.addColorStop(0, 'rgba(0, 7, 14, 0.10)');
+        fade.addColorStop(0.72, 'rgba(0, 7, 14, 0.34)');
+        fade.addColorStop(1, 'rgba(0, 0, 0, 0.72)');
+        ctx.fillStyle = fade;
+        ctx.fillRect(0, 0, w, h);
+        ctx.fillStyle = 'rgba(0, 4, 10, 0.28)';
+        ctx.fillRect(0, 0, w, h);
+        ctx.restore();
+    }
+}
+
+function drawUniverseGrid(ctx, w, h) {
+    ctx.strokeStyle = 'rgba(40, 140, 125, 0.22)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 20; i++) {
+        ctx.beginPath();
+        ctx.moveTo(i * w / 20, 0);
+        ctx.lineTo(i * w / 20, h);
+        ctx.moveTo(0, i * h / 20);
+        ctx.lineTo(w, i * h / 20);
+        ctx.stroke();
+    }
+}
+
 function drawUniverseMapInMapDialog() {
     const canvas = document.getElementById('map-universe-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const w = canvas.width, h = canvas.height;
     
-    ctx.fillStyle = '#000508';
-    ctx.fillRect(0, 0, w, h);
-    
-    // Grid
-    ctx.strokeStyle = 'rgba(0,50,30,0.3)';
-    ctx.lineWidth = 1;
-    for (let i = 0; i <= 20; i++) {
-        ctx.beginPath();
-        ctx.moveTo(i * w/20, 0);
-        ctx.lineTo(i * w/20, h);
-        ctx.moveTo(0, i * h/20);
-        ctx.lineTo(w, i * h/20);
-        ctx.stroke();
-    }
+    drawUniverseBackground(ctx, w, h);
+    drawUniverseGrid(ctx, w, h);
     
     const systemColor = (id) => {
         const lower = id.toLowerCase();
@@ -9405,20 +9462,8 @@ function drawUniverseMap() {
     const w = canvas.width, h = canvas.height;
     renderUniverseSectorTabs();
     
-    ctx.fillStyle = '#000508';
-    ctx.fillRect(0, 0, w, h);
-    
-    // Grid
-    ctx.strokeStyle = 'rgba(0,50,30,0.3)';
-    ctx.lineWidth = 1;
-    for (let i = 0; i <= 20; i++) {
-        ctx.beginPath();
-        ctx.moveTo(i * w/20, 0);
-        ctx.lineTo(i * w/20, h);
-        ctx.moveTo(0, i * h/20);
-        ctx.lineTo(w, i * h/20);
-        ctx.stroke();
-    }
+    drawUniverseBackground(ctx, w, h);
+    drawUniverseGrid(ctx, w, h);
     
     const systemColor = (id) => {
         const lower = id.toLowerCase();
