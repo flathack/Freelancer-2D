@@ -168,7 +168,7 @@ body[data-theme="crossfire"] {
     .controls { grid-template-columns: 1fr; }
     .start-footer { position: relative; right: auto; bottom: auto; z-index: 2; margin: 14px 24px 18px; justify-content: flex-start; flex-wrap: wrap; }
 }
-#map-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 500px; background: rgba(0,10,20,0.95); border: 2px solid #00aaff; z-index: 2000; }
+#map-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: min(1120px, calc(100vw - 32px)); height: min(760px, calc(100vh - 32px)); background: rgba(0,10,20,0.95); border: 2px solid #00aaff; z-index: 2000; display: flex; flex-direction: column; overflow: hidden; }
 #map-header { padding: 10px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
 #map-header h3 { color: #00aaff; margin: 0; }
 #map-controls { display: flex; gap: 10px; }
@@ -192,6 +192,7 @@ body[data-theme="crossfire"] {
     .inventory-row { grid-template-columns: minmax(0, 1fr) auto; }
     .inventory-row .inventory-meta { grid-column: 1 / -1; }
 }
+#map-canvas, #map-universe-canvas { flex: 1 1 auto; width: 100%; min-height: 0; display: block; }
 #map-canvas, #universe-canvas { cursor: grab; }
 #map-canvas:active, #universe-canvas:active { cursor: grabbing; }
 #log-area { position: absolute; top: 250px; left: 10px; width: 320px; max-height: 180px; background: rgba(0,0,0,0.85); border: 1px solid #333; overflow-y: auto; padding: 5px; font-size: 11px; display: none; }
@@ -520,7 +521,7 @@ body[data-theme="crossfire"] .mod-btn.active {
             </div>
         </div>
         <div class="start-footer">
-            <span>Made by Aldenmar Odin - flathack - v0.6.4</span>
+            <span>Made by Aldenmar Odin - flathack - v0.6.5</span>
             <a class="start-home-link" href="https://flathack.github.io/" target="_blank" rel="noopener noreferrer">Startseite</a>
         </div>
     </div>
@@ -538,9 +539,9 @@ body[data-theme="crossfire"] .mod-btn.active {
             <button class="map-btn map-tab active" data-maptab="system" onclick="switchMapTab('system')" title="Systemkarte">⏺</button>
             <button class="map-btn map-tab" data-maptab="universe" onclick="switchMapTab('universe')" title="Universum">✦</button>
         </div>
-        <canvas id="map-canvas" width="700" height="430"></canvas>
+        <canvas id="map-canvas" width="1120" height="650"></canvas>
         <div id="map-universe-sector-tabs" style="display:none;gap:6px;padding:6px 10px;border-bottom:1px solid #1d2b1d;flex-wrap:wrap;"></div>
-        <canvas id="map-universe-canvas" width="700" height="430" style="display:none;"></canvas>
+        <canvas id="map-universe-canvas" width="1120" height="650" style="display:none;"></canvas>
     </div>
 
     <div id="inventory-overlay" class="hidden">
@@ -2036,7 +2037,8 @@ function resolveNpcShipVisual(npcShip, ship, type, factionId = '') {
     return {
         shipId: shipRecord?.id || archetypeId,
         shipName: shipRecord?.name || npcShip?.ship || '',
-        shipIcon: shipRecord?.icon || derivedIcon || defaultNpcShipIcon(type, factionId)
+        shipIcon: shipRecord?.icon || derivedIcon || defaultNpcShipIcon(type, factionId),
+        shipRecord
     };
 }
 
@@ -2953,6 +2955,34 @@ function getShipPackage(packageId) {
     return shipPackagesData()[String(packageId).toLowerCase()] || null;
 }
 
+function shipRecordForId(shipId) {
+    return shipsData()[String(shipId || '').toLowerCase()] || null;
+}
+
+function shipModelBounds(source) {
+    if (!source) return null;
+    return source.modelBounds || source.stats?.modelBounds || null;
+}
+
+function shipVisualWorldRadius(source, options = {}) {
+    const bounds = shipModelBounds(source);
+    const radius = Number(bounds?.radius || 0);
+    const width = Number(bounds?.width || 0);
+    const length = Number(bounds?.length || 0);
+    if (radius > 0 || width > 0 || length > 0) {
+        const topRadius = Math.max(radius, width * 0.5, length * 0.5);
+        return clamp(topRadius * 3.05, 14, 130);
+    }
+    const id = String(source?.id || source?.ship || source?.shipId || options.shipId || '').toLowerCase();
+    const type = String(source?.type || options.type || '').toUpperCase();
+    const mass = Number(source?.mass || source?.stats?.mass || 0);
+    const hitPts = Number(source?.hitPts || source?.stats?.hull || 0);
+    if (id.includes('large_train') || id.includes('ge_train')) return 92;
+    if (id.includes('transport') || type === 'TRANSPORT') return 64;
+    if (type === 'FREIGHTER' || mass >= 250) return 42;
+    return clamp(Math.sqrt(Math.max(hitPts, 900)) * 0.34, 18, 34);
+}
+
 function getShipImage(iconPath) {
     if (!iconPath) return null;
     if (!game.shipImages[iconPath]) {
@@ -3601,7 +3631,7 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.weaponClassMax = parseMaxEquipmentClass(shipPackage, parseMaxEquipmentClass(shipRecord, game.player.firePower || 1));
     game.player.shieldClassMax = game.player.weaponClassMax;
     game.player.shieldFamily = shipShieldFamily();
-    game.player.radius = Math.max(18, Math.min(34, Math.sqrt(game.player.maxHull) * 0.28));
+    game.player.radius = shipVisualWorldRadius(shipRecord || shipPackage, { shipId: shipPackage.ship, type: shipPackage.type });
     ensureFixedShipEquipment();
     ensureStarterEquipmentForEmptyLoadout();
     if (logPurchase) {
@@ -4307,9 +4337,10 @@ function checkPlanetAtmosphereHazards(dt) {
 function isPointInsideZone(zone, x, z) {
     const rotation = -flYawToCanvasRotation(zone.rotateY || 0);
     const local = rotatePoint(x - zone.x, z - zone.z, rotation);
-    const radiusX = Math.max(1, zone.sizeX || zone.size || 1);
-    const radiusZ = Math.max(1, zone.sizeZ || zone.size || 1);
     const shape = String(zone.shape || '').toUpperCase();
+    const boxScale = shape === 'BOX' ? 0.5 : 1;
+    const radiusX = Math.max(1, (zone.sizeX || zone.size || 1) * boxScale);
+    const radiusZ = Math.max(1, (zone.sizeZ || zone.size || 1) * boxScale);
     if (shape === 'SPHERE') {
         return Math.sqrt(local.x * local.x + local.z * local.z) <= Math.max(radiusX, radiusZ);
     }
@@ -4322,9 +4353,10 @@ function isPointInsideZone(zone, x, z) {
 function isPointInsideExpandedZone(zone, x, z, margin = 0) {
     const rotation = -flYawToCanvasRotation(zone.rotateY || 0);
     const local = rotatePoint(x - zone.x, z - zone.z, rotation);
-    const radiusX = Math.max(1, zone.sizeX || zone.size || 1) + margin;
-    const radiusZ = Math.max(1, zone.sizeZ || zone.size || 1) + margin;
     const shape = String(zone.shape || '').toUpperCase();
+    const boxScale = shape === 'BOX' ? 0.5 : 1;
+    const radiusX = Math.max(1, (zone.sizeX || zone.size || 1) * boxScale) + margin;
+    const radiusZ = Math.max(1, (zone.sizeZ || zone.size || 1) * boxScale) + margin;
     if (shape === 'SPHERE') {
         return Math.sqrt(local.x * local.x + local.z * local.z) <= Math.max(radiusX, radiusZ);
     }
@@ -4731,8 +4763,8 @@ function createFieldObstacles(field, kind) {
             : kind === 'asteroid'
                 ? Math.min(340, Math.max(52, Math.floor(field.size / 185)))
                 : Math.min(46, Math.max(10, Math.floor(field.size / 1100)));
-    const radiusX = Math.max(800, (field.sizeX || field.size || 2000) * 0.75);
-    const radiusZ = Math.max(800, (field.sizeZ || field.size || 2000) * 0.75);
+    const radiusX = Math.max(800, field.sizeX || field.size || 2000);
+    const radiusZ = Math.max(800, field.sizeZ || field.size || 2000);
     const fieldRotation = flYawToCanvasRotation(field.rotateY || 0);
     const obstacles = [];
     for (let i = 0; i < count; i++) {
@@ -5549,7 +5581,7 @@ class PlayerShip {
         
         const shipImage = getShipImage(this.shipIcon);
         if (shipImage) {
-            const baseSize = Math.max(42, Math.min(76, this.radius * 2.8));
+            const baseSize = this.radius * 2.8;
             const size = baseSize * visualScale;
             ctx.save();
             ctx.rotate(Math.PI / 2);
@@ -6000,13 +6032,15 @@ class AsteroidField {
             ctx.save();
             ctx.translate(ex.x - pos.x, ex.y - pos.y);
             ctx.rotate(flYawToCanvasRotation(exclusion.rotateY || 0));
-            const exRx = Math.max(1, (exclusion.sizeX || exclusion.size || 1) * game.zoom);
-            const exRz = Math.max(1, (exclusion.sizeZ || exclusion.size || 1) * game.zoom);
+            const isBoxExclusion = String(exclusion.shape || '').toUpperCase() === 'BOX';
+            const exScale = isBoxExclusion ? 0.5 : 1;
+            const exRx = Math.max(1, (exclusion.sizeX || exclusion.size || 1) * exScale * game.zoom);
+            const exRz = Math.max(1, (exclusion.sizeZ || exclusion.size || 1) * exScale * game.zoom);
             ctx.strokeStyle = isMinefield ? 'rgba(120,255,210,0.42)' : 'rgba(150,230,255,0.22)';
             ctx.lineWidth = Math.max(1, game.zoom * 2);
             ctx.setLineDash([10, 7]);
             ctx.beginPath();
-            if (String(exclusion.shape || '').toUpperCase() === 'BOX') ctx.rect(-exRx, -exRz, exRx * 2, exRz * 2);
+            if (isBoxExclusion) ctx.rect(-exRx, -exRz, exRx * 2, exRz * 2);
             else ctx.ellipse(0, 0, exRx, exRz, 0, 0, Math.PI * 2);
             ctx.stroke();
             ctx.setLineDash([]);
@@ -6126,7 +6160,8 @@ function createNPC(type, options = {}) {
         encounter: options.encounter || '',
         shield: shieldValue, maxShield: shieldValue,
         maxSpeed: options.maxSpeed || (type === 'trader' ? 85 + Math.random() * 18 : 110 + difficulty * 18 + Math.random() * 35),
-        turnRate: Math.max(0.65, Math.min(2.9, Number(handling.turnRate) || (type === 'trader' ? 1.15 : 2.0))), radius: Math.max(16, Math.min(type === 'trader' ? 54 : 28, Math.sqrt(Number(ship?.hitPts || 900) * transportScale) * 0.34)),
+        turnRate: Math.max(0.65, Math.min(2.9, Number(handling.turnRate) || (type === 'trader' ? 1.15 : 2.0))),
+        radius: shipVisualWorldRadius(shipVisual.shipRecord || ship, { shipId: shipVisual.shipId, type }),
         color: colors[type], stateTimer: 0,
         shieldRotation: 0,
         missionId: options.missionId || '',
@@ -6620,7 +6655,7 @@ function renderNPC(ctx, npc) {
 
     const shipImage = getShipImage(npc.shipIcon);
     if (shipImage) {
-        const size = Math.max(34, Math.min(70, npc.radius * 2.7)) * visualScale;
+        const size = Math.max(28, npc.radius * 2.7) * visualScale;
         ctx.save();
         ctx.rotate(Math.PI / 2);
         ctx.drawImage(shipImage, -size / 2, -size / 2, size, size);
@@ -8596,6 +8631,116 @@ function screenToSystemMap(x, y, transform) {
     return { x: (x - transform.offsetX) / transform.scaleX, z: (y - transform.offsetY) / transform.scaleY };
 }
 
+function clampSystemMapPan(canvas) {
+    if (!canvas) return;
+    const halfExtent = 100000;
+    const transform = getSystemMapTransform(canvas);
+    const gridHalfX = halfExtent * transform.scaleX;
+    const gridHalfY = halfExtent * transform.scaleY;
+    const maxPanX = Math.max(0, Math.abs(gridHalfX - canvas.width / 2));
+    const maxPanY = Math.max(0, Math.abs(gridHalfY - canvas.height / 2));
+    game.mapPanX = clamp(Number(game.mapPanX) || 0, -maxPanX, maxPanX);
+    game.mapPanY = clamp(Number(game.mapPanY) || 0, -maxPanY, maxPanY);
+}
+
+function drawSystemMapGrid(ctx, canvas, transform) {
+    const halfExtent = 100000;
+    const divisions = 8;
+    const cell = (halfExtent * 2) / divisions;
+    const topLeft = systemMapToScreen(-halfExtent, -halfExtent, transform);
+    const bottomRight = systemMapToScreen(halfExtent, halfExtent, transform);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(0,70,110,0.42)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(topLeft.x, topLeft.y, bottomRight.x - topLeft.x, bottomRight.y - topLeft.y);
+    ctx.strokeStyle = 'rgba(0,70,110,0.28)';
+    for (let i = 1; i < divisions; i++) {
+        const coord = -halfExtent + cell * i;
+        const v1 = systemMapToScreen(coord, -halfExtent, transform);
+        const v2 = systemMapToScreen(coord, halfExtent, transform);
+        const h1 = systemMapToScreen(-halfExtent, coord, transform);
+        const h2 = systemMapToScreen(halfExtent, coord, transform);
+        ctx.beginPath();
+        ctx.moveTo(v1.x, v1.y);
+        ctx.lineTo(v2.x, v2.y);
+        ctx.moveTo(h1.x, h1.y);
+        ctx.lineTo(h2.x, h2.y);
+        ctx.stroke();
+    }
+    ctx.fillStyle = 'rgba(130,190,225,0.64)';
+    ctx.font = '10px Courier New';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (let i = 0; i < divisions; i++) {
+        const center = -halfExtent + cell * (i + 0.5);
+        const xLabel = systemMapToScreen(center, halfExtent, transform);
+        const yLabel = systemMapToScreen(-halfExtent, center, transform);
+        ctx.fillText('ABCDEFGH'[i], xLabel.x, xLabel.y + 14);
+        ctx.fillText(String(i + 1), yLabel.x - 14, yLabel.y);
+    }
+    ctx.restore();
+}
+
+function mapZoneScreenGeometry(zone, transform) {
+    const shape = String(zone?.shape || 'ELLIPSOID').toUpperCase();
+    const sx = Number(zone?.sizeX ?? zone?.size_x ?? zone?.size ?? 0);
+    const sy = Number(zone?.sizeY ?? zone?.size_y ?? sx);
+    const sz = Number(zone?.sizeZ ?? zone?.size_z ?? sx);
+    if (shape === 'BOX') {
+        return { shape, rx: Math.max(1, sx * transform.scaleX * 0.5), rz: Math.max(1, sz * transform.scaleY * 0.5) };
+    }
+    if (shape === 'SPHERE') {
+        const radius = Math.max(1, sx);
+        return { shape, rx: radius * transform.scaleX, rz: radius * transform.scaleY };
+    }
+    if (shape === 'CYLINDER') {
+        const radius = Math.max(1, sx);
+        const projectedLength = Math.max(0, sy || sz || radius);
+        const flat = projectedLength > radius * 2.5 && sz > radius * 1.2;
+        return {
+            shape,
+            rx: (flat ? Math.max(radius, projectedLength * 0.5) : radius) * transform.scaleX,
+            rz: (flat ? radius : Math.max(radius, sz || radius)) * transform.scaleY
+        };
+    }
+    return { shape, rx: Math.max(1, sx * transform.scaleX), rz: Math.max(1, sz * transform.scaleY) };
+}
+
+function drawMapZoneShape(ctx, zone, transform, options = {}) {
+    const pos = systemMapToScreen(zone.x, zone.z, transform);
+    const geometry = mapZoneScreenGeometry(zone, transform);
+    const rx = Math.max(options.minRadius || 0, geometry.rx);
+    const rz = Math.max(options.minRadius || 0, geometry.rz);
+    ctx.save();
+    ctx.translate(pos.x, pos.y);
+    ctx.rotate(flYawToCanvasRotation(zone.rotate_y || zone.rotateY || 0));
+    ctx.beginPath();
+    if (geometry.shape === 'BOX') ctx.rect(-rx, -rz, rx * 2, rz * 2);
+    else ctx.ellipse(0, 0, rx, rz, 0, 0, Math.PI * 2);
+    if (options.fill !== false) ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+}
+
+function systemMapExclusionZones() {
+    const zones = [];
+    const seen = new Set();
+    for (const field of [...(systemData.asteroidfields || []), ...(systemData.nebulae || [])]) {
+        for (const exclusion of field.exclusionZones || []) {
+            const key = [
+                exclusion.id || exclusion.nickname || exclusion.name || '',
+                Math.round(Number(exclusion.x || 0)),
+                Math.round(Number(exclusion.z || 0)),
+                String(exclusion.shape || '').toUpperCase()
+            ].join(':');
+            if (seen.has(key)) continue;
+            seen.add(key);
+            zones.push(exclusion);
+        }
+    }
+    return zones;
+}
+
 function isSelectedMapObject(object, entity = null) {
     const selected = game.selectedTarget;
     if (!selected) return false;
@@ -8611,22 +8756,13 @@ function drawMapCanvas() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const w = canvas.width, h = canvas.height;
+    clampSystemMapPan(canvas);
     const mapTransform = getSystemMapTransform(canvas);
     
     ctx.fillStyle = '#000810';
     ctx.fillRect(0, 0, w, h);
     
-    // Grid
-    ctx.strokeStyle = 'rgba(0,50,80,0.3)';
-    ctx.lineWidth = 1;
-    for (let i = 0; i <= 10; i++) {
-        ctx.beginPath();
-        ctx.moveTo(i * w/10, 0);
-        ctx.lineTo(i * w/10, h);
-        ctx.moveTo(0, i * h/10);
-        ctx.lineTo(w, i * h/10);
-        ctx.stroke();
-    }
+    drawSystemMapGrid(ctx, canvas, mapTransform);
     
     // Sun
     const sunPos = systemMapToScreen(0, 0, mapTransform);
@@ -8692,49 +8828,25 @@ function drawMapCanvas() {
 
     // Nebulae and asteroid fields with hazard obstacles
     for (const nebula of systemData.nebulae) {
-        const pos = systemMapToScreen(nebula.x, nebula.z, mapTransform);
-        const ex = pos.x;
-        const ey = pos.y;
-        const rx = Math.max(8, (nebula.size_x || nebula.size || 0) * mapTransform.scaleX);
-        const rz = Math.max(8, (nebula.size_z || nebula.size || 0) * mapTransform.scaleY);
         ctx.fillStyle = 'rgba(80,120,220,0.12)';
         ctx.strokeStyle = 'rgba(120,180,255,0.25)';
-        ctx.beginPath();
-        ctx.ellipse(ex, ey, rx, rz, flYawToCanvasRotation(nebula.rotate_y || nebula.rotateY || 0), 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
+        drawMapZoneShape(ctx, nebula, mapTransform, { minRadius: 8 });
     }
     for (const field of systemData.asteroidfields) {
-        const pos = systemMapToScreen(field.x, field.z, mapTransform);
-        const ex = pos.x;
-        const ey = pos.y;
-        const rx = Math.max(8, (field.sizeX || field.size_x || field.size || 0) * mapTransform.scaleX);
-        const rz = Math.max(8, (field.sizeZ || field.size_z || field.size || 0) * mapTransform.scaleY);
         const isMinefield = field.hazardKind === 'explosive_mines';
         const isDebris = field.fieldKind === 'debris';
         ctx.fillStyle = isMinefield ? 'rgba(255,45,20,0.12)' : (isDebris ? 'rgba(150,165,165,0.10)' : 'rgba(130,110,70,0.12)');
         ctx.strokeStyle = isMinefield ? 'rgba(255,70,45,0.42)' : (isDebris ? 'rgba(175,195,195,0.25)' : 'rgba(180,150,90,0.25)');
-        ctx.beginPath();
-        ctx.ellipse(ex, ey, rx, rz, flYawToCanvasRotation(field.rotate_y || field.rotateY || 0), 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
-        for (const exclusion of field.exclusionZones || []) {
-            const exclusionPos = systemMapToScreen(exclusion.x, exclusion.z, mapTransform);
-            const exRx = Math.max(3, (exclusion.sizeX || exclusion.size || 0) * mapTransform.scaleX);
-            const exRz = Math.max(3, (exclusion.sizeZ || exclusion.size || 0) * mapTransform.scaleY);
-            ctx.save();
-            ctx.translate(exclusionPos.x, exclusionPos.y);
-            ctx.rotate(flYawToCanvasRotation(exclusion.rotateY || 0));
-            ctx.strokeStyle = isMinefield ? 'rgba(120,255,210,0.58)' : 'rgba(150,230,255,0.32)';
-            ctx.lineWidth = 1;
-            ctx.setLineDash([6, 4]);
-            ctx.beginPath();
-            if (String(exclusion.shape || '').toUpperCase() === 'BOX') ctx.rect(-exRx, -exRz, exRx * 2, exRz * 2);
-            else ctx.ellipse(0, 0, exRx, exRz, 0, 0, Math.PI * 2);
-            ctx.stroke();
-            ctx.setLineDash([]);
-            ctx.restore();
-        }
+        drawMapZoneShape(ctx, field, mapTransform, { minRadius: 8 });
+    }
+    for (const exclusion of systemMapExclusionZones()) {
+        const isBox = String(exclusion.shape || '').toUpperCase() === 'BOX';
+        ctx.fillStyle = isBox ? 'rgba(0,18,22,0.18)' : 'rgba(0,18,22,0.08)';
+        ctx.strokeStyle = isBox ? 'rgba(125,255,220,0.78)' : 'rgba(150,230,255,0.34)';
+        ctx.lineWidth = isBox ? 1.5 : 1;
+        ctx.setLineDash(isBox ? [8, 4] : [6, 4]);
+        drawMapZoneShape(ctx, exclusion, mapTransform, { minRadius: 3, fill: isBox });
+        ctx.setLineDash([]);
     }
     for (const obstacle of game.obstacles) {
         const pos = systemMapToScreen(obstacle.x, obstacle.z, mapTransform);
@@ -9408,8 +9520,19 @@ document.getElementById('map-universe-canvas')?.addEventListener('mouseleave', s
 
 document.getElementById('map-canvas')?.addEventListener('wheel', (e) => {
     e.preventDefault();
+    const canvas = e.currentTarget;
+    const rect = canvas.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) * (canvas.width / Math.max(1, rect.width));
+    const my = (e.clientY - rect.top) * (canvas.height / Math.max(1, rect.height));
+    const before = screenToSystemMap(mx, my, getSystemMapTransform(canvas));
     const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
-    game.mapZoom = clamp(game.mapZoom * factor, game.minMapZoom, game.maxMapZoom);
+    const nextZoom = clamp(game.mapZoom * factor, game.minMapZoom, game.maxMapZoom);
+    if (nextZoom === game.mapZoom) return;
+    game.mapZoom = nextZoom;
+    const after = systemMapToScreen(before.x, before.z, getSystemMapTransform(canvas));
+    game.mapPanX += mx - after.x;
+    game.mapPanY += my - after.y;
+    clampSystemMapPan(canvas);
     drawMapCanvas();
 });
 
@@ -9429,6 +9552,7 @@ document.getElementById('map-canvas')?.addEventListener('mousemove', (e) => {
     if (Math.abs(dx) + Math.abs(dy) > 3) game.mapDragged = true;
     game.mapPanX = game.mapDragOriginX + dx;
     game.mapPanY = game.mapDragOriginY + dy;
+    clampSystemMapPan(e.currentTarget);
     drawMapCanvas();
 });
 
@@ -9455,8 +9579,8 @@ document.getElementById('map-canvas')?.addEventListener('click', (e) => {
         return;
     }
     const rect = e.target.getBoundingClientRect();
-    const mx = e.clientX - rect.left;
-    const my = e.clientY - rect.top;
+    const mx = (e.clientX - rect.left) * (e.target.width / Math.max(1, rect.width));
+    const my = (e.clientY - rect.top) * (e.target.height / Math.max(1, rect.height));
     const world = screenToSystemMap(mx, my, getSystemMapTransform(e.target));
     const worldX = world.x;
     const worldZ = world.z;
