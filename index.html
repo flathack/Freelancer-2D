@@ -64,6 +64,8 @@ body[data-theme="crossfire"] {
 .cmd-btn:hover { background: rgba(0,100,150,0.8); }
 .cmd-btn.active { background: rgba(0,150,50,0.8); border-color: #00ff00; color: #00ff00; }
 .cmd-btn.cruise-active { background: rgba(0,92,190,0.92); border-color: #6bd4ff; color: #d8f7ff; box-shadow: 0 0 14px rgba(0,136,255,0.5); }
+#btn-cruise.active, #btn-cruise.cruise-active { background: rgba(0,150,50,0.8); border-color: #00ff88; color: #d8fff2; box-shadow: 0 0 16px rgba(0,255,130,0.55), inset 0 0 10px rgba(160,255,220,0.16); }
+#btn-cruise.active .cmd-icon, #btn-cruise.cruise-active .cmd-icon { filter: drop-shadow(0 0 7px rgba(120,255,210,0.95)); }
 .cmd-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 #command-bar .cmd-btn { min-width: 42px; width: 42px; height: 30px; padding: 0; display: inline-flex; align-items: center; justify-content: center; position: relative; }
 .cmd-icon { width: 22px; height: 18px; position: relative; display: inline-block; color: currentColor; }
@@ -147,6 +149,11 @@ body[data-theme="crossfire"] {
 .start-meta-bar { display: flex; justify-content: flex-start; gap: 10px; margin: 0 0 18px; }
 #start-screen button { min-height: 58px; padding: 0 32px; position: relative; background: linear-gradient(180deg, rgba(24,34,92,0.86), rgba(6,13,48,0.82)); border: 1px solid #73cfff; color: #b9efff; cursor: pointer; font-family: 'Courier New', monospace; font-size: 26px; text-transform: uppercase; box-shadow: 0 0 16px rgba(0,180,255,0.38), inset 0 0 18px rgba(110,150,255,0.24); clip-path: polygon(0 14px, 14px 0, 35% 0, 40% 10px, 60% 10px, 65% 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 65% 100%, 60% calc(100% - 10px), 40% calc(100% - 10px), 35% 100%, 14px 100%, 0 calc(100% - 14px)); }
 #start-screen button:hover { color: #ffffff; border-color: #19d7ff; background: linear-gradient(180deg, rgba(36,56,130,0.96), rgba(10,24,70,0.9)); box-shadow: 0 0 24px rgba(0,210,255,0.56), inset 0 0 24px rgba(125,190,255,0.34); }
+#death-overlay { position: absolute; inset: 0; z-index: 980; display: grid; place-items: center; pointer-events: auto; background: radial-gradient(circle at 50% 46%, rgba(120,20,20,0.2), rgba(0,0,0,0.72) 58%, rgba(0,0,0,0.9)); color: #dff7ff; text-align: center; }
+.death-panel { min-width: min(420px, calc(100vw - 48px)); padding: 28px 32px; background: linear-gradient(180deg, rgba(20,7,14,0.88), rgba(2,8,22,0.9)); border: 1px solid rgba(255,90,70,0.78); box-shadow: 0 0 34px rgba(255,60,40,0.34), inset 0 0 28px rgba(255,120,80,0.12); }
+#death-message { margin: 0 0 22px; color: #ffd8d0; font-size: 32px; text-transform: uppercase; text-shadow: 0 0 14px rgba(255,70,40,0.92); }
+#btn-death-restart { min-height: 44px; padding: 0 24px; background: linear-gradient(180deg, rgba(82,20,32,0.92), rgba(28,6,16,0.86)); border: 1px solid #ff7466; color: #ffe4dc; cursor: pointer; font-family: 'Courier New', monospace; font-size: 18px; text-transform: uppercase; box-shadow: 0 0 18px rgba(255,90,70,0.28), inset 0 0 14px rgba(255,160,120,0.12); }
+#btn-death-restart:hover { border-color: #ffd0c8; color: #ffffff; box-shadow: 0 0 24px rgba(255,110,90,0.48), inset 0 0 18px rgba(255,190,150,0.18); }
 #btn-new-game { border-color: #19d7ff; color: #8ee8ff; }
 #btn-delete-save { border-color: #aa3333; color: #ff9999; background: linear-gradient(180deg, rgba(82,20,32,0.9), rgba(28,6,16,0.84)); }
 #btn-delete-save:hover { border-color: #ff6666; color: #ffd0d0; background: linear-gradient(180deg, rgba(120,28,42,0.95), rgba(52,8,20,0.9)); }
@@ -485,6 +492,12 @@ body[data-theme="crossfire"] .mod-btn.active {
             <div id="touch-joystick" class="hidden" aria-label="Touch joystick">
                 <div id="touch-joystick-base"></div>
                 <div id="touch-joystick-knob"></div>
+            </div>
+        </div>
+        <div id="death-overlay" class="hidden">
+            <div class="death-panel">
+                <h2 id="death-message">You are dead!</h2>
+                <button id="btn-death-restart" onclick="restartAfterDeath()">Restart</button>
             </div>
         </div>
     </div>
@@ -849,7 +862,7 @@ const game = {
     canvas: null, ctx: null, width: 0, height: 0,
     running: false, lastTime: 0, gameTime: 0,
     loopErrorCount: 0,
-    player: null, entities: [], npcs: [], npcFleets: [], projectiles: [], loot: [],
+    player: null, entities: [], npcs: [], npcFleets: [], projectiles: [], loot: [], effects: [],
     isDocked: false, showMap: false, showCursor: false,
     hasStarted: false,
     mouseX: 0, mouseY: 0, mouseDown: false, rightMouseDown: false,
@@ -869,6 +882,8 @@ const game = {
     jumpTransition: null,
     jumpHoleCapture: null,
     jumpHoleCaptureCooldownUntil: 0,
+    playerDeathPending: false,
+    playerDeathTimer: null,
     shipImages: {},
     objectImages: {},
     systemWallpapers: {},
@@ -1003,7 +1018,8 @@ const I18N = {
         missionEliminate: 'Eliminiere feindliche Kontakte in {zone}.', missionWaypointLocked: 'Mission aktiv: Wegpunkt bleibt auf dem Missionsziel.', missionFreeWaypointsLocked: 'Mission aktiv: Freie Wegpunkte sind gesperrt.',
         saveStored: 'Spielstand gespeichert', saveStoreFailed: 'Spielstand konnte nicht gespeichert werden', cruiseDisabled: 'Reiseflug deaktiviert', cruiseCharging: 'Reiseflug lädt: {seconds} Sekunden', cruiseEnabled: 'Reiseflug aktiviert',
         dockingDeniedHostile: 'Andocken verweigert: {faction} ist feindlich.', noShieldInstalled: 'Kein Schild installiert.', missionContactHostile: 'Mission contact: {count} feindliche Schiffe erfasst.',
-        noBarNpcs: 'Keine NPCs in dieser Bar.', noDestroyMission: 'Keine destroy_vignette-Missionen in diesem System gefunden.', gameLoaded: 'Spielstand geladen: {system}, pilot!', welcomePilot: 'Willkommen in {system}, Pilot!'
+        noBarNpcs: 'Keine NPCs in dieser Bar.', noDestroyMission: 'Keine destroy_vignette-Missionen in diesem System gefunden.', gameLoaded: 'Spielstand geladen: {system}, pilot!', welcomePilot: 'Willkommen in {system}, Pilot!',
+        playerDead: 'Du bist tot!', restart: 'Neustart'
     },
     en: {
         freeflight: 'FREEFLIGHT', approach: 'APPROACH', dock: 'DOCK', cruise: 'CRUISE', menu: 'MENU', map: 'MAP', inventory: 'INVENTORY', reputation: 'REP', info: 'INFO', shipShop: 'SHIP DEALER', universe: 'UNIVERSE',
@@ -1027,7 +1043,8 @@ const I18N = {
         missionEliminate: 'Eliminate hostile contacts in {zone}.', missionWaypointLocked: 'Mission active: waypoint remains on the mission target.', missionFreeWaypointsLocked: 'Mission active: free waypoints are locked.',
         saveStored: 'Game saved', saveStoreFailed: 'Could not save game', cruiseDisabled: 'Cruise disabled', cruiseCharging: 'Cruise charging: {seconds} seconds', cruiseEnabled: 'Cruise enabled',
         dockingDeniedHostile: 'Docking denied: {faction} is hostile.', noShieldInstalled: 'No shield installed.', missionContactHostile: 'Mission contact: {count} hostile ships detected.',
-        noBarNpcs: 'No NPCs in this bar.', noDestroyMission: 'No destroy_vignette missions found in this system.', gameLoaded: 'Savegame loaded: {system}, pilot!', welcomePilot: 'Welcome to {system}, pilot!'
+        noBarNpcs: 'No NPCs in this bar.', noDestroyMission: 'No destroy_vignette missions found in this system.', gameLoaded: 'Savegame loaded: {system}, pilot!', welcomePilot: 'Welcome to {system}, pilot!',
+        playerDead: 'You are dead!', restart: 'Restart'
     }
 };
 
@@ -2050,14 +2067,27 @@ function defaultNpcShipIcon(type, factionId = '') {
     return type === 'trader' ? 'data/ship_icons/ge_fighter.png' : 'data/ship_icons/li_fighter.png';
 }
 
+function npcShipIconAlias(shipId = '', shipRecord = null) {
+    const id = String(shipId || shipRecord?.id || '').toLowerCase();
+    const type = String(shipRecord?.type || '').toUpperCase();
+    if (id.includes('large_train') || id.includes('ge_large_train')) return 'data/ship_icons/ge_large_train.png';
+    if (id.includes('large_transport')) return 'data/ship_icons/ge_large_transport.png';
+    if (id.includes('armored_transport')) return 'data/ship_icons/ge_armored.png';
+    if (id.includes('ge_train') || id.includes('freight_train')) return 'data/ship_icons/ge_train.png';
+    if (id.includes('transport') || type === 'TRANSPORT') return 'data/ship_icons/ge_transport.png';
+    return '';
+}
+
 function resolveNpcShipVisual(npcShip, ship, type, factionId = '') {
     const archetypeId = String(npcShip?.ship || npcShip?.archetype || '').toLowerCase();
     const shipRecord = ship || shipsData()[archetypeId] || null;
     const derivedIcon = shipRecord?.id ? `data/ship_icons/${String(shipRecord.id).toLowerCase()}.png` : (archetypeId ? `data/ship_icons/${archetypeId}.png` : '');
+    const aliasIcon = npcShipIconAlias(archetypeId || shipRecord?.id, shipRecord);
     return {
         shipId: shipRecord?.id || archetypeId,
         shipName: shipRecord?.name || npcShip?.ship || '',
-        shipIcon: shipRecord?.icon || derivedIcon || defaultNpcShipIcon(type, factionId),
+        shipIcon: shipRecord?.icon || derivedIcon || aliasIcon || defaultNpcShipIcon(type, factionId),
+        shipIconFallback: aliasIcon || defaultNpcShipIcon(type, factionId),
         shipRecord
     };
 }
@@ -2269,6 +2299,7 @@ function startNpcTradeLane(npc, ring, exitRing = null) {
     npc.x = ring.x;
     npc.z = ring.z;
     npc.inTradeLane = true;
+    npc.cruiseActive = false;
     npc.tradeLaneRoute = route;
     npc.tradeLaneIndex = ring.index + direction;
     npc.tradeLaneExitIndex = exitIndex;
@@ -2284,6 +2315,7 @@ function updateNpcTradeLane(npc, dt) {
     if (!target) {
         npc.inTradeLane = false;
         npc.tradeLaneRoute = null;
+        npc.cruiseActive = false;
         npc.speed = Math.min(npc.speed || 0, npc.maxSpeed || COMBAT_MAX_SPEED);
         return false;
     }
@@ -2298,6 +2330,7 @@ function updateNpcTradeLane(npc, dt) {
         if (npc.tradeLaneIndex === npc.tradeLaneExitIndex) {
             npc.inTradeLane = false;
             npc.tradeLaneRoute = null;
+            npc.cruiseActive = false;
             npc.tradeLaneIndex = 0;
             npc.speed = Math.min(npc.speed || 0, npc.maxSpeed || COMBAT_MAX_SPEED);
             npc.tradeWaypointIndex = (npc.tradeWaypointIndex || 0) + 1;
@@ -2312,6 +2345,27 @@ function updateNpcTradeLane(npc, dt) {
     return true;
 }
 
+function setNpcCruise(npc, active) {
+    if (!npc) return;
+    npc.cruiseActive = Boolean(active) && !npc.hidden && !npc.inTradeLane;
+}
+
+function updateNpcCruiseForDistance(npc, distance, options = {}) {
+    if (!npc) return;
+    if (npc.hidden || npc.inTradeLane || options.combat || options.disabled) {
+        setNpcCruise(npc, false);
+        return;
+    }
+    const enterDistance = Number(options.enterDistance) || NPC_CRUISE_ENTER_DISTANCE;
+    const exitDistance = Number(options.exitDistance) || NPC_CRUISE_EXIT_DISTANCE;
+    if (npc.cruiseActive) {
+        setNpcCruise(npc, distance > exitDistance);
+    } else {
+        setNpcCruise(npc, distance > enterDistance);
+    }
+    if (npc.cruiseActive) npc.throttle = Math.max(npc.throttle || 0, 0.95);
+}
+
 function placeEscortNearLeader(escort, leader, index = 0) {
     if (!escort || !leader) return;
     const side = index % 2 === 0 ? -1 : 1;
@@ -2322,6 +2376,7 @@ function placeEscortNearLeader(escort, leader, index = 0) {
     escort.rotation = leader.rotation;
     escort.speed = leader.speed;
     escort.throttle = leader.throttle;
+    escort.cruiseActive = Boolean(leader.cruiseActive);
 }
 
 function convoyMembersForLeader(leader) {
@@ -2715,6 +2770,8 @@ function degToRad(value) {
 const COMBAT_MAX_SPEED = 80;
 const CRUISE_SPEED = 300;
 const CROSSFIRE_CRUISE_SPEED = 450;
+const NPC_CRUISE_ENTER_DISTANCE = 4200;
+const NPC_CRUISE_EXIT_DISTANCE = 1350;
 const AFTERBURNER_SPEED = 200;
 const REVERSE_SPEED = -15;
 const MAX_MINE_AMMO = 50;
@@ -3006,7 +3063,7 @@ function shipVisualWorldRadius(source, options = {}) {
     return clamp(Math.sqrt(Math.max(hitPts, 900)) * 0.34, 18, 34);
 }
 
-function getShipImage(iconPath) {
+function getShipImage(iconPath, fallbackPath = 'data/ship_icons/_fallback.png') {
     if (!iconPath) return null;
     if (!game.shipImages[iconPath]) {
         const img = new Image();
@@ -3015,7 +3072,7 @@ function getShipImage(iconPath) {
         game.shipImages[iconPath] = img;
     }
     const image = game.shipImages[iconPath];
-    if (image.dataset.failed === '1') return getShipImage('data/ship_icons/_fallback.png');
+    if (image.dataset.failed === '1') return fallbackPath && fallbackPath !== iconPath ? getShipImage(fallbackPath, '') : null;
     return image.complete && image.naturalWidth > 0 ? image : null;
 }
 
@@ -3284,6 +3341,7 @@ function createSaveGameState() {
 function saveGame(showMessage = false) {
     if (game.suppressAutoSave) return;
     if (!game.hasStarted && !game.saveLoaded) return;
+    if (game.player?.destroyed || game.playerDeathPending) return;
     const state = createSaveGameState();
     if (!state) return;
     try {
@@ -3572,7 +3630,9 @@ function updateTouchJoystickFromPointer(e) {
 function updateCruiseButton() {
     const button = document.getElementById('btn-cruise');
     if (!button || !game.player) return;
-    button.classList.toggle('cruise-active', game.player.cruiseActive || game.player.cruiseCharging);
+    const isCruising = game.player.cruiseActive || game.player.cruiseCharging;
+    button.classList.toggle('cruise-active', isCruising);
+    button.classList.toggle('active', isCruising);
     const label = t('cruise');
     const remaining = Math.ceil(Math.max(0, CRUISE_CHARGE_SECONDS - game.player.cruiseCharge));
     const title = game.player.cruiseCharging ? `${label} ${remaining}s` : label;
@@ -3609,6 +3669,9 @@ function startAutopilotCruise() {
 
 function returnToMainMenu() {
     saveGame();
+    clearTimeout(game.playerDeathTimer);
+    game.playerDeathTimer = null;
+    game.playerDeathPending = false;
     game.running = false;
     game.mouseDown = false;
     game.rightMouseDown = false;
@@ -3621,6 +3684,7 @@ function returnToMainMenu() {
     document.getElementById('landing-overlay')?.classList.add('hidden');
     document.getElementById('map-overlay')?.classList.add('hidden');
     document.getElementById('universe-overlay')?.classList.add('hidden');
+    document.getElementById('death-overlay')?.classList.add('hidden');
     document.getElementById('start-screen')?.classList.remove('hidden');
     updateSaveHint(readSavedGame());
 }
@@ -4732,13 +4796,102 @@ function checkZoneHazards(dt) {
     if (!activeZoneDamage) game.player.zoneDamageVoicePlayed = false;
 }
 
+function addShieldHitEffect(target, hitX = null, hitZ = null, strength = 1) {
+    if (!target || (Number(target.maxShield) || 0) <= 0) return;
+    const angle = Number.isFinite(hitX) && Number.isFinite(hitZ) ? Math.atan2(hitZ - target.z, hitX - target.x) : target.rotation || 0;
+    game.effects.push({
+        type: 'shield-hit',
+        target,
+        angle,
+        age: 0,
+        life: 0.34,
+        radius: Math.max(28, (Number(target.radius) || 20) + 10),
+        strength: clamp(Number(strength) || 1, 0.5, 2.4)
+    });
+}
+
+function createExplosion(x, z, radius = 40, options = {}) {
+    const size = Math.max(28, Number(radius) || 40);
+    const count = Math.round(clamp(size * 0.42, 18, 90));
+    const particles = [];
+    for (let i = 0; i < count; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = (60 + Math.random() * 260) * (0.65 + size / 140);
+        const life = 0.45 + Math.random() * 0.95 + Math.min(0.55, size / 240);
+        particles.push({
+            x: x + Math.cos(angle) * Math.random() * size * 0.22,
+            z: z + Math.sin(angle) * Math.random() * size * 0.22,
+            vx: Math.cos(angle) * speed,
+            vz: Math.sin(angle) * speed,
+            size: 5 + Math.random() * Math.max(8, size * 0.16),
+            life,
+            age: 0,
+            color: Math.random() < 0.28 ? 'rgba(140,220,255,' : (Math.random() < 0.62 ? 'rgba(255,196,80,' : 'rgba(255,76,36,')
+        });
+    }
+    game.effects.push({
+        type: 'explosion',
+        x, z,
+        age: 0,
+        life: Math.max(1.0, 1.15 + size / 150),
+        radius: size,
+        flash: options.flash !== false,
+        particles
+    });
+    playSound('explosion', Math.min(1.6, 0.55 + size / 120));
+}
+
+function updateEffects(dt) {
+    for (let i = game.effects.length - 1; i >= 0; i--) {
+        const effect = game.effects[i];
+        effect.age = (effect.age || 0) + dt;
+        if (effect.type === 'explosion') {
+            for (const particle of effect.particles || []) {
+                particle.age += dt;
+                particle.x += particle.vx * dt;
+                particle.z += particle.vz * dt;
+                particle.vx *= Math.max(0, 1 - dt * 0.72);
+                particle.vz *= Math.max(0, 1 - dt * 0.72);
+            }
+        }
+        if (effect.age >= effect.life) game.effects.splice(i, 1);
+    }
+}
+
+function showDeathOverlay() {
+    const overlay = document.getElementById('death-overlay');
+    if (!overlay) return;
+    const message = document.getElementById('death-message');
+    const button = document.getElementById('btn-death-restart');
+    if (message) message.textContent = t('playerDead');
+    if (button) button.textContent = t('restart');
+    overlay.classList.remove('hidden');
+}
+
 function destroyPlayerShip() {
     if (!game.player || game.player.destroyed) return;
     game.player.destroyed = true;
+    game.player.hull = 0;
     game.player.throttle = 0;
     game.player.speed = 0;
+    game.player.cruiseActive = false;
+    game.player.cruiseCharging = false;
+    game.player.afterburnerActive = false;
     game.player.inTradeLane = false;
     game.player.laneRoute = null;
+    game.playerDeathPending = true;
+    createExplosion(game.player.x, game.player.z, Math.max(55, game.player.radius * 2.8), { flash: true });
+    clearTimeout(game.playerDeathTimer);
+    game.playerDeathTimer = setTimeout(showDeathOverlay, 2000);
+    updateCruiseButton();
+}
+
+function restartAfterDeath() {
+    clearTimeout(game.playerDeathTimer);
+    game.playerDeathTimer = null;
+    game.playerDeathPending = false;
+    document.getElementById('death-overlay')?.classList.add('hidden');
+    game.effects = [];
     respawnAtLastLanding();
 }
 
@@ -5634,13 +5787,16 @@ class PlayerShip {
         }
     }
     
-    takeDamage(amount) {
+    takeDamage(amount, hitX = null, hitZ = null) {
         const previousHull = this.hull;
+        let shieldDamage = 0;
         if (this.maxShield > 0 && this.shield > 0) {
             const sDamage = Math.min(this.shield, amount);
             this.shield -= sDamage;
             amount -= sDamage;
+            shieldDamage = sDamage;
         }
+        if (shieldDamage > 0) addShieldHitEffect(this, hitX, hitZ, Math.max(0.7, shieldDamage / 18));
         this.hull -= amount;
         if (amount > 4) playSound('hit', Math.min(1.4, amount / 16));
         this.checkHullBreachVoice(previousHull);
@@ -6442,6 +6598,9 @@ function createNPC(type, options = {}) {
         shipId: shipVisual.shipId,
         shipName: shipVisual.shipName,
         shipIcon: shipVisual.shipIcon,
+        shipIconFallback: shipVisual.shipIconFallback,
+        cruiseActive: false,
+        cruiseSpeed: Math.max(220, Math.min(cruiseSpeedForMod() * (type === 'trader' ? 0.86 : 0.76), 390)),
         loadoutId: npcShip?.loadout || '',
         shieldName: shieldItem?.name || '',
         weapons: details.weaponStats.length ? details.weaponStats : [weaponStatsFromEquipment(getEquipment('li_gun01_mark01'), difficulty)],
@@ -6643,6 +6802,7 @@ function updateNpcEscort(npc) {
         npc.tradeDockTimer = leader.tradeDockTimer || 4;
         npc.speed = 0;
         npc.throttle = 0;
+        npc.cruiseActive = false;
         return true;
     }
     if (!leader) {
@@ -6673,6 +6833,14 @@ function updateNpcEscort(npc) {
     npc.targetAngle = Math.atan2(lz - npc.z, lx - npc.x);
     const distance = Math.hypot(lx - npc.x, lz - npc.z);
     npc.throttle = clamp(distance / (fleet?.state === 'forming' ? 260 : 450), 0.2, leader.inTradeLane ? 1 : 0.95);
+    if (leader.cruiseActive && distance > 650) {
+        setNpcCruise(npc, true);
+        npc.throttle = 1;
+    } else {
+        updateNpcCruiseForDistance(npc, distance, {
+            disabled: !leader.cruiseActive && distance < NPC_CRUISE_ENTER_DISTANCE
+        });
+    }
     if (distance > 3600) {
         npc.x = lx + (Math.random() - 0.5) * 80;
         npc.z = lz + (Math.random() - 0.5) * 80;
@@ -6691,6 +6859,7 @@ function updateNpcFleetLeader(npc, dt) {
         if (point) {
             npc.targetAngle = Math.atan2(point.z - npc.z, point.x - npc.x);
             npc.throttle = clamp(Math.hypot(point.x - npc.x, point.z - npc.z) / 420, 0.15, 0.65);
+            updateNpcCruiseForDistance(npc, Math.hypot(point.x - npc.x, point.z - npc.z), { disabled: true });
         }
         return true;
     }
@@ -6709,6 +6878,7 @@ function updateNpcSecurityPatrol(npc, dt) {
     const distance = Math.hypot(dx, dz);
     npc.targetAngle = Math.atan2(dz, dx);
     npc.throttle = distance < 900 ? 0.38 : 0.72;
+    updateNpcCruiseForDistance(npc, distance, { enterDistance: 5600, exitDistance: 1600 });
     if (distance < 420) {
         npc.patrolIndex = (npc.patrolIndex + 1) % route.length;
         fleet.patrolIndex = npc.patrolIndex;
@@ -6724,6 +6894,7 @@ function updateNpcTraderRoute(npc, dt) {
         npc.tradeDockTimer = Math.max(0, (npc.tradeDockTimer || 0) - dt);
         if (npc.tradeDockTimer > 0) return true;
         npc.hidden = false;
+        npc.cruiseActive = false;
         const origin = npc.tradeDestination || npc.tradeOrigin;
         const destination = randomNpcTradeDestination(origin, { irregular: npc.irregularTraffic });
         const angle = destination ? Math.atan2(destination.z - origin.z, destination.x - origin.x) : Math.random() * Math.PI * 2;
@@ -6762,6 +6933,10 @@ function updateNpcTraderRoute(npc, dt) {
     const distance = Math.hypot(dx, dz);
     npc.targetAngle = Math.atan2(dz, dx);
     npc.throttle = waypoint.type === 'dock' && distance < 900 ? 0.45 : 0.82;
+    updateNpcCruiseForDistance(npc, distance, {
+        enterDistance: waypoint.type === 'dock' ? 5200 : 3600,
+        exitDistance: waypoint.type === 'dock' ? 1800 : 1150
+    });
     if (waypoint.type === 'tradelane' && distance < 260) {
         startNpcTradeLane(npc, target, waypoint.exit);
         return true;
@@ -6772,6 +6947,7 @@ function updateNpcTraderRoute(npc, dt) {
         npc.tradeOrigin = target;
         npc.speed = 0;
         npc.throttle = 0;
+        npc.cruiseActive = false;
         if (fleet) {
             fleet.state = 'docked';
             fleetMembers(fleet).forEach(member => {
@@ -6780,6 +6956,7 @@ function updateNpcTraderRoute(npc, dt) {
                     member.tradeDockTimer = npc.tradeDockTimer;
                     member.speed = 0;
                     member.throttle = 0;
+                    member.cruiseActive = false;
                 }
             });
         }
@@ -6788,18 +6965,21 @@ function updateNpcTraderRoute(npc, dt) {
     return true;
 }
 
-function damageNpc(npc, amount, attacker = null) {
+function damageNpc(npc, amount, attacker = null, hitX = null, hitZ = null) {
     if (!npc || npc.hull <= 0 || npc.hidden || npc.inTradeLane) return false;
     if (attacker === game.player) npc.hostileToPlayer = true;
     let damage = Number(amount) || 0;
+    let shieldDamage = 0;
     if (npc.shield > 0) {
-        const shieldDamage = Math.min(npc.shield, damage * 0.6);
+        shieldDamage = Math.min(npc.shield, damage * 0.6);
         npc.shield -= shieldDamage;
         damage -= shieldDamage;
+        addShieldHitEffect(npc, hitX, hitZ, Math.max(0.7, shieldDamage / 18));
     }
     npc.hull -= damage;
     if (npc.hull > 0) return false;
     addLog(npc.name + ' destroyed!');
+    createExplosion(npc.x, npc.z, Math.max(42, (Number(npc.radius) || 22) * 2.2), { flash: true });
     if (npc.missionId) addLootDrop(npc.x, npc.z);
     if (attacker === game.player) applyReputationForKill(npc.faction);
     game.npcs = game.npcs.filter(item => item !== npc);
@@ -6808,6 +6988,7 @@ function damageNpc(npc, amount, attacker = null) {
 
 function updateNPC(npc, dt) {
     if (npc.hidden) {
+        npc.cruiseActive = false;
         updateNpcTraderRoute(npc, dt);
         return;
     }
@@ -6822,6 +7003,7 @@ function updateNPC(npc, dt) {
         const dz = combatTarget.z - npc.z;
         npc.targetAngle = Math.atan2(dz, dx);
         npc.throttle = 0.8;
+        setNpcCruise(npc, false);
         fireNPCWeapon(npc, combatTarget);
     } else if (updateNpcFleetLeader(npc, dt)) {
         // Fleet leader is gathering/re-forming the group.
@@ -6835,6 +7017,7 @@ function updateNPC(npc, dt) {
         if (npc.stateTimer > 4) {
             npc.targetAngle = Math.random() * Math.PI * 2;
             npc.throttle = 0.2 + Math.random() * 0.3;
+            setNpcCruise(npc, false);
             npc.stateTimer = 0;
         }
     }
@@ -6845,7 +7028,9 @@ function updateNPC(npc, dt) {
     if (Math.abs(angleDiff) > 0.01) npc.rotation += Math.sign(angleDiff) * Math.min(Math.abs(angleDiff), npc.turnRate * dt);
     
     if (!npc.inTradeLane) {
-        npc.speed += (npc.throttle * npc.maxSpeed - npc.speed) * 0.02;
+        const targetSpeed = npc.cruiseActive ? (npc.cruiseSpeed || cruiseSpeedForMod() * 0.8) : npc.throttle * npc.maxSpeed;
+        const response = Math.min(1, dt * (npc.cruiseActive ? 1.15 : 0.75));
+        npc.speed += (targetSpeed - npc.speed) * response;
         npc.x += Math.cos(npc.rotation) * npc.speed * dt;
         npc.z += Math.sin(npc.rotation) * npc.speed * dt;
     }
@@ -6901,6 +7086,105 @@ function renderNpcFactionLabel(ctx, npc, screenPos, visualScale) {
     ctx.restore();
 }
 
+function drawCruiseTrail(ctx, shipDrawSize, intensity = 1) {
+    const trailLength = shipDrawSize * 5;
+    const flicker = (0.86 + Math.sin(game.gameTime * 42) * 0.08) * intensity;
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    const trail = ctx.createLinearGradient(-shipDrawSize * 0.42, 0, -shipDrawSize * 0.42 - trailLength, 0);
+    trail.addColorStop(0, `rgba(235,255,255,${0.82 * intensity})`);
+    trail.addColorStop(0.18, `rgba(80,205,255,${0.58 * intensity})`);
+    trail.addColorStop(0.72, `rgba(40,120,255,${0.18 * intensity})`);
+    trail.addColorStop(1, 'rgba(0,60,190,0)');
+    ctx.strokeStyle = trail;
+    ctx.lineWidth = Math.max(2, shipDrawSize * 0.12) * flicker;
+    ctx.beginPath();
+    ctx.moveTo(-shipDrawSize * 0.48, 0);
+    ctx.lineTo(-shipDrawSize * 0.48 - trailLength, 0);
+    ctx.stroke();
+    ctx.strokeStyle = `rgba(190,245,255,${0.32 * intensity})`;
+    ctx.lineWidth = Math.max(1, shipDrawSize * 0.035);
+    ctx.beginPath();
+    ctx.moveTo(-shipDrawSize * 0.42, -shipDrawSize * 0.16);
+    ctx.lineTo(-shipDrawSize * 0.42 - trailLength * 0.72, -shipDrawSize * 0.48);
+    ctx.moveTo(-shipDrawSize * 0.42, shipDrawSize * 0.16);
+    ctx.lineTo(-shipDrawSize * 0.42 - trailLength * 0.72, shipDrawSize * 0.48);
+    ctx.stroke();
+    ctx.restore();
+}
+
+function renderEffects(ctx) {
+    for (const effect of game.effects || []) {
+        const ratio = clamp((effect.age || 0) / Math.max(0.001, effect.life || 1), 0, 1);
+        if (effect.type === 'shield-hit') {
+            const target = effect.target;
+            if (!target || target.destroyed || target.hull <= 0 || target.hidden) continue;
+            const pos = worldToScreen(target.x, target.z);
+            const visualScale = Math.max(0.35, Math.min(2.8, game.zoom));
+            const radius = effect.radius * visualScale * (1 + ratio * 0.18);
+            const alpha = (1 - ratio) * 0.72 * (effect.strength || 1);
+            ctx.save();
+            ctx.translate(pos.x, pos.y);
+            ctx.rotate(effect.angle || 0);
+            ctx.globalCompositeOperation = 'lighter';
+            const glow = ctx.createRadialGradient(0, 0, radius * 0.45, 0, 0, radius * 1.08);
+            glow.addColorStop(0, `rgba(160,235,255,${alpha * 0.12})`);
+            glow.addColorStop(0.72, `rgba(70,170,255,${alpha * 0.18})`);
+            glow.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = glow;
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 1.1, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = `rgba(180,245,255,${alpha})`;
+            ctx.lineWidth = Math.max(1.2, 3.2 * visualScale * (1 - ratio * 0.35));
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, -0.92, 0.92);
+            ctx.stroke();
+            ctx.strokeStyle = `rgba(75,170,255,${alpha * 0.55})`;
+            ctx.lineWidth = Math.max(1, 1.7 * visualScale);
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 0.82, -0.68, 0.68);
+            ctx.stroke();
+            ctx.restore();
+            continue;
+        }
+        if (effect.type === 'explosion') {
+            const pos = worldToScreen(effect.x, effect.z);
+            const visualScale = Math.max(0.22, Math.min(2.8, game.zoom));
+            const radius = effect.radius * visualScale;
+            ctx.save();
+            ctx.globalCompositeOperation = 'lighter';
+            if (effect.flash && ratio < 0.45) {
+                const flashAlpha = (1 - ratio / 0.45) * 0.78;
+                const flash = ctx.createRadialGradient(pos.x, pos.y, radius * 0.08, pos.x, pos.y, radius * (1.4 + ratio * 1.8));
+                flash.addColorStop(0, `rgba(255,255,245,${flashAlpha})`);
+                flash.addColorStop(0.28, `rgba(255,185,70,${flashAlpha * 0.5})`);
+                flash.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.fillStyle = flash;
+                ctx.beginPath();
+                ctx.arc(pos.x, pos.y, radius * (1.5 + ratio * 1.9), 0, Math.PI * 2);
+                ctx.fill();
+            }
+            for (const particle of effect.particles || []) {
+                const pr = clamp(particle.age / Math.max(0.001, particle.life), 0, 1);
+                if (pr >= 1) continue;
+                const ppos = worldToScreen(particle.x, particle.z);
+                const alpha = (1 - pr) * 0.88;
+                ctx.fillStyle = `${particle.color}${alpha})`;
+                ctx.beginPath();
+                ctx.arc(ppos.x, ppos.y, Math.max(1.5, particle.size * visualScale * (1 - pr * 0.45)), 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.strokeStyle = `rgba(255,210,110,${Math.max(0, 0.34 * (1 - ratio))})`;
+            ctx.lineWidth = Math.max(1, radius * 0.04);
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, radius * (0.8 + ratio * 2.6), 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.restore();
+        }
+    }
+}
+
 function renderNPC(ctx, npc) {
     if (npc.hidden) return;
     const pos = worldToScreen(npc.x, npc.z);
@@ -6924,9 +7208,10 @@ function renderNPC(ctx, npc) {
         ctx.restore();
     }
 
-    const shipImage = getShipImage(npc.shipIcon);
+    const shipImage = getShipImage(npc.shipIcon, npc.shipIconFallback || 'data/ship_icons/_fallback.png');
+    const size = Math.max(28, npc.radius * 2.7) * visualScale;
+    if (npc.cruiseActive) drawCruiseTrail(ctx, size, 0.75);
     if (shipImage) {
-        const size = Math.max(28, npc.radius * 2.7) * visualScale;
         ctx.save();
         ctx.rotate(Math.PI / 2);
         ctx.drawImage(shipImage, -size / 2, -size / 2, size, size);
@@ -7322,6 +7607,7 @@ function playSound(name, intensity = 1) {
             }
             break;
         case 'hit': playNoise(0.13, volume * 1.3); playTone(110, 0.1, 'sawtooth', volume, 70); break;
+        case 'explosion': playNoise(0.38, volume * 2.0); playTone(72, 0.34, 'sawtooth', volume * 1.5, 38); break;
         case 'buy': playTone(660, 0.08, 'triangle', volume, 990); playTone(990, 0.08, 'triangle', volume * 0.8, 1320); break;
         default: playTone(440, 0.08, 'sine', volume); break;
     }
@@ -8000,6 +8286,7 @@ function update(dt) {
     if (!game.running || game.isDocked) return;
     game.gameTime += dt;
     if (game.gameTime >= 1800) game.gameTime = 0;
+    updateEffects(dt);
 
     if (updateJumpTransition(dt)) {
         updateHUD();
@@ -8007,6 +8294,11 @@ function update(dt) {
     }
 
     if (updateJumpHoleCapture(dt)) {
+        updateHUD();
+        return;
+    }
+
+    if (game.player?.destroyed) {
         updateHUD();
         return;
     }
@@ -8121,7 +8413,7 @@ function update(dt) {
             const hitRadius = Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0);
             const armed = p.type !== 'mine' || p.age >= (p.armedAfter || 0);
             if (armed && p.targetId === 'player' && Math.hypot(game.player.x - p.x, game.player.z - p.z) < game.player.radius + hitRadius) {
-                game.player.takeDamage(p.damage);
+                game.player.takeDamage(p.damage, p.x, p.z);
                 p.lifetime = 0;
             } else if (p.targetId && p.targetId !== 'player') {
                 const countermeasure = countermeasureTargetById(p.targetId);
@@ -8132,7 +8424,7 @@ function update(dt) {
                 }
                 const targetNpc = game.npcs.find(npc => npc.id === p.targetId);
                 if (armed && targetNpc && Math.hypot(targetNpc.x - p.x, targetNpc.z - p.z) < targetNpc.radius + hitRadius) {
-                    damageNpc(targetNpc, p.damage, game.npcs.find(npc => npc.id === p.ownerId) || null);
+                    damageNpc(targetNpc, p.damage, game.npcs.find(npc => npc.id === p.ownerId) || null, p.x, p.z);
                     p.lifetime = 0;
                 }
             }
@@ -8148,7 +8440,7 @@ function update(dt) {
                 if (p.type === 'mine' && !factionsAreHostile(game.player?.faction || '', npc.faction)) continue;
                 const dx = npc.x - p.x, dz = npc.z - p.z;
                 if (armed && Math.sqrt(dx * dx + dz * dz) < npc.radius + hitRadius) {
-                    damageNpc(npc, p.damage, game.player);
+                    damageNpc(npc, p.damage, game.player, p.x, p.z);
                     p.lifetime = 0;
                     break;
                 }
@@ -8609,7 +8901,8 @@ function render() {
     if (game.jumpTransition?.mode === 'hole') renderJumpTunnel();
 
     // Player
-    game.player.render(ctx);
+    if (!game.player.destroyed) game.player.render(ctx);
+    renderEffects(ctx);
 
     renderWaypointLine(ctx);
 
@@ -11099,6 +11392,10 @@ async function init() {
 
 function startGame() {
     ensureAudio();
+    clearTimeout(game.playerDeathTimer);
+    game.playerDeathTimer = null;
+    game.playerDeathPending = false;
+    document.getElementById('death-overlay')?.classList.add('hidden');
     seedAmbientTradeTrafficForSystem();
     if (!game.musicStoppedByUser) playMusicTrack(defaultMusicTrack('space'), 'space');
     document.getElementById('start-screen').classList.add('hidden');
