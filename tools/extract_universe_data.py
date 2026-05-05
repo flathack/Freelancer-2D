@@ -253,6 +253,8 @@ def analyze_asteroid_field_file(file_path: str) -> dict:
         elif section_lower == 'dynamicasteroids':
             dynamic_asteroids.extend(get_all_props(props, 'asteroid'))
         elif section_lower == 'lootablezone':
+            loot_commodities.extend(get_all_props(props, 'asteroid_loot_commodity'))
+            loot_commodities.extend(get_all_props(props, 'dynamic_loot_commodity'))
             for value in get_all_props(props, 'lootcrate_contents'):
                 parts = split_ini_list(value)
                 if parts:

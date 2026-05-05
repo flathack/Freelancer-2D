@@ -480,10 +480,12 @@ body[data-theme="crossfire"] .mod-btn.active {
             <div id="hud-bottom">
                 <div class="scanner-actions">
                     <button class="hud-action-btn" id="btn-clear-selection" onclick="clearNavigationSelection()">[-] CLEAR</button>
+                    <button class="hud-action-btn" id="btn-scan-target" onclick="scanSelectedTarget()">SCAN</button>
                 </div>
                 <div id="scanner-panel" class="hud-panel">
                     <div class="hud-panel-title"><span id="scanner-title">SCANNER</span><span id="scanner-range">12 km</span></div>
                     <div id="scanner-list" class="hud-list"></div>
+                    <div id="scan-result" class="hud-row-muted"></div>
                 </div>
             </div>
             
@@ -1915,7 +1917,7 @@ function addLootDrop(x, z, kind = 'random') {
 }
 
 function collectLoot(loot) {
-    if (!game.player || !loot) return;
+    if (!game.player || !loot) return false;
     if (loot.type === 'equipment') {
         if (addEquipmentInventoryCopy(loot.id)) addLog('Loot: ' + loot.name);
     } else if (loot.type === 'nanobot') {
@@ -1924,9 +1926,12 @@ function collectLoot(loot) {
     } else if (loot.type === 'shieldBattery') {
         game.player.shieldBatteries = Math.min(game.player.maxShieldBatteries, game.player.shieldBatteries + 1);
         addLog('Loot: Shield Battery');
+    } else if (loot.type === 'commodity') {
+        if (!addCommodityCargo(loot.commodityId, loot.quantity || 1, 'Loot')) return false;
     }
     playSound('buy', 0.45);
     saveGame();
+    return true;
 }
 
 function weaponColorPartsForItem(item) {
@@ -2070,11 +2075,70 @@ function defaultNpcShipIcon(type, factionId = '') {
 function npcShipIconAlias(shipId = '', shipRecord = null) {
     const id = String(shipId || shipRecord?.id || '').toLowerCase();
     const type = String(shipRecord?.type || '').toUpperCase();
+    if (id.startsWith('rtcprop_')) {
+        const rtc = id.replace(/^rtcprop_/, '');
+        if (rtc.includes('armored_transport')) return 'data/ship_icons/cf_armored.png';
+        if (rtc.includes('large_transport')) return 'data/ship_icons/cf_large_transport.png';
+        if (rtc.includes('transport')) return 'data/ship_icons/cf_transport.png';
+        if (rtc.includes('luxury_liner')) return 'data/ship_icons/ge_linercf.png';
+        if (rtc.includes('lifter')) return 'data/ship_icons/cf_lifter.png';
+        if (rtc.includes('mining')) return 'data/ship_icons/my_miner_ship.png';
+        if (rtc.includes('prison')) return 'data/ship_icons/cf_prison.png';
+        if (rtc.includes('repair')) return 'data/ship_icons/cf_repair.png';
+        if (rtc.includes('csv')) return 'data/ship_icons/ge_csv.png';
+        if (rtc.includes('juni_elite')) return 'data/ship_icons/li_elite2.png';
+        const prefixMap = {
+            b: 'br',
+            bw: 'bw',
+            civ: 'co',
+            k: 'ku',
+            l: 'li',
+            p: 'pi',
+            r: 'rh'
+        };
+        const parts = rtc.split('_');
+        const house = prefixMap[parts[0]] || '';
+        const role = parts.slice(1).join('_');
+        if (house && role) {
+            if (house === 'co' && role === 'freighter') return 'data/ship_icons/cffreighter1.png';
+            const roleMap = {
+                battleship: house === 'br' ? 'cf_br_destroyer' : house === 'ku' ? 'cf_ku_destroyer' : house === 'rh' ? 'cf_rh_cruiser' : house === 'li' ? 'cf_li_cruiser' : `${house}_battleship`,
+                dreadnought: 'li_dreadnought',
+                destroyer: house === 'br' ? 'cf_br_destroyer' : house === 'ku' ? 'cf_ku_destroyer' : `${house}_destroyer`,
+                cruiser: house === 'li' ? 'cf_li_cruiser' : house === 'rh' ? 'cf_rh_cruiser' : `${house}_cruiser`,
+                gunboat: house === 'br' ? 'cf_br_gunboat' : house === 'ku' ? 'cf_ku_gunboat' : house === 'li' ? 'cf_li_gunboat' : house === 'rh' ? 'cf_rh_gunboat' : `${house}_gunboat`,
+                dragon: 'ku_dragon',
+                elite_akira: 'pi_elite',
+                elite: `${house}_elite`,
+                fighter: `${house}_fighter`,
+                freighter: `${house}_freighter`
+            };
+            if (roleMap[role]) return `data/ship_icons/${roleMap[role]}.png`;
+        }
+    }
     if (id.includes('large_train') || id.includes('ge_large_train')) return 'data/ship_icons/ge_large_train.png';
-    if (id.includes('large_transport')) return 'data/ship_icons/ge_large_transport.png';
-    if (id.includes('armored_transport')) return 'data/ship_icons/ge_armored.png';
+    if (id.includes('large_transport')) return 'data/ship_icons/cf_large_transport.png';
+    if (id.includes('armored_transport') || id.includes('ge_armored_nobay')) return 'data/ship_icons/cf_armored.png';
     if (id.includes('ge_train') || id.includes('freight_train')) return 'data/ship_icons/ge_train.png';
-    if (id.includes('transport') || type === 'TRANSPORT') return 'data/ship_icons/ge_transport.png';
+    if (id.includes('liner')) return 'data/ship_icons/ge_linercf.png';
+    if (id.includes('lifter')) return 'data/ship_icons/cf_lifter.png';
+    if (id.includes('miner') || id.includes('mining')) return 'data/ship_icons/my_miner_ship.png';
+    if (id.includes('prison')) return 'data/ship_icons/cf_prison.png';
+    if (id.includes('repair')) return 'data/ship_icons/cf_repair.png';
+    if (id.includes('osiris')) return 'data/ship_icons/or_osiris.png';
+    if (id.includes('dreadnought')) return 'data/ship_icons/cf_li_cruiser.png';
+    if (id.includes('battleship') && id.startsWith('br_')) return 'data/ship_icons/cf_br_destroyer.png';
+    if (id.includes('battleship') && id.startsWith('ku_')) return 'data/ship_icons/cf_ku_destroyer.png';
+    if (id.includes('battleship') && id.startsWith('rh_')) return 'data/ship_icons/cf_rh_cruiser.png';
+    if (id.includes('cruiser') && id.startsWith('li_')) return 'data/ship_icons/cf_li_cruiser.png';
+    if (id.includes('cruiser') && id.startsWith('rh_')) return 'data/ship_icons/cf_rh_cruiser.png';
+    if (id.includes('destroyer') && id.startsWith('br_')) return 'data/ship_icons/cf_br_destroyer.png';
+    if (id.includes('destroyer') && id.startsWith('ku_')) return 'data/ship_icons/cf_ku_destroyer.png';
+    if (id.includes('gunboat') && id.startsWith('br_')) return 'data/ship_icons/cf_br_gunboat.png';
+    if (id.includes('gunboat') && id.startsWith('ku_')) return 'data/ship_icons/cf_ku_gunboat.png';
+    if (id.includes('gunboat') && id.startsWith('rh_')) return 'data/ship_icons/cf_rh_gunboat.png';
+    if (id.includes('gunboat') && id.startsWith('li_')) return 'data/ship_icons/cf_li_gunboat.png';
+    if (id.includes('transport') || type === 'TRANSPORT') return 'data/ship_icons/cf_transport.png';
     return '';
 }
 
@@ -2086,7 +2150,7 @@ function resolveNpcShipVisual(npcShip, ship, type, factionId = '') {
     return {
         shipId: shipRecord?.id || archetypeId,
         shipName: shipRecord?.name || npcShip?.ship || '',
-        shipIcon: shipRecord?.icon || derivedIcon || aliasIcon || defaultNpcShipIcon(type, factionId),
+        shipIcon: aliasIcon || shipRecord?.icon || derivedIcon || defaultNpcShipIcon(type, factionId),
         shipIconFallback: aliasIcon || defaultNpcShipIcon(type, factionId),
         shipRecord
     };
@@ -4020,6 +4084,7 @@ function normalizeAsteroidFieldData(field) {
         cubeRoles: Array.isArray(field.cubeRoles) ? field.cubeRoles : [],
         billboardShapes: Array.isArray(field.billboardShapes) ? field.billboardShapes : [],
         dynamicAsteroids: Array.isArray(field.dynamicAsteroids) ? field.dynamicAsteroids : [],
+        lootCommodities: Array.isArray(field.lootCommodities) ? field.lootCommodities : [],
         exclusionZoneIds: Array.isArray(field.exclusionZoneIds) ? field.exclusionZoneIds : [],
         exclusionZones: (field.exclusionZones || []).map(z => ({
             id: z.nickname || z.zone,
@@ -5052,6 +5117,10 @@ function createFieldObstacles(field, kind) {
             : kind === 'asteroid'
                 ? Math.min(340, Math.max(52, Math.floor(field.size / 185)))
                 : Math.min(46, Math.max(10, Math.floor(field.size / 1100)));
+    const fieldKind = String(field.fieldKind || '').toLowerCase();
+    const hasDynamicAsteroids = Array.isArray(field.dynamicAsteroids) && field.dynamicAsteroids.length > 0;
+    const hasLoot = Array.isArray(field.lootCommodities) && field.lootCommodities.length > 0;
+    const smallChance = kind === 'asteroid' ? (hasDynamicAsteroids || hasLoot || fieldKind.includes('mineable') ? 0.26 : 0.15) : (kind === 'debris' ? 0.12 : 0);
     const radiusX = Math.max(800, field.sizeX || field.size || 2000);
     const radiusZ = Math.max(800, field.sizeZ || field.size || 2000);
     const fieldRotation = flYawToCanvasRotation(field.rotateY || 0);
@@ -5068,22 +5137,44 @@ function createFieldObstacles(field, kind) {
             i--;
             continue;
         }
-        const radius = kind === 'mine'
+        const roll = rng();
+        const isSmall = kind !== 'mine' && roll < smallChance;
+        const radius = isSmall
+            ? 14 + rng() * 28
+            : kind === 'mine'
             ? 32 + rng() * 56
             : kind === 'debris'
                 ? 65 + rng() * 260
                 : kind === 'asteroid'
                     ? 55 + rng() * 190
                     : 120 + rng() * 420;
+        const depthRoll = rng();
+        const depthLayer = kind === 'mine' || isSmall
+            ? 0
+            : depthRoll < 0.58
+                ? 0
+                : (depthRoll < 0.79 ? -1 : 1);
+        const collidable = kind === 'mine' || (!isSmall && depthLayer === 0);
+        const destructible = (kind === 'asteroid' || kind === 'debris') && (isSmall || fieldKind.includes('mineable') || hasDynamicAsteroids || hasLoot);
         obstacles.push({
             id: field.id + '_obstacle_' + i,
             fieldId: field.id,
             kind,
+            field,
             localX,
             localZ,
             x: worldX,
             z: worldZ,
             radius,
+            visualRadius: radius * (depthLayer === 1 ? 1.18 : depthLayer === -1 ? 0.82 : 1),
+            depthLayer,
+            collidable,
+            destructible,
+            hull: destructible ? Math.max(8, Math.round(radius * (isSmall ? 1.4 : 2.8))) : Infinity,
+            maxHull: destructible ? Math.max(8, Math.round(radius * (isSmall ? 1.4 : 2.8))) : Infinity,
+            lootChance: hasLoot ? (isSmall ? 0.72 : 0.38) : (fieldKind.includes('mineable') ? 0.22 : 0.04),
+            lootQuantity: isSmall ? 1 : 1 + Math.floor(rng() * 2),
+            small: isSmall,
             rotation: rng() * Math.PI * 2,
             spinSpeed: kind === 'mine' ? 0 : (kind === 'nebula' ? 0 : (rng() - 0.5) * 0.18),
             driftPhase: rng() * Math.PI * 2,
@@ -5197,6 +5288,7 @@ function getAvoidanceVector(x, z, lookAhead = 1500) {
     let ax = 0;
     let az = 0;
     for (const obstacle of game.obstacles) {
+        if (obstacle.collidable === false) continue;
         const dx = x - obstacle.x;
         const dz = z - obstacle.z;
         const dist = Math.sqrt(dx * dx + dz * dz);
@@ -5753,6 +5845,7 @@ class PlayerShip {
 
     resolveObstacleCollisions(oldX, oldZ) {
         for (const obstacle of game.obstacles) {
+            if (obstacle.collidable === false) continue;
             if (this.inTradeLane && obstacle.kind !== 'mine') continue;
             const dx = this.x - obstacle.x;
             const dz = this.z - obstacle.z;
@@ -6397,9 +6490,15 @@ class AsteroidField {
         ctx.lineWidth = 1;
         
         for (const obstacle of this.obstacles) {
+            if (obstacle.depthLayer === 1) continue;
             const px = (obstacle.x - this.x) * game.zoom;
             const pz = (obstacle.z - this.z) * game.zoom;
-            const pSize = Math.max(2, obstacle.radius * game.zoom);
+            const pSize = Math.max(obstacle.small ? 1.4 : 2, (obstacle.visualRadius || obstacle.radius) * game.zoom);
+            const distanceToPlayer = game.player ? Math.hypot(game.player.x - obstacle.x, game.player.z - obstacle.z) : Infinity;
+            const nonColliding = obstacle.collidable === false;
+            const overheadFade = obstacle.depthLayer === 1 && distanceToPlayer < (game.player?.radius || 20) + obstacle.radius * 1.8;
+            const baseAlpha = nonColliding ? (obstacle.depthLayer === 1 ? 0.56 : 0.38) : 1;
+            ctx.globalAlpha = overheadFade ? Math.max(0.14, baseAlpha * 0.28) : baseAlpha;
             ctx.save();
             ctx.translate(px, pz);
             ctx.rotate(obstacle.rotation + this.rotation);
@@ -6426,19 +6525,25 @@ class AsteroidField {
                 }
                 ctx.stroke();
             } else {
+                const gray = nonColliding;
                 ctx.beginPath();
                 ctx.moveTo(pSize, 0);
-                for (let j = 1; j < (isDebris ? 5 : 7); j++) {
-                    const angle = (j / (isDebris ? 5 : 7)) * Math.PI * 2;
-                    const rough = j % 2 === 0 ? (isDebris ? 0.45 : 0.72) : 1;
+                const points = obstacle.small ? 5 : (isDebris ? 5 : 7);
+                for (let j = 1; j < points; j++) {
+                    const angle = (j / points) * Math.PI * 2;
+                    const rough = j % 2 === 0 ? (isDebris ? 0.45 : 0.72) : (obstacle.small ? 0.84 : 1);
                     ctx.lineTo(Math.cos(angle) * pSize * rough, Math.sin(angle) * pSize * rough);
                 }
                 ctx.closePath();
+                ctx.fillStyle = gray
+                    ? (obstacle.depthLayer === 1 ? 'rgba(150,158,164,0.72)' : 'rgba(100,108,114,0.55)')
+                    : (isDebris ? 'rgba(95,105,108,0.72)' : 'rgba(116,94,62,0.82)');
                 ctx.fill();
-                ctx.strokeStyle = isDebris ? 'rgba(210,225,220,0.32)' : 'rgba(210,190,150,0.35)';
+                ctx.strokeStyle = gray ? 'rgba(190,205,210,0.24)' : (isDebris ? 'rgba(210,225,220,0.32)' : 'rgba(210,190,150,0.35)');
                 ctx.stroke();
             }
             ctx.restore();
+            ctx.globalAlpha = 1;
         }
         
         // Zone boundary
@@ -6483,6 +6588,35 @@ class AsteroidField {
             ctx.textAlign = 'center';
             ctx.fillText(this.name, pos.x, pos.y + screenSize * 0.8 + 12);
         }
+    }
+}
+
+function renderForegroundAsteroids(ctx) {
+    if (!game.player) return;
+    const foreground = (game.obstacles || []).filter(obstacle => obstacle.depthLayer === 1);
+    for (const obstacle of foreground) {
+        const pos = worldToScreen(obstacle.x, obstacle.z);
+        const pSize = Math.max(obstacle.small ? 1.4 : 2, (obstacle.visualRadius || obstacle.radius) * game.zoom);
+        const distanceToPlayer = Math.hypot(game.player.x - obstacle.x, game.player.z - obstacle.z);
+        const nearPlayer = distanceToPlayer < game.player.radius + obstacle.radius * 1.8;
+        ctx.save();
+        ctx.translate(pos.x, pos.y);
+        ctx.rotate((obstacle.rotation || 0) + game.gameTime * (obstacle.spinSpeed || 0));
+        ctx.globalAlpha = nearPlayer ? 0.18 : 0.46;
+        ctx.fillStyle = 'rgba(150,158,164,0.72)';
+        ctx.strokeStyle = 'rgba(205,220,224,0.22)';
+        ctx.beginPath();
+        const points = obstacle.small ? 5 : 7;
+        ctx.moveTo(pSize, 0);
+        for (let j = 1; j < points; j++) {
+            const angle = (j / points) * Math.PI * 2;
+            const rough = j % 2 === 0 ? 0.72 : 1;
+            ctx.lineTo(Math.cos(angle) * pSize * rough, Math.sin(angle) * pSize * rough);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
     }
 }
 
@@ -6641,6 +6775,65 @@ function completeMission(mission) {
     game.activeMission = null;
     saveGame();
     updateHUD();
+}
+
+function addCommodityCargo(commodityId, quantity = 1, sourceName = 'Loot') {
+    if (!game.player) return false;
+    const id = String(commodityId || '').toLowerCase();
+    const commodity = getCommodity(id);
+    const amount = Math.max(1, Math.floor(Number(quantity) || 1));
+    const cargoSpace = Math.max(0, game.player.maxCargo - cargoUnits());
+    if (!commodity || cargoSpace <= 0) return false;
+    const added = Math.min(amount, cargoSpace);
+    let cargoItem = findCargoItem(id);
+    if (!cargoItem) {
+        cargoItem = { id, name: commodity.name || id, quantity: 0, avgPrice: commodityBasePrice(id) };
+        game.player.cargo.push(cargoItem);
+    }
+    cargoItem.quantity += added;
+    addLog(`${sourceName}: ${commodity.name || id} +${added}`);
+    return true;
+}
+
+function addAsteroidLootDrop(x, z, field, quantity = 1) {
+    const commodities = (field?.lootCommodities || []).filter(Boolean);
+    const commodityId = commodities.length ? commodities[Math.floor(Math.random() * commodities.length)] : '';
+    if (!commodityId || !getCommodity(commodityId)) {
+        addLootDrop(x, z, 'random');
+        return;
+    }
+    const commodity = getCommodity(commodityId);
+    game.loot.push({
+        id: 'loot-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7),
+        x, z,
+        radius: 20,
+        age: 0,
+        type: 'commodity',
+        commodityId: String(commodityId).toLowerCase(),
+        quantity: Math.max(1, Math.floor(Number(quantity) || 1)),
+        name: commodity?.name || commodityId,
+        color: '#d8b46a'
+    });
+}
+
+function destroyFieldObstacle(obstacle, attacker = null) {
+    if (!obstacle) return;
+    createExplosion(obstacle.x, obstacle.z, Math.max(18, obstacle.radius * 1.15), { flash: obstacle.small !== true });
+    const field = obstacle.field || game.entities.find(entity => entity instanceof AsteroidField && entity.id === obstacle.fieldId);
+    if (field?.obstacles) field.obstacles = field.obstacles.filter(item => item !== obstacle);
+    game.obstacles = game.obstacles.filter(item => item !== obstacle);
+    if (attacker === game.player && obstacle.destructible && Math.random() < (Number(obstacle.lootChance) || 0)) {
+        addAsteroidLootDrop(obstacle.x, obstacle.z, field || obstacle.field, obstacle.lootQuantity || 1);
+    }
+}
+
+function damageFieldObstacle(obstacle, amount, attacker = null, hitX = null, hitZ = null) {
+    if (!obstacle || !obstacle.destructible || obstacle.hull === Infinity) return false;
+    obstacle.hull -= Math.max(0, Number(amount) || 0);
+    addShieldHitEffect({ ...obstacle, maxShield: 1, shield: 1, hull: 1, hidden: false }, hitX, hitZ, 0.7);
+    if (obstacle.hull > 0) return false;
+    destroyFieldObstacle(obstacle, attacker);
+    return true;
 }
 
 function updateMissionState() {
@@ -8349,8 +8542,7 @@ function update(dt) {
         const loot = game.loot[i];
         loot.age += dt;
         if (Math.hypot(loot.x - game.player.x, loot.z - game.player.z) < loot.radius + game.player.radius + 18) {
-            collectLoot(loot);
-            game.loot.splice(i, 1);
+            if (collectLoot(loot) !== false) game.loot.splice(i, 1);
         } else if (loot.age > 180) {
             game.loot.splice(i, 1);
         }
@@ -8408,6 +8600,26 @@ function update(dt) {
         p.x += p.vx * dt;
         p.z += p.vz * dt;
         p.lifetime -= dt;
+
+        if (p.type !== 'countermeasure') {
+            const projectileHitRadius = Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0);
+            const projectileArmed = p.type !== 'mine' || p.age >= (p.armedAfter || 0);
+            if (projectileArmed) {
+                for (const obstacle of [...game.obstacles]) {
+                    if (!obstacle.destructible) continue;
+                    const hitRadius = Math.max(3, projectileHitRadius) + Math.max(6, obstacle.radius);
+                    if (Math.hypot(obstacle.x - p.x, obstacle.z - p.z) <= hitRadius) {
+                        damageFieldObstacle(obstacle, p.damage || 1, (p.owner || 'player') === 'player' ? game.player : null, p.x, p.z);
+                        p.lifetime = 0;
+                        break;
+                    }
+                }
+            }
+        }
+        if (p.lifetime <= 0) {
+            game.projectiles.splice(i, 1);
+            continue;
+        }
 
         if ((p.owner || 'player') === 'npc') {
             const hitRadius = Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0);
@@ -8902,6 +9114,7 @@ function render() {
 
     // Player
     if (!game.player.destroyed) game.player.render(ctx);
+    renderForegroundAsteroids(ctx);
     renderEffects(ctx);
 
     renderWaypointLine(ctx);
@@ -9487,16 +9700,28 @@ function drawMapCanvas() {
     
     drawSystemMapGrid(ctx, canvas, mapTransform);
     
-    // Sun
-    const sunPos = systemMapToScreen(0, 0, mapTransform);
-    ctx.fillStyle = '#ffff44';
-    ctx.beginPath();
-    ctx.arc(sunPos.x, sunPos.y, 20, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = '#aaaa44';
+    // Suns
     ctx.font = '10px Courier New';
     ctx.textAlign = 'center';
-    ctx.fillText('SUN', sunPos.x, sunPos.y + 35);
+    for (const sun of systemData.suns || []) {
+        if (!Number.isFinite(Number(sun.x)) || !Number.isFinite(Number(sun.z))) continue;
+        const sunPos = systemMapToScreen(Number(sun.x), Number(sun.z), mapTransform);
+        const mapRadius = Math.max(7, Math.min(24, (Number(sun.radius) || 240) * mapTransform.scale * 2.2));
+        const glow = ctx.createRadialGradient(sunPos.x, sunPos.y, 0, sunPos.x, sunPos.y, mapRadius * 2.4);
+        glow.addColorStop(0, 'rgba(255,255,210,0.95)');
+        glow.addColorStop(0.38, 'rgba(255,205,70,0.56)');
+        glow.addColorStop(1, 'rgba(255,120,20,0)');
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(sunPos.x, sunPos.y, mapRadius * 2.4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#ffff66';
+        ctx.beginPath();
+        ctx.arc(sunPos.x, sunPos.y, mapRadius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#d8c66a';
+        ctx.fillText(sun.name || 'Sun', sunPos.x, sunPos.y + mapRadius + 13);
+    }
     
     // Planets
     for (const planet of systemData.planets) {
@@ -9575,9 +9800,9 @@ function drawMapCanvas() {
         const pos = systemMapToScreen(obstacle.x, obstacle.z, mapTransform);
         const ex = pos.x;
         const ey = pos.y;
-        ctx.fillStyle = obstacle.kind === 'mine' ? '#ff5038' : (obstacle.kind === 'debris' ? '#aab8b8' : (obstacle.kind === 'asteroid' ? '#aa8855' : '#66ddee'));
+        ctx.fillStyle = obstacle.collidable === false ? '#7f8b90' : (obstacle.kind === 'mine' ? '#ff5038' : (obstacle.kind === 'debris' ? '#aab8b8' : (obstacle.kind === 'asteroid' ? '#aa8855' : '#66ddee')));
         ctx.beginPath();
-        ctx.arc(ex, ey, Math.max(2, obstacle.radius * mapTransform.scale), 0, Math.PI * 2);
+        ctx.arc(ex, ey, Math.max(obstacle.small ? 1 : 2, (obstacle.visualRadius || obstacle.radius) * mapTransform.scale), 0, Math.PI * 2);
         ctx.fill();
     }
     

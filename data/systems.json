@@ -6678,7 +6678,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -17298,7 +17300,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -17327,7 +17329,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_hydrocarbons"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -17437,7 +17441,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -17465,7 +17469,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -17675,7 +17681,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -17702,7 +17708,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -26173,7 +26181,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "rock_objects",
@@ -26203,7 +26211,9 @@
         "dynamicAsteroids": [
           "DAsteroid_beryllium"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_beryllium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -26305,7 +26315,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -26328,7 +26338,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Br03_to_Bw01",
@@ -26496,7 +26508,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -26519,7 +26531,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Br03_to_Bw02_hole",
@@ -32877,7 +32891,9 @@
         "dynamicAsteroids": [
           "DAsteroid_niobium"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_niobium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Br04_stokes_mine_exclusion_002",
@@ -39575,7 +39591,9 @@
         "dynamicAsteroids": [
           "DAsteroid_gold"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_gold"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Br05_GSM_access_lane",
@@ -39671,7 +39689,9 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_gold"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -39768,7 +39788,9 @@
         "dynamicAsteroids": [
           "DAsteroid_gold"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_gold"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -39858,7 +39880,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "rock_objects",
@@ -39883,7 +39905,9 @@
         "dynamicAsteroids": [
           "DAsteroid_gold"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_gold"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -40320,7 +40344,9 @@
         "dynamicAsteroids": [
           "DAsteroid_gold"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_gold"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -44357,7 +44383,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -44380,7 +44406,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Br06_to_Bw10_hole_exclusion"
@@ -44428,7 +44456,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -44456,7 +44484,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -44506,7 +44536,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -44529,7 +44559,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Br06_to_Br04_hole_exclusion",
@@ -48214,7 +48246,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -48240,7 +48272,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw01_Tradelane_3",
@@ -48368,7 +48402,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -48396,7 +48430,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -48486,7 +48522,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -48515,7 +48551,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -48625,7 +48663,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -48653,7 +48691,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_hydrocarbons"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -48743,7 +48783,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -48771,7 +48811,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_hydrocarbons"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -56884,7 +56926,11 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_copper",
+          "commodity_silver",
+          "commodity_cobalt"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw03_path_img1_1"
@@ -56956,7 +57002,9 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_silver"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -57006,7 +57054,10 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_copper",
+          "commodity_cobalt"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -57096,7 +57147,9 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_copper"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -61009,7 +61062,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "lava_objects",
@@ -61034,7 +61087,9 @@
         "dynamicAsteroids": [
           "DAsteroid_lava02"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_diamonds"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -65947,7 +66002,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw05_03_exclusion"
@@ -66143,7 +66200,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw05_02_exclusion",
@@ -77716,7 +77775,9 @@
         "dynamicAsteroids": [
           "DAsteroid_rock_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_niobium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw08_path_img2_1",
@@ -77830,7 +77891,9 @@
         "dynamicAsteroids": [
           "DAsteroid_rock_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_niobium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw08_path_img2_1",
@@ -77944,7 +78007,9 @@
         "dynamicAsteroids": [
           "DAsteroid_rock_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_niobium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw08_path_img2_1",
@@ -78032,7 +78097,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "rock_objects",
@@ -78061,7 +78126,9 @@
         "dynamicAsteroids": [
           "DAsteroid_beryllium"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_beryllium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw08_tradelane_construct"
@@ -81513,7 +81580,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -81539,7 +81606,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_oxygen"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -81610,7 +81679,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_oxygen"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -81657,7 +81728,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_oxygen"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -81704,7 +81777,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_oxygen"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -81730,7 +81805,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -81759,7 +81834,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_hydrocarbons"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -81949,7 +82026,7 @@
         "zone_damage": 0.0,
         "zone_visit": "32",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -81977,7 +82054,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -82067,7 +82146,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -82095,7 +82174,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -86328,7 +86409,7 @@
         "zone_damage": 0.0,
         "zone_visit": "32",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -86356,7 +86437,10 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water",
+          "commodity_oxygen"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -90086,7 +90170,9 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_niobium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Ew01_to_Bw08_hole",
@@ -90234,7 +90320,7 @@
         "zone_damage": 0.0,
         "zone_visit": "0",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -90257,7 +90343,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Ew01_to_Hi01_hole"
@@ -90305,7 +90393,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -90329,7 +90417,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -92464,7 +92554,7 @@
         "zone_damage": 5.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "nomad_objects",
@@ -92488,7 +92578,9 @@
         "dynamicAsteroids": [
           "DAsteroid_nomad_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_alien_organisms"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Ew02_to_Hi01_hole",
@@ -96742,7 +96834,7 @@
         "zone_damage": 5.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "nomad_objects",
@@ -96764,7 +96856,9 @@
         "dynamicAsteroids": [
           "DAsteroid_nomad_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_alien_organisms"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Ew04_to_Bw06_hole",
@@ -96832,7 +96926,7 @@
         "zone_damage": 10.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "nomad_objects",
@@ -96858,7 +96952,9 @@
         "dynamicAsteroids": [
           "DAsteroid_nomad_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_alien_organisms"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Ew04_Vespus_exclusion",
@@ -96966,7 +97062,7 @@
         "zone_damage": 7.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "nomad_objects",
@@ -96990,7 +97086,9 @@
         "dynamicAsteroids": [
           "DAsteroid_nomad_small2"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_alien_artifacts"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Ew04_to_Hi02_hole"
@@ -99444,7 +99542,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -101026,7 +101126,7 @@
         "zone_damage": 0.0,
         "zone_visit": "0",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "nomad_objects",
@@ -101050,7 +101150,9 @@
         "dynamicAsteroids": [
           "DAsteroid_nomad_small2"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_alien_artifacts"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Hi02_to_Ew04_hole",
@@ -101316,7 +101418,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Hi02_02_exclusion"
@@ -106076,7 +106180,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -106396,7 +106502,9 @@
           "debris_tri"
         ],
         "dynamicAsteroids": [],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -106451,7 +106559,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -106555,7 +106665,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -106657,7 +106769,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -126289,7 +126403,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -126317,7 +126431,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -126447,7 +126563,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -126473,7 +126589,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Iw03_to_Br02",
@@ -129741,7 +129859,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -129770,7 +129888,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -129880,7 +130000,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -129907,7 +130027,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Iw04_to_Br02",
@@ -130035,7 +130157,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -130056,7 +130178,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Iw04_to_Li02",
@@ -175337,7 +175461,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -175676,7 +175802,9 @@
           "debris_tri"
         ],
         "dynamicAsteroids": [],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -175731,7 +175859,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -175874,7 +176004,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -176033,7 +176165,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -191395,7 +191529,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "object_density_low",
@@ -191421,7 +191555,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Li02_to_Iw04_hole",
@@ -191625,7 +191761,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "object_density_medium",
@@ -191652,7 +191788,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -191762,7 +191900,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "object_density_medium",
@@ -191788,7 +191926,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -200796,7 +200936,9 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_silver"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -201352,7 +201494,9 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_copper"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -209744,7 +209888,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -209797,7 +209943,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -209848,7 +209996,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -210005,7 +210155,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -210082,7 +210234,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -210183,7 +210337,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -222812,7 +222968,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Rh01_08_exclusion"
@@ -247093,7 +247251,7 @@
         "zone_damage": 0.0,
         "zone_visit": "0",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "lava_objects",
@@ -247117,7 +247275,9 @@
         "dynamicAsteroids": [
           "DAsteroid_lava02"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_diamonds"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Rh05_to_Rh04_hole"
@@ -247497,7 +247657,10 @@
         "dynamicAsteroids": [
           "dasteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_cobalt",
+          "commodity_copper"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Rh05_Tradelane_3",
