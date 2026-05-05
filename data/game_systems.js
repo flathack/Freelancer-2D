@@ -15421,6 +15421,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_br01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_br01.cmp"
+    },
     "nebulae": []
   },
   "BR02": {
@@ -23585,6 +23590,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_br02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_br02.cmp"
+    },
     "nebulae": []
   },
   "BR03": {
@@ -29356,6 +29366,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_br03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_br03.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -36823,6 +36838,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_Br04.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -42244,6 +42264,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_br05_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_br05.cmp"
+    },
     "nebulae": []
   },
   "BR06": {
@@ -45729,6 +45754,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_br06_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_br06.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -50681,6 +50711,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw01.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -53911,6 +53946,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw02.cmp"
+    },
     "nebulae": []
   },
   "BW03": {
@@ -58333,6 +58373,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw03.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -62800,6 +62845,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw04_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw04.cmp"
+    },
     "nebulae": []
   },
   "BW05": {
@@ -67377,6 +67427,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_bw05.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -69978,6 +70033,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw06_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw06.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -74176,6 +74236,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw07_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw07.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -78237,6 +78302,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw08_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw08.cmp"
+    },
     "nebulae": []
   },
   "BW09": {
@@ -83130,6 +83200,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw09_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw09.cmp"
+    },
     "nebulae": []
   },
   "BW10": {
@@ -87412,6 +87487,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_Bw10.cmp"
+    },
     "nebulae": []
   },
   "EW01": {
@@ -89871,6 +89951,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_Ew01.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -90997,6 +91082,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_ew02.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -94057,6 +94147,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ew03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ew03.cmp"
+    },
     "nebulae": []
   },
   "EW04": {
@@ -96002,6 +96097,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ew04_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ew04.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -96216,6 +96316,11 @@ const GAME_SYSTEMS = {
     ],
     "asteroidfields": [],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_ew05.cmp"
+    },
     "nebulae": []
   },
   "EW06": {
@@ -96591,6 +96696,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_ew06.cmp"
+    },
     "nebulae": []
   },
   "FP7": {
@@ -96608,6 +96718,7 @@ const GAME_SYSTEMS = {
     "populationZones": [],
     "asteroidfields": [],
     "tradelanes": [],
+    "background": {},
     "nebulae": []
   },
   "HI01": {
@@ -98227,6 +98338,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_hi01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_hi01.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -101099,6 +101215,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_hi02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_hi02.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -115728,6 +115849,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_li01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_li01.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -119277,6 +119403,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_iw01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_iw01.cmp"
+    },
     "nebulae": []
   },
   "IW02": {
@@ -122503,6 +122634,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_iw02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_iw02.cmp"
+    },
     "nebulae": []
   },
   "IW03": {
@@ -125908,6 +126044,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_iw03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_iw03.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -129349,6 +129490,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_iw04_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_iw04.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -132129,6 +132275,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_iw05_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_iw05.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -136034,6 +136185,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_iw06_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_iw06.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -143714,6 +143870,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ku01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ku01.cmp"
+    },
     "nebulae": []
   },
   "KU02": {
@@ -149798,6 +149959,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ku02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ku02.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -154134,6 +154300,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ku03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ku03.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -161288,6 +161459,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ku04_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ku04.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -165973,6 +166149,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ku05_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ku05.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -167167,6 +167348,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_Ku06.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -167558,6 +167744,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ku07_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ku07.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -183927,6 +184118,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_li01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_li01.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -192749,6 +192945,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_li02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_li02.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -200371,6 +200572,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_li03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_li03.cmp"
+    },
     "nebulae": []
   },
   "LI04": {
@@ -211228,6 +211434,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_li04_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_li04.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -212237,6 +212448,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_li05.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -212270,6 +212486,7 @@ const GAME_SYSTEMS = {
     "populationZones": [],
     "asteroidfields": [],
     "tradelanes": [],
+    "background": {},
     "nebulae": []
   },
   "RH01": {
@@ -222405,6 +222622,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_rh01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_rh01.cmp"
+    },
     "nebulae": []
   },
   "RH02": {
@@ -228484,6 +228706,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_rh02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_rh02.cmp"
+    },
     "nebulae": []
   },
   "RH03": {
@@ -233211,6 +233438,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_rh03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_rh03.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -236967,6 +237199,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_rh04_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_rh04.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -242080,6 +242317,11 @@ const GAME_SYSTEMS = {
         ]
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_rh05_stars.3db",
+      "nebulae": "solar\\starsphere\\starsphere_rh05.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -242393,6 +242635,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_st01.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -242576,6 +242823,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_st02.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -242629,6 +242881,7 @@ const GAME_SYSTEMS = {
     "populationZones": [],
     "asteroidfields": [],
     "tradelanes": [],
+    "background": {},
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -242778,6 +243031,11 @@ const GAME_SYSTEMS = {
     ],
     "asteroidfields": [],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_st03.cmp"
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -243018,6 +243276,11 @@ const GAME_SYSTEMS = {
       }
     ],
     "tradelanes": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_St03b.cmp"
+    },
     "nebulae": []
   }
 };

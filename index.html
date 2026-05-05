@@ -3950,6 +3950,7 @@ function buildSystemData(systemId) {
     ],
     tradeLanes: raw.tradeLanes || raw.tradelanes || [],
     asteroidfields: (raw.asteroidfields || []).map(normalizeAsteroidFieldData),
+    background: raw.background || {},
     nebulae: raw.nebulae || [],
     missionZones: (raw.missionZones || []).map(z => ({
         id: z.nickname || z.zone,
@@ -7353,17 +7354,75 @@ function getSystemBackdropPalette(systemId) {
     return { base: [185, 206, 142], accent: [230, 148, 200], star: 185 };
 }
 
+function currentSystemStarsphereKey(systemId = currentSystemId) {
+    const raw = getSystemRecord(systemId);
+    return String(raw?.background?.nebulae || raw?.background?.complex_stars || raw?.background?.basic_stars || systemId || '').toLowerCase();
+}
+
+function getStarsphereBackdropPalette(systemId) {
+    const key = currentSystemStarsphereKey(systemId);
+    const fallback = getSystemBackdropPalette(systemId);
+    const variants = [
+        [/li01/, { base: [214, 226, 205], accent: [188, 204, 232], star: 210, dust: 202 }],
+        [/li02/, { base: [206, 220, 238], accent: [184, 198, 218], star: 214, dust: 220 }],
+        [/li03/, { base: [222, 210, 190], accent: [198, 226, 210], star: 205, dust: 36 }],
+        [/li04/, { base: [206, 230, 186], accent: [184, 216, 238], star: 198, dust: 154 }],
+        [/li05/, { base: [196, 218, 235], accent: [266, 196, 226], star: 215, dust: 242 }],
+        [/br01/, { base: [218, 34, 198], accent: [212, 184, 228], star: 44, dust: 32 }],
+        [/br02/, { base: [224, 210, 196], accent: [198, 36, 220], star: 38, dust: 24 }],
+        [/br03/, { base: [206, 226, 238], accent: [188, 198, 218], star: 208, dust: 218 }],
+        [/br04/, { base: [222, 42, 22], accent: [340, 206, 28], star: 46, dust: 12 }],
+        [/br05/, { base: [214, 190, 160], accent: [32, 210, 198], star: 34, dust: 28 }],
+        [/br06/, { base: [196, 216, 228], accent: [276, 198, 218], star: 205, dust: 258 }],
+        [/ku01/, { base: [210, 222, 190], accent: [326, 190, 238], star: 205, dust: 318 }],
+        [/ku02/, { base: [202, 216, 236], accent: [190, 328, 222], star: 208, dust: 196 }],
+        [/ku03/, { base: [188, 206, 230], accent: [300, 196, 214], star: 198, dust: 286 }],
+        [/ku04/, { base: [218, 196, 176], accent: [332, 204, 226], star: 34, dust: 16 }],
+        [/ku05/, { base: [232, 204, 172], accent: [28, 338, 198], star: 42, dust: 26 }],
+        [/rh01/, { base: [34, 48, 22], accent: [196, 32, 182], star: 42, dust: 48 }],
+        [/rh02/, { base: [44, 36, 26], accent: [22, 190, 210], star: 38, dust: 34 }],
+        [/rh03/, { base: [28, 46, 62], accent: [188, 38, 206], star: 52, dust: 184 }],
+        [/rh04/, { base: [38, 34, 24], accent: [180, 206, 30], star: 46, dust: 58 }],
+        [/rh05/, { base: [32, 28, 20], accent: [16, 190, 206], star: 36, dust: 20 }],
+        [/bw06/, { base: [166, 184, 214], accent: [118, 222, 178], star: 178, dust: 132 }],
+        [/bw07/, { base: [182, 196, 222], accent: [130, 236, 196], star: 184, dust: 144 }],
+        [/bw08/, { base: [168, 198, 228], accent: [258, 186, 214], star: 190, dust: 238 }],
+        [/bw09/, { base: [178, 192, 214], accent: [286, 204, 226], star: 184, dust: 270 }],
+        [/ew03/, { base: [176, 206, 236], accent: [292, 184, 214], star: 190, dust: 286 }],
+        [/ew04/, { base: [196, 214, 232], accent: [132, 228, 188], star: 198, dust: 148 }],
+        [/hi01/, { base: [184, 208, 238], accent: [296, 190, 218], star: 200, dust: 288 }],
+        [/hi02/, { base: [166, 188, 220], accent: [18, 204, 224], star: 192, dust: 22 }],
+        [/st03b/, { base: [246, 216, 178], accent: [286, 204, 232], star: 230, dust: 24 }]
+    ];
+    const match = variants.find(([pattern]) => pattern.test(key));
+    if (match) return match[1];
+    if (key.includes('li')) return { base: [214, 225, 202], accent: [192, 206, 230], star: 210, dust: 204 };
+    if (key.includes('br')) return { base: [218, 30, 196], accent: [212, 180, 222], star: 44, dust: 28 };
+    if (key.includes('ku')) return { base: [210, 222, 190], accent: [328, 190, 238], star: 205, dust: 318 };
+    if (key.includes('rh')) return { base: [34, 48, 22], accent: [196, 32, 182], star: 42, dust: 46 };
+    if (key.includes('bw') || key.includes('ew')) return { base: [170, 190, 215], accent: [128, 228, 184], star: 178, dust: 150 };
+    if (key.includes('hi')) return { base: [176, 206, 236], accent: [292, 184, 214], star: 190, dust: 286 };
+    if (key.includes('st')) return { base: [245, 216, 178], accent: [286, 204, 232], star: 230, dust: 24 };
+    return fallback;
+}
+
 function makeRegionSystemWallpaper(systemId) {
-    const key = String(systemId || 'Li01') + ':region';
+    const starsphereKey = currentSystemStarsphereKey(systemId);
+    const key = String(systemId || 'Li01') + ':region:' + starsphereKey;
     if (game.systemWallpapers[key]) return game.systemWallpapers[key];
     const canvas = document.createElement('canvas');
     canvas.width = 1600;
     canvas.height = 900;
     const ctx = canvas.getContext('2d');
-    const rng = seededRandom(hashString('region-wallpaper:' + key));
-    const palette = getSystemBackdropPalette(systemId);
+    const rng = seededRandom(hashString('starsphere-wallpaper:' + key));
+    const palette = getStarsphereBackdropPalette(systemId);
+    const character = seededRandom(hashString('starsphere-character:' + starsphereKey));
     const hues = palette.base.map(hue => (hue + Math.floor(rng() * 24 - 12) + 360) % 360);
     const accent = palette.accent.map(hue => (hue + Math.floor(rng() * 30 - 15) + 360) % 360);
+    const nebulaCount = 4 + Math.floor(character() * 7);
+    const starCount = 300 + Math.floor(character() * 520);
+    const dustBands = 1 + Math.floor(character() * 4);
+    const nebulaBoost = 0.7 + character() * 0.95;
 
     const base = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
     base.addColorStop(0, `hsl(${hues[0]}, 58%, 6%)`);
@@ -7373,23 +7432,39 @@ function makeRegionSystemWallpaper(systemId) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.globalCompositeOperation = 'screen';
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < nebulaCount; i++) {
         const x = rng() * canvas.width;
         const y = rng() * canvas.height;
-        const radius = 260 + rng() * 560;
+        const radius = 210 + rng() * 660;
         const hue = (i % 2 === 0 ? hues : accent)[i % 3];
         const nebula = ctx.createRadialGradient(x, y, 0, x, y, radius);
-        nebula.addColorStop(0, `hsla(${hue}, 88%, 58%, ${0.12 + rng() * 0.18})`);
-        nebula.addColorStop(0.35, `hsla(${(hue + 24) % 360}, 72%, 42%, ${0.05 + rng() * 0.08})`);
+        nebula.addColorStop(0, `hsla(${hue}, 88%, 58%, ${(0.09 + rng() * 0.2) * nebulaBoost})`);
+        nebula.addColorStop(0.35, `hsla(${(hue + 24) % 360}, 72%, 42%, ${(0.04 + rng() * 0.1) * nebulaBoost})`);
         nebula.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = nebula;
         ctx.beginPath();
-        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.ellipse(x, y, radius * (0.75 + rng() * 0.9), radius * (0.32 + rng() * 0.58), rng() * Math.PI, 0, Math.PI * 2);
         ctx.fill();
     }
 
+    ctx.globalCompositeOperation = 'screen';
+    for (let i = 0; i < dustBands; i++) {
+        const y = canvas.height * (0.15 + rng() * 0.7);
+        const band = ctx.createLinearGradient(0, y - 120, canvas.width, y + 120);
+        const hue = (palette.dust || accent[i % accent.length] || hues[0] || 200);
+        band.addColorStop(0, 'rgba(0,0,0,0)');
+        band.addColorStop(0.5, `hsla(${hue}, 70%, 36%, ${0.035 + rng() * 0.07})`);
+        band.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.save();
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        ctx.rotate((rng() - 0.5) * 0.85);
+        ctx.fillStyle = band;
+        ctx.fillRect(-canvas.width, y - canvas.height / 2 - 180, canvas.width * 2, 360);
+        ctx.restore();
+    }
+
     ctx.globalCompositeOperation = 'source-over';
-    for (let i = 0; i < 520; i++) {
+    for (let i = 0; i < starCount; i++) {
         const x = rng() * canvas.width;
         const y = rng() * canvas.height;
         const size = rng() < 0.94 ? 0.5 + rng() * 1.4 : 1.8 + rng() * 2.8;

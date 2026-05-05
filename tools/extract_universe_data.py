@@ -753,6 +753,7 @@ def extract_system_data(system_name: str) -> dict:
         'tradelanes': [],
         'asteroidfields': [],
         'nebulae': [],
+        'background': {},
         'zones': [],
         'missionZones': [],
         'populationZones': []
@@ -853,6 +854,14 @@ def extract_system_data(system_name: str) -> dict:
         section_lower = section_name.lower()
         
         if section_lower == 'archetype':
+            continue
+
+        if section_lower == 'background':
+            result['background'] = {
+                'basic_stars': get_prop(props, 'basic_stars', ''),
+                'complex_stars': get_prop(props, 'complex_stars', ''),
+                'nebulae': get_prop(props, 'nebulae', '')
+            }
             continue
         
         if section_lower == 'object':
@@ -1286,6 +1295,7 @@ def main():
             'populationZones': sys_data.get('populationZones', []),
             'asteroidfields': sys_data.get('asteroidfields', []),
             'tradelanes': tradelanes,  # Note: spelled tradelanes in output
+            'background': sys_data.get('background', {}),
             'nebulae': sys_data.get('nebulae', [])
         }
     
