@@ -8,6 +8,8 @@ Builds trade lane groups from connected rings.
 import os
 import re
 import json
+import shutil
+import subprocess
 from pathlib import Path
 from typing import Optional, Dict, List, Set
 
@@ -26,6 +28,12 @@ UNIVERSE_DIR = FL_DATA / 'UNIVERSE'
 RESOURCE_STRINGS = {}
 RESOURCE_INFOCARDS = {}
 SOLAR_ARCH = {}
+MUSIC_LIBRARY = {}
+
+FFMPEG_CANDIDATES = [
+    'ffmpeg',
+    r'C:\Users\steve\OneDrive\Software\PortableApps\PortableApps\JDownloader v2.0\tools\Windows\ffmpeg\x64\ffmpeg.exe',
+]
 
 JUMP_GATE_ARCHETYPES = {
     'jumpgate',
@@ -123,6 +131,70 @@ def parse_ini_file_with_duplicates(filepath: Path) -> list:
         print(f"Error reading {filepath}: {e}")
     
     return sections
+
+def load_music_library() -> dict[str, dict]:
+    """Map Freelancer music nicknames to their source audio files."""
+    music_ini = FL_DATA / 'AUDIO' / 'music.ini'
+    library: dict[str, dict] = {}
+    if not music_ini.exists():
+        return library
+    for section_name, props in parse_ini_file_with_duplicates(music_ini):
+        if section_name.lower() != 'sound':
+            continue
+        nickname = get_prop(props, 'nickname', '').strip()
+        file_path = get_prop(props, 'file', '').strip()
+        if not nickname or not file_path:
+            continue
+        library[nickname.lower()] = {
+            'id': nickname,
+            'file': file_path.replace('\\', '/')
+        }
+    return library
+
+def ffmpeg_executable() -> str:
+    env_path = os.environ.get('FREELANCER2D_FFMPEG', '').strip()
+    if env_path and Path(env_path).exists():
+        return env_path
+    for candidate in FFMPEG_CANDIDATES:
+        resolved = shutil.which(candidate) if candidate == 'ffmpeg' else candidate
+        if resolved and Path(resolved).exists():
+            return str(resolved)
+    return ''
+
+def resolved_music_asset(music_id: str) -> dict:
+    """Return game-local metadata for a Freelancer music nickname and copy the WAV when present."""
+    music_id = (music_id or '').strip()
+    if not music_id:
+        return {}
+    entry = MUSIC_LIBRARY.get(music_id.lower())
+    result = {'id': music_id, 'name': music_id.replace('music_', '').replace('_', ' ').title()}
+    if not entry:
+        return result
+    source = FL_DATA / Path(entry['file'])
+    if not source.exists():
+        source = FL_DATA / Path(entry['file'].replace('/', os.sep))
+    if source.exists():
+        encoder = ffmpeg_executable()
+        output_name = source.with_suffix('.mp3').name if encoder else source.name
+        output_rel = Path('assets') / 'music' / 'freelancer' / output_name
+        output_path = Path(__file__).resolve().parents[1] / output_rel
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        if encoder:
+            if not output_path.exists() or output_path.stat().st_mtime < source.stat().st_mtime:
+                subprocess.run([
+                    encoder,
+                    '-y',
+                    '-i', str(source),
+                    '-codec:a', 'libmp3lame',
+                    '-b:a', '192k',
+                    str(output_path)
+                ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        elif not output_path.exists() or output_path.stat().st_size != source.stat().st_size:
+            shutil.copy2(source, output_path)
+        result['path'] = output_rel.as_posix()
+        result['sourceFile'] = entry['file']
+        result['format'] = output_path.suffix.lstrip('.').lower()
+    return result
 
 def get_prop(props: dict, key: str, default=''):
     """Get property, handling case sensitivity."""
@@ -756,11 +828,20 @@ def extract_system_data(system_name: str) -> dict:
         'asteroidfields': [],
         'nebulae': [],
         'background': {},
+        'music': {},
         'zones': [],
         'missionZones': [],
         'populationZones': []
     }
     
+    if not system_ini.exists():
+        candidates = sorted(system_dir.glob('*.ini'))
+        if len(candidates) == 1:
+            system_ini = candidates[0]
+        else:
+            print(f"   Warning: {system_name.lower()}.ini not found")
+            return result
+
     if not system_ini.exists():
         print(f"   Warning: {system_name.lower()}.ini not found")
         return result
@@ -863,6 +944,14 @@ def extract_system_data(system_name: str) -> dict:
                 'basic_stars': get_prop(props, 'basic_stars', ''),
                 'complex_stars': get_prop(props, 'complex_stars', ''),
                 'nebulae': get_prop(props, 'nebulae', '')
+            }
+            continue
+
+        if section_lower == 'music':
+            result['music'] = {
+                'space': get_prop(props, 'space', ''),
+                'danger': get_prop(props, 'danger', ''),
+                'battle': get_prop(props, 'battle', '')
             }
             continue
         
@@ -1181,7 +1270,7 @@ def extract_all_systems() -> dict:
     return all_systems
 
 def main():
-    global RESOURCE_STRINGS, RESOURCE_INFOCARDS, SOLAR_ARCH
+    global RESOURCE_STRINGS, RESOURCE_INFOCARDS, SOLAR_ARCH, MUSIC_LIBRARY
     print("=== Freelancer Data Extractor v8 ===")
     print("Fixed: Parse Trade Lane Rings with next_ring/prev_ring connections")
     print()
@@ -1190,9 +1279,11 @@ def main():
     RESOURCE_STRINGS = load_resource_strings()
     RESOURCE_INFOCARDS = load_resource_infocards()
     SOLAR_ARCH = load_solar_arch()
+    MUSIC_LIBRARY = load_music_library()
     print(f"   Loaded {len(RESOURCE_STRINGS)} resource strings")
     print(f"   Loaded {len(RESOURCE_INFOCARDS)} infocards")
     print(f"   Loaded {len(SOLAR_ARCH)} solar archetypes")
+    print(f"   Loaded {len(MUSIC_LIBRARY)} music definitions")
 
     print()
     print("1. Extracting universe map...")
@@ -1298,6 +1389,7 @@ def main():
             'asteroidfields': sys_data.get('asteroidfields', []),
             'tradelanes': tradelanes,  # Note: spelled tradelanes in output
             'background': sys_data.get('background', {}),
+            'music': {slot: resolved_music_asset(track_id) for slot, track_id in sys_data.get('music', {}).items() if track_id},
             'nebulae': sys_data.get('nebulae', [])
         }
     

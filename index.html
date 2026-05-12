@@ -2875,10 +2875,23 @@ function applyHudTheme() {
 
 // Load real LI01 data from Freelancer INI files
 function getSystemRecord(systemId) {
-    const source = gameSystemsData();
-    if (!source) return {};
-    const key = Object.keys(source).find(k => k.toLowerCase() === systemId.toLowerCase());
-    return key ? source[key] : {};
+    const baseSource = typeof GAME_SYSTEMS !== 'undefined' ? GAME_SYSTEMS : FALLBACK_GAME_SYSTEMS;
+    const activeSource = game.modData?.GAME_SYSTEMS || baseSource;
+    const objectValue = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const findRecord = source => {
+        if (!source) return null;
+        const key = Object.keys(source).find(k => k.toLowerCase() === systemId.toLowerCase());
+        return key ? source[key] : null;
+    };
+    const baseRecord = findRecord(baseSource) || {};
+    const activeRecord = findRecord(activeSource);
+    if (!activeRecord || activeRecord === baseRecord) return baseRecord;
+    return {
+        ...baseRecord,
+        ...activeRecord,
+        background: { ...objectValue(baseRecord.background), ...objectValue(activeRecord.background) },
+        music: { ...objectValue(baseRecord.music), ...objectValue(activeRecord.music) }
+    };
 }
 
 function displayName(value, fallback = 'Unknown') {
@@ -4269,6 +4282,7 @@ function buildSystemData(systemId) {
     tradeLanes: raw.tradeLanes || raw.tradelanes || [],
     asteroidfields: (raw.asteroidfields || []).map(normalizeAsteroidFieldData),
     background: raw.background || {},
+    music: raw.music || {},
     nebulae: raw.nebulae || [],
     missionZones: (raw.missionZones || []).map(z => ({
         id: z.nickname || z.zone,
@@ -7530,7 +7544,7 @@ function addLog(message, type = 'system') {
 }
 
 function allMusicTracks() {
-    return [...MUSIC_TRACKS.space, ...MUSIC_TRACKS.fight];
+    return [...MUSIC_TRACKS.space, ...MUSIC_TRACKS.fight, ...systemMusicTracks()];
 }
 
 function musicTrackByPath(path) {
@@ -7538,15 +7552,42 @@ function musicTrackByPath(path) {
 }
 
 function musicModeForTrack(path) {
+    const systemTrack = systemMusicTracks().find(track => track.path === path);
+    if (systemTrack) return systemTrack.mode;
     return MUSIC_TRACKS.fight.some(track => track.path === path) ? 'fight' : 'space';
 }
 
+function systemMusicTrack(slot = 'space') {
+    const entry = systemData?.music?.[slot] || null;
+    if (!entry?.path) return null;
+    return {
+        name: entry.name || entry.id || slot,
+        path: entry.path,
+        mode: slot === 'battle' ? 'fight' : 'space',
+        slot,
+        systemId: currentSystemId
+    };
+}
+
+function systemMusicTracks() {
+    const tracks = [];
+    for (const slot of ['space', 'danger', 'battle']) {
+        const track = systemMusicTrack(slot);
+        if (track && !tracks.some(existing => existing.path === track.path)) tracks.push(track);
+    }
+    return tracks;
+}
+
 function defaultMusicTrack(mode = 'space') {
+    const systemTrack = systemMusicTrack(mode === 'fight' ? 'battle' : 'space');
+    if (systemTrack) return systemTrack;
     const tracks = MUSIC_TRACKS[mode] || MUSIC_TRACKS.space;
     return tracks[0] || null;
 }
 
 function nextMusicTrack(mode = game.musicMode) {
+    const systemTrack = defaultMusicTrack(mode);
+    if (systemTrack?.systemId === currentSystemId) return systemTrack;
     const tracks = MUSIC_TRACKS[mode] || MUSIC_TRACKS.space;
     if (!tracks.length) return null;
     const currentIndex = tracks.findIndex(track => track.path === game.currentMusicTrackPath);
@@ -7580,7 +7621,22 @@ function stopMusicFade() {
 function populateMusicPlayer() {
     const select = document.getElementById('music-track-select');
     if (!select) return;
+    const signature = `${currentSystemId}:${systemMusicTracks().map(track => track.path).join('|')}`;
+    if (select.dataset.musicSignature === signature) return;
+    select.dataset.musicSignature = signature;
     select.innerHTML = '';
+    const systemTracks = systemMusicTracks();
+    if (systemTracks.length) {
+        const group = document.createElement('optgroup');
+        group.label = 'SYSTEM';
+        for (const track of systemTracks) {
+            const option = document.createElement('option');
+            option.value = track.path;
+            option.textContent = `${track.slot.toUpperCase()} - ${track.name}`;
+            group.appendChild(option);
+        }
+        select.appendChild(group);
+    }
     for (const mode of ['space', 'fight']) {
         const group = document.createElement('optgroup');
         group.label = mode.toUpperCase();
@@ -7597,12 +7653,13 @@ function populateMusicPlayer() {
 }
 
 function updateMusicPlayer() {
+    populateMusicPlayer();
     const select = document.getElementById('music-track-select');
     const button = document.getElementById('music-toggle');
     const label = document.getElementById('music-label');
     if (select && game.currentMusicTrackPath) select.value = game.currentMusicTrackPath;
     if (button) button.textContent = game.musicStoppedByUser ? 'PLAY' : 'STOP';
-    if (label) label.textContent = game.musicMode === 'fight' ? 'FIGHT' : 'SPACE';
+    if (label) label.textContent = game.musicMode === 'fight' ? 'BATTLE' : 'SPACE';
 }
 
 function playMusicTrack(track, mode = 'space', manual = false) {
@@ -7706,10 +7763,10 @@ function updateMusicMode() {
     if (game.musicStoppedByUser) return;
     const manualTrack = musicTrackByPath(game.manualMusicTrackPath);
     const wantedMode = combatMusicActive() ? 'fight' : (manualTrack ? musicModeForTrack(manualTrack.path) : 'space');
-    if (game.musicMode === wantedMode && game.currentMusicTrackPath) return;
     const track = manualTrack && musicModeForTrack(manualTrack.path) === wantedMode
         ? manualTrack
         : defaultMusicTrack(wantedMode);
+    if (game.musicMode === wantedMode && game.currentMusicTrackPath === track?.path) return;
     playMusicTrack(track, wantedMode);
 }
 

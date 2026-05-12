@@ -6819,6 +6819,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_br01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_br01.cmp"
     },
+    "music": {
+      "space": "music_br_space",
+      "danger": "music_br_danger",
+      "battle": "music_br_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Br01_Southampton_toxic_001",
@@ -17839,6 +17844,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_br02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_br02.cmp"
     },
+    "music": {
+      "space": "music_br_space",
+      "danger": "music_br_danger",
+      "battle": "music_br_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Br02_sun_death",
@@ -26621,6 +26631,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_br03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_br03.cmp"
     },
+    "music": {
+      "space": "music_br_space",
+      "danger": "music_br_danger",
+      "battle": "music_br_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Br03_Ross_death",
@@ -33431,6 +33446,11 @@
       "basic_stars": "",
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_Br04.cmp"
+    },
+    "music": {
+      "space": "music_br_space",
+      "danger": "music_br_danger",
+      "battle": "music_br_battle"
     },
     "zones": [
       {
@@ -40385,6 +40405,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_br05_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_br05.cmp"
     },
+    "music": {
+      "space": "music_br_space",
+      "danger": "music_br_danger",
+      "battle": "music_br_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Br05_sun_death",
@@ -44649,6 +44674,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_br06_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_br06.cmp"
     },
+    "music": {
+      "space": "music_br_space",
+      "danger": "music_br_danger",
+      "battle": "music_br_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Br06_sun1_death",
@@ -48867,6 +48897,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_bw01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw01.cmp"
+    },
+    "music": {
+      "space": "music_omega_space",
+      "danger": "music_omega_danger",
+      "battle": "music_omega_battle"
     },
     "zones": [
       {
@@ -53594,6 +53629,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_bw02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw02.cmp"
     },
+    "music": {
+      "space": "music_omega_space",
+      "danger": "music_omega_danger",
+      "battle": "music_omega_battle"
+    },
     "zones": [],
     "missionZones": [
       {
@@ -57222,6 +57262,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_bw03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw03.cmp"
+    },
+    "music": {
+      "space": "music_omega_space",
+      "danger": "music_omega_danger",
+      "battle": "music_omega_battle"
     },
     "zones": [],
     "missionZones": [
@@ -61563,6 +61608,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_bw04_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw04.cmp"
+    },
+    "music": {
+      "space": "music_omega_space",
+      "danger": "music_omega_danger",
+      "battle": "music_omega_battle"
     },
     "zones": [
       {
@@ -66295,6 +66345,11 @@
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_bw05.cmp"
     },
+    "music": {
+      "space": "music_sigma_space",
+      "danger": "music_sigma_danger",
+      "battle": "music_sigma_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Bw05_yanagi_debris_field",
@@ -70228,6 +70283,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_bw06_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw06.cmp"
     },
+    "music": {
+      "space": "music_sigma_space",
+      "danger": "music_sigma_danger",
+      "battle": "music_sigma_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Bw06_Kunashir_cloud",
@@ -73088,6 +73148,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_bw07_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw07.cmp"
+    },
+    "music": {
+      "space": "music_sigma_space",
+      "danger": "music_sigma_danger",
+      "battle": "music_sigma_battle"
     },
     "zones": [
       {
@@ -78165,6 +78230,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_bw08_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw08.cmp"
     },
+    "music": {
+      "space": "music_tau_space",
+      "danger": "music_tau_danger",
+      "battle": "music_tau_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Bw08_asteroid_field",
@@ -82274,6 +82344,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_bw09_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw09.cmp"
+    },
+    "music": {
+      "space": "music_tau_space",
+      "danger": "music_tau_danger",
+      "battle": "music_tau_battle"
     },
     "zones": [
       {
@@ -86939,6 +87014,11 @@
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_Bw10.cmp"
     },
+    "music": {
+      "space": "music_tau_space",
+      "danger": "music_tau_danger",
+      "battle": "music_tau_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Bw10_death_sun",
@@ -90489,6 +90569,11 @@
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_Ew01.cmp"
     },
+    "music": {
+      "space": "music_tau_space",
+      "danger": "music_tau_danger",
+      "battle": "music_tau_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Ew01_sun_death",
@@ -92754,6 +92839,11 @@
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_ew02.cmp"
     },
+    "music": {
+      "space": "music_omicron_space",
+      "danger": "music_omicron_danger",
+      "battle": "music_omicron_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Ew02_edge_nebula",
@@ -94135,6 +94225,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_ew03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ew03.cmp"
+    },
+    "music": {
+      "space": "music_omega_space",
+      "danger": "music_omega_danger",
+      "battle": "music_omega_battle"
     },
     "zones": [
       {
@@ -97248,6 +97343,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_ew04_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ew04.cmp"
     },
+    "music": {
+      "space": "music_omicron_space",
+      "danger": "music_omicron_danger",
+      "battle": "music_omicron_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Ew04_Napo_nebula",
@@ -98679,6 +98779,11 @@
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_ew05.cmp"
     },
+    "music": {
+      "space": "music_omicron_space",
+      "danger": "music_omicron_danger",
+      "battle": "music_omicron_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Ew05_sun_death",
@@ -99022,6 +99127,11 @@
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_ew06.cmp"
     },
+    "music": {
+      "space": "music_omicron_space",
+      "danger": "music_omicron_danger",
+      "battle": "music_omicron_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Ew06_sun_death",
@@ -99149,11 +99259,81 @@
     "jumpholes": [],
     "stations": [],
     "planets": [],
-    "suns": [],
+    "suns": [
+      {
+        "nickname": "FP7_Sun",
+        "name": "Mittel, Grün",
+        "ids_name": "261039",
+        "ids_info": "66160",
+        "info": "TYP: F4\nLEUCHTKRAFT: IV\nFARBE: Grün\nTEMPERATUR: 6.000\nMASSE: 1,99 x 10e30 kg\nDURCHMESSER: 1,53 x 10e7 km",
+        "x": 174.0,
+        "y": 0.0,
+        "z": 636.0,
+        "archetype": "sun_2000",
+        "size": 2000.0,
+        "solar_radius": 2000.0,
+        "atmosphere_range": 7000.0,
+        "spin": "",
+        "faction": "",
+        "loadout": "",
+        "base": "",
+        "dock_with": "",
+        "has_ring": false
+      },
+      {
+        "nickname": "FP7_sun2",
+        "name": "Grüner Zwerg",
+        "ids_name": "261040",
+        "ids_info": "66152",
+        "info": "TYP: F4\nLEUCHTKRAFT: V\nFARBE: Grün\nTEMPERATUR: 6.000\nMASSE: 1,50 x 10e30 kg\nDURCHMESSER: 0,96 x 10e7 km",
+        "x": -5200.0,
+        "y": 0.0,
+        "z": 11386.0,
+        "archetype": "sun_1000",
+        "size": 1000.0,
+        "solar_radius": 1000.0,
+        "atmosphere_range": 7000.0,
+        "spin": "",
+        "faction": "",
+        "loadout": "",
+        "base": "",
+        "dock_with": "",
+        "has_ring": false
+      },
+      {
+        "nickname": "FP7_sun3",
+        "name": "Blauer Zwerg",
+        "ids_name": "261041",
+        "ids_info": "66151",
+        "info": "TYP: O1\nLEUCHTKRAFT: V\nFARBE: Blau\nTEMPERATUR: 23.000\nMASSE: 1,52 x 10e30 kg\nDURCHMESSER: 0,98 x 10e7 km",
+        "x": -17028.0,
+        "y": 0.0,
+        "z": 11113.0,
+        "archetype": "sun_1000",
+        "size": 1000.0,
+        "solar_radius": 1000.0,
+        "atmosphere_range": 7000.0,
+        "spin": "",
+        "faction": "",
+        "loadout": "",
+        "base": "",
+        "dock_with": "",
+        "has_ring": false
+      }
+    ],
     "tradelanes": [],
     "asteroidfields": [],
     "nebulae": [],
-    "background": {},
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw06_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_Bw06_fp7.cmp"
+    },
+    "music": {
+      "space": "music_sigma_space",
+      "danger": "music_sigma_danger",
+      "battle": "music_sigma_battle"
+    },
     "zones": [],
     "missionZones": [],
     "populationZones": []
@@ -99574,6 +99754,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_hi01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_hi01.cmp"
+    },
+    "music": {
+      "space": "music_omicron_space",
+      "danger": "music_omicron_danger",
+      "battle": "music_omicron_battle"
     },
     "zones": [
       {
@@ -101487,6 +101672,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_hi02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_hi02.cmp"
+    },
+    "music": {
+      "space": "music_omicron_space",
+      "danger": "music_omicron_danger",
+      "battle": "music_omicron_battle"
     },
     "zones": [
       {
@@ -107202,6 +107392,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_li01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_li01.cmp"
+    },
+    "music": {
+      "space": "music_li_space",
+      "danger": "music_li_danger",
+      "battle": "music_li_battle"
     },
     "zones": [
       {
@@ -119881,6 +120076,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_iw01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_iw01.cmp"
     },
+    "music": {
+      "space": "music_iw_space",
+      "danger": "music_iw_danger",
+      "battle": "music_iw_battle"
+    },
     "zones": [
       {
         "nickname": "ZONE_Iw01_sun_death",
@@ -123373,6 +123573,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_iw02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_iw02.cmp"
+    },
+    "music": {
+      "space": "music_iw_space",
+      "danger": "music_iw_danger",
+      "battle": "music_iw_battle"
     },
     "zones": [
       {
@@ -126944,6 +127149,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_iw03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_iw03.cmp"
     },
+    "music": {
+      "space": "music_iw_space",
+      "danger": "music_iw_danger",
+      "battle": "music_iw_battle"
+    },
     "zones": [],
     "missionZones": [
       {
@@ -130287,6 +130497,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_iw04_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_iw04.cmp"
+    },
+    "music": {
+      "space": "music_iw_space",
+      "danger": "music_iw_danger",
+      "battle": "music_iw_battle"
     },
     "zones": [
       {
@@ -133662,6 +133877,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_iw05_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_iw05.cmp"
     },
+    "music": {
+      "space": "music_iw_space",
+      "danger": "music_iw_danger",
+      "battle": "music_iw_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Iw05_Denko_cloud",
@@ -136844,6 +137064,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_iw06_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_iw06.cmp"
+    },
+    "music": {
+      "space": "music_iw_space",
+      "danger": "music_iw_danger",
+      "battle": "music_iw_battle"
     },
     "zones": [
       {
@@ -142126,6 +142351,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_ku01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ku01.cmp"
+    },
+    "music": {
+      "space": "music_ku_space",
+      "danger": "music_ku_danger",
+      "battle": "music_ku_battle"
     },
     "zones": [
       {
@@ -149778,6 +150008,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_ku02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ku02.cmp"
     },
+    "music": {
+      "space": "music_ku_space",
+      "danger": "music_ku_danger",
+      "battle": "music_ku_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Ku02_sun_death",
@@ -155910,6 +156145,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_ku03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ku03.cmp"
     },
+    "music": {
+      "space": "music_ku_space",
+      "danger": "music_ku_danger",
+      "battle": "music_ku_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Ku03_sun1_death",
@@ -161796,6 +162036,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_ku04_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ku04.cmp"
+    },
+    "music": {
+      "space": "music_ku_space",
+      "danger": "music_ku_danger",
+      "battle": "music_ku_battle"
     },
     "zones": [
       {
@@ -168758,6 +169003,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_ku05_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ku05.cmp"
     },
+    "music": {
+      "space": "music_ku_space",
+      "danger": "music_ku_danger",
+      "battle": "music_ku_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Ku05_Kyofu_gap",
@@ -172231,6 +172481,11 @@
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_Ku06.cmp"
     },
+    "music": {
+      "space": "music_ku_space",
+      "danger": "music_ku_danger",
+      "battle": "music_ku_battle"
+    },
     "zones": [],
     "missionZones": [
       {
@@ -173204,6 +173459,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_ku07_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ku07.cmp"
+    },
+    "music": {
+      "space": "music_ku_space",
+      "danger": "music_ku_danger",
+      "battle": "music_ku_battle"
     },
     "zones": [
       {
@@ -176697,6 +176957,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_li01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_li01.cmp"
+    },
+    "music": {
+      "space": "music_li_space",
+      "danger": "music_li_danger",
+      "battle": "music_li_battle"
     },
     "zones": [
       {
@@ -192045,6 +192310,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_li02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_li02.cmp"
     },
+    "music": {
+      "space": "music_li_space",
+      "danger": "music_li_danger",
+      "battle": "music_li_battle"
+    },
     "zones": [
       {
         "nickname": "zone_Li02_sun_death",
@@ -201807,6 +202077,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_li03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_li03.cmp"
     },
+    "music": {
+      "space": "music_li_space",
+      "danger": "music_li_danger",
+      "battle": "music_li_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Li03_Denver_death",
@@ -210386,6 +210661,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_walker.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_li04_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_li04.cmp"
+    },
+    "music": {
+      "space": "music_li_space",
+      "danger": "music_li_danger",
+      "battle": "music_li_battle"
     },
     "zones": [
       {
@@ -219787,6 +220067,11 @@
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_li05.cmp"
     },
+    "music": {
+      "space": "music_li_space",
+      "danger": "music_li_danger",
+      "battle": "music_li_battle"
+    },
     "zones": [],
     "missionZones": [],
     "populationZones": [],
@@ -219806,6 +220091,7 @@
     "asteroidfields": [],
     "nebulae": [],
     "background": {},
+    "music": {},
     "zones": [],
     "missionZones": [],
     "populationZones": []
@@ -223280,6 +223566,11 @@
       "basic_stars": "solar\\starsphere\\starsphere_stars_walker.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_rh01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_rh01.cmp"
+    },
+    "music": {
+      "space": "music_rh_space",
+      "danger": "music_rh_danger",
+      "battle": "music_rh_battle"
     },
     "zones": [
       {
@@ -232037,6 +232328,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_rh02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_rh02.cmp"
     },
+    "music": {
+      "space": "music_rh_space",
+      "danger": "music_rh_danger",
+      "battle": "music_rh_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Rh02_sun_death",
@@ -238274,6 +238570,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_rh03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_rh03.cmp"
     },
+    "music": {
+      "space": "music_rh_space",
+      "danger": "music_rh_danger",
+      "battle": "music_rh_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Rh03_sun_death",
@@ -243365,6 +243666,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_rh04_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_rh04.cmp"
     },
+    "music": {
+      "space": "music_rh_space",
+      "danger": "music_rh_danger",
+      "battle": "music_rh_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Rh04_nomad_shipyard_exclusion",
@@ -247763,6 +248069,11 @@
       "complex_stars": "solar\\starsphere\\starsphere_rh05_stars.3db",
       "nebulae": "solar\\starsphere\\starsphere_rh05.cmp"
     },
+    "music": {
+      "space": "music_rh_space",
+      "danger": "music_rh_danger",
+      "battle": "music_rh_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_Rh05_sun_death",
@@ -251573,6 +251884,11 @@
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_st01.cmp"
     },
+    "music": {
+      "space": "music_omicron_space",
+      "danger": "music_omicron_danger",
+      "battle": "music_omicron_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_St01_order_planet_death",
@@ -251782,6 +252098,11 @@
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_st02.cmp"
     },
+    "music": {
+      "space": "music_omicron_space",
+      "danger": "music_omicron_danger",
+      "battle": "music_omicron_battle"
+    },
     "zones": [],
     "missionZones": [],
     "populationZones": [],
@@ -251817,6 +252138,11 @@
       }
     ],
     "background": {},
+    "music": {
+      "space": "music_omicron_space",
+      "danger": "music_omicron_danger",
+      "battle": "music_omicron_battle"
+    },
     "zones": [
       {
         "nickname": "Zone_St02c_radiation",
@@ -251935,6 +252261,11 @@
       "basic_stars": "",
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_st03.cmp"
+    },
+    "music": {
+      "space": "music_omicron_space",
+      "danger": "music_omicron_danger",
+      "battle": "music_omicron_battle"
     },
     "zones": [
       {
@@ -252165,6 +252496,11 @@
       "basic_stars": "",
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_St03b.cmp"
+    },
+    "music": {
+      "space": "music_omicron_space",
+      "danger": "music_omicron_danger",
+      "battle": "music_omicron_battle"
     },
     "zones": [
       {

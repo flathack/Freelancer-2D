@@ -15428,6 +15428,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_br01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_br01.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_br_space",
+        "name": "Br Space",
+        "path": "assets/music/freelancer/music_br_space.mp3",
+        "sourceFile": "audio/music/music_br_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_br_danger",
+        "name": "Br Danger",
+        "path": "assets/music/freelancer/music_br_danger.mp3",
+        "sourceFile": "audio/music/music_br_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_br_battle",
+        "name": "Br Battle",
+        "path": "assets/music/freelancer/music_br_battle.mp3",
+        "sourceFile": "audio/music/music_br_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": []
   },
   "BR02": {
@@ -23603,6 +23626,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_br02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_br02.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_br_space",
+        "name": "Br Space",
+        "path": "assets/music/freelancer/music_br_space.mp3",
+        "sourceFile": "audio/music/music_br_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_br_danger",
+        "name": "Br Danger",
+        "path": "assets/music/freelancer/music_br_danger.mp3",
+        "sourceFile": "audio/music/music_br_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_br_battle",
+        "name": "Br Battle",
+        "path": "assets/music/freelancer/music_br_battle.mp3",
+        "sourceFile": "audio/music/music_br_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": []
   },
   "BR03": {
@@ -29384,6 +29430,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_br03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_br03.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_br_space",
+        "name": "Br Space",
+        "path": "assets/music/freelancer/music_br_space.mp3",
+        "sourceFile": "audio/music/music_br_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_br_danger",
+        "name": "Br Danger",
+        "path": "assets/music/freelancer/music_br_danger.mp3",
+        "sourceFile": "audio/music/music_br_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_br_battle",
+        "name": "Br Battle",
+        "path": "assets/music/freelancer/music_br_battle.mp3",
+        "sourceFile": "audio/music/music_br_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -36859,6 +36928,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_Br04.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_br_space",
+        "name": "Br Space",
+        "path": "assets/music/freelancer/music_br_space.mp3",
+        "sourceFile": "audio/music/music_br_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_br_danger",
+        "name": "Br Danger",
+        "path": "assets/music/freelancer/music_br_danger.mp3",
+        "sourceFile": "audio/music/music_br_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_br_battle",
+        "name": "Br Battle",
+        "path": "assets/music/freelancer/music_br_battle.mp3",
+        "sourceFile": "audio/music/music_br_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -42295,6 +42387,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_br05_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_br05.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_br_space",
+        "name": "Br Space",
+        "path": "assets/music/freelancer/music_br_space.mp3",
+        "sourceFile": "audio/music/music_br_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_br_danger",
+        "name": "Br Danger",
+        "path": "assets/music/freelancer/music_br_danger.mp3",
+        "sourceFile": "audio/music/music_br_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_br_battle",
+        "name": "Br Battle",
+        "path": "assets/music/freelancer/music_br_battle.mp3",
+        "sourceFile": "audio/music/music_br_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": []
   },
   "BR06": {
@@ -45790,6 +45905,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_br06_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_br06.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_br_space",
+        "name": "Br Space",
+        "path": "assets/music/freelancer/music_br_space.mp3",
+        "sourceFile": "audio/music/music_br_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_br_danger",
+        "name": "Br Danger",
+        "path": "assets/music/freelancer/music_br_danger.mp3",
+        "sourceFile": "audio/music/music_br_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_br_battle",
+        "name": "Br Battle",
+        "path": "assets/music/freelancer/music_br_battle.mp3",
+        "sourceFile": "audio/music/music_br_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -50758,6 +50896,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_bw01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw01.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_omega_space",
+        "name": "Omega Space",
+        "path": "assets/music/freelancer/music_omega_space.mp3",
+        "sourceFile": "audio/music/music_omega_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omega_danger",
+        "name": "Omega Danger",
+        "path": "assets/music/freelancer/music_omega_danger.mp3",
+        "sourceFile": "audio/music/music_omega_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omega_battle",
+        "name": "Omega Battle",
+        "path": "assets/music/freelancer/music_omega_battle.mp3",
+        "sourceFile": "audio/music/music_omega_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -53992,6 +54153,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_bw02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw02.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_omega_space",
+        "name": "Omega Space",
+        "path": "assets/music/freelancer/music_omega_space.mp3",
+        "sourceFile": "audio/music/music_omega_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omega_danger",
+        "name": "Omega Danger",
+        "path": "assets/music/freelancer/music_omega_danger.mp3",
+        "sourceFile": "audio/music/music_omega_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omega_battle",
+        "name": "Omega Battle",
+        "path": "assets/music/freelancer/music_omega_battle.mp3",
+        "sourceFile": "audio/music/music_omega_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": []
   },
@@ -58430,6 +58614,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_bw03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw03.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_omega_space",
+        "name": "Omega Space",
+        "path": "assets/music/freelancer/music_omega_space.mp3",
+        "sourceFile": "audio/music/music_omega_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omega_danger",
+        "name": "Omega Danger",
+        "path": "assets/music/freelancer/music_omega_danger.mp3",
+        "sourceFile": "audio/music/music_omega_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omega_battle",
+        "name": "Omega Battle",
+        "path": "assets/music/freelancer/music_omega_battle.mp3",
+        "sourceFile": "audio/music/music_omega_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -62904,6 +63111,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_bw04_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw04.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_omega_space",
+        "name": "Omega Space",
+        "path": "assets/music/freelancer/music_omega_space.mp3",
+        "sourceFile": "audio/music/music_omega_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omega_danger",
+        "name": "Omega Danger",
+        "path": "assets/music/freelancer/music_omega_danger.mp3",
+        "sourceFile": "audio/music/music_omega_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omega_battle",
+        "name": "Omega Battle",
+        "path": "assets/music/freelancer/music_omega_battle.mp3",
+        "sourceFile": "audio/music/music_omega_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": []
   },
@@ -67491,6 +67721,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_bw05.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_sigma_space",
+        "name": "Sigma Space",
+        "path": "assets/music/freelancer/music_sigma_space.mp3",
+        "sourceFile": "audio/music/music_sigma_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_sigma_danger",
+        "name": "Sigma Danger",
+        "path": "assets/music/freelancer/music_sigma_danger.mp3",
+        "sourceFile": "audio/music/music_sigma_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_sigma_battle",
+        "name": "Sigma Battle",
+        "path": "assets/music/freelancer/music_sigma_battle.mp3",
+        "sourceFile": "audio/music/music_sigma_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -70096,6 +70349,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_bw06_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw06.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_sigma_space",
+        "name": "Sigma Space",
+        "path": "assets/music/freelancer/music_sigma_space.mp3",
+        "sourceFile": "audio/music/music_sigma_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_sigma_danger",
+        "name": "Sigma Danger",
+        "path": "assets/music/freelancer/music_sigma_danger.mp3",
+        "sourceFile": "audio/music/music_sigma_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_sigma_battle",
+        "name": "Sigma Battle",
+        "path": "assets/music/freelancer/music_sigma_battle.mp3",
+        "sourceFile": "audio/music/music_sigma_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -74300,6 +74576,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_bw07_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw07.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_sigma_space",
+        "name": "Sigma Space",
+        "path": "assets/music/freelancer/music_sigma_space.mp3",
+        "sourceFile": "audio/music/music_sigma_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_sigma_danger",
+        "name": "Sigma Danger",
+        "path": "assets/music/freelancer/music_sigma_danger.mp3",
+        "sourceFile": "audio/music/music_sigma_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_sigma_battle",
+        "name": "Sigma Battle",
+        "path": "assets/music/freelancer/music_sigma_battle.mp3",
+        "sourceFile": "audio/music/music_sigma_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -78373,6 +78672,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_bw08_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw08.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_tau_space",
+        "name": "Tau Space",
+        "path": "assets/music/freelancer/music_tau_space.mp3",
+        "sourceFile": "audio/music/music_tau_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_tau_danger",
+        "name": "Tau Danger",
+        "path": "assets/music/freelancer/music_tau_danger.mp3",
+        "sourceFile": "audio/music/music_tau_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_tau_battle",
+        "name": "Tau Battle",
+        "path": "assets/music/freelancer/music_tau_battle.mp3",
+        "sourceFile": "audio/music/music_tau_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": []
   },
@@ -83286,6 +83608,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_bw09_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_bw09.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_tau_space",
+        "name": "Tau Space",
+        "path": "assets/music/freelancer/music_tau_space.mp3",
+        "sourceFile": "audio/music/music_tau_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_tau_danger",
+        "name": "Tau Danger",
+        "path": "assets/music/freelancer/music_tau_danger.mp3",
+        "sourceFile": "audio/music/music_tau_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_tau_battle",
+        "name": "Tau Battle",
+        "path": "assets/music/freelancer/music_tau_battle.mp3",
+        "sourceFile": "audio/music/music_tau_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": []
   },
   "BW10": {
@@ -87576,6 +87921,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_Bw10.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_tau_space",
+        "name": "Tau Space",
+        "path": "assets/music/freelancer/music_tau_space.mp3",
+        "sourceFile": "audio/music/music_tau_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_tau_danger",
+        "name": "Tau Danger",
+        "path": "assets/music/freelancer/music_tau_danger.mp3",
+        "sourceFile": "audio/music/music_tau_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_tau_battle",
+        "name": "Tau Battle",
+        "path": "assets/music/freelancer/music_tau_battle.mp3",
+        "sourceFile": "audio/music/music_tau_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": []
   },
   "EW01": {
@@ -90046,6 +90414,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_Ew01.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_tau_space",
+        "name": "Tau Space",
+        "path": "assets/music/freelancer/music_tau_space.mp3",
+        "sourceFile": "audio/music/music_tau_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_tau_danger",
+        "name": "Tau Danger",
+        "path": "assets/music/freelancer/music_tau_danger.mp3",
+        "sourceFile": "audio/music/music_tau_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_tau_battle",
+        "name": "Tau Battle",
+        "path": "assets/music/freelancer/music_tau_battle.mp3",
+        "sourceFile": "audio/music/music_tau_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -91178,6 +91569,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "",
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_ew02.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_omicron_space",
+        "name": "Omicron Space",
+        "path": "assets/music/freelancer/music_omicron_space.mp3",
+        "sourceFile": "audio/music/music_omicron_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omicron_danger",
+        "name": "Omicron Danger",
+        "path": "assets/music/freelancer/music_omicron_danger.mp3",
+        "sourceFile": "audio/music/music_omicron_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omicron_battle",
+        "name": "Omicron Battle",
+        "path": "assets/music/freelancer/music_omicron_battle.mp3",
+        "sourceFile": "audio/music/music_omicron_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -94244,6 +94658,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_ew03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ew03.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_omega_space",
+        "name": "Omega Space",
+        "path": "assets/music/freelancer/music_omega_space.mp3",
+        "sourceFile": "audio/music/music_omega_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omega_danger",
+        "name": "Omega Danger",
+        "path": "assets/music/freelancer/music_omega_danger.mp3",
+        "sourceFile": "audio/music/music_omega_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omega_battle",
+        "name": "Omega Battle",
+        "path": "assets/music/freelancer/music_omega_battle.mp3",
+        "sourceFile": "audio/music/music_omega_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": []
   },
   "EW04": {
@@ -96200,6 +96637,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_ew04_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ew04.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_omicron_space",
+        "name": "Omicron Space",
+        "path": "assets/music/freelancer/music_omicron_space.mp3",
+        "sourceFile": "audio/music/music_omicron_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omicron_danger",
+        "name": "Omicron Danger",
+        "path": "assets/music/freelancer/music_omicron_danger.mp3",
+        "sourceFile": "audio/music/music_omicron_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omicron_battle",
+        "name": "Omicron Battle",
+        "path": "assets/music/freelancer/music_omicron_battle.mp3",
+        "sourceFile": "audio/music/music_omicron_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -96418,6 +96878,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "",
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_ew05.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_omicron_space",
+        "name": "Omicron Space",
+        "path": "assets/music/freelancer/music_omicron_space.mp3",
+        "sourceFile": "audio/music/music_omicron_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omicron_danger",
+        "name": "Omicron Danger",
+        "path": "assets/music/freelancer/music_omicron_danger.mp3",
+        "sourceFile": "audio/music/music_omicron_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omicron_battle",
+        "name": "Omicron Battle",
+        "path": "assets/music/freelancer/music_omicron_battle.mp3",
+        "sourceFile": "audio/music/music_omicron_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": []
   },
@@ -96799,6 +97282,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_ew06.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_omicron_space",
+        "name": "Omicron Space",
+        "path": "assets/music/freelancer/music_omicron_space.mp3",
+        "sourceFile": "audio/music/music_omicron_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omicron_danger",
+        "name": "Omicron Danger",
+        "path": "assets/music/freelancer/music_omicron_danger.mp3",
+        "sourceFile": "audio/music/music_omicron_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omicron_battle",
+        "name": "Omicron Battle",
+        "path": "assets/music/freelancer/music_omicron_battle.mp3",
+        "sourceFile": "audio/music/music_omicron_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": []
   },
   "FP7": {
@@ -96810,13 +97316,101 @@ const GAME_SYSTEMS = {
     "jumpholes": [],
     "stations": [],
     "planets": [],
-    "suns": [],
+    "suns": [
+      {
+        "nickname": "FP7_Sun",
+        "name": "Mittel, Grün",
+        "ids_name": "261039",
+        "ids_info": "66160",
+        "info": "TYP: F4\nLEUCHTKRAFT: IV\nFARBE: Grün\nTEMPERATUR: 6.000\nMASSE: 1,99 x 10e30 kg\nDURCHMESSER: 1,53 x 10e7 km",
+        "x": 174.0,
+        "y": 0.0,
+        "z": 636.0,
+        "archetype": "sun_2000",
+        "size": 2000.0,
+        "solar_radius": 2000.0,
+        "atmosphere_range": 7000.0,
+        "spin": "",
+        "faction": "",
+        "loadout": "",
+        "base": "",
+        "dock_with": "",
+        "has_ring": false
+      },
+      {
+        "nickname": "FP7_sun2",
+        "name": "Grüner Zwerg",
+        "ids_name": "261040",
+        "ids_info": "66152",
+        "info": "TYP: F4\nLEUCHTKRAFT: V\nFARBE: Grün\nTEMPERATUR: 6.000\nMASSE: 1,50 x 10e30 kg\nDURCHMESSER: 0,96 x 10e7 km",
+        "x": -5200.0,
+        "y": 0.0,
+        "z": 11386.0,
+        "archetype": "sun_1000",
+        "size": 1000.0,
+        "solar_radius": 1000.0,
+        "atmosphere_range": 7000.0,
+        "spin": "",
+        "faction": "",
+        "loadout": "",
+        "base": "",
+        "dock_with": "",
+        "has_ring": false
+      },
+      {
+        "nickname": "FP7_sun3",
+        "name": "Blauer Zwerg",
+        "ids_name": "261041",
+        "ids_info": "66151",
+        "info": "TYP: O1\nLEUCHTKRAFT: V\nFARBE: Blau\nTEMPERATUR: 23.000\nMASSE: 1,52 x 10e30 kg\nDURCHMESSER: 0,98 x 10e7 km",
+        "x": -17028.0,
+        "y": 0.0,
+        "z": 11113.0,
+        "archetype": "sun_1000",
+        "size": 1000.0,
+        "solar_radius": 1000.0,
+        "atmosphere_range": 7000.0,
+        "spin": "",
+        "faction": "",
+        "loadout": "",
+        "base": "",
+        "dock_with": "",
+        "has_ring": false
+      }
+    ],
     "zones": [],
     "missionZones": [],
     "populationZones": [],
     "asteroidfields": [],
     "tradelanes": [],
-    "background": {},
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw06_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_Bw06_fp7.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_sigma_space",
+        "name": "Sigma Space",
+        "path": "assets/music/freelancer/music_sigma_space.mp3",
+        "sourceFile": "audio/music/music_sigma_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_sigma_danger",
+        "name": "Sigma Danger",
+        "path": "assets/music/freelancer/music_sigma_danger.mp3",
+        "sourceFile": "audio/music/music_sigma_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_sigma_battle",
+        "name": "Sigma Battle",
+        "path": "assets/music/freelancer/music_sigma_battle.mp3",
+        "sourceFile": "audio/music/music_sigma_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": []
   },
   "HI01": {
@@ -98442,6 +99036,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_hi01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_hi01.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_omicron_space",
+        "name": "Omicron Space",
+        "path": "assets/music/freelancer/music_omicron_space.mp3",
+        "sourceFile": "audio/music/music_omicron_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omicron_danger",
+        "name": "Omicron Danger",
+        "path": "assets/music/freelancer/music_omicron_danger.mp3",
+        "sourceFile": "audio/music/music_omicron_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omicron_battle",
+        "name": "Omicron Battle",
+        "path": "assets/music/freelancer/music_omicron_battle.mp3",
+        "sourceFile": "audio/music/music_omicron_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -101323,6 +101940,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_hi02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_hi02.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_omicron_space",
+        "name": "Omicron Space",
+        "path": "assets/music/freelancer/music_omicron_space.mp3",
+        "sourceFile": "audio/music/music_omicron_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omicron_danger",
+        "name": "Omicron Danger",
+        "path": "assets/music/freelancer/music_omicron_danger.mp3",
+        "sourceFile": "audio/music/music_omicron_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omicron_battle",
+        "name": "Omicron Battle",
+        "path": "assets/music/freelancer/music_omicron_battle.mp3",
+        "sourceFile": "audio/music/music_omicron_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -115968,6 +116608,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_li01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_li01.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_li_space",
+        "name": "Li Space",
+        "path": "assets/music/freelancer/music_li_space.mp3",
+        "sourceFile": "audio/music/music_li_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_li_danger",
+        "name": "Li Danger",
+        "path": "assets/music/freelancer/music_li_danger.mp3",
+        "sourceFile": "audio/music/music_li_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_li_battle",
+        "name": "Li Battle",
+        "path": "assets/music/freelancer/music_li_battle.mp3",
+        "sourceFile": "audio/music/music_li_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -119522,6 +120185,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_iw01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_iw01.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_iw_space",
+        "name": "Iw Space",
+        "path": "assets/music/freelancer/music_iw_space.mp3",
+        "sourceFile": "audio/music/music_iw_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_iw_danger",
+        "name": "Iw Danger",
+        "path": "assets/music/freelancer/music_iw_danger.mp3",
+        "sourceFile": "audio/music/music_iw_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_iw_battle",
+        "name": "Iw Battle",
+        "path": "assets/music/freelancer/music_iw_battle.mp3",
+        "sourceFile": "audio/music/music_iw_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": []
   },
   "IW02": {
@@ -122752,6 +123438,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_iw02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_iw02.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_iw_space",
+        "name": "Iw Space",
+        "path": "assets/music/freelancer/music_iw_space.mp3",
+        "sourceFile": "audio/music/music_iw_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_iw_danger",
+        "name": "Iw Danger",
+        "path": "assets/music/freelancer/music_iw_danger.mp3",
+        "sourceFile": "audio/music/music_iw_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_iw_battle",
+        "name": "Iw Battle",
+        "path": "assets/music/freelancer/music_iw_battle.mp3",
+        "sourceFile": "audio/music/music_iw_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": []
   },
@@ -126166,6 +126875,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_iw03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_iw03.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_iw_space",
+        "name": "Iw Space",
+        "path": "assets/music/freelancer/music_iw_space.mp3",
+        "sourceFile": "audio/music/music_iw_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_iw_danger",
+        "name": "Iw Danger",
+        "path": "assets/music/freelancer/music_iw_danger.mp3",
+        "sourceFile": "audio/music/music_iw_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_iw_battle",
+        "name": "Iw Battle",
+        "path": "assets/music/freelancer/music_iw_battle.mp3",
+        "sourceFile": "audio/music/music_iw_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -129619,6 +130351,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_iw04_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_iw04.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_iw_space",
+        "name": "Iw Space",
+        "path": "assets/music/freelancer/music_iw_space.mp3",
+        "sourceFile": "audio/music/music_iw_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_iw_danger",
+        "name": "Iw Danger",
+        "path": "assets/music/freelancer/music_iw_danger.mp3",
+        "sourceFile": "audio/music/music_iw_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_iw_battle",
+        "name": "Iw Battle",
+        "path": "assets/music/freelancer/music_iw_battle.mp3",
+        "sourceFile": "audio/music/music_iw_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -132403,6 +133158,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_iw05_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_iw05.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_iw_space",
+        "name": "Iw Space",
+        "path": "assets/music/freelancer/music_iw_space.mp3",
+        "sourceFile": "audio/music/music_iw_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_iw_danger",
+        "name": "Iw Danger",
+        "path": "assets/music/freelancer/music_iw_danger.mp3",
+        "sourceFile": "audio/music/music_iw_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_iw_battle",
+        "name": "Iw Battle",
+        "path": "assets/music/freelancer/music_iw_battle.mp3",
+        "sourceFile": "audio/music/music_iw_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -136313,6 +137091,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_iw06_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_iw06.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_iw_space",
+        "name": "Iw Space",
+        "path": "assets/music/freelancer/music_iw_space.mp3",
+        "sourceFile": "audio/music/music_iw_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_iw_danger",
+        "name": "Iw Danger",
+        "path": "assets/music/freelancer/music_iw_danger.mp3",
+        "sourceFile": "audio/music/music_iw_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_iw_battle",
+        "name": "Iw Battle",
+        "path": "assets/music/freelancer/music_iw_battle.mp3",
+        "sourceFile": "audio/music/music_iw_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -143999,6 +144800,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_ku01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ku01.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_ku_space",
+        "name": "Ku Space",
+        "path": "assets/music/freelancer/music_ku_space.mp3",
+        "sourceFile": "audio/music/music_ku_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_ku_danger",
+        "name": "Ku Danger",
+        "path": "assets/music/freelancer/music_ku_danger.mp3",
+        "sourceFile": "audio/music/music_ku_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_ku_battle",
+        "name": "Ku Battle",
+        "path": "assets/music/freelancer/music_ku_battle.mp3",
+        "sourceFile": "audio/music/music_ku_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": []
   },
   "KU02": {
@@ -150088,6 +150912,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_ku02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ku02.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_ku_space",
+        "name": "Ku Space",
+        "path": "assets/music/freelancer/music_ku_space.mp3",
+        "sourceFile": "audio/music/music_ku_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_ku_danger",
+        "name": "Ku Danger",
+        "path": "assets/music/freelancer/music_ku_danger.mp3",
+        "sourceFile": "audio/music/music_ku_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_ku_battle",
+        "name": "Ku Battle",
+        "path": "assets/music/freelancer/music_ku_battle.mp3",
+        "sourceFile": "audio/music/music_ku_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -154428,6 +155275,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_ku03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ku03.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_ku_space",
+        "name": "Ku Space",
+        "path": "assets/music/freelancer/music_ku_space.mp3",
+        "sourceFile": "audio/music/music_ku_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_ku_danger",
+        "name": "Ku Danger",
+        "path": "assets/music/freelancer/music_ku_danger.mp3",
+        "sourceFile": "audio/music/music_ku_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_ku_battle",
+        "name": "Ku Battle",
+        "path": "assets/music/freelancer/music_ku_battle.mp3",
+        "sourceFile": "audio/music/music_ku_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -161588,6 +162458,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_ku04_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ku04.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_ku_space",
+        "name": "Ku Space",
+        "path": "assets/music/freelancer/music_ku_space.mp3",
+        "sourceFile": "audio/music/music_ku_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_ku_danger",
+        "name": "Ku Danger",
+        "path": "assets/music/freelancer/music_ku_danger.mp3",
+        "sourceFile": "audio/music/music_ku_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_ku_battle",
+        "name": "Ku Battle",
+        "path": "assets/music/freelancer/music_ku_battle.mp3",
+        "sourceFile": "audio/music/music_ku_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -166278,6 +167171,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_ku05_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ku05.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_ku_space",
+        "name": "Ku Space",
+        "path": "assets/music/freelancer/music_ku_space.mp3",
+        "sourceFile": "audio/music/music_ku_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_ku_danger",
+        "name": "Ku Danger",
+        "path": "assets/music/freelancer/music_ku_danger.mp3",
+        "sourceFile": "audio/music/music_ku_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_ku_battle",
+        "name": "Ku Battle",
+        "path": "assets/music/freelancer/music_ku_battle.mp3",
+        "sourceFile": "audio/music/music_ku_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -167477,6 +168393,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_Ku06.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_ku_space",
+        "name": "Ku Space",
+        "path": "assets/music/freelancer/music_ku_space.mp3",
+        "sourceFile": "audio/music/music_ku_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_ku_danger",
+        "name": "Ku Danger",
+        "path": "assets/music/freelancer/music_ku_danger.mp3",
+        "sourceFile": "audio/music/music_ku_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_ku_battle",
+        "name": "Ku Battle",
+        "path": "assets/music/freelancer/music_ku_battle.mp3",
+        "sourceFile": "audio/music/music_ku_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -167872,6 +168811,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_ku07_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_ku07.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_ku_space",
+        "name": "Ku Space",
+        "path": "assets/music/freelancer/music_ku_space.mp3",
+        "sourceFile": "audio/music/music_ku_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_ku_danger",
+        "name": "Ku Danger",
+        "path": "assets/music/freelancer/music_ku_danger.mp3",
+        "sourceFile": "audio/music/music_ku_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_ku_battle",
+        "name": "Ku Battle",
+        "path": "assets/music/freelancer/music_ku_battle.mp3",
+        "sourceFile": "audio/music/music_ku_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -184257,6 +185219,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_li01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_li01.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_li_space",
+        "name": "Li Space",
+        "path": "assets/music/freelancer/music_li_space.mp3",
+        "sourceFile": "audio/music/music_li_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_li_danger",
+        "name": "Li Danger",
+        "path": "assets/music/freelancer/music_li_danger.mp3",
+        "sourceFile": "audio/music/music_li_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_li_battle",
+        "name": "Li Battle",
+        "path": "assets/music/freelancer/music_li_battle.mp3",
+        "sourceFile": "audio/music/music_li_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -193090,6 +194075,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_li02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_li02.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_li_space",
+        "name": "Li Space",
+        "path": "assets/music/freelancer/music_li_space.mp3",
+        "sourceFile": "audio/music/music_li_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_li_danger",
+        "name": "Li Danger",
+        "path": "assets/music/freelancer/music_li_danger.mp3",
+        "sourceFile": "audio/music/music_li_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_li_battle",
+        "name": "Li Battle",
+        "path": "assets/music/freelancer/music_li_battle.mp3",
+        "sourceFile": "audio/music/music_li_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -200720,6 +201728,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_li03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_li03.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_li_space",
+        "name": "Li Space",
+        "path": "assets/music/freelancer/music_li_space.mp3",
+        "sourceFile": "audio/music/music_li_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_li_danger",
+        "name": "Li Danger",
+        "path": "assets/music/freelancer/music_li_danger.mp3",
+        "sourceFile": "audio/music/music_li_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_li_battle",
+        "name": "Li Battle",
+        "path": "assets/music/freelancer/music_li_battle.mp3",
+        "sourceFile": "audio/music/music_li_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": []
   },
@@ -211595,6 +212626,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_li04_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_li04.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_li_space",
+        "name": "Li Space",
+        "path": "assets/music/freelancer/music_li_space.mp3",
+        "sourceFile": "audio/music/music_li_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_li_danger",
+        "name": "Li Danger",
+        "path": "assets/music/freelancer/music_li_danger.mp3",
+        "sourceFile": "audio/music/music_li_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_li_battle",
+        "name": "Li Battle",
+        "path": "assets/music/freelancer/music_li_battle.mp3",
+        "sourceFile": "audio/music/music_li_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -212609,6 +213663,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_li05.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_li_space",
+        "name": "Li Space",
+        "path": "assets/music/freelancer/music_li_space.mp3",
+        "sourceFile": "audio/music/music_li_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_li_danger",
+        "name": "Li Danger",
+        "path": "assets/music/freelancer/music_li_danger.mp3",
+        "sourceFile": "audio/music/music_li_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_li_battle",
+        "name": "Li Battle",
+        "path": "assets/music/freelancer/music_li_battle.mp3",
+        "sourceFile": "audio/music/music_li_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -212643,6 +213720,7 @@ const GAME_SYSTEMS = {
     "asteroidfields": [],
     "tradelanes": [],
     "background": {},
+    "music": {},
     "nebulae": []
   },
   "RH01": {
@@ -222785,6 +223863,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_rh01_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_rh01.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_rh_space",
+        "name": "Rh Space",
+        "path": "assets/music/freelancer/music_rh_space.mp3",
+        "sourceFile": "audio/music/music_rh_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_rh_danger",
+        "name": "Rh Danger",
+        "path": "assets/music/freelancer/music_rh_danger.mp3",
+        "sourceFile": "audio/music/music_rh_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_rh_battle",
+        "name": "Rh Battle",
+        "path": "assets/music/freelancer/music_rh_battle.mp3",
+        "sourceFile": "audio/music/music_rh_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": []
   },
   "RH02": {
@@ -228869,6 +229970,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_rh02_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_rh02.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_rh_space",
+        "name": "Rh Space",
+        "path": "assets/music/freelancer/music_rh_space.mp3",
+        "sourceFile": "audio/music/music_rh_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_rh_danger",
+        "name": "Rh Danger",
+        "path": "assets/music/freelancer/music_rh_danger.mp3",
+        "sourceFile": "audio/music/music_rh_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_rh_battle",
+        "name": "Rh Battle",
+        "path": "assets/music/freelancer/music_rh_battle.mp3",
+        "sourceFile": "audio/music/music_rh_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": []
   },
   "RH03": {
@@ -233601,6 +234725,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_rh03_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_rh03.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_rh_space",
+        "name": "Rh Space",
+        "path": "assets/music/freelancer/music_rh_space.mp3",
+        "sourceFile": "audio/music/music_rh_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_rh_danger",
+        "name": "Rh Danger",
+        "path": "assets/music/freelancer/music_rh_danger.mp3",
+        "sourceFile": "audio/music/music_rh_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_rh_battle",
+        "name": "Rh Battle",
+        "path": "assets/music/freelancer/music_rh_battle.mp3",
+        "sourceFile": "audio/music/music_rh_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -237361,6 +238508,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
       "complex_stars": "solar\\starsphere\\starsphere_rh04_stars.cmp",
       "nebulae": "solar\\starsphere\\starsphere_rh04.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_rh_space",
+        "name": "Rh Space",
+        "path": "assets/music/freelancer/music_rh_space.mp3",
+        "sourceFile": "audio/music/music_rh_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_rh_danger",
+        "name": "Rh Danger",
+        "path": "assets/music/freelancer/music_rh_danger.mp3",
+        "sourceFile": "audio/music/music_rh_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_rh_battle",
+        "name": "Rh Battle",
+        "path": "assets/music/freelancer/music_rh_battle.mp3",
+        "sourceFile": "audio/music/music_rh_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -242485,6 +243655,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "solar\\starsphere\\starsphere_rh05_stars.3db",
       "nebulae": "solar\\starsphere\\starsphere_rh05.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_rh_space",
+        "name": "Rh Space",
+        "path": "assets/music/freelancer/music_rh_space.mp3",
+        "sourceFile": "audio/music/music_rh_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_rh_danger",
+        "name": "Rh Danger",
+        "path": "assets/music/freelancer/music_rh_danger.mp3",
+        "sourceFile": "audio/music/music_rh_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_rh_battle",
+        "name": "Rh Battle",
+        "path": "assets/music/freelancer/music_rh_battle.mp3",
+        "sourceFile": "audio/music/music_rh_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -242803,6 +243996,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_st01.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_omicron_space",
+        "name": "Omicron Space",
+        "path": "assets/music/freelancer/music_omicron_space.mp3",
+        "sourceFile": "audio/music/music_omicron_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omicron_danger",
+        "name": "Omicron Danger",
+        "path": "assets/music/freelancer/music_omicron_danger.mp3",
+        "sourceFile": "audio/music/music_omicron_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omicron_battle",
+        "name": "Omicron Battle",
+        "path": "assets/music/freelancer/music_omicron_battle.mp3",
+        "sourceFile": "audio/music/music_omicron_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -242991,6 +244207,29 @@ const GAME_SYSTEMS = {
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_st02.cmp"
     },
+    "music": {
+      "space": {
+        "id": "music_omicron_space",
+        "name": "Omicron Space",
+        "path": "assets/music/freelancer/music_omicron_space.mp3",
+        "sourceFile": "audio/music/music_omicron_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omicron_danger",
+        "name": "Omicron Danger",
+        "path": "assets/music/freelancer/music_omicron_danger.mp3",
+        "sourceFile": "audio/music/music_omicron_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omicron_battle",
+        "name": "Omicron Battle",
+        "path": "assets/music/freelancer/music_omicron_battle.mp3",
+        "sourceFile": "audio/music/music_omicron_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -243045,6 +244284,29 @@ const GAME_SYSTEMS = {
     "asteroidfields": [],
     "tradelanes": [],
     "background": {},
+    "music": {
+      "space": {
+        "id": "music_omicron_space",
+        "name": "Omicron Space",
+        "path": "assets/music/freelancer/music_omicron_space.mp3",
+        "sourceFile": "audio/music/music_omicron_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omicron_danger",
+        "name": "Omicron Danger",
+        "path": "assets/music/freelancer/music_omicron_danger.mp3",
+        "sourceFile": "audio/music/music_omicron_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omicron_battle",
+        "name": "Omicron Battle",
+        "path": "assets/music/freelancer/music_omicron_battle.mp3",
+        "sourceFile": "audio/music/music_omicron_battle.wav",
+        "format": "mp3"
+      }
+    },
     "nebulae": [
       {
         "nickname": "Nebula",
@@ -243198,6 +244460,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "",
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_st03.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_omicron_space",
+        "name": "Omicron Space",
+        "path": "assets/music/freelancer/music_omicron_space.mp3",
+        "sourceFile": "audio/music/music_omicron_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omicron_danger",
+        "name": "Omicron Danger",
+        "path": "assets/music/freelancer/music_omicron_danger.mp3",
+        "sourceFile": "audio/music/music_omicron_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omicron_battle",
+        "name": "Omicron Battle",
+        "path": "assets/music/freelancer/music_omicron_battle.mp3",
+        "sourceFile": "audio/music/music_omicron_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": [
       {
@@ -243443,6 +244728,29 @@ const GAME_SYSTEMS = {
       "basic_stars": "",
       "complex_stars": "",
       "nebulae": "solar\\starsphere\\starsphere_St03b.cmp"
+    },
+    "music": {
+      "space": {
+        "id": "music_omicron_space",
+        "name": "Omicron Space",
+        "path": "assets/music/freelancer/music_omicron_space.mp3",
+        "sourceFile": "audio/music/music_omicron_space.wav",
+        "format": "mp3"
+      },
+      "danger": {
+        "id": "music_omicron_danger",
+        "name": "Omicron Danger",
+        "path": "assets/music/freelancer/music_omicron_danger.mp3",
+        "sourceFile": "audio/music/music_omicron_danger.wav",
+        "format": "mp3"
+      },
+      "battle": {
+        "id": "music_omicron_battle",
+        "name": "Omicron Battle",
+        "path": "assets/music/freelancer/music_omicron_battle.mp3",
+        "sourceFile": "audio/music/music_omicron_battle.wav",
+        "format": "mp3"
+      }
     },
     "nebulae": []
   }
