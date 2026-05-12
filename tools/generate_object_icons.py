@@ -44,6 +44,24 @@ def solar_archetypes() -> dict[str, Path]:
     return found
 
 
+def load_model_radius(load_native_scene_data, model_path: Path) -> float:
+    if not model_path.exists():
+        return 0.0
+    result = load_native_scene_data(model_path)
+    scene_data = getattr(result, "scene_data", None)
+    bounds = getattr(scene_data, "bounds", None)
+    try:
+        min_xyz = getattr(bounds, "min_xyz", None)
+        max_xyz = getattr(bounds, "max_xyz", None)
+        if min_xyz is not None and max_xyz is not None and len(min_xyz) >= 3 and len(max_xyz) >= 3:
+            span_x = abs(float(max_xyz[0]) - float(min_xyz[0]))
+            span_z = abs(float(max_xyz[2]) - float(min_xyz[2]))
+            return max(span_x, span_z) * 0.5
+        return float(getattr(bounds, "radius", 0.0) or 0.0)
+    except Exception:
+        return 0.0
+
+
 def render_icon(renderer, model_path: Path, output_path: Path) -> bool:
     load_native_scene_data, render_native_scene_top_view_icon = renderer
     if not model_path.exists():
@@ -67,7 +85,7 @@ def main() -> None:
     icon_dir = data_dir / "object_icons"
     icon_dir.mkdir(parents=True, exist_ok=True)
     solar = solar_archetypes()
-    icons: dict[str, str] = {}
+    icons: dict[str, dict[str, object]] = {}
     rendered = 0
     force = "--force" in sys.argv[1:]
 
@@ -76,11 +94,13 @@ def main() -> None:
         if not model_path:
             continue
         output_path = icon_dir / f"{archetype}.png"
+        icon_path = f"data/object_icons/{archetype}.png"
+        model_radius = load_model_radius(load_native_scene_data, model_path)
         if not force and output_path.exists() and output_path.stat().st_size > 100:
-            icons[archetype] = f"data/object_icons/{archetype}.png"
+            icons[archetype] = {"src": icon_path, "model_radius": round(model_radius, 6)}
             continue
         if render_icon((load_native_scene_data, render_native_scene_top_view_icon), model_path, output_path):
-            icons[archetype] = f"data/object_icons/{archetype}.png"
+            icons[archetype] = {"src": icon_path, "model_radius": round(model_radius, 6)}
             rendered += 1
 
     output = data_dir / "object_icons.js"

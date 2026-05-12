@@ -627,14 +627,14 @@ body[data-theme="crossfire"] .mod-btn.active {
         <div id="reputation-content"></div>
     </div>
 
-<script src="data/game_systems.js"></script>
-<script src="data/ships.js"></script>
-<script src="data/commodities.js"></script>
-<script src="data/equipment.js"></script>
-<script src="data/npc_loadouts.js"></script>
-<script src="data/bar_data.js"></script>
-<script src="data/reputation.js"></script>
-<script src="data/object_icons.js"></script>
+<script src="data/game_systems.js?v=2026-05-12-object-radius"></script>
+<script src="data/ships.js?v=2026-05-12-object-radius"></script>
+<script src="data/commodities.js?v=2026-05-12-object-radius"></script>
+<script src="data/equipment.js?v=2026-05-12-object-radius"></script>
+<script src="data/npc_loadouts.js?v=2026-05-12-object-radius"></script>
+<script src="data/bar_data.js?v=2026-05-12-object-radius"></script>
+<script src="data/reputation.js?v=2026-05-12-object-radius"></script>
+<script src="data/object_icons.js?v=2026-05-12-object-radius"></script>
 <script>
 // Freelancer ID Lookup Table (extracted from INI files)
 // Maps numeric IDs to human-readable names
@@ -961,6 +961,7 @@ const ACTIVE_MOD_KEY = 'freelancer2d.activeMod.v1';
 const SAVE_VERSION = 1;
 const MAX_SAVE_SLOTS = 5;
 const GAME_TITLE = 'Freelancer 2D - a 2d adventure';
+const DATA_CACHE_VERSION = '2026-05-12-object-radius';
 const JUSTICE_FIRE_SOUND_PATH = 'assets/audio/justice-fire.wav';
 const UNIVERSE_BACKGROUND_IMAGE_PATH = 'assets/universe-nebula-background.png';
 const MUSIC_VOLUME = 0.315;
@@ -3156,8 +3157,10 @@ const MISSION_SPAWN_DISTANCE = 1700;
 const MISSION_ENEMY_MIN_COUNT = 3;
 const MISSION_ENEMY_MAX_COUNT = 7;
 const SOLAR_OBJECT_RENDER_SCALE = 0.18;
-const SOLAR_OBJECT_VISUAL_RENDER_SCALE = 0.82;
+const SOLAR_OBJECT_VISUAL_RENDER_SCALE = 0.24;
 const SOLAR_OBJECT_ICON_RADIUS_BOOST = 1.1;
+const SOLAR_OBJECT_ICON_DRAW_SCALE = 2.2;
+const SOLAR_OBJECT_FLATLAS_ICON_RADIUS_SCALE = 1 / (SOLAR_OBJECT_ICON_RADIUS_BOOST * (SOLAR_OBJECT_ICON_DRAW_SCALE / 2));
 const SOLAR_OBJECT_MIN_SCREEN_RADIUS = 12;
 const SOLAR_OBJECT_FALLBACK_RADII = {
     jumpgate: 600,
@@ -3190,6 +3193,10 @@ function solarObjectWorldRadius(value, archetype = '', fallback = 600) {
 }
 
 function solarObjectVisualWorldRadius(value, archetype = '', fallback = 600) {
+    const modelRadius = getObjectModelRadius(archetype);
+    if (Number.isFinite(modelRadius) && modelRadius > 0) {
+        return Math.max(1, modelRadius * SOLAR_OBJECT_FLATLAS_ICON_RADIUS_SCALE);
+    }
     return Math.max(1, solarObjectSourceRadius(value, archetype, fallback) * SOLAR_OBJECT_VISUAL_RENDER_SCALE);
 }
 
@@ -3438,7 +3445,17 @@ function getShipImage(iconPath, fallbackPath = 'data/ship_icons/_fallback.png') 
 
 function getObjectIcon(archetype) {
     if (!archetype) return '';
-    return objectIconsData()[String(archetype).toLowerCase()] || '';
+    const entry = objectIconsData()[String(archetype).toLowerCase()];
+    if (!entry) return '';
+    return typeof entry === 'string' ? entry : (entry.src || entry.path || '');
+}
+
+function getObjectModelRadius(archetype) {
+    if (!archetype) return 0;
+    const entry = objectIconsData()[String(archetype).toLowerCase()];
+    if (!entry || typeof entry === 'string') return 0;
+    const radius = Number(entry.model_radius ?? entry.modelRadius ?? 0);
+    return Number.isFinite(radius) && radius > 0 ? radius : 0;
 }
 
 function getObjectImage(archetype) {
@@ -3477,13 +3494,15 @@ function activeSaveStorageKey(modId = game.activeModId) {
 
 function loadScriptOnce(src) {
     return new Promise((resolve, reject) => {
-        if (document.querySelector(`script[data-mod-src="${src}"]`)) {
+        const separator = src.includes('?') ? '&' : '?';
+        const versionedSrc = `${src}${separator}v=${encodeURIComponent(DATA_CACHE_VERSION)}`;
+        if (document.querySelector(`script[data-mod-src="${versionedSrc}"]`)) {
             resolve();
             return;
         }
         const script = document.createElement('script');
-        script.src = src;
-        script.dataset.modSrc = src;
+        script.src = versionedSrc;
+        script.dataset.modSrc = versionedSrc;
         script.onload = () => resolve();
         script.onerror = () => reject(new Error('Could not load ' + src));
         document.head.appendChild(script);
@@ -6513,7 +6532,7 @@ class Station {
         
         ctx.rotate(this.rotation);
         if (objectImage) {
-            const imageSize = size * 2.2;
+            const imageSize = size * SOLAR_OBJECT_ICON_DRAW_SCALE;
             ctx.drawImage(objectImage, -imageSize / 2, -imageSize / 2, imageSize, imageSize);
         } else {
             ctx.fillStyle = '#445566';
@@ -6755,7 +6774,7 @@ class TradeLaneRing {
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
         const objectImage = getObjectImage(this.type);
-        const size = solarObjectScreenRadius(this.visualRadius || this.radius) * 2.2;
+        const size = solarObjectScreenRadius(this.visualRadius || this.radius) * SOLAR_OBJECT_ICON_DRAW_SCALE;
         const glowRadius = Math.max(16, size * 0.43);
         ctx.save();
         ctx.translate(pos.x, pos.y);
