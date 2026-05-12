@@ -965,6 +965,8 @@ const JUSTICE_FIRE_SOUND_PATH = 'assets/audio/justice-fire.wav';
 const UNIVERSE_BACKGROUND_IMAGE_PATH = 'assets/universe-nebula-background.png';
 const MUSIC_VOLUME = 0.315;
 const MUSIC_CROSSFADE_MS = 1400;
+const CRUISE_DISRUPT_LOCKOUT_MS = 4200;
+const CRUISE_DISRUPTOR_SOUND_PATH = 'assets/audio/cruise_disrupt.wav';
 const VOICE_SOUND_PATHS = {
     dock: { en: 'assets/audio/EN-dock.mp3', de: 'assets/audio/DE-dock.mp3' },
     freeflight: { en: 'assets/audio/EN-free-flight.mp3', de: 'assets/audio/DE-free-flight.mp3' },
@@ -1020,6 +1022,7 @@ const I18N = {
         repChanged: 'Ruf geändert', repHostile: 'FEINDLICH', repFriendly: 'FREUNDLICH', repNeutral: 'NEUTRAL', noReputationData: 'Keine Rufdaten geladen.',
         missionEliminate: 'Eliminiere feindliche Kontakte in {zone}.', missionWaypointLocked: 'Mission aktiv: Wegpunkt bleibt auf dem Missionsziel.', missionFreeWaypointsLocked: 'Mission aktiv: Freie Wegpunkte sind gesperrt.',
         saveStored: 'Spielstand gespeichert', saveStoreFailed: 'Spielstand konnte nicht gespeichert werden', cruiseDisabled: 'Reiseflug deaktiviert', cruiseCharging: 'Reiseflug lädt: {seconds} Sekunden', cruiseEnabled: 'Reiseflug aktiviert',
+        cruiseDisrupted: 'Reiseflug unterbrochen!', cruiseDisruptorLock: 'Reiseflugtriebwerk gestoert: {seconds}s',
         dockingDeniedHostile: 'Andocken verweigert: {faction} ist feindlich.', noShieldInstalled: 'Kein Schild installiert.', missionContactHostile: 'Mission contact: {count} feindliche Schiffe erfasst.',
         noBarNpcs: 'Keine NPCs in dieser Bar.', noDestroyMission: 'Keine destroy_vignette-Missionen in diesem System gefunden.', gameLoaded: 'Spielstand geladen: {system}, pilot!', welcomePilot: 'Willkommen in {system}, Pilot!',
         playerDead: 'Du bist tot!', restart: 'Neustart'
@@ -1045,6 +1048,7 @@ const I18N = {
         repChanged: 'Reputation changed', repHostile: 'HOSTILE', repFriendly: 'FRIENDLY', repNeutral: 'NEUTRAL', noReputationData: 'No reputation data loaded.',
         missionEliminate: 'Eliminate hostile contacts in {zone}.', missionWaypointLocked: 'Mission active: waypoint remains on the mission target.', missionFreeWaypointsLocked: 'Mission active: free waypoints are locked.',
         saveStored: 'Game saved', saveStoreFailed: 'Could not save game', cruiseDisabled: 'Cruise disabled', cruiseCharging: 'Cruise charging: {seconds} seconds', cruiseEnabled: 'Cruise enabled',
+        cruiseDisrupted: 'Cruise disrupted!', cruiseDisruptorLock: 'Cruise engine disrupted: {seconds}s',
         dockingDeniedHostile: 'Docking denied: {faction} is hostile.', noShieldInstalled: 'No shield installed.', missionContactHostile: 'Mission contact: {count} hostile ships detected.',
         noBarNpcs: 'No NPCs in this bar.', noDestroyMission: 'No destroy_vignette missions found in this system.', gameLoaded: 'Savegame loaded: {system}, pilot!', welcomePilot: 'Welcome to {system}, pilot!',
         playerDead: 'You are dead!', restart: 'Restart'
@@ -1616,6 +1620,13 @@ function missileDamageForItem(item, ammoItem = null) {
     return Math.max(180, ammoPrice * 7);
 }
 
+function isCruiseDisruptorItem(item) {
+    const id = String(item?.id || item?.equipmentId || '').toLowerCase();
+    const ammoId = String(item?.projectileArchetype || '').toLowerCase();
+    const name = String(item?.name || '').toLowerCase();
+    return id.includes('cruise_disruptor') || ammoId.includes('cruise_disruptor') || name.includes('reiseflugunterbrecher') || name.includes('cruise disruptor');
+}
+
 function isMineDropper(item) {
     return String(item?.category || '').toLowerCase() === 'mine' && !item?.combinable && Boolean(item?.projectileArchetype);
 }
@@ -2034,6 +2045,14 @@ function weaponStatsFromEquipment(item, fallbackDifficulty = 1) {
     const energyDamage = Number(item?.energyDamage) || 0;
     const ammoItem = getEquipment(item?.projectileArchetype || '');
     const missile = isMissileLauncher(item);
+    const cruiseDisruptor = missile && (isCruiseDisruptorItem(item) || isCruiseDisruptorItem(ammoItem));
+    const ammoLifetime = Number(ammoItem?.projectileLifetime) || 0;
+    const ammoDetonation = Number(ammoItem?.detonationDist) || Number(ammoItem?.explosionRadius) || 0;
+    const ammoTurnRate = Number(ammoItem?.maxAngularVelocity) || 0;
+    const ammoMotorSpeed = Number(item?.muzzleVelocity || 0) + Math.max(0, Number(ammoItem?.motorAccel) || 0) * Math.max(0, Number(ammoItem?.motorLifetime) || 0);
+    const missileSpeed = cruiseDisruptor
+        ? Math.max(520, ammoMotorSpeed || speed * 2.5)
+        : Math.max(160, speed * 8);
     return {
         id: item?.id || '',
         name: item?.name || item?.id || 'Weapon',
@@ -2041,16 +2060,19 @@ function weaponStatsFromEquipment(item, fallbackDifficulty = 1) {
         energyCost: missile ? 0 : Math.max(0, Number(item?.powerUsage) || (5 + mark)),
         damage: missile ? missileDamageForItem(item, ammoItem) : (hullDamage || energyDamage || (7 + mark * 3 + (item?.category === 'turret' ? 3 : 0))),
         radius: missile ? Math.max(8, Math.min(18, 7 + mark * 1.6)) : Math.max(3, Math.min(10, 3 + Math.sqrt(Math.max(hullDamage, energyDamage, mark * 12)) * 0.08)),
-        speed: missile ? Math.max(160, speed * 8) : speed,
-        lifetime: missile ? Math.max(4, Number(item?.projectileLifetime) || 8) : (Number(item?.projectileLifetime) || (1.15 + Math.min(mark, 8) * 0.08)),
+        speed: missile ? missileSpeed : speed,
+        lifetime: missile ? Math.max(4, ammoLifetime || Number(item?.projectileLifetime) || 8) : (Number(item?.projectileLifetime) || (1.15 + Math.min(mark, 8) * 0.08)),
         color,
-        trailColor: weaponTrailColorForItem(item),
+        trailColor: cruiseDisruptor ? 'rgba(130,225,255,0.68)' : weaponTrailColorForItem(item),
         category: item?.category || 'weapon',
         ammoItemId: missile ? missileAmmoItemId(item) : '',
         requiresAmmo: missile ? Boolean(item?.requiresAmmo || missileAmmoItemId(item)) : false,
         homing: missile,
-        turnRate: missile ? (id.includes('torpedo') ? 1.35 : 2.8) : 0,
-        detonationRadius: missile ? (id.includes('torpedo') ? 18 : 11) : 0
+        turnRate: missile ? (ammoTurnRate || (id.includes('torpedo') ? 1.35 : 2.8)) : 0,
+        detonationRadius: missile ? Math.max(cruiseDisruptor ? 18 : 0, ammoDetonation || (id.includes('torpedo') ? 18 : 11)) : 0,
+        seekerRange: missile ? Math.max(900, Number(ammoItem?.seekerRange) || Number(ammoItem?.seekDist) || 1500) : 0,
+        cruiseDisruptor,
+        disruptDuration: cruiseDisruptor ? CRUISE_DISRUPT_LOCKOUT_MS : 0
     };
 }
 
@@ -2551,12 +2573,13 @@ function updateNpcTradeLane(npc, dt) {
 
 function setNpcCruise(npc, active) {
     if (!npc) return;
-    npc.cruiseActive = Boolean(active) && !npc.hidden && !npc.inTradeLane;
+    const disrupted = (Number(npc.cruiseDisruptedUntil) || 0) > performance.now();
+    npc.cruiseActive = Boolean(active) && !disrupted && !npc.hidden && !npc.inTradeLane;
 }
 
 function updateNpcCruiseForDistance(npc, distance, options = {}) {
     if (!npc) return;
-    if (npc.hidden || npc.inTradeLane || options.combat || options.disabled) {
+    if ((Number(npc.cruiseDisruptedUntil) || 0) > performance.now() || npc.hidden || npc.inTradeLane || options.combat || options.disabled) {
         setNpcCruise(npc, false);
         return;
     }
@@ -2611,7 +2634,13 @@ function maybeNpcRadio(npc, event, target = null, cooldown = 24) {
     if (game.radioCooldowns[key] && now - game.radioCooldowns[key] < cooldown * 1000) return;
     game.radioCooldowns[key] = now;
     const text = radioText(npc, event, target);
-    if (text) addLog('RADIO: ' + text);
+    if (text) {
+        npc.speechBubble = {
+            text,
+            createdAt: now,
+            expiresAt: now + Math.max(2600, Math.min(6200, 2100 + text.length * 42))
+        };
+    }
 }
 
 function placeEscortNearLeader(escort, leader, index = 0) {
@@ -5148,6 +5177,53 @@ function addShieldHitEffect(target, hitX = null, hitZ = null, strength = 1) {
     });
 }
 
+function addCruiseDisruptEffect(target, hitX = null, hitZ = null) {
+    if (!target) return;
+    game.effects.push({
+        type: 'cruise-disrupt',
+        target,
+        x: Number.isFinite(hitX) ? hitX : target.x,
+        z: Number.isFinite(hitZ) ? hitZ : target.z,
+        age: 0,
+        life: 0.72,
+        radius: Math.max(42, (Number(target.radius) || 20) + 26)
+    });
+}
+
+function playCruiseDisruptSound(x = null, z = null, intensity = 1) {
+    if (Number.isFinite(x) && Number.isFinite(z) && game.player) {
+        const distance = Math.hypot(x - game.player.x, z - game.player.z);
+        if (distance > 2800) return;
+        intensity *= 1 - clamp(distance / 2800, 0, 1);
+    }
+    if (playBufferedSound('cruiseDisrupt', CRUISE_DISRUPTOR_SOUND_PATH, clamp(0.22 * intensity, 0.08, 0.58)) === 'failed') {
+        playTone(1150, 0.08, 'sawtooth', 0.035 * intensity, 360);
+        playTone(180, 0.16, 'square', 0.026 * intensity, 70);
+    }
+}
+
+function applyCruiseDisruption(target, projectile = null, hitX = null, hitZ = null) {
+    if (!target || !projectile?.cruiseDisruptor) return false;
+    const now = performance.now();
+    const wasCruising = Boolean(target.cruiseActive || target.cruiseCharging);
+    target.cruiseDisruptedUntil = Math.max(Number(target.cruiseDisruptedUntil) || 0, now + (projectile.disruptDuration || CRUISE_DISRUPT_LOCKOUT_MS));
+    target.cruiseActive = false;
+    target.cruiseCharging = false;
+    target.cruiseCharge = 0;
+    if (target === game.player) {
+        target.afterburnerActive = false;
+        target.speed = Math.min(Number(target.speed) || 0, COMBAT_MAX_SPEED * 0.78);
+        updateCruiseButton();
+        addLog(t('cruiseDisrupted'), 'alert');
+    } else {
+        target.speed = Math.min(Number(target.speed) || 0, Math.max(60, Number(target.maxSpeed) || COMBAT_MAX_SPEED));
+        target.throttle = Math.min(Number(target.throttle) || 0.4, 0.45);
+    }
+    addCruiseDisruptEffect(target, hitX, hitZ);
+    playCruiseDisruptSound(hitX ?? target.x, hitZ ?? target.z, wasCruising ? 1.25 : 0.85);
+    return true;
+}
+
 function createExplosion(x, z, radius = 40, options = {}) {
     const size = Math.max(28, Number(radius) || 40);
     const count = Math.round(clamp(size * 0.42, 18, 90));
@@ -5680,6 +5756,10 @@ class PlayerShip {
         }
 
         this.maxSpeed = this.baseMaxSpeed || COMBAT_MAX_SPEED;
+        if ((Number(this.cruiseDisruptedUntil) || 0) > performance.now() && (this.cruiseActive || this.cruiseCharging)) {
+            this.cancelCruise();
+            updateCruiseButton();
+        }
         if (this.cruiseCharging) {
             this.cruiseCharge += dt;
             if (this.cruiseCharge >= CRUISE_CHARGE_SECONDS) {
@@ -5888,6 +5968,11 @@ class PlayerShip {
 
     startCruiseCharge() {
         if (this.inTradeLane || this.destroyed) return;
+        const disruptedMs = Math.max(0, (Number(this.cruiseDisruptedUntil) || 0) - performance.now());
+        if (disruptedMs > 0) {
+            addLog(tf('cruiseDisruptorLock', { seconds: Math.ceil(disruptedMs / 1000) }), 'alert');
+            return;
+        }
         this.cruiseActive = false;
         this.cruiseCharging = true;
         this.cruiseCharge = 0;
@@ -5971,7 +6056,10 @@ class PlayerShip {
                 trailColor: weapon.trailColor,
                 homing: Boolean(weapon.homing),
                 turnRate: weapon.turnRate || 0,
-                detonationRadius: weapon.detonationRadius || 0
+                detonationRadius: weapon.detonationRadius || 0,
+                seekerRange: weapon.seekerRange || 0,
+                cruiseDisruptor: Boolean(weapon.cruiseDisruptor),
+                disruptDuration: weapon.disruptDuration || 0
             });
         }
         this.missileCooldown = fireableWeapons.reduce((cooldown, weapon) => Math.max(cooldown, weapon.cooldown), 0.12);
@@ -7125,14 +7213,21 @@ function fireNPCWeapon(npc, target = game.player) {
     const dx = target.x - npc.x;
     const dz = target.z - npc.z;
     const distance = Math.hypot(dx, dz);
-    if (distance > 980 || distance < 1) return;
+    if (distance < 1) return;
     const targetAngle = Math.atan2(dz, dx);
     let angleDiff = targetAngle - npc.rotation;
     while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
     while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
     if (Math.abs(angleDiff) > 0.45) return;
     const weapons = (npc.weapons || []).filter(Boolean);
-    const weapon = weapons[npc.nextWeaponIndex % weapons.length] || weaponStatsFromEquipment(getEquipment('li_gun01_mark01'), 1);
+    const targetCruising = Boolean(target.cruiseActive || target.cruiseCharging);
+    const disruptor = weapons.find(weapon => weapon.cruiseDisruptor && distance <= (weapon.seekerRange || 2500));
+    const regularWeapons = weapons.filter(weapon => !weapon.cruiseDisruptor);
+    const cyclePool = targetCruising && disruptor ? [disruptor] : (regularWeapons.length ? regularWeapons : weapons);
+    const weapon = cyclePool[npc.nextWeaponIndex % cyclePool.length] || weaponStatsFromEquipment(getEquipment('li_gun01_mark01'), 1);
+    const weaponRange = weapon.cruiseDisruptor ? (weapon.seekerRange || 2500) : 980;
+    if (distance > weaponRange) return;
+    if (weapon.cruiseDisruptor && !targetCruising && Math.random() > 0.08) return;
     npc.nextWeaponIndex = (npc.nextWeaponIndex || 0) + 1;
     npc.fireCooldown = weapon.cooldown + Math.random() * 0.08;
     playWeaponFireAt(npc.x, npc.z, 0.52);
@@ -7152,7 +7247,10 @@ function fireNPCWeapon(npc, target = game.player) {
         trailColor: weapon.trailColor,
         homing: Boolean(weapon.homing),
         turnRate: weapon.turnRate || 0,
-        detonationRadius: weapon.detonationRadius || 0
+        detonationRadius: weapon.detonationRadius || 0,
+        seekerRange: weapon.seekerRange || 0,
+        cruiseDisruptor: Boolean(weapon.cruiseDisruptor),
+        disruptDuration: weapon.disruptDuration || 0
     });
 }
 
@@ -7207,7 +7305,13 @@ function fireStaticWeapon(source, target) {
         targetId: target === game.player ? 'player' : target.id,
         faction: targetFaction(source),
         color: weapon.color,
-        trailColor: weapon.trailColor
+        trailColor: weapon.trailColor,
+        homing: Boolean(weapon.homing),
+        turnRate: weapon.turnRate || 0,
+        detonationRadius: weapon.detonationRadius || 0,
+        seekerRange: weapon.seekerRange || 0,
+        cruiseDisruptor: Boolean(weapon.cruiseDisruptor),
+        disruptDuration: weapon.disruptDuration || 0
     });
 }
 
@@ -7226,7 +7330,8 @@ function findNpcCombatTarget(npc) {
     let bestDistance = Infinity;
     if (game.player && (npc.hostileToPlayer || npc.missionId || playerIsHostileToFaction(npc.faction) || (npc.role === 'pirate' && !npc.faction))) {
         const distance = Math.hypot(game.player.x - npc.x, game.player.z - npc.z);
-        if (distance < (npc.missionId ? 2400 : 1800) && (!fleet || distance < 2600)) {
+        const playerTargetRange = (game.player.cruiseActive || game.player.cruiseCharging) ? 2600 : (npc.missionId ? 2400 : 1800);
+        if (distance < playerTargetRange && (!fleet || distance < 2800)) {
             bestTarget = game.player;
             bestDistance = distance;
         }
@@ -7236,7 +7341,8 @@ function findNpcCombatTarget(npc) {
             if (other === npc || other.hull <= 0 || other.hidden || other.inTradeLane || !other.faction) continue;
             if (!factionsAreHostile(npc.faction, other.faction)) continue;
             const distance = Math.hypot(other.x - npc.x, other.z - npc.z);
-            if (distance < 2200 && distance < bestDistance) {
+            const npcTargetRange = (other.cruiseActive || other.cruiseCharging) ? 2600 : 2200;
+            if (distance < npcTargetRange && distance < bestDistance) {
                 bestTarget = other;
                 bestDistance = distance;
             }
@@ -7571,6 +7677,112 @@ function renderNpcFactionLabel(ctx, npc, screenPos, visualScale) {
     ctx.restore();
 }
 
+function roundedRectPath(ctx, x, y, width, height, radius) {
+    const r = Math.min(radius, width / 2, height / 2);
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + width - r, y);
+    ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+    ctx.lineTo(x + width, y + height - r);
+    ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+    ctx.lineTo(x + r, y + height);
+    ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+}
+
+function wrapCanvasText(ctx, text, maxWidth, maxLines = 3) {
+    const words = String(text || '').split(/\s+/).filter(Boolean);
+    const lines = [];
+    let line = '';
+    for (const word of words) {
+        const candidate = line ? `${line} ${word}` : word;
+        if (ctx.measureText(candidate).width <= maxWidth || !line) {
+            line = candidate;
+            continue;
+        }
+        lines.push(line);
+        line = word;
+        if (lines.length >= maxLines) break;
+    }
+    if (line && lines.length < maxLines) lines.push(line);
+    if (words.length && lines.length === maxLines) {
+        let last = lines[lines.length - 1];
+        while (last.length > 4 && ctx.measureText(`${last}...`).width > maxWidth) last = last.slice(0, -1).trimEnd();
+        lines[lines.length - 1] = `${last}...`;
+    }
+    return lines;
+}
+
+function renderNpcSpeechBubble(ctx, npc, screenPos, visualScale) {
+    const bubble = npc?.speechBubble;
+    if (!bubble?.text) return;
+    const now = performance.now();
+    if (now >= bubble.expiresAt) {
+        npc.speechBubble = null;
+        return;
+    }
+    const life = Math.max(1, bubble.expiresAt - bubble.createdAt);
+    const age = now - bubble.createdAt;
+    const fadeIn = clamp(age / 220, 0, 1);
+    const fadeOut = clamp((bubble.expiresAt - now) / 620, 0, 1);
+    const alpha = Math.min(fadeIn, fadeOut) * 0.86;
+    if (alpha <= 0.02) return;
+
+    ctx.save();
+    ctx.font = '11px Arial';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    const maxTextWidth = Math.min(245, Math.max(130, game.width * 0.22));
+    const lines = wrapCanvasText(ctx, bubble.text, maxTextWidth, 3);
+    if (!lines.length) {
+        ctx.restore();
+        return;
+    }
+    const lineHeight = 14;
+    const paddingX = 10;
+    const paddingY = 7;
+    const textWidth = Math.max(...lines.map(line => ctx.measureText(line).width));
+    const width = Math.ceil(textWidth + paddingX * 2);
+    const height = Math.ceil(lines.length * lineHeight + paddingY * 2);
+    const shipTop = screenPos.y - Math.max(34, (npc.radius || 18) * 2.4 * visualScale);
+    let x = screenPos.x - width / 2;
+    let y = shipTop - height - 16;
+    x = clamp(x, 8, Math.max(8, game.width - width - 8));
+    y = clamp(y, 44, Math.max(44, game.height - height - 44));
+    const tailX = clamp(screenPos.x, x + 18, x + width - 18);
+    const tailY = Math.min(y + height + 10, game.height - 8);
+
+    ctx.globalAlpha = alpha;
+    ctx.shadowColor = 'rgba(0, 210, 255, 0.42)';
+    ctx.shadowBlur = 10;
+    roundedRectPath(ctx, x, y, width, height, 7);
+    ctx.fillStyle = 'rgba(0, 18, 31, 0.58)';
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = 'rgba(100, 220, 255, 0.58)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(tailX - 7, y + height - 1);
+    ctx.lineTo(tailX, tailY);
+    ctx.lineTo(tailX + 7, y + height - 1);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(0, 18, 31, 0.50)';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(100, 220, 255, 0.42)';
+    ctx.stroke();
+
+    ctx.shadowColor = 'rgba(0,0,0,0.8)';
+    ctx.shadowBlur = 3;
+    ctx.fillStyle = 'rgba(205, 248, 255, 0.96)';
+    lines.forEach((line, index) => {
+        ctx.fillText(line, x + paddingX, y + paddingY + lineHeight * index + lineHeight / 2);
+    });
+    ctx.restore();
+}
+
 function drawCruiseTrail(ctx, shipDrawSize, intensity = 1) {
     const trailLength = shipDrawSize * 5;
     const flicker = (0.86 + Math.sin(game.gameTime * 42) * 0.08) * intensity;
@@ -7630,6 +7842,41 @@ function renderEffects(ctx) {
             ctx.beginPath();
             ctx.arc(0, 0, radius * 0.82, -0.68, 0.68);
             ctx.stroke();
+            ctx.restore();
+            continue;
+        }
+        if (effect.type === 'cruise-disrupt') {
+            const target = effect.target;
+            if (!target || target.destroyed || target.hidden) continue;
+            const pos = worldToScreen(target.x, target.z);
+            const visualScale = Math.max(0.25, Math.min(2.8, game.zoom));
+            const radius = effect.radius * visualScale;
+            const alpha = (1 - ratio) * 0.8;
+            ctx.save();
+            ctx.translate(pos.x, pos.y);
+            ctx.globalCompositeOperation = 'lighter';
+            for (let i = 0; i < 3; i++) {
+                const r = radius * (0.54 + ratio * 1.15 + i * 0.18);
+                ctx.strokeStyle = `rgba(125,225,255,${alpha * (0.55 - i * 0.12)})`;
+                ctx.lineWidth = Math.max(1, (3 - i * 0.55) * visualScale);
+                ctx.setLineDash([Math.max(3, 9 * visualScale), Math.max(3, 7 * visualScale)]);
+                ctx.lineDashOffset = -game.gameTime * 42 - i * 6;
+                ctx.beginPath();
+                ctx.arc(0, 0, r, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+            ctx.setLineDash([]);
+            for (let i = 0; i < 8; i++) {
+                const a = (i / 8) * Math.PI * 2 + ratio * 2.8;
+                const inner = radius * 0.32;
+                const outer = radius * (0.72 + ratio * 0.42);
+                ctx.strokeStyle = `rgba(205,250,255,${alpha * 0.38})`;
+                ctx.lineWidth = Math.max(1, 1.5 * visualScale);
+                ctx.beginPath();
+                ctx.moveTo(Math.cos(a) * inner, Math.sin(a) * inner);
+                ctx.lineTo(Math.cos(a + 0.12) * outer, Math.sin(a + 0.12) * outer);
+                ctx.stroke();
+            }
             ctx.restore();
             continue;
         }
@@ -7716,6 +7963,7 @@ function renderNPC(ctx, npc) {
     ctx.restore();
     renderNpcFactionLabel(ctx, npc, pos, visualScale);
     renderNpcStatusBars(ctx, npc, pos, visualScale);
+    renderNpcSpeechBubble(ctx, npc, pos, visualScale);
 }
 
 // Utility Functions
@@ -8026,6 +8274,7 @@ function loadAudioBuffer(name, path) {
 function primeImportedAudio() {
     if (!game.audioContext) return;
     loadAudioBuffer('justiceFire', JUSTICE_FIRE_SOUND_PATH);
+    loadAudioBuffer('cruiseDisrupt', CRUISE_DISRUPTOR_SOUND_PATH);
     for (const [name, path] of collectVoiceSoundPaths()) loadAudioBuffer(name, path);
 }
 
@@ -8960,6 +9209,7 @@ function update(dt) {
             const hitRadius = Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0);
             const armed = p.type !== 'mine' || p.age >= (p.armedAfter || 0);
             if (armed && p.targetId === 'player' && Math.hypot(game.player.x - p.x, game.player.z - p.z) < game.player.radius + hitRadius) {
+                applyCruiseDisruption(game.player, p, p.x, p.z);
                 game.player.takeDamage(p.damage, p.x, p.z);
                 p.lifetime = 0;
             } else if (p.targetId && p.targetId !== 'player') {
@@ -8971,6 +9221,7 @@ function update(dt) {
                 }
                 const targetNpc = game.npcs.find(npc => npc.id === p.targetId);
                 if (armed && targetNpc && Math.hypot(targetNpc.x - p.x, targetNpc.z - p.z) < targetNpc.radius + hitRadius) {
+                    applyCruiseDisruption(targetNpc, p, p.x, p.z);
                     damageNpc(targetNpc, p.damage, game.npcs.find(npc => npc.id === p.ownerId) || null, p.x, p.z);
                     p.lifetime = 0;
                 }
@@ -8987,6 +9238,7 @@ function update(dt) {
                 if (p.type === 'mine' && !factionsAreHostile(game.player?.faction || '', npc.faction)) continue;
                 const dx = npc.x - p.x, dz = npc.z - p.z;
                 if (armed && Math.sqrt(dx * dx + dz * dz) < npc.radius + hitRadius) {
+                    applyCruiseDisruption(npc, p, p.x, p.z);
                     damageNpc(npc, p.damage, game.player, p.x, p.z);
                     p.lifetime = 0;
                     break;
@@ -9348,6 +9600,9 @@ function updateHUD() {
     } else if (p.afterburnerActive) {
         modeEl.textContent = t('modeAfterburner') + ' 200 m/s';
         modeEl.style.color = '#ff8844';
+    } else if ((Number(p.cruiseDisruptedUntil) || 0) > performance.now()) {
+        modeEl.textContent = tf('cruiseDisruptorLock', { seconds: Math.ceil((p.cruiseDisruptedUntil - performance.now()) / 1000) });
+        modeEl.style.color = '#66ddff';
     } else {
         modeEl.textContent = game.approachTarget ? t('approach') : t('freeflight');
         modeEl.style.color = game.approachTarget ? '#ffaa00' : '#00ff00';
