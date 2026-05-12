@@ -831,7 +831,8 @@ def extract_system_data(system_name: str) -> dict:
         'music': {},
         'zones': [],
         'missionZones': [],
-        'populationZones': []
+        'populationZones': [],
+        'patrolPaths': []
     }
     
     if not system_ini.exists():
@@ -872,6 +873,9 @@ def extract_system_data(system_name: str) -> dict:
                     'rotate_y': parse_rotation_y(get_prop(props, 'rotate', '0,0,0')),
                     'sort': get_prop(props, 'sort', '0'),
                     'music': get_prop(props, 'Music', ''),
+                    'path_label': get_prop(props, 'path_label', ''),
+                    'usage': get_prop(props, 'usage', ''),
+                    'mission_eligible': get_prop(props, 'mission_eligible', ''),
                     'damage': parse_float(get_prop(props, 'damage', '0'), 0),
                     'interference': parse_float(get_prop(props, 'interference', '0'), 0),
                     'drag_modifier': parse_float(get_prop(props, 'drag_modifier', '1'), 1),
@@ -906,31 +910,83 @@ def extract_system_data(system_name: str) -> dict:
                 encounter_values = get_all_props(props, 'encounter')
                 faction_values = get_all_props(props, 'faction')
                 density = parse_float(get_prop(props, 'density', '0'), 0)
+                zone_map[zone_nickname]['encounters'] = []
+                for value in encounter_values:
+                    parts = [part.strip() for part in str(value).split(',')]
+                    if not parts or not parts[0]:
+                        continue
+                    zone_map[zone_nickname]['encounters'].append({
+                        'id': parts[0],
+                        'difficulty': parse_float(parts[1], 1) if len(parts) > 1 else 1,
+                        'weight': parse_float(parts[2], 1) if len(parts) > 2 else 1,
+                    })
+                zone_map[zone_nickname]['factions'] = []
+                for value in faction_values:
+                    parts = [part.strip() for part in str(value).split(',')]
+                    if not parts or not parts[0]:
+                        continue
+                    zone_map[zone_nickname]['factions'].append({
+                        'id': parts[0],
+                        'weight': parse_float(parts[1], 1) if len(parts) > 1 else 1,
+                    })
                 if encounter_values or faction_values or density > 0:
                     population_zone = dict(zone_map[zone_nickname])
                     population_zone['density'] = density
                     population_zone['population_additive'] = parse_float(get_prop(props, 'population_additive', '0'), 0)
                     population_zone['relief_time'] = parse_float(get_prop(props, 'relief_time', '30'), 30)
-                    population_zone['encounters'] = []
-                    for value in encounter_values:
-                        parts = [part.strip() for part in str(value).split(',')]
-                        if not parts or not parts[0]:
-                            continue
-                        population_zone['encounters'].append({
-                            'id': parts[0],
-                            'difficulty': parse_float(parts[1], 1) if len(parts) > 1 else 1,
-                            'weight': parse_float(parts[2], 1) if len(parts) > 2 else 1,
-                        })
-                    population_zone['factions'] = []
-                    for value in faction_values:
-                        parts = [part.strip() for part in str(value).split(',')]
-                        if not parts or not parts[0]:
-                            continue
-                        population_zone['factions'].append({
-                            'id': parts[0],
-                            'weight': parse_float(parts[1], 1) if len(parts) > 1 else 1,
-                        })
                     result['populationZones'].append(population_zone)
+
+    patrol_groups: dict[str, list[dict]] = {}
+    for zone in zone_map.values():
+        label_value = str(zone.get('path_label') or '').strip()
+        if not label_value:
+            continue
+        parts = [part.strip() for part in label_value.split(',')]
+        label = parts[0] if parts else ''
+        if not label:
+            continue
+        try:
+            index = int(float(parts[1])) if len(parts) > 1 else len(patrol_groups.get(label, [])) + 1
+        except Exception:
+            index = len(patrol_groups.get(label, [])) + 1
+        point = dict(zone)
+        point['path_label'] = label
+        point['path_index'] = index
+        patrol_groups.setdefault(label, []).append(point)
+    for label, points in sorted(patrol_groups.items()):
+        ordered = sorted(points, key=lambda item: item.get('path_index', 0))
+        encounters = []
+        factions = []
+        for point in ordered:
+            for entry in point.get('encounters', []):
+                if entry not in encounters:
+                    encounters.append(entry)
+            for entry in point.get('factions', []):
+                if entry not in factions:
+                    factions.append(entry)
+        result['patrolPaths'].append({
+            'id': label,
+            'usage': ordered[0].get('usage', ''),
+            'mission_eligible': ordered[0].get('mission_eligible', ''),
+            'encounters': encounters,
+            'factions': factions,
+            'points': [
+                {
+                    'id': point.get('nickname', ''),
+                    'name': point.get('name', ''),
+                    'x': point.get('x', 0),
+                    'y': point.get('y', 0),
+                    'z': point.get('z', 0),
+                    'size': point.get('size', 1000),
+                    'size_x': point.get('size_x', 1000),
+                    'size_z': point.get('size_z', 1000),
+                    'shape': point.get('shape', 'ELLIPSOID'),
+                    'rotate_y': point.get('rotate_y', 0),
+                    'index': point.get('path_index', 0)
+                }
+                for point in ordered
+            ]
+        })
     
     # Second pass: process all sections
     for section_name, props in sections:
@@ -1386,6 +1442,7 @@ def main():
             'zones': sys_data.get('zones', []),
             'missionZones': sys_data.get('missionZones', []),
             'populationZones': sys_data.get('populationZones', []),
+            'patrolPaths': sys_data.get('patrolPaths', []),
             'asteroidfields': sys_data.get('asteroidfields', []),
             'tradelanes': tradelanes,  # Note: spelled tradelanes in output
             'background': sys_data.get('background', {}),
