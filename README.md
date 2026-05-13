@@ -3,6 +3,9 @@
 Freelancer 2D is a browser-based space sandbox inspired by the structure and systemic feel of **Freelancer**.
 It runs with HTML, Canvas, vanilla JavaScript, local data files, and local browser storage.
 
+Play the game directly here!
+https://flathack.github.io/
+
 ## Features
 
 - 2D ship flight with mouse aiming and throttle controls
