@@ -1,61 +1,43 @@
-# Freelancer2D - Browser-Based Space Sandbox
+# Freelancer 2D Browser Game
 
-A 2D browser-based open space sandbox inspired by Freelancer's systemic depth and living universe feel.
-
-## Concept
-
-**Stellar Drift** - A living universe where NPCs trade, patrol, and fight independently. Players pilot ships between connected star systems, engage in commerce, combat, and exploration across a dynamic galaxy.
+Freelancer 2D is a browser-based space sandbox inspired by the structure and systemic feel of **Freelancer**.
+It runs with HTML, Canvas, vanilla JavaScript, local data files, and local browser storage.
 
 ## Features
 
-- **Living Universe Simulation**: NPCs follow schedules, trade routes, and patrol patterns
-- **Dynamic Economy**: Buy low, sell high across interconnected markets
-- **Faction System**: Build reputation, unlock docking, gain access
-- **Mouse-Aim Flight**: Point-to-fly controls with optional keyboard assist
-- **Connected Star Systems**: Travel via gates and jump holes between sectors
-- **Combat System**: Weapons, shields, missiles, and countermeasure systems
+- 2D ship flight with mouse aiming and throttle controls
+- trade lanes, docking, gates, jump-style system travel, and local save slots
+- faction, reputation, economy, commodity, ship, and station data
+- NPC simulation for traders, miners, police, and pirates
+- combat with weapons, shields, missiles, countermeasures, and cruise disruption
+- multiple data sets, including vanilla-style and mod-oriented data folders
+- audio, ship icons, object icons, planet textures, and menu assets
 
-## Tech Stack
+## Run
 
-- Pure HTML5 / Canvas 2D
-- Vanilla JavaScript ES6+
-- Web Audio API for sound
-- Local Storage for saves
-- Optional Python tools for content generation
+The project is static. For the most reliable local preview, serve the repository root:
 
-## Quick Start
-
-```bash
-# Open in browser
-start index.html
+```powershell
+python -m http.server 8000
 ```
 
-## Project Structure
+Then open:
 
+```text
+http://localhost:8000/
 ```
-Freelancer2D/
-├── index.html              # Entry point
-├── js/
-│   ├── main.js            # Game initialization
-│   ├── core/              # Engine components
-│   ├── simulation/        # World systems
-│   ├── entities/          # Game objects
-│   ├── ai/               # NPC behavior
-│   ├── ui/               # Interface
-│   └── data/             # JSON world data
-├── tools/                # Content pipeline
-└── assets/               # Sprites and audio
-```
+
+Opening `index.html` directly can work for simple checks, but a local server is better for loading data, scripts, audio, and images consistently.
 
 ## Controls
 
 | Input | Action |
-|-------|--------|
+| --- | --- |
 | Mouse | Aim ship |
-| Left Click | Primary weapon |
-| Right Click | Secondary / missiles |
-| W / Scroll Up | Increase throttle |
-| S / Scroll Down | Decrease throttle |
+| Left click | Primary weapon |
+| Right click | Secondary weapon / missiles |
+| W / mouse wheel up | Increase throttle |
+| S / mouse wheel down | Decrease throttle |
 | Shift | Cruise mode |
 | Space | Brake |
 | D | Dock at station |
@@ -63,17 +45,26 @@ Freelancer2D/
 | M | Toggle map |
 | Tab | Next target |
 
-## Design Philosophy
+## Project Structure
 
-Inspired by Freelancer's world structure and systemic depth, but entirely original content and implementation. Not a clone - a new game that captures the "living universe" feel.
+```text
+index.html      Main game entry point and current bundled game UI
+css/            Shared styling
+js/             Modular game engine, entities, simulation, AI, and UI code
+data/           Game data, systems, equipment, ships, factions, and icons
+assets/         Audio, music, textures, menu art, and UI assets
+tools/          Helper scripts for generated assets and data work
+ships.js        Ship data used by the browser game
+```
 
 ## Status
 
-**Phase 1**: Core engine and player ship controls  
-**Phase 2**: Combat, economy, factions  
-**Phase 3**: Living universe simulation  
-**Phase 4**: Polish and content expansion
+This is an active hobby/game prototype. Expect frequent changes to data formats, balancing, UI, and save behavior while the game evolves.
 
----
+## Notes
 
-*This is an original game design project. Freelancer is used as a design reference for structure and systemic patterns only.*
+Freelancer is used as a design reference and compatibility inspiration. This repository is not affiliated with Microsoft, Digital Anvil, or the original Freelancer rights holders.
+
+## License
+
+MIT License. See [LICENSE](LICENSE).
