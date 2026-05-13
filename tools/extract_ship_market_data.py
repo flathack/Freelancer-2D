@@ -6,11 +6,13 @@ from __future__ import annotations
 import json
 import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FLATLAS_ROOT = Path("C:/Users/steve/Github/FLAtlas")
+FLATLAS_V2_EXPORTER = Path("C:/Users/steve/Github/FLAtlas-V2/build/src/flatlas_model_screenshot_exporter.exe")
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fl_config import freelancer_data, freelancer_root, output_data_dir  # noqa: E402
@@ -229,6 +231,55 @@ def populate_ship_model_bounds(ships: dict[str, dict]) -> None:
         }
 
 
+def flatlas_v2_env() -> dict[str, str]:
+    env = os.environ.copy()
+    extra_paths = [
+        "C:/Qt/6.8.3/mingw_64/bin",
+        "C:/msys64/mingw64/bin",
+        str(FLATLAS_V2_EXPORTER.parent),
+    ]
+    env["PATH"] = os.pathsep.join(extra_paths + [env.get("PATH", "")])
+    return env
+
+
+def render_textured_icon_with_flatlas_v2(model_path: Path, output_path: Path, size: int) -> bool:
+    if not FLATLAS_V2_EXPORTER.exists() or not model_path.exists():
+        return False
+    try:
+        result = subprocess.run(
+            [
+                str(FLATLAS_V2_EXPORTER),
+                "--png",
+                "--size",
+                str(size),
+                "--model",
+                str(model_path),
+                "--output",
+                str(output_path),
+            ],
+            cwd=str(FLATLAS_V2_EXPORTER.parent),
+            env=flatlas_v2_env(),
+            capture_output=True,
+            text=True,
+            timeout=45,
+        )
+    except Exception as exc:
+        print(f"Warning: FLAtlas V2 textured icon render failed for {model_path.name}: {exc}")
+        return False
+    if result.returncode != 0:
+        message = (result.stderr or result.stdout or "").strip()
+        print(f"Warning: FLAtlas V2 textured icon render failed for {model_path.name}: {message}")
+        return False
+    return output_path.exists() and output_path.stat().st_size > 100
+
+
+def repo_asset_path(path: Path) -> str:
+    try:
+        return path.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
 def extract_goods() -> tuple[dict[str, dict], dict[str, dict]]:
     hulls: dict[str, dict] = {}
     packages: dict[str, dict] = {}
@@ -371,8 +422,10 @@ def extract_markets() -> dict[str, list[str]]:
 def render_icons(ships: dict[str, dict], package_ids: set[str], packages: dict[str, dict], hulls: dict[str, dict]) -> None:
     if "--skip-icons" in sys.argv or os.environ.get("FREELANCER2D_SKIP_ICONS") == "1":
         return
-    icon_dir = ROOT / "data" / "ship_icons"
+    icon_dir = output_data_dir(ROOT / "data") / "ship_icons"
     icon_dir.mkdir(parents=True, exist_ok=True)
+    force = "--force-icons" in sys.argv or "--force" in sys.argv
+    use_textured = "--legacy-icons" not in sys.argv and os.environ.get("FREELANCER2D_LEGACY_ICONS") != "1"
     sys.path.insert(0, str(FLATLAS_ROOT))
     os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
     try:
@@ -384,19 +437,35 @@ def render_icons(ships: dict[str, dict], package_ids: set[str], packages: dict[s
         return
 
     app = QApplication.instance() or QApplication([])
-    rendered_ship_ids: set[str] = set()
+    render_queue: list[dict] = []
+    queued_ship_ids: set[str] = set()
     for package_id in sorted(package_ids):
         package = packages.get(package_id)
         hull = hulls.get(package.get("hull", "") if package else "")
         ship = ships.get(hull.get("ship", "") if hull else "")
+        if ship and ship["id"] not in queued_ship_ids:
+            render_queue.append(ship)
+            queued_ship_ids.add(ship["id"])
+
+    for ship in sorted(ships.values(), key=lambda item: item["id"]):
+        if ship["id"] not in queued_ship_ids:
+            render_queue.append(ship)
+            queued_ship_ids.add(ship["id"])
+
+    rendered_ship_ids: set[str] = set()
+    for ship in render_queue:
         if not ship or ship["id"] in rendered_ship_ids:
             continue
         model_path = Path(ship.get("modelPath", ""))
         if not model_path.exists():
             continue
         out_path = icon_dir / f"{ship['id']}.png"
-        if out_path.exists() and out_path.stat().st_size > 100:
-            ship["icon"] = f"data/ship_icons/{ship['id']}.png"
+        if not force and out_path.exists() and out_path.stat().st_size > 100:
+            ship["icon"] = repo_asset_path(out_path)
+            rendered_ship_ids.add(ship["id"])
+            continue
+        if use_textured and render_textured_icon_with_flatlas_v2(model_path, out_path, 384):
+            ship["icon"] = repo_asset_path(out_path)
             rendered_ship_ids.add(ship["id"])
             continue
         result = load_native_scene_data(model_path)
@@ -404,7 +473,7 @@ def render_icons(ships: dict[str, dict], package_ids: set[str], packages: dict[s
             continue
         image = render_native_scene_top_view_icon(result.scene_data, size=96)
         if image.save(str(out_path), "PNG"):
-            ship["icon"] = f"data/ship_icons/{ship['id']}.png"
+            ship["icon"] = repo_asset_path(out_path)
             rendered_ship_ids.add(ship["id"])
     app.quit()
 

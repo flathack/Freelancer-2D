@@ -59,6 +59,12 @@ def main() -> None:
         encoding="utf-8",
     )
     print(f"Saved mod bundle '{mod_id}' with {len(bundle)} datasets to {output}")
+    try:
+        from dedupe_mod_assets import main as dedupe_mod_assets
+
+        dedupe_mod_assets()
+    except Exception as exc:
+        print(f"Warning: mod asset dedupe skipped: {exc}")
 
 
 if __name__ == "__main__":
