@@ -1,5 +1,12 @@
 # AGENTS.md
 
+## Repo-Ablage
+
+- Private Arbeitskopie: `C:\Users\steve\PROJECTS\PRIVATE\Freelancer2D`.
+- Private Source of Truth: `origin` auf NAS/Gitea.
+- Oeffentliche GitHub-Arbeitskopien/Fassaden liegen lokal unter `C:\Users\steve\PROJECTS\PUBLIC`.
+- Fuer dieses Repo ist aktuell kein Public-GitHub-Remote konfiguriert.
+
 ## Project
 Freelancer2D is a static HTML5 Canvas space sandbox inspired by Freelancer-style trading, docking, jump gates, trade lanes, factions, and ship progression.
 The playable browser entry point is currently `index.html`, with much of the active game and UI logic inline in that file.
@@ -43,7 +50,7 @@ The current local source paths used by tools are:
 
 - Freelancer HD data: `C:/Users/steve/Github/FL-Installationen/Freelancer-HD/DATA`
 - Freelancer HD root: `C:/Users/steve/Github/FL-Installationen/Freelancer-HD`
-- FLAtlas renderer project: `C:/Users/steve/Github/FLAtlas`
+- FLAtlas renderer project: `C:/Users/steve/PROJECTS/PRIVATE/FLAtlas`
 
 Important tools:
 
