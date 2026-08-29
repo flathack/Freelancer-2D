@@ -874,6 +874,7 @@ const game = {
     running: false, lastTime: 0, gameTime: 0,
     loopErrorCount: 0,
     player: null, entities: [], npcs: [], npcFleets: [], projectiles: [], loot: [], effects: [],
+    npcSpatialGrid: new Map(), npcSpatialCellSize: 3200,
     isDocked: false, showMap: false, showCursor: false,
     hasStarted: false,
     mouseX: 0, mouseY: 0, mouseDown: false, rightMouseDown: false,
@@ -7369,7 +7370,13 @@ function fireNPCWeapon(npc, target = game.player) {
     const dz = target.z - npc.z;
     const distance = Math.hypot(dx, dz);
     if (distance < 1) return;
-    const targetAngle = Math.atan2(dz, dx);
+    const targetMotion = entityMotion(target);
+    const targetAngle = Freelancer2DLogic.interceptAngle(npc, {
+        x: target.x,
+        z: target.z,
+        vx: targetMotion.vx,
+        vz: targetMotion.vz
+    }, Math.max(1, (npc.weapons || [])[npc.nextWeaponIndex % Math.max(1, (npc.weapons || []).length)]?.speed || 650));
     let angleDiff = targetAngle - npc.rotation;
     while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
     while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
@@ -7380,17 +7387,19 @@ function fireNPCWeapon(npc, target = game.player) {
     const regularWeapons = weapons.filter(weapon => !weapon.cruiseDisruptor);
     const cyclePool = targetCruising && disruptor ? [disruptor] : (regularWeapons.length ? regularWeapons : weapons);
     const weapon = cyclePool[npc.nextWeaponIndex % cyclePool.length] || weaponStatsFromEquipment(getEquipment('li_gun01_mark01'), 1);
-    const weaponRange = weapon.cruiseDisruptor ? (weapon.seekerRange || 2500) : 980;
+    const weaponRange = weapon.cruiseDisruptor
+        ? (weapon.seekerRange || 2500)
+        : clamp((Number(weapon.speed) || 650) * (Number(weapon.lifetime) || 1.5) * 0.88, 650, 1800);
     if (distance > weaponRange) return;
     if (weapon.cruiseDisruptor && !targetCruising && Math.random() > 0.08) return;
     npc.nextWeaponIndex = (npc.nextWeaponIndex || 0) + 1;
     npc.fireCooldown = weapon.cooldown + Math.random() * 0.08;
     playWeaponFireAt(npc.x, npc.z, 0.52);
     game.projectiles.push({
-        x: npc.x + Math.cos(npc.rotation) * 30,
-        z: npc.z + Math.sin(npc.rotation) * 30,
-        vx: Math.cos(npc.rotation) * weapon.speed,
-        vz: Math.sin(npc.rotation) * weapon.speed,
+        x: npc.x + Math.cos(targetAngle) * 30,
+        z: npc.z + Math.sin(targetAngle) * 30,
+        vx: Math.cos(targetAngle) * weapon.speed,
+        vz: Math.sin(targetAngle) * weapon.speed,
         damage: weapon.damage,
         radius: weapon.radius,
         lifetime: weapon.lifetime,
@@ -7477,6 +7486,44 @@ function updateStaticWeapons(source, dt) {
     if (target) fireStaticWeapon(source, target);
 }
 
+function entityMotion(entity) {
+    if (!entity) return { vx: 0, vz: 0 };
+    if (Number.isFinite(entity.vx) && Number.isFinite(entity.vz)) return { vx: entity.vx, vz: entity.vz };
+    const speed = Number(entity.speed) || 0;
+    const rotation = Number(entity.rotation) || 0;
+    return { vx: Math.cos(rotation) * speed, vz: Math.sin(rotation) * speed };
+}
+
+function npcSpatialKey(x, z) {
+    const size = game.npcSpatialCellSize || 3200;
+    return `${Math.floor(x / size)}:${Math.floor(z / size)}`;
+}
+
+function rebuildNpcSpatialGrid() {
+    const grid = new Map();
+    for (const npc of game.npcs) {
+        if (!npc || npc.hidden || npc.hull <= 0) continue;
+        const key = npcSpatialKey(npc.x, npc.z);
+        if (!grid.has(key)) grid.set(key, []);
+        grid.get(key).push(npc);
+    }
+    game.npcSpatialGrid = grid;
+}
+
+function nearbyNpcs(npc, range = 3200) {
+    const size = game.npcSpatialCellSize || 3200;
+    const cells = Math.max(1, Math.ceil(range / size));
+    const centerX = Math.floor(npc.x / size);
+    const centerZ = Math.floor(npc.z / size);
+    const nearby = [];
+    for (let x = centerX - cells; x <= centerX + cells; x++) {
+        for (let z = centerZ - cells; z <= centerZ + cells; z++) {
+            nearby.push(...(game.npcSpatialGrid.get(`${x}:${z}`) || []));
+        }
+    }
+    return nearby;
+}
+
 function findNpcCombatTarget(npc) {
     if (npc.hidden || npc.inTradeLane) return null;
     const fleet = fleetById(npc.fleetId);
@@ -7494,7 +7541,7 @@ function findNpcCombatTarget(npc) {
         }
     }
     if (npc.faction) {
-        for (const other of game.npcs) {
+        for (const other of nearbyNpcs(npc, 2800)) {
             if (other === npc || other.hull <= 0 || other.hidden || other.inTradeLane || !other.faction) continue;
             if (!factionsAreHostile(npc.faction, other.faction)) continue;
             const distance = Math.hypot(other.x - npc.x, other.z - npc.z);
@@ -7521,6 +7568,70 @@ function shouldNpcHoldFormation(npc, combatTarget, dt) {
         return true;
     }
     return false;
+}
+
+function npcWeaponEnvelope(npc) {
+    const ranges = (npc.weapons || []).filter(weapon => !weapon.cruiseDisruptor).map(weapon =>
+        clamp((Number(weapon.speed) || 650) * (Number(weapon.lifetime) || 1.5) * 0.82, 650, 1700)
+    );
+    const maximum = ranges.length ? Math.max(...ranges) : 900;
+    return { minimum: Math.max(180, maximum * 0.42), preferred: maximum * 0.72, maximum };
+}
+
+function updateNpcCombatManeuver(npc, target, dt) {
+    if (!target) return false;
+    const dx = target.x - npc.x;
+    const dz = target.z - npc.z;
+    const distance = Math.max(1, Math.hypot(dx, dz));
+    const envelope = npcWeaponEnvelope(npc);
+    const hullRatio = npc.hull / Math.max(1, npc.maxHull);
+    const shieldRatio = npc.maxShield > 0 ? npc.shield / npc.maxShield : hullRatio;
+    npc.aiDecisionTimer = Math.max(0, (npc.aiDecisionTimer || 0) - dt);
+    if (!npc.maneuverSide) npc.maneuverSide = Math.random() < 0.5 ? -1 : 1;
+    if (npc.aiDecisionTimer <= 0) {
+        npc.aiDecisionTimer = 0.65 + Math.random() * 0.9;
+        if (hullRatio < 0.22 || (hullRatio < 0.38 && shieldRatio < 0.08)) npc.aiState = 'flee';
+        else if (distance > envelope.maximum * 1.15) npc.aiState = 'intercept';
+        else if (distance < envelope.minimum) npc.aiState = 'break';
+        else npc.aiState = 'engage';
+        if (Math.random() < 0.28) npc.maneuverSide *= -1;
+    }
+
+    const targetMotion = entityMotion(target);
+    const weaponSpeed = Math.max(...(npc.weapons || []).map(weapon => Number(weapon.speed) || 0), 650);
+    const leadAngle = Freelancer2DLogic.interceptAngle(npc, {
+        x: target.x,
+        z: target.z,
+        vx: targetMotion.vx,
+        vz: targetMotion.vz
+    }, weaponSpeed);
+    let desiredAngle = leadAngle;
+    if (npc.aiState === 'flee') {
+        desiredAngle = Math.atan2(-dz, -dx) + npc.maneuverSide * 0.18;
+        npc.throttle = 1;
+    } else if (npc.aiState === 'break') {
+        desiredAngle = Math.atan2(-dz, -dx) + npc.maneuverSide * 0.7;
+        npc.throttle = 0.95;
+    } else if (npc.aiState === 'intercept') {
+        npc.throttle = 1;
+    } else {
+        const distanceError = (distance - envelope.preferred) / Math.max(1, envelope.preferred);
+        desiredAngle = leadAngle + npc.maneuverSide * clamp(distanceError * -0.32, -0.28, 0.28);
+        npc.throttle = clamp(0.48 + Math.abs(distanceError) * 0.42, 0.42, 0.9);
+    }
+
+    const avoidance = getAvoidanceVector(npc.x, npc.z, 900 + npc.radius * 5);
+    if (avoidance.magnitude > 0.04) {
+        const desiredX = Math.cos(desiredAngle) + avoidance.x * 2.4;
+        const desiredZ = Math.sin(desiredAngle) + avoidance.z * 2.4;
+        desiredAngle = Math.atan2(desiredZ, desiredX);
+    }
+    const hazardAvoidance = getAutopilotDeathZoneAvoidance(npc.x, npc.z, target.x, target.z, 900);
+    if (hazardAvoidance.magnitude > 0) desiredAngle = Math.atan2(hazardAvoidance.z, hazardAvoidance.x);
+    npc.targetAngle = desiredAngle;
+    setNpcCruise(npc, false);
+    if (npc.aiState !== 'flee') fireNPCWeapon(npc, target);
+    return true;
 }
 
 function npcThreatTarget(targetId) {
@@ -7796,12 +7907,7 @@ function updateNPC(npc, dt) {
     if (updateNpcTraderFlee(npc, dt)) {
         // Traders seek a friendly dock or open distance while escorts intercept.
     } else if (combatTarget) {
-        const dx = combatTarget.x - npc.x;
-        const dz = combatTarget.z - npc.z;
-        npc.targetAngle = Math.atan2(dz, dx);
-        npc.throttle = 0.8;
-        setNpcCruise(npc, false);
-        fireNPCWeapon(npc, combatTarget);
+        updateNpcCombatManeuver(npc, combatTarget, dt);
     } else if (updateNpcFleetLeader(npc, dt)) {
         // Fleet leader is gathering/re-forming the group.
     } else if (npc.escortFor && updateNpcEscort(npc)) {
@@ -7825,11 +7931,15 @@ function updateNPC(npc, dt) {
     if (Math.abs(angleDiff) > 0.01) npc.rotation += Math.sign(angleDiff) * Math.min(Math.abs(angleDiff), npc.turnRate * dt);
     
     if (!npc.inTradeLane) {
+        const previousX = npc.x;
+        const previousZ = npc.z;
         const targetSpeed = npc.cruiseActive ? (npc.cruiseSpeed || cruiseSpeedForMod() * 0.8) : npc.throttle * npc.maxSpeed;
         const response = Math.min(1, dt * (npc.cruiseActive ? 1.15 : 0.75));
         npc.speed += (targetSpeed - npc.speed) * response;
         npc.x += Math.cos(npc.rotation) * npc.speed * dt;
         npc.z += Math.sin(npc.rotation) * npc.speed * dt;
+        npc.vx = dt > 0 ? (npc.x - previousX) / dt : 0;
+        npc.vz = dt > 0 ? (npc.z - previousZ) / dt : 0;
     }
 }
 
@@ -9637,6 +9747,7 @@ function update(dt) {
     
     for (const entity of game.entities) entity.update(dt);
     updateNpcFleets(dt);
+    rebuildNpcSpatialGrid();
     for (const npc of game.npcs) updateNPC(npc, dt);
     updateMissionState();
     updatePopulationNpcs(dt);
