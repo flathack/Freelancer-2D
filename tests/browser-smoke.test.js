@@ -131,7 +131,7 @@ test('browser smoke: flight, input, maps, saves, NPC AI, trade lanes, trading, a
     const browser = spawn(chrome, [
         '--headless=new', '--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage',
         '--autoplay-policy=no-user-gesture-required', '--remote-debugging-port=0',
-        `--user-data-dir=${profile}`, 'about:blank'
+        '--window-size=1280,720', `--user-data-dir=${profile}`, 'about:blank'
     ], { stdio: ['ignore', 'ignore', 'pipe'] });
 
     let client;
@@ -210,6 +210,43 @@ test('browser smoke: flight, input, maps, saves, NPC AI, trade lanes, trading, a
             return { inventory, reputation, languageChanged, languageRestored: game.language === beforeLanguage };
         })()`);
         assert.deepEqual(overlays, { inventory: true, reputation: true, languageChanged: true, languageRestored: true });
+
+        const logContract = await evaluate(`(() => {
+            for (let index = 0; index < 65; index++) addLog('HUD log test ' + index, index === 64 ? 'alert' : 'system');
+            const entries = [...document.querySelectorAll('#log-area .log-entry')];
+            return { count: entries.length, newestAlert: entries.at(-1)?.classList.contains('log-entry-alert'), inlineColor: entries.at(-1)?.style.color || '' };
+        })()`);
+        assert.deepEqual(logContract, { count: 60, newestAlert: true, inlineColor: '' });
+
+        const inspectHudLayout = () => evaluate(`(() => {
+            const ids = ['music-player', 'command-bar', 'utility-bar', 'hud-context', 'hud-left', 'hud-bottom', 'hud-right', 'zoom-control', 'speed-control'];
+            const visible = id => {
+                const element = document.getElementById(id);
+                const rect = element.getBoundingClientRect();
+                return getComputedStyle(element).display !== 'none' && rect.width > 0 && rect.height > 0
+                    ? { id, left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom }
+                    : null;
+            };
+            const boxes = ids.map(visible).filter(Boolean);
+            const overlaps = (a, b) => a && b && a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+            const byId = Object.fromEntries(boxes.map(box => [box.id, box]));
+            return {
+                width: innerWidth,
+                withinViewport: boxes.every(box => box.left >= -1 && box.top >= -1 && box.right <= innerWidth + 1 && box.bottom <= innerHeight + 1),
+                sidePanelsClearFlightCore: !overlaps(byId['hud-bottom'], byId['hud-left']) && !overlaps(byId['hud-right'], byId['hud-left']),
+                panelsDoNotOverflow: ['scanner-panel', 'loadout-panel'].every(id => { const element = document.getElementById(id); return element.scrollWidth <= element.clientWidth + 1; })
+            };
+        })()`);
+        for (const viewport of [{ width: 1280, height: 720 }, { width: 820, height: 720 }, { width: 600, height: 800 }]) {
+            await client.send('Emulation.setDeviceMetricsOverride', { ...viewport, deviceScaleFactor: 1, mobile: false });
+            await new Promise(resolve => setTimeout(resolve, 80));
+            const layout = await inspectHudLayout();
+            assert.equal(layout.width, viewport.width);
+            assert.equal(layout.withinViewport, true, `HUD must stay inside ${viewport.width}px viewport`);
+            assert.equal(layout.sidePanelsClearFlightCore, true, `HUD panels must not overlap at ${viewport.width}px`);
+            assert.equal(layout.panelsDoNotOverflow, true, `HUD content must not overflow at ${viewport.width}px`);
+        }
+        await client.send('Emulation.setDeviceMetricsOverride', { width: 1280, height: 720, deviceScaleFactor: 1, mobile: false });
 
         const saveRoundTrip = await evaluate(`(() => {
             const expected = { x: 1234, z: -5678, credits: 424242, cargo: [{ id: 'commodity_food', name: 'Food', quantity: 2, avgPrice: 50 }] };

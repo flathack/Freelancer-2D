@@ -18,12 +18,12 @@ function addLog(message, type = 'system') {
     if (logArea) {
         logArea.style.display = 'block';
         const entry = document.createElement('div');
-        entry.style.marginBottom = '3px';
-        entry.style.color = type === 'alert' ? '#ff4444' : '#00aa00';
+        entry.className = `log-entry log-entry-${type === 'alert' ? 'alert' : 'system'}`;
         const h = Math.floor(game.gameTime / 75);
         const m = Math.floor((game.gameTime % 75) / 1.25);
         entry.textContent = `[${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}] ${message}`;
         logArea.appendChild(entry);
+        while (logArea.children.length > 60) logArea.firstElementChild?.remove();
         logArea.scrollTop = logArea.scrollHeight;
     }
 }
