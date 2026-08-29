@@ -88,9 +88,22 @@
         };
     }
 
+    function classifyBaseKind({ archetype = '', name = '', faction = '', isPlanet = false } = {}) {
+        const archetypeText = String(archetype).toLowerCase();
+        const nameText = String(name).toLowerCase();
+        const factionText = String(faction).toLowerCase();
+        if (isPlanet || archetypeText.includes('planet')) return 'planet';
+        if (archetypeText.includes('battleship') || archetypeText.includes('dreadnought') || archetypeText.includes('carrier')) return 'battleship';
+        if (factionText.startsWith('fc_')) return 'pirate';
+        if (archetypeText.includes('mining') || archetypeText.includes('miner') || archetypeText.includes('depot')) return 'mining';
+        if (archetypeText.includes('research') || nameText.includes('research') || nameText.includes('laboratory')) return 'research';
+        return 'station';
+    }
+
     return {
         advanceFleetCombatTimer,
         baseServices,
+        classifyBaseKind,
         clamp,
         interceptAngle,
         normalizeAngle,

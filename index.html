@@ -538,6 +538,7 @@ body[data-theme="crossfire"] .mod-btn.active {
     outline: 2px solid var(--hud-highlight);
     outline-offset: 2px;
 }
+#hud.interior-mode > * { display: none !important; }
 
 @media (max-width: 720px) {
     #map-overlay, #landing-overlay {
@@ -797,7 +798,10 @@ body[data-theme="crossfire"] .mod-btn.active {
     <div id="landing-overlay" class="hidden">
         <div id="landing-header">
             <h2 id="landing-title">LANDED</h2>
-            <button class="cmd-btn" id="btn-launch" onclick="launchFromBase()">LAUNCH</button>
+            <div style="display:flex;gap:8px;">
+                <button class="cmd-btn hidden" id="btn-return-interior" onclick="returnToBaseInterior()">RETURN</button>
+                <button class="cmd-btn" id="btn-launch" onclick="launchFromBase()">LAUNCH</button>
+            </div>
         </div>
         <div id="landing-tabs">
             <button class="landing-tab active" data-deck="launch" onclick="showLandingDeck('launch')">Launch Deck</button>
@@ -12490,40 +12494,94 @@ function getBarData(location = game.landedBase) {
     return barData()[baseId] || { npcs: [], news: [], factions: [] };
 }
 
-function isFortBushLocation(location) {
+function getShipMarket(location = game.landedBase) {
     const baseId = getBaseId(location);
-    const nickname = String(location?.nickname || location?.id || '').toLowerCase();
-    const name = String(location?.name || '').toLowerCase();
-    return baseId === 'li01_02_base' || nickname === 'li01_02' || name.includes('fort bush') || name.includes('ft. bush');
+    return baseId ? (shipMarketsData()[baseId] || []) : [];
 }
 
-function fortBushInteriorDefinition(location) {
-    const room = (id, type, name, x, y, w, h, color, action = '') => ({ id, type, name, x, y, w, h, color, action });
-    const rooms = [
-        room('planetscape', 'deck', 'Fort Bush Landing Pad', -360, -190, 720, 320, '#17324a', 'launch'),
-        room('concourse', 'hall', 'Customs Concourse', -250, 150, 500, 180, '#142438'),
-        room('bar', 'bar', 'Bar', -620, 80, 290, 250, '#2d1c2f', 'bar'),
-        room('equipment', 'equipment', 'Equipment Dealer', 330, 70, 310, 260, '#193546', 'equipment'),
-        room('warehouse', 'trade', 'Warehouse Dealer', -210, 390, 300, 230, '#2e2d20', 'trade'),
-        room('shipdealer', 'ship', 'Ship Dealer', 170, 390, 300, 230, '#243053', 'ship')
+function baseArchetypeKind(location) {
+    return Freelancer2DLogic.classifyBaseKind({
+        archetype: location?.archetype,
+        name: location?.name,
+        faction: normalizeFactionId(location?.faction || ''),
+        isPlanet: isPlanetDockTarget(location)
+    });
+}
+
+function getBaseDefinition(location = game.landedBase) {
+    const bar = getBarData(location);
+    const commodities = getCommodityMarket(location);
+    const equipment = getEquipmentMarket(location);
+    const ships = getShipMarket(location);
+    const services = Freelancer2DLogic.baseServices({ bar, commodities, equipment, ships });
+    return {
+        id: getBaseId(location) || String(location?.id || location?.nickname || 'unknown-base').toLowerCase(),
+        name: location?.name || systemData.name || 'Base',
+        kind: baseArchetypeKind(location),
+        faction: normalizeFactionId(location?.faction || ''),
+        security: String(location?.faction || '').includes('_n_grp') || String(location?.faction || '').includes('_p_grp') ? 'high' : services.trade ? 'standard' : 'low',
+        services
+    };
+}
+
+const BASE_LAYOUT_TEMPLATES = {
+    planet: { dock: [0, -260, 680, 250], hub: [0, 70, 430, 190], slots: [[-500, 40], [500, 40], [-310, 390], [310, 390]] },
+    station: { dock: [0, -250, 560, 220], hub: [0, 60, 360, 170], slots: [[-430, 40], [430, 40], [-250, 360], [250, 360]] },
+    battleship: { dock: [-470, 0, 420, 210], hub: [0, 0, 300, 150], slots: [[430, -220], [430, 0], [430, 220], [0, 280]] },
+    mining: { dock: [-330, -230, 480, 210], hub: [0, 40, 330, 160], slots: [[-440, 170], [420, -120], [420, 170], [0, 350]] },
+    pirate: { dock: [230, -240, 500, 210], hub: [0, 50, 320, 160], slots: [[-430, -120], [430, 120], [-300, 330], [280, 360]] },
+    research: { dock: [0, -260, 500, 210], hub: [0, 40, 330, 160], slots: [[-420, 20], [420, 20], [-230, 350], [230, 350]] }
+};
+
+function centeredRoom(id, type, name, centerX, centerY, width, height, color, action = '') {
+    return {
+        id, type, name,
+        x: centerX - width / 2,
+        y: centerY - height / 2,
+        w: width,
+        h: height,
+        color,
+        action,
+        interaction: action ? { x: centerX, y: centerY } : null
+    };
+}
+
+function corridorBetween(first, second, width = 72) {
+    const ax = first.x + first.w / 2;
+    const ay = first.y + first.h / 2;
+    const bx = second.x + second.w / 2;
+    const by = second.y + second.h / 2;
+    return [
+        { x: Math.min(ax, bx), y: ay - width / 2, w: Math.max(width, Math.abs(bx - ax)), h: width },
+        { x: bx - width / 2, y: Math.min(ay, by), w: width, h: Math.max(width, Math.abs(by - ay)) }
     ];
-    const corridors = [
-        { x: -70, y: 120, w: 140, h: 80 },
-        { x: -335, y: 190, w: 110, h: 70 },
-        { x: 235, y: 190, w: 115, h: 70 },
-        { x: -80, y: 315, w: 80, h: 90 },
-        { x: 235, y: 315, w: 80, h: 90 }
-    ];
+}
+
+function createBaseInteriorDefinition(location) {
+    const base = getBaseDefinition(location);
+    const template = BASE_LAYOUT_TEMPLATES[base.kind] || BASE_LAYOUT_TEMPLATES.station;
+    const roomColors = { bar: '#302033', equipment: '#17394a', trade: '#34301f', ship: '#26335a' };
+    const serviceLabels = { bar: 'Bar & Mission Board', equipment: 'Equipment Bay', trade: 'Commodity Exchange', ship: 'Ship Dealer' };
+    const dock = centeredRoom('dock', 'deck', `${base.name} Dock`, template.dock[0], template.dock[1], template.dock[2], template.dock[3], '#17324a', 'launch');
+    const hub = centeredRoom('hub', 'hall', base.kind === 'planet' ? 'Customs Concourse' : 'Operations Spine', template.hub[0], template.hub[1], template.hub[2], template.hub[3], '#142438');
+    const rooms = [dock, hub];
+    const serviceOrder = ['bar', 'equipment', 'trade', 'ship'].filter(service => base.services[service]);
+    serviceOrder.forEach((service, index) => {
+        const [x, y] = template.slots[index] || [0, 350 + index * 220];
+        rooms.push(centeredRoom(service, service, serviceLabels[service], x, y, 270, 190, roomColors[service], service));
+    });
+    const corridors = [...corridorBetween(dock, hub), ...rooms.slice(2).flatMap(room => corridorBetween(hub, room))];
     const props = [
-        { type: 'ship', x: 0, y: -70, w: 150, h: 64, label: game.player?.shipName || 'Ship' },
-        { type: 'counter', x: -535, y: 165, w: 170, h: 34 },
-        { type: 'table', x: -475, y: 255, r: 28 }, { type: 'table', x: -390, y: 250, r: 22 },
-        { type: 'console', x: 435, y: 125, w: 120, h: 36, label: 'Weapons' },
-        { type: 'crate', x: -145, y: 455, w: 55, h: 45 }, { type: 'crate', x: -60, y: 505, w: 65, h: 42 },
-        { type: 'holo', x: 320, y: 490, r: 44, label: 'Ships' },
-        { type: 'terminal', x: 0, y: 235, w: 120, h: 28, label: 'Transit' }
+        { type: 'ship', x: template.dock[0], y: template.dock[1], w: 150, h: 64, label: game.player?.shipName || 'Ship' },
+        { type: 'terminal', x: template.hub[0], y: template.hub[1], w: 120, h: 28, label: `${base.security.toUpperCase()} SECURITY` }
     ];
-    return { baseId: 'li01_02_base', name: location?.name || 'Fort Bush', rooms, corridors, props, spawn: { x: 0, y: 20 } };
+    for (const room of rooms.slice(2)) {
+        if (room.type === 'bar') props.push({ type: 'table', x: room.interaction.x, y: room.interaction.y, r: 26, label: 'Contracts' });
+        if (room.type === 'equipment') props.push({ type: 'console', x: room.interaction.x, y: room.interaction.y, w: 120, h: 34, label: 'Loadout' });
+        if (room.type === 'trade') props.push({ type: 'crate', x: room.interaction.x, y: room.interaction.y, w: 62, h: 48, label: 'Cargo' });
+        if (room.type === 'ship') props.push({ type: 'holo', x: room.interaction.x, y: room.interaction.y, r: 42, label: 'Ships' });
+    }
+    return { baseId: base.id, name: base.name, kind: base.kind, services: base.services, rooms, corridors, props, spawn: { x: template.dock[0], y: template.dock[1] + 45 } };
 }
 
 function enterBaseInterior(location) {
@@ -12538,15 +12596,24 @@ function enterBaseInterior(location) {
     game.interior = {
         active: true,
         location,
-        layout: fortBushInteriorDefinition(location),
-        player: { x: 0, y: 20, radius: 13, speed: 210, facing: 0 },
+        layout: createBaseInteriorDefinition(location),
+        player: { x: 0, y: 0, radius: 13, speed: 210, facing: 0 },
         camera: { x: 0, y: 0 },
         prompt: '',
         activeAction: ''
     };
+    game.interior.player.x = game.interior.layout.spawn.x;
+    game.interior.player.y = game.interior.layout.spawn.y;
+    game.interior.camera.x = game.interior.player.x;
+    game.interior.camera.y = game.interior.player.y;
     game.interiorKeys = {};
+    document.getElementById('hud')?.classList.add('interior-mode');
     document.getElementById('landing-overlay')?.classList.add('hidden');
-    addLog(`${t('landedAt')}: ${location.name} - Interior test`);
+    document.getElementById('btn-return-interior')?.classList.add('hidden');
+    const title = document.getElementById('landing-title');
+    if (title) title.textContent = t('landedAt') + ': ' + location.name;
+    syncLandingTabs();
+    addLog(`${t('landedAt')}: ${location.name}`);
     playSound('dock', 1);
     updateCruiseButton();
     updateSpeedControl();
@@ -12574,10 +12641,10 @@ function nearestInteriorAction() {
     let best = null;
     for (const room of interior.layout.rooms) {
         if (!room.action) continue;
-        const cx = room.x + room.w * 0.5;
-        const cy = room.y + room.h * 0.5;
+        const cx = room.interaction?.x ?? room.x + room.w * 0.5;
+        const cy = room.interaction?.y ?? room.y + room.h * 0.5;
         const distance = Math.hypot(cx - p.x, cy - p.y);
-        if (distance < 145 && (!best || distance < best.distance)) best = { ...room, distance };
+        if (distance < 105 && (!best || distance < best.distance)) best = { ...room, distance };
     }
     return best;
 }
@@ -12592,7 +12659,14 @@ function performInteriorAction() {
     }
     const overlay = document.getElementById('landing-overlay');
     if (overlay) overlay.classList.remove('hidden');
+    document.getElementById('btn-return-interior')?.classList.remove('hidden');
+    syncLandingTabs();
     showLandingDeck(action.action);
+}
+
+function returnToBaseInterior() {
+    document.getElementById('landing-overlay')?.classList.add('hidden');
+    document.getElementById('btn-return-interior')?.classList.add('hidden');
 }
 
 function updateInterior(dt) {
@@ -12656,7 +12730,9 @@ function drawInteriorProp(ctx, prop) {
         ctx.fillStyle = '#b9efff';
         ctx.font = '11px Courier New';
         ctx.textAlign = 'center';
-        ctx.fillText(prop.label, prop.x, prop.y - (prop.r || prop.h || 30) * 0.65);
+        const labelX = prop.type === 'ship' ? 0 : prop.x;
+        const labelY = prop.type === 'ship' ? -(prop.h || 30) * 0.65 : prop.y - (prop.r || prop.h || 30) * 0.65;
+        ctx.fillText(prop.label, labelX, labelY);
     }
     ctx.restore();
 }
@@ -12724,9 +12800,10 @@ function renderInterior(ctx) {
     ctx.fillRect(18, game.height - 78, Math.min(760, game.width - 36), 58);
     ctx.strokeStyle = '#1d75a5';
     ctx.strokeRect(18, game.height - 78, Math.min(760, game.width - 36), 58);
+    ctx.textAlign = 'left';
     ctx.fillStyle = '#00ff99';
     ctx.font = '14px Courier New';
-    ctx.fillText(`${layout.name} Interior Prototype`, 34, game.height - 52);
+    ctx.fillText(`${layout.name} · ${String(layout.kind || 'station').toUpperCase()}`, 34, game.height - 52);
     ctx.fillStyle = '#9edfff';
     ctx.fillText(interior.prompt || 'WASD laufen | E interagieren | Launch Pad zum Starten', 34, game.height - 30);
 }
@@ -12807,34 +12884,15 @@ function applyMountedEquipmentEffects() {
 }
 
 function openLandingWindow(target) {
-    if (isFortBushLocation(target)) {
-        enterBaseInterior(target);
-        return;
-    }
-    game.isDocked = true;
-    game.landedBase = target;
-    game.lastLanding = createLandingRecord(target);
-    game.player.cancelCruise?.();
-    game.player.afterburnerActive = false;
-    game.player.reverseActive = false;
-    game.player.throttle = 0;
-    game.player.speed = 0;
-    updateCruiseButton();
-    updateSpeedControl();
-    const overlay = document.getElementById('landing-overlay');
-    if (overlay) overlay.classList.remove('hidden');
-    const title = document.getElementById('landing-title');
-    if (title) title.textContent = t('landedAt') + ': ' + target.name;
-    addLog(t('landedAt') + ': ' + target.name);
-    playSound('dock', 1);
-    showLandingDeck('launch');
-    saveGame();
+    enterBaseInterior(target);
 }
 
 function launchFromBase() {
     const launchTarget = game.landedBase || findLandingTarget();
     const launchPoint = launchPointFromDockTarget(launchTarget);
     document.getElementById('landing-overlay')?.classList.add('hidden');
+    document.getElementById('btn-return-interior')?.classList.add('hidden');
+    document.getElementById('hud')?.classList.remove('interior-mode');
     game.interior = null;
     game.isDocked = false;
     game.landedBase = null;
@@ -12857,7 +12915,20 @@ function launchFromBase() {
     saveGame();
 }
 
+function syncLandingTabs() {
+    const definition = getBaseDefinition(game.landedBase);
+    document.querySelectorAll('.landing-tab[data-deck]').forEach(button => {
+        const deck = button.dataset.deck;
+        const available = deck === 'launch' || Boolean(definition.services[deck]);
+        button.classList.toggle('hidden', !available);
+        button.disabled = !available;
+    });
+    return definition;
+}
+
 function showLandingDeck(deck) {
+    const definition = syncLandingTabs();
+    if (deck !== 'launch' && !definition.services[deck]) deck = 'launch';
     game.landingDeck = deck;
     document.querySelectorAll('.landing-tab').forEach(btn => btn.classList.toggle('active', btn.dataset.deck === deck));
     const content = document.getElementById('landing-content');

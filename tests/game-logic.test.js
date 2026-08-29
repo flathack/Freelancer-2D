@@ -47,3 +47,12 @@ test('base services reflect available market data', () => {
         repair: false
     });
 });
+
+test('base archetypes select stable layout families', () => {
+    assert.equal(logic.classifyBaseKind({ isPlanet: true }), 'planet');
+    assert.equal(logic.classifyBaseKind({ archetype: 'l_dreadnought' }), 'battleship');
+    assert.equal(logic.classifyBaseKind({ archetype: 'miningbase_badlands' }), 'mining');
+    assert.equal(logic.classifyBaseKind({ faction: 'fc_lr_grp' }), 'pirate');
+    assert.equal(logic.classifyBaseKind({ name: 'Deep Space Research Laboratory' }), 'research');
+    assert.equal(logic.classifyBaseKind({ archetype: 'smallstation1' }), 'station');
+});
