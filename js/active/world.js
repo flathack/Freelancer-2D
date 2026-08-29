@@ -2185,19 +2185,34 @@ class TradeLaneRing {
         const objectImage = getObjectImage(this.type);
         const size = solarObjectScreenRadius(this.visualRadius || this.radius) * SOLAR_OBJECT_ICON_DRAW_SCALE;
         const glowRadius = Math.max(16, size * 0.43);
+        const active = this.index === 0 || game.player?.inTradeLane;
         ctx.save();
         ctx.translate(pos.x, pos.y);
         ctx.rotate(this.rotation);
         if (objectImage) {
             ctx.drawImage(objectImage, -size / 2, -size / 2, size, size);
-        } else {
-            ctx.strokeStyle = this.index === 0 ? '#00ff88' : '#008866';
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.arc(0, 0, size * 0.34, 0, Math.PI * 2);
-            ctx.stroke();
         }
-        if (this.index === 0 || game.player?.inTradeLane) {
+
+        // The source model stands perpendicular to the system plane, so its
+        // generated top-down icon is almost edge-on. Always draw the energy
+        // hoop as a route-oriented silhouette instead of relying on the icon.
+        const hoopWidth = Math.max(10, size * 0.38);
+        const hoopDepth = Math.max(3.5, size * 0.12);
+        ctx.shadowColor = active ? 'rgba(78, 255, 181, 0.95)' : 'rgba(40, 214, 155, 0.72)';
+        ctx.shadowBlur = active ? 9 : 5;
+        ctx.strokeStyle = active ? '#8dffd0' : '#35dca3';
+        ctx.lineWidth = active ? 2.6 : 1.8;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, hoopWidth, hoopDepth, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = active ? 'rgba(223,255,244,0.88)' : 'rgba(166,255,221,0.56)';
+        ctx.lineWidth = 0.8;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, Math.max(7, hoopWidth - 2.5), Math.max(2, hoopDepth - 1.2), 0, 0, Math.PI * 2);
+        ctx.stroke();
+
+        if (active) {
             const gradient = ctx.createRadialGradient(0, 0, glowRadius * 0.18, 0, 0, glowRadius);
             gradient.addColorStop(0, 'rgba(0,255,136,0.3)');
             gradient.addColorStop(1, 'transparent');

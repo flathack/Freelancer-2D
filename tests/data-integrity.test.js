@@ -60,3 +60,22 @@ test('vanilla jump destinations resolve to extracted systems', () => {
         }
     }
 });
+
+test('New York preserves the complete Fort Bush to Manhattan trade lane', () => {
+    const expectedRingIds = Array.from({ length: 6 }, (_, index) => `li01_trade_lane_ring_${141 + index}`);
+    for (const [, relativePath] of datasets.slice(0, 2)) {
+        const systems = JSON.parse(fs.readFileSync(path.join(root, relativePath), 'utf8'));
+        const newYorkId = Object.keys(systems).find(systemId => systemId.toLowerCase() === 'li01');
+        const routes = systems[newYorkId]?.tradelanes || [];
+        const route = routes.find(lane => {
+            const ids = (lane.rings || []).map(ring => String(ring.nickname || ring.id || '').toLowerCase());
+            return ids.includes(expectedRingIds[0]) || ids.includes(expectedRingIds.at(-1));
+        });
+        assert.ok(route, `${relativePath} is missing the Fort Bush to Manhattan route`);
+        assert.deepEqual(
+            route.rings.map(ring => String(ring.nickname || ring.id || '').toLowerCase()),
+            expectedRingIds,
+            `${relativePath} has an incomplete or unordered Fort Bush to Manhattan route`
+        );
+    }
+});

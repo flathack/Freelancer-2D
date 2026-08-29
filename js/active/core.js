@@ -4106,7 +4106,9 @@ function buildSystemData(systemId) {
         info: h.info || ''
         }))
     ],
-    tradeLanes: raw.tradeLanes || raw.tradelanes || [],
+    // Extracted datasets use `tradelanes`; prefer them over the small camelCase
+    // fallback route that is merged into New York for offline resilience.
+    tradeLanes: raw.tradelanes || raw.tradeLanes || [],
     asteroidfields: (raw.asteroidfields || []).map(normalizeAsteroidFieldData),
     background: raw.background || {},
     music: raw.music || {},

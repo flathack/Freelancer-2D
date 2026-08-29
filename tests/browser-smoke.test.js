@@ -288,6 +288,26 @@ test('browser smoke: flight, input, maps, saves, NPC AI, trade lanes, trading, a
         })()`);
         assert.deepEqual(tradeLane, { available: true, entered: true, targetIsNeighbor: true, exited: true });
 
+        const newYorkTradeLane = await evaluate(`(() => {
+            const expectedIds = Array.from({ length: 6 }, (_, index) => 'li01_trade_lane_ring_' + (141 + index));
+            const rings = game.entities.filter(entity => entity instanceof TradeLaneRing && expectedIds.includes(String(entity.id).toLowerCase()));
+            const context = document.getElementById('game-canvas').getContext('2d');
+            const originalEllipse = context.ellipse;
+            let hoopCount = 0;
+            context.ellipse = function(...args) { hoopCount++; return originalEllipse.apply(this, args); };
+            try { rings[0]?.render(context); } finally { context.ellipse = originalEllipse; }
+            return {
+                ids: rings.map(ring => String(ring.id).toLowerCase()),
+                orderedLaneIds: rings[0]?.laneRings.map(item => String(item.nickname || item.id).toLowerCase()) || [],
+                routeOriented: rings.every(ring => Number.isFinite(ring.rotation)),
+                visibleHoops: hoopCount
+            };
+        })()`);
+        assert.deepEqual(newYorkTradeLane.ids, Array.from({ length: 6 }, (_, index) => `li01_trade_lane_ring_${141 + index}`));
+        assert.deepEqual(newYorkTradeLane.orderedLaneIds, newYorkTradeLane.ids);
+        assert.equal(newYorkTradeLane.routeOriented, true);
+        assert.equal(newYorkTradeLane.visibleHoops, 2, 'trade lane rings should render a two-stroke energy hoop');
+
         const docked = await evaluate(`(() => { const target = game.entities.find(entity => entity instanceof Station && (entity.base || entity.dockWith)); if (!target) return false; openLandingWindow(target); return game.isDocked && !!game.interior?.active && document.getElementById('hud').classList.contains('interior-mode'); })()`);
         assert.equal(docked, true);
 
