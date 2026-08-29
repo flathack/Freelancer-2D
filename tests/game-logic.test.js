@@ -85,3 +85,29 @@ test('restored escort mission requests a fresh convoy', () => {
     assert.equal(restored.status, 'accepted');
     assert.equal(restored.escortNpcId, '');
 });
+
+test('mission offer rotation guarantees all supported mission types', () => {
+    assert.deepEqual(Array.from({ length: 8 }, (_, index) => logic.missionTypeForIndex(index)), [
+        'combat', 'transport', 'patrol', 'escort',
+        'combat', 'transport', 'patrol', 'escort'
+    ]);
+});
+
+test('patrol route advances only inside the checkpoint radius', () => {
+    const checkpoints = [{ x: 100, z: 100 }, { x: 500, z: 100 }];
+    assert.deepEqual(logic.advancePatrolRoute(checkpoints, 0, { x: 1000, z: 1000 }, 100), {
+        index: 0,
+        reached: false,
+        complete: false
+    });
+    assert.deepEqual(logic.advancePatrolRoute(checkpoints, 0, { x: 120, z: 100 }, 100), {
+        index: 1,
+        reached: true,
+        complete: false
+    });
+    assert.deepEqual(logic.advancePatrolRoute(checkpoints, 1, { x: 500, z: 100 }, 100), {
+        index: 2,
+        reached: true,
+        complete: true
+    });
+});

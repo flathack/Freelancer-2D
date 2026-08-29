@@ -33,3 +33,13 @@ test('system map is decluttered and frame-rate limited', () => {
     assert.match(html, /game\.mapZoom >= 2\.4/);
     assert.match(html, /game\.mapRenderInterval \|\| 180/);
 });
+
+test('active mission loop exposes combat, transport, patrol, and escort paths', () => {
+    for (const type of ['transport', 'patrol', 'escort']) {
+        assert.match(html, new RegExp(`type === ['"]${type}['"]`), `missing ${type} mission path`);
+    }
+    assert.match(html, /spawnMissionEnemies/);
+    assert.match(html, /advancePatrolRoute/);
+    assert.match(html, /handleMissionDock/);
+    assert.match(html, /spawnEscortMission/);
+});

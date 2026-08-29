@@ -117,12 +117,31 @@
         return restored;
     }
 
+    function missionTypeForIndex(index) {
+        const types = ['combat', 'transport', 'patrol', 'escort'];
+        const numericIndex = Math.max(0, Math.floor(Number(index) || 0));
+        return types[numericIndex % types.length];
+    }
+
+    function advancePatrolRoute(checkpoints, currentIndex, position, radius = 650) {
+        const route = Array.isArray(checkpoints) ? checkpoints : [];
+        const index = clamp(Math.floor(Number(currentIndex) || 0), 0, route.length);
+        const target = route[index];
+        if (!target || !position) return { index, reached: false, complete: index >= route.length };
+        const distance = Math.hypot((Number(target.x) || 0) - (Number(position.x) || 0), (Number(target.z) || 0) - (Number(position.z) || 0));
+        if (distance > Math.max(1, Number(radius) || 650)) return { index, reached: false, complete: false };
+        const nextIndex = index + 1;
+        return { index: nextIndex, reached: true, complete: nextIndex >= route.length };
+    }
+
     return {
         advanceFleetCombatTimer,
         baseServices,
         classifyBaseKind,
         clamp,
+        advancePatrolRoute,
         interceptAngle,
+        missionTypeForIndex,
         normalizeAngle,
         regenerateShield,
         restoreMissionState,
