@@ -7,8 +7,20 @@ const path = require('node:path');
 const { spawn, spawnSync } = require('node:child_process');
 
 const root = path.resolve(__dirname, '..');
-const chrome = process.env.CHROME_BIN || ['chromium', 'chromium-browser', 'google-chrome']
-    .find(command => spawnSync('sh', ['-lc', `command -v ${command}`], { encoding: 'utf8' }).status === 0);
+const chromeCandidates = [
+    process.env.CHROME_BIN,
+    'chromium',
+    'chromium-browser',
+    'google-chrome',
+    'chrome',
+    process.env.PROGRAMFILES && `${process.env.PROGRAMFILES}\\Google\\Chrome\\Application\\chrome.exe`,
+    process.env['PROGRAMFILES(X86)'] && `${process.env['PROGRAMFILES(X86)']}\\Google\\Chrome\\Application\\chrome.exe`,
+].filter(Boolean);
+
+const chrome = chromeCandidates.find(command => {
+    const result = spawnSync(command, ['--version'], { stdio: 'ignore' });
+    return !result.error && result.status === 0;
+});
 
 function contentType(filePath) {
     const extension = path.extname(filePath).toLowerCase();
