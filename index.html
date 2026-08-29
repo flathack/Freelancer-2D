@@ -1100,6 +1100,8 @@ const game = {
     mapZoom: 1,
     mapPanX: 0,
     mapPanY: 0,
+    mapLastRenderedAt: 0,
+    mapRenderInterval: 180,
     mapDragging: false,
     mapDragged: false,
     mapDragStartX: 0,
@@ -11240,6 +11242,53 @@ function isSelectedMapObject(object, entity = null) {
     return Boolean(selectedId && (selectedId === objectId || selectedId === entityId));
 }
 
+function drawDeclutteredMapLabels(ctx, candidates, width, height) {
+    const occupied = [];
+    const overlaps = rect => occupied.some(other => !(
+        rect.x + rect.w + 4 < other.x || other.x + other.w + 4 < rect.x ||
+        rect.y + rect.h + 3 < other.y || other.y + other.h + 3 < rect.y
+    ));
+    const sorted = [...candidates].sort((a, b) => (b.priority || 0) - (a.priority || 0));
+    for (const label of sorted) {
+        if (!label?.text) continue;
+        ctx.font = label.font || '9px Courier New';
+        const textWidth = Math.ceil(ctx.measureText(label.text).width);
+        const boxWidth = textWidth + 8;
+        const boxHeight = 15;
+        const offsets = label.offsets || [[0, 0], [0, -18], [0, 18], [textWidth * 0.55 + 8, 0], [-textWidth * 0.55 - 8, 0]];
+        let placement = null;
+        for (const [dx, dy] of offsets) {
+            const rect = {
+                x: clamp(label.x + dx - boxWidth / 2, 5, Math.max(5, width - boxWidth - 5)),
+                y: clamp(label.y + dy - boxHeight / 2, 28, Math.max(28, height - boxHeight - 24)),
+                w: boxWidth,
+                h: boxHeight
+            };
+            if (!overlaps(rect)) {
+                placement = rect;
+                break;
+            }
+        }
+        if (!placement) continue;
+        occupied.push(placement);
+        ctx.fillStyle = label.background || 'rgba(0,8,16,0.78)';
+        ctx.fillRect(placement.x, placement.y, placement.w, placement.h);
+        ctx.strokeStyle = label.border || 'rgba(62,137,174,0.35)';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(placement.x + 0.5, placement.y + 0.5, placement.w - 1, placement.h - 1);
+        ctx.fillStyle = label.color || '#8fcce8';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(label.text, placement.x + placement.w / 2, placement.y + placement.h / 2 + 0.5);
+    }
+}
+
+function readableMapFieldName(field) {
+    const name = String(field?.name || '').trim();
+    if (!name || /^zone[_\s-]/i.test(name) || /^[a-z]{2}\d{2}[_-]/i.test(name)) return '';
+    return name;
+}
+
 function drawMapCanvas() {
     const canvas = document.getElementById('map-canvas');
     if (!canvas) return;
@@ -11250,6 +11299,7 @@ function drawMapCanvas() {
     
     ctx.fillStyle = '#000810';
     ctx.fillRect(0, 0, w, h);
+    const mapLabels = [];
     
     drawSystemMapGrid(ctx, canvas, mapTransform);
     
@@ -11272,8 +11322,7 @@ function drawMapCanvas() {
         ctx.beginPath();
         ctx.arc(sunPos.x, sunPos.y, mapRadius, 0, Math.PI * 2);
         ctx.fill();
-        ctx.fillStyle = '#d8c66a';
-        ctx.fillText(sun.name || 'Sun', sunPos.x, sunPos.y + mapRadius + 13);
+        mapLabels.push({ text: sun.name || 'Sun', x: sunPos.x, y: sunPos.y + mapRadius + 13, color: '#e6d57b', priority: 75 });
     }
     
     // Planets
@@ -11285,8 +11334,7 @@ function drawMapCanvas() {
         ctx.beginPath();
         ctx.arc(ex, ey, 12, 0, Math.PI * 2);
         ctx.fill();
-        ctx.fillStyle = '#88aacc';
-        ctx.fillText(planet.name, ex, ey + 25);
+        mapLabels.push({ text: planet.name, x: ex, y: ey + 25, color: '#9dc6e8', priority: 80 });
         const selectedPlanet = game.entities.find(e => e instanceof PlanetLocation && e.id === planet.id);
         if (isSelectedMapObject(planet, selectedPlanet)) {
             ctx.strokeStyle = '#ffaa00';
@@ -11332,6 +11380,8 @@ function drawMapCanvas() {
         ctx.fillStyle = 'rgba(80,120,220,0.12)';
         ctx.strokeStyle = 'rgba(120,180,255,0.25)';
         drawMapZoneShape(ctx, nebula, mapTransform, { minRadius: 8 });
+        const pos = systemMapToScreen(nebula.x, nebula.z, mapTransform);
+        mapLabels.push({ text: readableMapFieldName(nebula), x: pos.x, y: pos.y, color: '#779acb', priority: 18 });
     }
     for (const field of systemData.asteroidfields) {
         const isMinefield = field.hazardKind === 'explosive_mines';
@@ -11339,6 +11389,8 @@ function drawMapCanvas() {
         ctx.fillStyle = isMinefield ? 'rgba(255,45,20,0.12)' : (isDebris ? 'rgba(150,165,165,0.10)' : 'rgba(130,110,70,0.12)');
         ctx.strokeStyle = isMinefield ? 'rgba(255,70,45,0.42)' : (isDebris ? 'rgba(175,195,195,0.25)' : 'rgba(180,150,90,0.25)');
         drawMapZoneShape(ctx, field, mapTransform, { minRadius: 8 });
+        const pos = systemMapToScreen(field.x, field.z, mapTransform);
+        mapLabels.push({ text: readableMapFieldName(field), x: pos.x, y: pos.y, color: isMinefield ? '#ff7965' : '#a89065', priority: 20 });
     }
     for (const exclusion of systemMapExclusionZones()) {
         const isBox = String(exclusion.shape || '').toUpperCase() === 'BOX';
@@ -11349,14 +11401,18 @@ function drawMapCanvas() {
         drawMapZoneShape(ctx, exclusion, mapTransform, { minRadius: 3, fill: isBox });
         ctx.setLineDash([]);
     }
-    for (const obstacle of game.obstacles) {
-        const pos = systemMapToScreen(obstacle.x, obstacle.z, mapTransform);
-        const ex = pos.x;
-        const ey = pos.y;
-        ctx.fillStyle = obstacle.collidable === false ? '#7f8b90' : (obstacle.kind === 'mine' ? '#ff5038' : (obstacle.kind === 'debris' ? '#aab8b8' : (obstacle.kind === 'asteroid' ? '#aa8855' : '#66ddee')));
-        ctx.beginPath();
-        ctx.arc(ex, ey, Math.max(obstacle.small ? 1 : 2, (obstacle.visualRadius || obstacle.radius) * mapTransform.scale), 0, Math.PI * 2);
-        ctx.fill();
+    if (game.mapZoom >= 2.4) {
+        const obstacleStride = Math.max(1, Math.ceil(game.obstacles.length / 180));
+        for (let obstacleIndex = 0; obstacleIndex < game.obstacles.length; obstacleIndex += obstacleStride) {
+            const obstacle = game.obstacles[obstacleIndex];
+            const pos = systemMapToScreen(obstacle.x, obstacle.z, mapTransform);
+            const ex = pos.x;
+            const ey = pos.y;
+            ctx.fillStyle = obstacle.collidable === false ? '#7f8b90' : (obstacle.kind === 'mine' ? '#ff5038' : (obstacle.kind === 'debris' ? '#aab8b8' : (obstacle.kind === 'asteroid' ? '#aa8855' : '#66ddee')));
+            ctx.beginPath();
+            ctx.arc(ex, ey, Math.max(obstacle.small ? 1 : 2, (obstacle.visualRadius || obstacle.radius) * mapTransform.scale), 0, Math.PI * 2);
+            ctx.fill();
+        }
     }
     
     // Stations
@@ -11380,9 +11436,16 @@ function drawMapCanvas() {
             ctx.stroke();
         }
         
-        ctx.fillStyle = '#00aaff';
-        ctx.font = '8px Courier New';
-        ctx.fillText(station.name, ex, ey + mapRadius + 12);
+        if (game.mapZoom >= 0.82 || isSelectedMapObject(station, selectedStation)) {
+            mapLabels.push({
+                text: station.name,
+                x: ex,
+                y: ey + mapRadius + 12,
+                color: isSelectedMapObject(station, selectedStation) ? '#ffd27a' : '#47bfff',
+                border: isSelectedMapObject(station, selectedStation) ? 'rgba(255,170,0,0.72)' : undefined,
+                priority: isSelectedMapObject(station, selectedStation) ? 100 : 45
+            });
+        }
     }
     
     // Jump Gates and Holes
@@ -11407,8 +11470,7 @@ function drawMapCanvas() {
             ctx.stroke();
         }
 
-        ctx.fillStyle = gate.kind === 'hole' ? '#66eaff' : '#aa66ff';
-        ctx.fillText(gate.name, ex, ey + mapRadius + 12);
+        mapLabels.push({ text: gate.name, x: ex, y: ey + mapRadius + 12, color: gate.kind === 'hole' ? '#66eaff' : '#bd8cff', priority: 88 });
     }
 
     const mapPlayerPos = game.player ? systemMapToScreen(game.player.x, game.player.z, mapTransform) : null;
@@ -11450,8 +11512,7 @@ function drawMapCanvas() {
         ctx.beginPath();
         ctx.arc(waypointPos.x, waypointPos.y, 3, 0, Math.PI * 2);
         ctx.fill();
-        ctx.font = '9px Courier New';
-        ctx.fillText(game.waypoint.name || 'Waypoint', waypointPos.x, waypointPos.y - 14);
+        mapLabels.push({ text: game.waypoint.name || 'Waypoint', x: waypointPos.x, y: waypointPos.y - 14, color: '#d7a3ff', border: 'rgba(199,125,255,0.76)', priority: 120 });
     }
     
     // Player
@@ -11465,12 +11526,14 @@ function drawMapCanvas() {
     ctx.lineTo(ppx + 6, ppy + 6);
     ctx.closePath();
     ctx.fill();
-    ctx.font = '10px Courier New';
-    ctx.fillText('YOU', ppx, ppy + 20);
+    mapLabels.push({ text: 'YOU', x: ppx, y: ppy + 20, color: '#ffffff', border: 'rgba(255,255,255,0.55)', priority: 130 });
+
+    drawDeclutteredMapLabels(ctx, mapLabels, w, h);
 
     ctx.fillStyle = '#668899';
     ctx.textAlign = 'right';
     ctx.fillText('Wheel zoom / drag pan: ' + game.mapZoom.toFixed(1) + 'x', w - 10, 18);
+    game.mapLastRenderedAt = performance.now();
 }
 
 function updateVisibleMapOverlayFrame() {
@@ -11479,7 +11542,8 @@ function updateVisibleMapOverlayFrame() {
     if (!overlay || overlay.classList.contains('hidden')) return;
     const systemCanvas = document.getElementById('map-canvas');
     if (!systemCanvas || systemCanvas.style.display === 'none') return;
-    drawMapCanvas();
+    const now = performance.now();
+    if (now - (game.mapLastRenderedAt || 0) >= (game.mapRenderInterval || 180)) drawMapCanvas();
 }
 
 // Universe View

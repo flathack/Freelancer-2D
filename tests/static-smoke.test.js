@@ -27,3 +27,9 @@ test('referenced local script files exist', () => {
 test('info panel visibility uses computed style instead of an empty inline style', () => {
     assert.match(html, /getComputedStyle\(panel\)\.display === 'none'/);
 });
+
+test('system map is decluttered and frame-rate limited', () => {
+    assert.match(html, /function drawDeclutteredMapLabels/);
+    assert.match(html, /game\.mapZoom >= 2\.4/);
+    assert.match(html, /game\.mapRenderInterval \|\| 180/);
+});
