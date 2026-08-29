@@ -2702,6 +2702,8 @@ function createNpcFleet(type, origin, destination = null, options = {}) {
         maxWait: 7 + Math.random() * 5,
         patrolIndex: 0,
         combatTimer: 0,
+        threatTargetId: '',
+        threatenedUntil: 0,
         mission: type === 'trade' ? 'trade-route' : type === 'security' ? 'security-patrol' : 'irregular-route'
     };
     game.npcFleets.push(fleet);
@@ -2838,7 +2840,15 @@ function updateNpcFleets(dt) {
         const fleet = game.npcFleets[i];
         const leader = fleetLeader(fleet);
         const members = fleetMembers(fleet);
-        fleet.combatTimer = Math.max(0, (fleet.combatTimer || 0) - dt * 0.35);
+        const threat = npcThreatTarget(fleet.threatTargetId);
+        const inCombat = Boolean(threat && (fleet.threatenedUntil || 0) > performance.now());
+        fleet.combatTimer = Freelancer2DLogic.advanceFleetCombatTimer(fleet.combatTimer, dt, inCombat);
+        if (inCombat && fleet.state !== 'forming') fleet.state = 'combat';
+        if (!inCombat && fleet.state === 'combat') {
+            fleet.state = 'reforming';
+            fleet.reformTimer = 4;
+            fleet.threatTargetId = '';
+        }
         if (!leader || members.length <= 0) {
             game.npcFleets.splice(i, 1);
             continue;
@@ -7471,6 +7481,8 @@ function findNpcCombatTarget(npc) {
     if (npc.hidden || npc.inTradeLane) return null;
     const fleet = fleetById(npc.fleetId);
     if (fleet?.state === 'forming' || npc.role === 'trader' || npc.role === 'civilian') return null;
+    const fleetThreat = npcThreatTarget(fleet?.threatTargetId || npc.responseTargetId);
+    if (fleetThreat) return fleetThreat;
     let bestTarget = null;
     let bestDistance = Infinity;
     if (game.player && (npc.hostileToPlayer || npc.missionId || playerIsHostileToFaction(npc.faction) || (npc.role === 'pirate' && !npc.faction))) {
@@ -7499,8 +7511,7 @@ function findNpcCombatTarget(npc) {
 function shouldNpcHoldFormation(npc, combatTarget, dt) {
     const fleet = fleetById(npc.fleetId);
     if (!fleet || !combatTarget) return false;
-    if (fleet.type === 'trade' && !npc.hostileToPlayer) return true;
-    fleet.combatTimer = Math.max(0, (fleet.combatTimer || 0) + dt);
+    if (fleet.type === 'trade' && npc.role === 'trader') return true;
     const anchor = fleetLeader(fleet) || fleet.gather || npc;
     const distanceFromAnchor = Math.hypot(npc.x - anchor.x, npc.z - anchor.z);
     if (fleet.combatTimer > 14 || distanceFromAnchor > 4200) {
@@ -7510,6 +7521,50 @@ function shouldNpcHoldFormation(npc, combatTarget, dt) {
         return true;
     }
     return false;
+}
+
+function npcThreatTarget(targetId) {
+    if (!targetId) return null;
+    if (targetId === 'player') return game.player?.destroyed ? null : game.player;
+    return game.npcs.find(item => item.id === targetId && item.hull > 0 && !item.hidden) || null;
+}
+
+function markNpcThreat(npc, attacker) {
+    if (!npc || !attacker) return;
+    const targetId = attacker === game.player ? 'player' : attacker.id;
+    if (!targetId) return;
+    const now = performance.now();
+    const fleet = fleetById(npc.fleetId);
+    if (fleet) {
+        fleet.threatTargetId = targetId;
+        fleet.threatenedUntil = now + 14000;
+        if (fleet.state !== 'forming') fleet.state = 'combat';
+    }
+    for (const responder of game.npcs) {
+        if (responder.role !== 'police' || responder.hull <= 0 || responder.hidden) continue;
+        if (!npc.faction || normalizeFactionId(responder.faction) !== normalizeFactionId(npc.faction)) continue;
+        if (Math.hypot(responder.x - npc.x, responder.z - npc.z) > 5200) continue;
+        responder.responseTargetId = targetId;
+        responder.responseUntil = now + 12000;
+    }
+}
+
+function updateNpcTraderFlee(npc, dt) {
+    if (npc.role !== 'trader') return false;
+    const fleet = fleetById(npc.fleetId);
+    const threat = npcThreatTarget(fleet?.threatTargetId);
+    if (!threat || (fleet?.threatenedUntil || 0) <= performance.now()) return false;
+    const safeTarget = npcDockingTargets()
+        .filter(target => !targetFaction(target) || !factionsAreHostile(npc.faction, targetFaction(target)))
+        .sort((a, b) => Math.hypot(a.x - npc.x, a.z - npc.z) - Math.hypot(b.x - npc.x, b.z - npc.z))[0];
+    const fleeX = safeTarget?.x ?? (npc.x + (npc.x - threat.x) * 2);
+    const fleeZ = safeTarget?.z ?? (npc.z + (npc.z - threat.z) * 2);
+    const distance = Math.hypot(fleeX - npc.x, fleeZ - npc.z);
+    npc.targetAngle = Math.atan2(fleeZ - npc.z, fleeX - npc.x);
+    npc.throttle = 1;
+    updateNpcCruiseForDistance(npc, distance, { enterDistance: 4200, exitDistance: 1800 });
+    npc.aiState = 'flee';
+    return true;
 }
 
 function updateNpcEscort(npc) {
@@ -7704,6 +7759,7 @@ function updateNpcTraderRoute(npc, dt) {
 function damageNpc(npc, amount, attacker = null, hitX = null, hitZ = null) {
     if (!npc || npc.hull <= 0 || npc.hidden || npc.inTradeLane) return false;
     if (attacker === game.player) npc.hostileToPlayer = true;
+    markNpcThreat(npc, attacker);
     const result = Freelancer2DLogic.resolveShieldDamage({
         hull: npc.hull,
         shield: npc.shield,
@@ -7733,10 +7789,13 @@ function updateNPC(npc, dt) {
     npc.shieldRotation += dt * 0.5;
     npc.shield = Freelancer2DLogic.regenerateShield(npc.shield, npc.maxShield, npc.shieldRegen, dt);
     npc.fireCooldown = Math.max(0, (npc.fireCooldown || 0) - dt);
+    if ((npc.responseUntil || 0) <= performance.now()) npc.responseTargetId = '';
 
     let combatTarget = findNpcCombatTarget(npc);
     if (shouldNpcHoldFormation(npc, combatTarget, dt)) combatTarget = null;
-    if (combatTarget) {
+    if (updateNpcTraderFlee(npc, dt)) {
+        // Traders seek a friendly dock or open distance while escorts intercept.
+    } else if (combatTarget) {
         const dx = combatTarget.x - npc.x;
         const dz = combatTarget.z - npc.z;
         npc.targetAngle = Math.atan2(dz, dx);
