@@ -5,6 +5,7 @@ const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const extractor = fs.readFileSync(path.join(root, 'tools', 'extract_universe_data.py'), 'utf8');
 
 test('game entry exposes required surfaces', () => {
     for (const id of ['game-canvas', 'hud', 'start-screen', 'scanner-list', 'landing-overlay', 'map-overlay']) {
@@ -32,6 +33,14 @@ test('system map is decluttered and frame-rate limited', () => {
     assert.match(html, /function drawDeclutteredMapLabels/);
     assert.match(html, /game\.mapZoom >= 2\.4/);
     assert.match(html, /game\.mapRenderInterval \|\| 180/);
+});
+
+test('trade lane rings stay visible and mod archetypes are extracted', () => {
+    assert.match(html, /function drawSystemMapTradeLanes/);
+    assert.match(html, /drawSystemMapTradeLanes\(ctx, mapTransform\)/);
+    assert.match(html, /if \(!\(entity instanceof TradeLaneRing\)\) entity\.render\(ctx\)/);
+    assert.match(extractor, /def is_trade_lane_ring_archetype/);
+    assert.match(extractor, /'trade_lane_ring' in normalized/);
 });
 
 test('active mission loop exposes combat, transport, patrol, and escort paths', () => {

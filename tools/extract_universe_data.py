@@ -46,6 +46,12 @@ JUMP_GATE_ARCHETYPES = {
     'track_ring2coal',
 }
 
+
+def is_trade_lane_ring_archetype(archetype: str) -> bool:
+    """Recognize vanilla and mod-specific trade lane ring archetypes."""
+    normalized = str(archetype or '').strip().lower()
+    return 'trade_lane_ring' in normalized
+
 def resource_dll_paths() -> list[Path]:
     """Load resource DLLs in freelancer.ini order so mod-specific text DLLs resolve correctly."""
     freelancer_ini = FL_EXE / 'freelancer.ini'
@@ -1087,7 +1093,7 @@ def extract_system_data(system_name: str) -> dict:
         archetype = archetype.lower()
         
         # Trade Lane Rings - collect them for later grouping
-        if archetype == 'trade_lane_ring':
+        if is_trade_lane_ring_archetype(archetype):
             pos = parse_position_3d(get_prop(props, 'pos', '0,0,0'))
             ring = {
                 'nickname': get_prop(props, 'nickname', section_name),

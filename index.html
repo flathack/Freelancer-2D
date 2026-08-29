@@ -10779,8 +10779,13 @@ function render() {
         }
     }
     
-    // Entities
-    for (const entity of game.entities) entity.render(ctx);
+    // Environment and stations first; trade lane rings stay readable above them.
+    for (const entity of game.entities) {
+        if (!(entity instanceof TradeLaneRing)) entity.render(ctx);
+    }
+    for (const entity of game.entities) {
+        if (entity instanceof TradeLaneRing) entity.render(ctx);
+    }
     
     // NPCs
     for (const npc of game.npcs) renderNPC(ctx, npc);
@@ -11508,6 +11513,46 @@ function readableMapFieldName(field) {
     return name;
 }
 
+function drawSystemMapTradeLanes(ctx, mapTransform) {
+    for (const lane of systemData.tradeLanes || []) {
+        const rings = lane.rings || [];
+        if (!rings.length) continue;
+
+        ctx.save();
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        for (let i = 0; i < rings.length; i++) {
+            const pos = systemMapToScreen(rings[i].x, rings[i].z, mapTransform);
+            if (i === 0) ctx.moveTo(pos.x, pos.y);
+            else ctx.lineTo(pos.x, pos.y);
+        }
+        ctx.strokeStyle = 'rgba(0, 110, 72, 0.72)';
+        ctx.lineWidth = 5;
+        ctx.stroke();
+        ctx.strokeStyle = 'rgba(31, 255, 160, 0.86)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        for (let i = 0; i < rings.length; i++) {
+            const ring = rings[i];
+            const pos = systemMapToScreen(ring.x, ring.z, mapTransform);
+            const ringEntity = findTradeLaneRingEntity(ring, i);
+            const selected = isSelectedMapObject(ring, ringEntity);
+            const endpoint = i === 0 || i === rings.length - 1;
+            const radius = selected ? 6.5 : (endpoint ? 5 : 3.5);
+            ctx.fillStyle = 'rgba(0, 16, 18, 0.9)';
+            ctx.strokeStyle = selected ? '#ffaa00' : (endpoint ? '#8affcf' : '#1fffa0');
+            ctx.lineWidth = selected ? 2.5 : 1.5;
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+        }
+        ctx.restore();
+    }
+}
+
 function drawMapCanvas() {
     const canvas = document.getElementById('map-canvas');
     if (!canvas) return;
@@ -11564,36 +11609,6 @@ function drawMapCanvas() {
         }
     }
     
-    // Trade lanes
-    ctx.strokeStyle = 'rgba(0,200,100,0.5)';
-    ctx.lineWidth = 1;
-    for (const lane of systemData.tradeLanes) {
-        ctx.beginPath();
-        for (let i = 0; i < lane.rings.length; i++) {
-            const ringPos = systemMapToScreen(lane.rings[i].x, lane.rings[i].z, mapTransform);
-            const rx = ringPos.x;
-            const ry = ringPos.y;
-            if (i === 0) ctx.moveTo(rx, ry);
-            else ctx.lineTo(rx, ry);
-        }
-        ctx.stroke();
-        for (let i = 0; i < lane.rings.length; i++) {
-            const ring = lane.rings[i];
-            const ringPos = systemMapToScreen(ring.x, ring.z, mapTransform);
-            const rx = ringPos.x;
-            const ry = ringPos.y;
-            const ringEntity = findTradeLaneRingEntity(ring, i);
-            const selectedRing = isSelectedMapObject(ring, ringEntity);
-            ctx.strokeStyle = selectedRing ? '#ffaa00' : '#00dd88';
-            ctx.lineWidth = selectedRing ? 2 : 1;
-            ctx.beginPath();
-            ctx.arc(rx, ry, selectedRing ? 5 : 3, 0, Math.PI * 2);
-            ctx.stroke();
-        }
-        ctx.strokeStyle = 'rgba(0,200,100,0.5)';
-        ctx.lineWidth = 1;
-    }
-
     // Nebulae and asteroid fields with hazard obstacles
     for (const nebula of systemData.nebulae) {
         ctx.fillStyle = 'rgba(80,120,220,0.12)';
@@ -11633,6 +11648,9 @@ function drawMapCanvas() {
             ctx.fill();
         }
     }
+
+    // Navigation infrastructure must remain visible above fields and debris.
+    drawSystemMapTradeLanes(ctx, mapTransform);
     
     // Stations
     for (const station of systemData.stations) {
