@@ -1,0 +1,33 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Verify browser availability
+        run: google-chrome --version
+      - name: Run complete suite
+        env:
+          CHROME_BIN: /usr/bin/google-chrome
+        run: node --test tests/*.test.js
+      - name: Enforce pure gameplay coverage
+        run: >-
+          node --test --experimental-test-coverage
+          --test-coverage-include=js/active/game-logic.js
+          --test-coverage-lines=99
+          --test-coverage-branches=75
+          --test-coverage-functions=95
+          tests/game-logic.test.js

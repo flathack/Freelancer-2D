@@ -2072,17 +2072,20 @@ function setNpcCruise(npc, active) {
 
 function updateNpcCruiseForDistance(npc, distance, options = {}) {
     if (!npc) return;
-    if ((Number(npc.cruiseDisruptedUntil) || 0) > performance.now() || npc.hidden || npc.inTradeLane || options.combat || options.disabled) {
-        setNpcCruise(npc, false);
-        return;
-    }
     const enterDistance = Number(options.enterDistance) || NPC_CRUISE_ENTER_DISTANCE;
     const exitDistance = Number(options.exitDistance) || NPC_CRUISE_EXIT_DISTANCE;
-    if (npc.cruiseActive) {
-        setNpcCruise(npc, distance > exitDistance);
-    } else {
-        setNpcCruise(npc, distance > enterDistance);
-    }
+    const shouldCruise = Freelancer2DLogic.npcCruiseDecision({
+        active: npc.cruiseActive,
+        distance,
+        disrupted: (Number(npc.cruiseDisruptedUntil) || 0) > performance.now(),
+        hidden: npc.hidden,
+        inTradeLane: npc.inTradeLane,
+        combat: options.combat,
+        disabled: options.disabled,
+        enterDistance,
+        exitDistance
+    });
+    setNpcCruise(npc, shouldCruise);
     if (npc.cruiseActive) npc.throttle = Math.max(npc.throttle || 0, 0.95);
 }
 

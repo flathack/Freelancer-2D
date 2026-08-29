@@ -77,6 +77,28 @@
         return inCombat ? current + step : Math.max(0, current - step * 0.35);
     }
 
+    function npcCruiseDecision({ active = false, distance = 0, disrupted = false, hidden = false, inTradeLane = false, combat = false, disabled = false, enterDistance = 4200, exitDistance = 1350 } = {}) {
+        if (disrupted || hidden || inTradeLane || combat || disabled) return false;
+        const range = Math.max(0, Number(distance) || 0);
+        const enter = Math.max(0, Number(enterDistance) || 4200);
+        const exit = Math.max(0, Math.min(enter, Number(exitDistance) || 1350));
+        return active ? range > exit : range > enter;
+    }
+
+    function npcCombatState({ distance = 0, minimumRange = 180, maximumRange = 900, hull = 1, maxHull = 1, shield = 0, maxShield = 0 } = {}) {
+        const hullRatio = Math.max(0, Number(hull) || 0) / Math.max(1, Number(maxHull) || 1);
+        const shieldRatio = Number(maxShield) > 0
+            ? Math.max(0, Number(shield) || 0) / Math.max(1, Number(maxShield) || 1)
+            : hullRatio;
+        const range = Math.max(0, Number(distance) || 0);
+        const minimum = Math.max(0, Number(minimumRange) || 0);
+        const maximum = Math.max(minimum, Number(maximumRange) || minimum);
+        if (hullRatio < 0.22 || (hullRatio < 0.38 && shieldRatio < 0.08)) return 'flee';
+        if (range > maximum * 1.15) return 'intercept';
+        if (range < minimum) return 'break';
+        return 'engage';
+    }
+
     function baseServices({ bar, commodities, equipment, ships } = {}) {
         return {
             launch: true,
@@ -237,6 +259,8 @@
         formatEta,
         interceptAngle,
         missionTypeForIndex,
+        npcCombatState,
+        npcCruiseDecision,
         normalizeAngle,
         pointInsideZone,
         regenerateShield,

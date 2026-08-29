@@ -185,3 +185,59 @@ test('duplicate extracted object names receive deterministic runtime ids', () =>
         {}
     ], 'Li01_object'), ['CF14_Depot', 'cf14_depot__2', 'station', 'Li01_object_4']);
 });
+
+test('angle normalization and intercept fallback cover circular edge cases', () => {
+    assert.ok(Math.abs(logic.normalizeAngle(Math.PI * 5) - Math.PI) < 1e-10);
+    assert.ok(Math.abs(logic.normalizeAngle(-Math.PI * 5) + Math.PI) < 1e-10);
+    assert.equal(logic.normalizeAngle('invalid'), 0);
+    assert.equal(logic.interceptAngle({ x: 0, z: 0 }, { x: 100, z: 0, vx: 1000, vz: 0 }, 10), 0);
+    assert.equal(logic.interceptAngle(null, null, 0), 0);
+});
+
+test('NPC cruise hysteresis prevents flicker and honors blockers', () => {
+    assert.equal(logic.npcCruiseDecision({ distance: 5000 }), true);
+    assert.equal(logic.npcCruiseDecision({ distance: 3000 }), false);
+    assert.equal(logic.npcCruiseDecision({ active: true, distance: 3000 }), true);
+    assert.equal(logic.npcCruiseDecision({ active: true, distance: 1200 }), false);
+    for (const blocker of ['disrupted', 'hidden', 'inTradeLane', 'combat', 'disabled']) {
+        assert.equal(logic.npcCruiseDecision({ active: true, distance: 9000, [blocker]: true }), false, blocker);
+    }
+});
+
+test('NPC combat state selects flee, intercept, break, and engage maneuvers', () => {
+    const ranges = { minimumRange: 300, maximumRange: 1000, maxHull: 100, maxShield: 100 };
+    assert.equal(logic.npcCombatState({ ...ranges, distance: 500, hull: 20, shield: 100 }), 'flee');
+    assert.equal(logic.npcCombatState({ ...ranges, distance: 500, hull: 35, shield: 5 }), 'flee');
+    assert.equal(logic.npcCombatState({ ...ranges, distance: 1300, hull: 100, shield: 100 }), 'intercept');
+    assert.equal(logic.npcCombatState({ ...ranges, distance: 200, hull: 100, shield: 100 }), 'break');
+    assert.equal(logic.npcCombatState({ ...ranges, distance: 700, hull: 100, shield: 100 }), 'engage');
+    assert.equal(logic.npcCombatState({ distance: 1, hull: 1, maxHull: 1 }), 'break');
+});
+
+test('base service defaults and bar NPCs remain safe without market arrays', () => {
+    assert.deepEqual(logic.baseServices(), {
+        launch: true, bar: false, trade: false, equipment: false, ship: false, repair: false
+    });
+    assert.equal(logic.baseServices({ bar: { npcs: [{}] } }).bar, true);
+});
+
+test('mission restoration rejects invalid saves and preserves passive missions', () => {
+    assert.equal(logic.restoreMissionState(null), null);
+    assert.equal(logic.restoreMissionState({ type: 'combat' }), null);
+    assert.deepEqual(logic.restoreMissionState({ systemId: 'Li01', type: 'transport', spawned: true }), {
+        systemId: 'Li01', type: 'transport', spawned: true
+    });
+    assert.equal(logic.restoreMissionState({ systemId: 'Li01', type: 'destroy', spawned: true }).status, 'accepted');
+});
+
+test('free goods and invalid stock values are quoted without infinities', () => {
+    assert.deepEqual(logic.tradePurchaseQuote({ requested: 3, cargoCapacity: 5, credits: 0, unitPrice: 0, stock: 2 }), {
+        quantity: 2, total: 0, freeCargo: 5, affordable: 5
+    });
+    assert.equal(logic.tradePurchaseQuote({ requested: 3, cargoCapacity: 5, credits: 100, unitPrice: 1, stock: -1 }).quantity, 3);
+});
+
+test('ID generation accepts empty and blank records', () => {
+    assert.deepEqual(logic.uniqueObjectIds(null), []);
+    assert.deepEqual(logic.uniqueObjectIds([{ nickname: '  ' }, { id: '' }], 'gate'), ['gate_1', 'gate_2']);
+});

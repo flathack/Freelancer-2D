@@ -468,16 +468,19 @@ function updateNpcCombatManeuver(npc, target, dt) {
     const dz = target.z - npc.z;
     const distance = Math.max(1, Math.hypot(dx, dz));
     const envelope = npcWeaponEnvelope(npc);
-    const hullRatio = npc.hull / Math.max(1, npc.maxHull);
-    const shieldRatio = npc.maxShield > 0 ? npc.shield / npc.maxShield : hullRatio;
     npc.aiDecisionTimer = Math.max(0, (npc.aiDecisionTimer || 0) - dt);
     if (!npc.maneuverSide) npc.maneuverSide = Math.random() < 0.5 ? -1 : 1;
     if (npc.aiDecisionTimer <= 0) {
         npc.aiDecisionTimer = 0.65 + Math.random() * 0.9;
-        if (hullRatio < 0.22 || (hullRatio < 0.38 && shieldRatio < 0.08)) npc.aiState = 'flee';
-        else if (distance > envelope.maximum * 1.15) npc.aiState = 'intercept';
-        else if (distance < envelope.minimum) npc.aiState = 'break';
-        else npc.aiState = 'engage';
+        npc.aiState = Freelancer2DLogic.npcCombatState({
+            distance,
+            minimumRange: envelope.minimum,
+            maximumRange: envelope.maximum,
+            hull: npc.hull,
+            maxHull: npc.maxHull,
+            shield: npc.shield,
+            maxShield: npc.maxShield
+        });
         if (Math.random() < 0.28) npc.maneuverSide *= -1;
     }
 

@@ -123,7 +123,7 @@ async function poll(evaluate, expression, timeoutMs = 30000) {
     throw new Error(`Browser condition timed out: ${expression}`);
 }
 
-test('browser smoke: start, flight, HUD, map, docking, and NPC spawn', { skip: !chrome, timeout: 60000 }, async () => {
+test('browser smoke: flight, input, maps, saves, NPC AI, trade lanes, trading, and docking', { skip: !chrome, timeout: 60000 }, async () => {
     const server = createStaticServer();
     await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
     const port = server.address().port;
@@ -177,8 +177,100 @@ test('browser smoke: start, flight, HUD, map, docking, and NPC spawn', { skip: !
         assert.equal(map, true);
         await evaluate(`toggleMap(); true`);
 
+        const universeView = await evaluate(`(() => { toggleUniverseView(); return game.showMap && document.getElementById('map-universe-canvas').style.display === 'block' && !document.getElementById('map-overlay').classList.contains('hidden'); })()`);
+        assert.equal(universeView, true);
+        await evaluate(`toggleMap(); true`);
+
+        const controls = await evaluate(`(() => {
+            game.player.throttle = 0.4;
+            window.dispatchEvent(new KeyboardEvent('keydown', { code: 'KeyW' }));
+            const throttleRaised = game.player.throttle > 0.4;
+            window.dispatchEvent(new KeyboardEvent('keydown', { code: 'KeyA' }));
+            const strafing = game.player.strafeLeftActive;
+            window.dispatchEvent(new KeyboardEvent('keyup', { code: 'KeyA' }));
+            window.dispatchEvent(new KeyboardEvent('keydown', { code: 'Tab', cancelable: true }));
+            const afterburner = game.player.afterburnerActive;
+            window.dispatchEvent(new KeyboardEvent('keyup', { code: 'Tab', cancelable: true }));
+            window.dispatchEvent(new Event('blur'));
+            return { throttleRaised, strafing, released: !game.player.strafeLeftActive, afterburner, afterburnerReleased: !game.player.afterburnerActive };
+        })()`);
+        assert.deepEqual(controls, { throttleRaised: true, strafing: true, released: true, afterburner: true, afterburnerReleased: true });
+
+        const overlays = await evaluate(`(() => {
+            toggleInventoryPanel(true);
+            const inventory = !document.getElementById('inventory-overlay').classList.contains('hidden');
+            toggleInventoryPanel(false);
+            toggleReputationPanel(true);
+            const reputation = !document.getElementById('reputation-overlay').classList.contains('hidden');
+            toggleReputationPanel(false);
+            const beforeLanguage = game.language;
+            toggleLanguage();
+            const languageChanged = game.language !== beforeLanguage;
+            toggleLanguage();
+            return { inventory, reputation, languageChanged, languageRestored: game.language === beforeLanguage };
+        })()`);
+        assert.deepEqual(overlays, { inventory: true, reputation: true, languageChanged: true, languageRestored: true });
+
+        const saveRoundTrip = await evaluate(`(() => {
+            const expected = { x: 1234, z: -5678, credits: 424242, cargo: [{ id: 'commodity_food', name: 'Food', quantity: 2, avgPrice: 50 }] };
+            Object.assign(game.player, expected);
+            game.waypoint = { name: 'Saved target', x: 900, z: 800, systemId: currentSystemId, type: 'Waypoint' };
+            saveGame();
+            const saved = readSavedGame();
+            game.player.x = 0; game.player.z = 0; game.player.credits = 0; game.player.cargo = []; game.waypoint = null;
+            restorePlayerFromSave(saved);
+            return {
+                saved: !!saved,
+                position: game.player.x === expected.x && game.player.z === expected.z,
+                credits: game.player.credits === expected.credits,
+                cargo: game.player.cargo[0]?.id === expected.cargo[0].id && game.player.cargo[0]?.quantity === 2,
+                waypoint: game.waypoint?.name === 'Saved target'
+            };
+        })()`);
+        assert.deepEqual(saveRoundTrip, { saved: true, position: true, credits: true, cargo: true, waypoint: true });
+
+        const npcSimulation = await evaluate(`(() => {
+            const npc = createNPC('pirate', { x: game.player.x + 1100, z: game.player.z, difficulty: 3 });
+            npc.hostileToPlayer = true;
+            npc.aiDecisionTimer = 0;
+            game.npcs.push(npc);
+            for (let step = 0; step < 240; step++) updateNPC(npc, 1 / 60);
+            return { finite: Number.isFinite(npc.x) && Number.isFinite(npc.z) && Number.isFinite(npc.rotation), state: npc.aiState, moved: Math.hypot(npc.x - (game.player.x + 1100), npc.z - game.player.z) > 1 };
+        })()`);
+        assert.equal(npcSimulation.finite, true);
+        assert.ok(['flee', 'intercept', 'break', 'engage'].includes(npcSimulation.state));
+        assert.equal(npcSimulation.moved, true);
+
+        const tradeLane = await evaluate(`(() => {
+            const ring = game.entities.find(entity => entity instanceof TradeLaneRing && entity.laneRings?.length > 1);
+            if (!ring) return { available: false };
+            const entered = startTradeLaneFromRing(ring);
+            const targetIsNeighbor = Math.abs(game.player.laneIndex - ring.index) === 1;
+            game.player.exitTradeLane();
+            return { available: true, entered, targetIsNeighbor, exited: !game.player.inTradeLane };
+        })()`);
+        assert.deepEqual(tradeLane, { available: true, entered: true, targetIsNeighbor: true, exited: true });
+
         const docked = await evaluate(`(() => { const target = game.entities.find(entity => entity instanceof Station && (entity.base || entity.dockWith)); if (!target) return false; openLandingWindow(target); return game.isDocked && !!game.interior?.active && document.getElementById('hud').classList.contains('interior-mode'); })()`);
         assert.equal(docked, true);
+
+        const trading = await evaluate(`(() => {
+            const entry = getCommodityMarket().find(item => item.forSale && getCommodity(item.id));
+            if (!entry) return { available: false };
+            game.player.credits = Math.max(game.player.credits, entry.price * 10);
+            const beforeCredits = game.player.credits;
+            const beforeQuantity = findCargoItem(entry.id)?.quantity || 0;
+            buyCommodity(entry.id, 1);
+            const afterBuyQuantity = findCargoItem(entry.id)?.quantity || 0;
+            const afterBuyCredits = game.player.credits;
+            sellCommodity(entry.id, 1);
+            return {
+                available: true,
+                bought: afterBuyQuantity === beforeQuantity + 1 && afterBuyCredits === beforeCredits - entry.price,
+                sold: (findCargoItem(entry.id)?.quantity || 0) === beforeQuantity && game.player.credits > afterBuyCredits
+            };
+        })()`);
+        assert.deepEqual(trading, { available: true, bought: true, sold: true });
         await evaluate(`launchFromBase(); true`);
         assert.equal(await evaluate(`!game.isDocked && !game.interior`), true);
         assert.deepEqual(exceptions, []);
