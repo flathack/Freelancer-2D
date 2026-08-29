@@ -4117,7 +4117,7 @@ function restorePlayerFromSave(save) {
     game.universeZoom = Number.isFinite(save.universeZoom) ? clamp(save.universeZoom, game.minUniverseZoom, game.maxUniverseZoom) : game.universeZoom;
     game.universePanX = Number.isFinite(save.universePanX) ? save.universePanX : 0;
     game.universePanY = Number.isFinite(save.universePanY) ? save.universePanY : 0;
-    game.activeMission = save.activeMission && save.activeMission.systemId ? save.activeMission : null;
+    game.activeMission = Freelancer2DLogic.restoreMissionState(save.activeMission);
     if (save.waypoint && Number.isFinite(save.waypoint.x) && Number.isFinite(save.waypoint.z)) {
         game.waypoint = {
             id: 'saved_waypoint',
@@ -12333,7 +12333,8 @@ function toggleInventoryPanel(force = null) {
 
 function toggleInfoPanel() {
     const panel = document.getElementById('info-panel');
-    if (panel.style.display === 'none') {
+    if (!panel) return;
+    if (getComputedStyle(panel).display === 'none') {
         panel.style.display = 'block';
         updateInfoPanel();
     } else {

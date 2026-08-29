@@ -100,6 +100,23 @@
         return 'station';
     }
 
+    function restoreMissionState(mission) {
+        if (!mission || typeof mission !== 'object' || !mission.systemId) return null;
+        const restored = { ...mission };
+        const type = String(restored.type || 'combat').toLowerCase();
+        if ((type === 'combat' || type === 'destroy') && restored.spawned) {
+            restored.spawned = false;
+            restored.status = 'accepted';
+            restored.remaining = Math.max(1, Number(restored.enemyCount) || 1);
+        }
+        if (type === 'escort' && restored.spawned) {
+            restored.spawned = false;
+            restored.status = 'accepted';
+            restored.escortNpcId = '';
+        }
+        return restored;
+    }
+
     return {
         advanceFleetCombatTimer,
         baseServices,
@@ -108,6 +125,7 @@
         interceptAngle,
         normalizeAngle,
         regenerateShield,
+        restoreMissionState,
         resolveShieldDamage
     };
 });

@@ -23,3 +23,7 @@ test('referenced local script files exist', () => {
     const scripts = [...html.matchAll(/<script[^>]+src=["']([^"']+)["']/g)].map(match => match[1].split('?')[0]);
     for (const script of scripts) assert.ok(fs.existsSync(path.join(root, script)), `missing ${script}`);
 });
+
+test('info panel visibility uses computed style instead of an empty inline style', () => {
+    assert.match(html, /getComputedStyle\(panel\)\.display === 'none'/);
+});

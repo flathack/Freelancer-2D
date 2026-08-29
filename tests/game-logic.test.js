@@ -56,3 +56,32 @@ test('base archetypes select stable layout families', () => {
     assert.equal(logic.classifyBaseKind({ name: 'Deep Space Research Laboratory' }), 'research');
     assert.equal(logic.classifyBaseKind({ archetype: 'smallstation1' }), 'station');
 });
+
+test('spawned combat mission is safely reset when restored without its NPCs', () => {
+    const restored = logic.restoreMissionState({
+        id: 'mission-1',
+        systemId: 'Li01',
+        type: 'combat',
+        status: 'combat',
+        spawned: true,
+        enemyCount: 4,
+        remaining: 2
+    });
+    assert.equal(restored.spawned, false);
+    assert.equal(restored.status, 'accepted');
+    assert.equal(restored.remaining, 4);
+});
+
+test('restored escort mission requests a fresh convoy', () => {
+    const restored = logic.restoreMissionState({
+        id: 'mission-2',
+        systemId: 'Li01',
+        type: 'escort',
+        status: 'enroute',
+        spawned: true,
+        escortNpcId: 'npc-old'
+    });
+    assert.equal(restored.spawned, false);
+    assert.equal(restored.status, 'accepted');
+    assert.equal(restored.escortNpcId, '');
+});
