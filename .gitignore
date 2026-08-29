@@ -19,3 +19,6 @@ venv/
 Thumbs.db
 .DS_Store
 .vscode/
+
+# Local render and extraction checks
+test-output/

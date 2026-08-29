@@ -4,7 +4,7 @@ Freelancer 2D is a browser-based space sandbox inspired by the structure and sys
 It runs with HTML, Canvas, vanilla JavaScript, local data files, and local browser storage.
 
 Play the game directly here!
-https://flathack.github.io/
+https://flathack.github.io/Freelancer-2D/
 
 ## Features
 
@@ -36,24 +36,29 @@ Opening `index.html` directly can work for simple checks, but a local server is 
 
 | Input | Action |
 | --- | --- |
-| Mouse | Aim ship |
-| Left click | Primary weapon |
-| Right click | Secondary weapon / missiles |
-| W / mouse wheel up | Increase throttle |
-| S / mouse wheel down | Decrease throttle |
-| Shift | Cruise mode |
-| Space | Brake |
-| D | Dock at station |
-| G | Enter gate |
+| Left mouse, held | Rotate and steer ship |
+| Left mouse, released | Cursor and HUD interaction mode |
+| Right mouse | Fire primary weapons |
+| Q | Fire missiles |
+| W | Increase throttle |
+| S | Reduce throttle / cancel cruise |
+| X | Reverse thrust |
+| Tab | Hold afterburner |
+| A / D | Drift left / right |
 | M | Toggle map |
-| Tab | Next target |
+| G / N | Use nanobot |
+| F / B | Use shield battery |
+| E | Drop mine |
+| C | Drop countermeasure |
+| Mouse wheel | Zoom |
 
 ## Project Structure
 
 ```text
 index.html      Main game entry point and current bundled game UI
 css/            Shared styling
-js/             Modular game engine, entities, simulation, AI, and UI code
+js/active/      Shared logic used by the active browser game and tests
+js/             Active code plus an older, currently unwired module prototype
 data/           Game data, systems, equipment, ships, factions, and icons
 assets/         Audio, music, textures, menu art, and UI assets
 tools/          Helper scripts for generated assets and data work
@@ -63,6 +68,16 @@ ships.js        Ship data used by the browser game
 ## Status
 
 This is an active hobby/game prototype. Expect frequent changes to data formats, balancing, UI, and save behavior while the game evolves.
+
+## Tests
+
+Run the dependency-free logic and static smoke tests with:
+
+```text
+node --test tests/*.test.js
+```
+
+The browser loads only the selected mod bundle. Generated standalone data files remain available to the extraction pipeline but are not loaded in parallel with the active bundle.
 
 ## Notes
 
