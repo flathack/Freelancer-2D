@@ -160,6 +160,154 @@ body[data-theme="crossfire"] {
 #death-message { margin: 0 0 22px; color: #ffd8d0; font-size: 32px; text-transform: uppercase; text-shadow: 0 0 14px rgba(255,70,40,0.92); }
 #btn-death-restart { min-height: 44px; padding: 0 24px; background: linear-gradient(180deg, rgba(82,20,32,0.92), rgba(28,6,16,0.86)); border: 1px solid #ff7466; color: #ffe4dc; cursor: pointer; font-family: 'Courier New', monospace; font-size: 18px; text-transform: uppercase; box-shadow: 0 0 18px rgba(255,90,70,0.28), inset 0 0 14px rgba(255,160,120,0.12); }
 #btn-death-restart:hover { border-color: #ffd0c8; color: #ffffff; box-shadow: 0 0 24px rgba(255,110,90,0.48), inset 0 0 18px rgba(255,190,150,0.18); }
+
+/* Sirius flight computer HUD */
+#hud {
+    --hud-ink: #d9f5ff;
+    --hud-muted: #7895a6;
+    --hud-surface: rgba(3, 12, 25, 0.78);
+    --hud-surface-strong: rgba(4, 17, 34, 0.92);
+    --hud-line: color-mix(in srgb, var(--hud-accent) 42%, transparent);
+    font-family: "Arial Narrow", "Bahnschrift Condensed", system-ui, sans-serif;
+}
+.hud-panel, #hud-left, #command-bar, #utility-bar, #music-player, #hud-context {
+    background: linear-gradient(165deg, color-mix(in srgb, var(--hud-panel-top) 52%, var(--hud-surface)), var(--hud-surface-strong));
+    border: 1px solid var(--hud-line);
+    border-left: 2px solid var(--hud-accent);
+    box-shadow: 0 12px 34px rgba(0,0,0,0.3), 0 0 18px var(--hud-panel-shadow), inset 0 1px rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px);
+}
+#hud-context {
+    position: absolute;
+    top: 56px;
+    left: 10px;
+    z-index: 4;
+    min-width: 248px;
+    padding: 7px 10px 8px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3px 12px;
+    pointer-events: none;
+    clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 11px, 100% 100%, 0 100%);
+}
+.hud-context-label { color: var(--hud-muted); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; }
+.hud-context-value { min-width: 0; color: var(--hud-ink); font: 600 11px/1.2 ui-monospace, monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#hud-left {
+    padding: 0;
+    overflow: hidden;
+    clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%, 0 14px);
+}
+.flight-core-header {
+    position: relative;
+    min-height: 38px;
+    padding: 7px 13px 6px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    border-bottom: 1px solid var(--hud-line);
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--hud-accent-strong) 16%, transparent), transparent);
+}
+.flight-core-header::after {
+    content: '';
+    position: absolute;
+    left: 18%; right: 18%; bottom: -1px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--hud-accent), transparent);
+    box-shadow: 0 0 10px var(--hud-accent);
+}
+.flight-core-kicker { color: var(--hud-muted); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; }
+.flight-core-kicker:last-child { text-align: right; }
+#mode-indicator {
+    min-width: 138px;
+    padding: 3px 14px;
+    color: #bbffe0;
+    font: 700 12px/1 ui-monospace, monospace;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+    border-inline: 1px solid var(--hud-line);
+    text-shadow: 0 0 10px currentColor;
+}
+.flight-core-readout {
+    padding: 8px 12px 6px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: end;
+    gap: 12px;
+}
+.flight-readout-block { display: grid; gap: 1px; }
+.flight-readout-block:last-child { text-align: right; }
+.flight-readout-label { color: var(--hud-muted); font-size: 9px; letter-spacing: 0.11em; text-transform: uppercase; }
+.flight-readout-value { color: var(--hud-ink); font: 650 14px/1 ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+.flight-bearing {
+    width: 116px;
+    height: 12px;
+    position: relative;
+    align-self: center;
+    border-top: 1px solid var(--hud-line);
+    background: repeating-linear-gradient(90deg, transparent 0 10px, color-mix(in srgb, var(--hud-accent) 62%, transparent) 10px 11px);
+}
+.flight-bearing::before {
+    content: '';
+    position: absolute;
+    left: 50%; top: -5px;
+    width: 8px; height: 8px;
+    transform: translateX(-50%) rotate(45deg);
+    border: 1px solid var(--hud-highlight);
+    background: var(--hud-highlight-bg);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--hud-highlight) 70%, transparent);
+}
+.status-grid { padding: 0 12px 10px; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.stat-bar { grid-template-columns: 1fr auto; grid-template-rows: auto 5px; gap: 3px 6px; }
+.stat-label { grid-column: 1; color: var(--hud-muted); font-size: 9px; letter-spacing: 0.08em; }
+.stat-value { grid-column: 2; color: var(--hud-ink); font: 600 9px/1 ui-monospace, monospace; }
+.bar-container { grid-column: 1 / -1; height: 5px; border: 0; background: rgba(255,255,255,0.07); }
+.bar-fill { box-shadow: 0 0 8px currentColor; }
+#hud-bottom, #hud-right { bottom: 14px; }
+#hud-bottom { left: 14px; width: clamp(270px, 24vw, 360px); min-width: 0; }
+#hud-right { right: 14px; width: clamp(280px, 25vw, 370px); min-width: 0; }
+#target-info { margin-bottom: 7px; padding: 9px 10px; border-left: 2px solid var(--hud-highlight); background: rgba(5,17,31,0.82); }
+#target-name { font: 700 12px/1.2 ui-monospace, monospace; letter-spacing: 0.04em; }
+#target-dist, #target-defense { margin-top: 3px; font: 10px/1.25 ui-monospace, monospace; }
+.hud-panel-title { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+.hud-list { scrollbar-width: thin; scrollbar-color: var(--hud-accent-strong) transparent; }
+.hud-row { border-inline: 0; border-top: 0; font-family: ui-monospace, monospace; }
+.scanner-actions { justify-content: flex-start; }
+#log-area { left: 14px; bottom: 248px; }
+@media (max-width: 1040px) {
+    #hud-context { top: 54px; min-width: 220px; }
+    #hud-left { width: min(440px, calc(100vw - 32px)); bottom: 12px; }
+    .status-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    #hud-bottom, #hud-right { width: 260px; bottom: 142px; }
+    .hud-list { max-height: 116px; }
+    #log-area { display: none; }
+}
+@media (max-width: 720px) {
+    #music-player { grid-template-columns: auto auto auto; width: auto; }
+    #music-track-select, #music-label { display: none; }
+    #utility-bar .cmd-btn:not(#btn-map):not(#btn-menu) { display: none; }
+    #hud-context { top: 50px; left: 8px; min-width: 180px; max-width: calc(100vw - 16px); }
+    #hud-bottom, #hud-right { bottom: 138px; width: calc(50vw - 12px); }
+    #hud-bottom { left: 8px; }
+    #hud-right { right: 8px; }
+    #hud-left { bottom: 8px; width: calc(100vw - 16px); }
+    .flight-core-header { min-height: 34px; }
+    .flight-core-kicker { display: none; }
+    #mode-indicator { grid-column: 1 / -1; min-width: 0; }
+    .flight-core-readout { padding-block: 6px; }
+    .flight-bearing { width: 72px; }
+    .status-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); padding-bottom: 8px; }
+    .stat-label { overflow: hidden; text-overflow: clip; }
+    .hud-list { max-height: 78px; }
+    .loadout-consumables { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .side-control { top: 46%; height: 180px; }
+    .side-slider-wrap { height: 112px; }
+    .side-slider { width: 112px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #radiation-warning { animation: none; }
+    .bar-fill { transition: none; }
+}
 #btn-new-game { border-color: #19d7ff; color: #8ee8ff; }
 #btn-delete-save { border-color: #aa3333; color: #ff9999; background: linear-gradient(180deg, rgba(82,20,32,0.9), rgba(28,6,16,0.84)); }
 #btn-delete-save:hover { border-color: #ff6666; color: #ffd0d0; background: linear-gradient(180deg, rgba(120,28,42,0.95), rgba(52,8,20,0.9)); }
@@ -374,10 +522,28 @@ body[data-theme="crossfire"] .mod-btn.active {
     background: rgba(112, 24, 20, 0.74) !important;
 }
 
+#log-area {
+    top: auto;
+    left: 14px;
+    bottom: 250px;
+    width: min(320px, calc(100vw - 28px));
+    max-height: 126px;
+    background: rgba(2, 9, 18, 0.78);
+    border: 1px solid var(--hud-line);
+    border-left: 2px solid var(--hud-accent);
+    color: var(--hud-ink);
+    backdrop-filter: blur(7px);
+}
+#hud button:focus-visible, #hud select:focus-visible, #hud input:focus-visible {
+    outline: 2px solid var(--hud-highlight);
+    outline-offset: 2px;
+}
+
 @media (max-width: 720px) {
     #map-overlay, #landing-overlay {
         width: calc(100vw - 24px) !important;
     }
+    #log-area { display: none !important; }
 }
     </style>
 </head>
@@ -388,6 +554,12 @@ body[data-theme="crossfire"] .mod-btn.active {
         <div id="hud">
             <div id="missile-warning" class="hidden">Rakete im Anflug!</div>
             <div id="radiation-warning" class="hidden" title="Radiation damage" aria-label="Radiation damage"><img src="assets/radioactive-hazard-icon.svg" alt=""></div>
+            <div id="hud-context" aria-live="polite">
+                <span class="hud-context-label">System</span><strong id="system-name" class="hud-context-value">New York</strong>
+                <span class="hud-context-label">Navigation</span><strong id="hud-waypoint" class="hud-context-value">No course</strong>
+                <span class="hud-context-label">Account</span><strong id="credits" class="hud-context-value">0 CR</strong>
+                <span class="hud-context-label">Cargo</span><strong id="cargo" class="hud-context-value">0/0</strong>
+            </div>
             <div id="hud-top">
                 <div id="music-player">
                     <span id="music-label">MUSIC</span>
@@ -420,6 +592,16 @@ body[data-theme="crossfire"] .mod-btn.active {
             </div>
             
             <div id="hud-left">
+                <div class="flight-core-header">
+                    <span class="flight-core-kicker">Flight control</span>
+                    <strong id="mode-indicator">FREEFLIGHT</strong>
+                    <span class="flight-core-kicker">Sirius nav</span>
+                </div>
+                <div class="flight-core-readout">
+                    <div class="flight-readout-block"><span class="flight-readout-label">Velocity</span><strong id="flight-speed" class="flight-readout-value">0 m/s</strong></div>
+                    <div class="flight-bearing" aria-hidden="true"></div>
+                    <div class="flight-readout-block"><span class="flight-readout-label">Throttle</span><strong id="flight-throttle" class="flight-readout-value">0%</strong></div>
+                </div>
                 <div class="status-grid">
                     <div class="stat-bar">
                         <span class="stat-label" id="label-shield">SHIELD</span>
@@ -10067,7 +10249,11 @@ function bindScannerPanelEvents() {
     });
 }
 
-function updateScannerPanel() {
+function setTextIfChanged(element, value) {
+    if (element && element.textContent !== String(value)) element.textContent = String(value);
+}
+
+function updateScannerPanel(force = false) {
     const list = document.getElementById('scanner-list');
     const range = document.getElementById('scanner-range');
     const scanButton = document.getElementById('btn-scan-target');
@@ -10076,25 +10262,43 @@ function updateScannerPanel() {
     if (scanButton) scanButton.disabled = !(game.selectedTarget && game.npcs?.includes(game.selectedTarget));
     const entries = scannerTargets();
     if (!entries.length) {
-        list.innerHTML = `<div class="hud-row-muted">${escapeHtml(t('scannerNone'))}</div>`;
+        if (game.hudScannerSignature !== 'empty') list.innerHTML = `<div class="hud-row-muted">${escapeHtml(t('scannerNone'))}</div>`;
+        game.hudScannerSignature = 'empty';
         return;
     }
     game.scannerTargetMap = new Map();
-    list.innerHTML = entries.map(entry => {
+    const signature = `${game.language}|${entries.map(entry => `${scannerTargetKey(entry.target)}:${entry.kind}:${entry.target.name || entry.target.shipName || ''}`).join('|')}`;
+    if (force || signature !== game.hudScannerSignature) {
+        const scrollTop = list.scrollTop;
+        const focusedKey = document.activeElement?.dataset?.scannerKey || '';
+        list.innerHTML = entries.map(entry => {
+            const key = scannerTargetKey(entry.target);
+            const encodedKey = encodeURIComponent(key).replace(/'/g, '%27');
+            const name = entry.target.name || entry.target.shipName || key || entry.kind;
+            return `<button type="button" class="hud-row scanner-row" data-scanner-key="${encodedKey}"><span class="hud-kind">${scannerObjectIcon(entry.kind)}</span><span>${escapeHtml(name)}<br><span class="hud-defense" style="color:#7299aa;"></span></span><span class="hud-distance"></span></button>`;
+        }).join('');
+        list.scrollTop = scrollTop;
+        if (focusedKey) [...list.querySelectorAll('.scanner-row')].find(row => row.dataset.scannerKey === focusedKey)?.focus({ preventScroll: true });
+        game.hudScannerSignature = signature;
+    }
+    const rows = [...list.querySelectorAll('.scanner-row[data-scanner-key]')];
+    for (const [index, entry] of entries.entries()) {
         const key = scannerTargetKey(entry.target);
-        const encodedKey = encodeURIComponent(key).replace(/'/g, '%27');
         game.scannerTargetMap.set(key, entry.target);
-        const selected = game.selectedTarget === entry.target || game.selectedTarget?.linkedTarget === entry.target || game.selectedTarget === entry.target.linkedTarget ? ' selected' : '';
-        const name = entry.target.name || entry.target.shipName || key || entry.kind;
+        const row = rows[index];
+        if (!row) continue;
+        const selected = game.selectedTarget === entry.target || game.selectedTarget?.linkedTarget === entry.target || game.selectedTarget === entry.target.linkedTarget;
+        row.classList.toggle('selected', selected);
         const hasDefenseStats = Number.isFinite(entry.target?.maxHull) || Number.isFinite(entry.target?.maxShield);
         const defenseLine = hasDefenseStats
             ? `${t('hudShield')}: ${Math.round(Number(entry.target?.shield) || 0)}/${Math.max(0, Math.round(Number(entry.target?.maxShield) || 0))} | ${t('hudHull')}: ${Math.round(Number(entry.target?.hull) || 0)}/${Math.max(1, Math.round(Number(entry.target?.maxHull) || 0))}`
             : entry.kind;
-        return `<button type="button" class="hud-row scanner-row${selected}" data-scanner-key="${encodedKey}"><span class="hud-kind">${scannerObjectIcon(entry.kind)}</span><span>${escapeHtml(name)}<br><span style="color:#7299aa;">${escapeHtml(defenseLine)}</span></span><span class="hud-distance">${formatDistance(entry.distance)}</span></button>`;
-    }).join('');
+        setTextIfChanged(row.querySelector('.hud-defense'), defenseLine);
+        setTextIfChanged(row.querySelector('.hud-distance'), formatDistance(entry.distance));
+    }
 }
 
-function updateLoadoutPanel() {
+function updateLoadoutPanel(force = false) {
     const list = document.getElementById('weapon-list');
     if (!list || !game.player) return;
     const weaponSlots = getWeaponSlotKeys();
@@ -10114,7 +10318,11 @@ function updateLoadoutPanel() {
         const autoEnabled = game.player.countermeasureAutoEnabled !== false;
         rows.push(`<div class="hud-row"><span class="hud-kind">CM</span><span>${escapeHtml(countermeasureDropper.name || t('countermeasures'))}<br><span style="color:#7299aa;">${escapeHtml(t('countermeasures'))} ${totalCountermeasureAmmoCount()}</span></span><button type="button" class="hud-action-btn hud-toggle-btn${autoEnabled ? ' active' : ''}" onclick="toggleCountermeasureAuto()">${escapeHtml(autoEnabled ? t('countermeasureAutoOn') : t('countermeasureAutoOff'))}</button></div>`);
     }
-    list.innerHTML = rows.length ? rows.join('') : `<div class="hud-row-muted">${escapeHtml(t('noWeaponSlots'))}</div>`;
+    const loadoutSignature = `${game.language}|${mountedWeapons.map(entry => `${entry.slot}:${entry.item?.id || ''}`).join('|')}|${game.player.countermeasureAutoEnabled !== false}|${totalCountermeasureAmmoCount()}`;
+    if (force || loadoutSignature !== game.hudLoadoutSignature) {
+        list.innerHTML = rows.length ? rows.join('') : `<div class="hud-row-muted">${escapeHtml(t('noWeaponSlots'))}</div>`;
+        game.hudLoadoutSignature = loadoutSignature;
+    }
     const nanobots = document.getElementById('nanobot-count');
     const batteries = document.getElementById('shield-battery-count');
     const missileAmmo = document.getElementById('missile-ammo-count');
@@ -10123,21 +10331,21 @@ function updateLoadoutPanel() {
     const mineLabel = document.getElementById('label-mines');
     const countermeasures = document.getElementById('countermeasure-count');
     const countermeasureLabel = document.getElementById('label-countermeasures');
-    if (nanobots) nanobots.textContent = `${game.player.nanobots}/${game.player.maxNanobots}`;
-    if (batteries) batteries.textContent = `${game.player.shieldBatteries}/${game.player.maxShieldBatteries}`;
-    if (missileAmmo) missileAmmo.textContent = `${totalMissileAmmoCount()}/${game.player.maxMissileAmmo}`;
-    if (missileAmmoLabel) missileAmmoLabel.textContent = t('missileAmmo');
-    if (mines) mines.textContent = `${totalMineAmmoCount()}/${game.player.maxMineAmmo}`;
-    if (mineLabel) mineLabel.textContent = t('mines');
-    if (countermeasures) countermeasures.textContent = `${totalCountermeasureAmmoCount()}`;
-    if (countermeasureLabel) countermeasureLabel.textContent = t('countermeasures');
+    setTextIfChanged(nanobots, `${game.player.nanobots}/${game.player.maxNanobots}`);
+    setTextIfChanged(batteries, `${game.player.shieldBatteries}/${game.player.maxShieldBatteries}`);
+    setTextIfChanged(missileAmmo, `${totalMissileAmmoCount()}/${game.player.maxMissileAmmo}`);
+    setTextIfChanged(missileAmmoLabel, t('missileAmmo'));
+    setTextIfChanged(mines, `${totalMineAmmoCount()}/${game.player.maxMineAmmo}`);
+    setTextIfChanged(mineLabel, t('mines'));
+    setTextIfChanged(countermeasures, `${totalCountermeasureAmmoCount()}`);
+    setTextIfChanged(countermeasureLabel, t('countermeasures'));
 }
 
 function toggleCountermeasureAuto() {
     if (!game.player) return;
     game.player.countermeasureAutoEnabled = game.player.countermeasureAutoEnabled === false;
     saveGame();
-    updateLoadoutPanel();
+    updateLoadoutPanel(true);
 }
 
 function isSpeedSliderLocked() {
@@ -10158,9 +10366,10 @@ function updateSpeedControl() {
     const locked = isSpeedSliderLocked();
     const currentSpeed = Math.max(0, Number(game.player.speed) || 0);
     const targetSpeed = speedSliderTarget();
-    slider.disabled = locked;
-    slider.value = String(locked ? clamp(Math.round(currentSpeed), 0, COMBAT_MAX_SPEED) : targetSpeed);
-    value.textContent = `${locked ? Math.round(currentSpeed) : targetSpeed} m/s`;
+    if (slider.disabled !== locked) slider.disabled = locked;
+    const sliderValue = String(locked ? clamp(Math.round(currentSpeed), 0, COMBAT_MAX_SPEED) : targetSpeed);
+    if (slider.value !== sliderValue) slider.value = sliderValue;
+    setTextIfChanged(value, `${locked ? Math.round(currentSpeed) : targetSpeed} m/s`);
 }
 
 function setPlayerSpeedTarget(value) {
@@ -10179,10 +10388,13 @@ function updateZoomControl() {
     const slider = document.getElementById('zoom-slider');
     const value = document.getElementById('zoom-control-value');
     if (!slider || !value) return;
-    slider.min = String(game.minZoom);
-    slider.max = String(game.maxZoom);
-    slider.value = String(clamp(Number(game.zoom) || 1, game.minZoom, game.maxZoom));
-    value.textContent = `${game.zoom.toFixed(1)}x`;
+    const min = String(game.minZoom);
+    const max = String(game.maxZoom);
+    const sliderValue = String(clamp(Number(game.zoom) || 1, game.minZoom, game.maxZoom));
+    if (slider.min !== min) slider.min = min;
+    if (slider.max !== max) slider.max = max;
+    if (slider.value !== sliderValue) slider.value = sliderValue;
+    setTextIfChanged(value, `${game.zoom.toFixed(1)}x`);
 }
 
 function setZoomLevel(value) {
@@ -10195,9 +10407,9 @@ function updateHUD() {
     const setStatus = (barId, valueId, ratio) => {
         const percent = Math.round(clamp(Number(ratio) || 0, 0, 1) * 100);
         const bar = document.getElementById(barId);
-        if (bar) bar.style.width = percent + '%';
+        if (bar && bar.style.width !== percent + '%') bar.style.width = percent + '%';
         const value = document.getElementById(valueId);
-        if (value) value.textContent = percent + '%';
+        setTextIfChanged(value, percent + '%');
     };
     setStatus('shield-bar', 'shield-value', p.maxShield > 0 ? p.shield / p.maxShield : 0);
     setStatus('hull-bar', 'hull-value', p.hull / Math.max(1, p.maxHull));
@@ -10207,10 +10419,29 @@ function updateHUD() {
     updateZoomControl();
     updateCruiseButton();
     updateCommandModeButtons();
-    updateScannerPanel();
-    updateLoadoutPanel();
+    const hudNow = performance.now();
+    if (hudNow - (game.hudLastScannerAt || 0) >= 180) {
+        game.hudLastScannerAt = hudNow;
+        updateScannerPanel();
+    }
+    if (hudNow - (game.hudLastLoadoutAt || 0) >= 260) {
+        game.hudLastLoadoutAt = hudNow;
+        updateLoadoutPanel();
+    }
     updateMissileWarning();
-    if (!document.getElementById('inventory-overlay')?.classList.contains('hidden')) renderInventoryPanel();
+    if (!document.getElementById('inventory-overlay')?.classList.contains('hidden') && hudNow - (game.hudLastInventoryAt || 0) >= 300) {
+        game.hudLastInventoryAt = hudNow;
+        renderInventoryPanel();
+    }
+    setTextIfChanged(document.getElementById('flight-speed'), `${Math.round(Math.abs(Number(p.speed) || 0))} m/s`);
+    setTextIfChanged(document.getElementById('flight-throttle'), `${Math.round((Number(p.throttle) || 0) * 100)}%`);
+    setTextIfChanged(document.getElementById('credits'), `${Number(p.credits || 0).toLocaleString()} CR`);
+    setTextIfChanged(document.getElementById('cargo'), `${cargoUnits()}/${p.maxCargo}`);
+    setTextIfChanged(document.getElementById('system-name'), systemData?.name || currentSystemId);
+    const waypointLabel = game.waypoint
+        ? `${game.waypoint.name || game.waypoint.type || 'Waypoint'} · ${formatDistance(Math.hypot((game.waypoint.x || 0) - p.x, (game.waypoint.z || 0) - p.z))}`
+        : t('freeflight');
+    setTextIfChanged(document.getElementById('hud-waypoint'), waypointLabel);
     
     // Mode indicator
     const modeEl = document.getElementById('mode-indicator');
