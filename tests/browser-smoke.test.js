@@ -1,0 +1,179 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const http = require('node:http');
+const os = require('node:os');
+const path = require('node:path');
+const { spawn, spawnSync } = require('node:child_process');
+
+const root = path.resolve(__dirname, '..');
+const chrome = process.env.CHROME_BIN || ['chromium', 'chromium-browser', 'google-chrome']
+    .find(command => spawnSync('sh', ['-lc', `command -v ${command}`], { encoding: 'utf8' }).status === 0);
+
+function contentType(filePath) {
+    const extension = path.extname(filePath).toLowerCase();
+    return ({
+        '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
+        '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8',
+        '.png': 'image/png', '.svg': 'image/svg+xml', '.mp3': 'audio/mpeg', '.wav': 'audio/wav'
+    })[extension] || 'application/octet-stream';
+}
+
+function createStaticServer() {
+    return http.createServer((request, response) => {
+        const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
+        const relative = pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, '');
+        const filePath = path.resolve(root, relative);
+        if (!filePath.startsWith(root + path.sep)) {
+            response.writeHead(403).end();
+            return;
+        }
+        fs.readFile(filePath, (error, data) => {
+            if (error) {
+                response.writeHead(404).end();
+                return;
+            }
+            response.writeHead(200, { 'content-type': contentType(filePath), 'cache-control': 'no-store' });
+            response.end(data);
+        });
+    });
+}
+
+function waitForDevtools(process, timeoutMs = 15000) {
+    return new Promise((resolve, reject) => {
+        let stderr = '';
+        const timeout = setTimeout(() => reject(new Error(`Chromium did not expose DevTools: ${stderr.slice(-1000)}`)), timeoutMs);
+        process.stderr.on('data', chunk => {
+            stderr += chunk.toString();
+            const match = stderr.match(/DevTools listening on (ws:\/\/[^\s]+)/);
+            if (match) {
+                clearTimeout(timeout);
+                resolve(match[1]);
+            }
+        });
+        process.once('exit', code => {
+            clearTimeout(timeout);
+            reject(new Error(`Chromium exited before startup (${code}): ${stderr.slice(-1000)}`));
+        });
+    });
+}
+
+function createCdpClient(webSocketUrl) {
+    const socket = new WebSocket(webSocketUrl);
+    const pending = new Map();
+    const listeners = new Map();
+    let nextId = 1;
+    socket.addEventListener('message', event => {
+        const message = JSON.parse(event.data);
+        if (message.id && pending.has(message.id)) {
+            const { resolve, reject, timeout } = pending.get(message.id);
+            clearTimeout(timeout);
+            pending.delete(message.id);
+            if (message.error) reject(new Error(message.error.message));
+            else resolve(message.result);
+            return;
+        }
+        for (const listener of listeners.get(message.method) || []) listener(message.params || {});
+    });
+    const ready = new Promise((resolve, reject) => {
+        socket.addEventListener('open', resolve, { once: true });
+        socket.addEventListener('error', () => reject(new Error('Could not connect to Chromium DevTools')), { once: true });
+    });
+    return {
+        ready,
+        on(method, listener) {
+            const entries = listeners.get(method) || [];
+            entries.push(listener);
+            listeners.set(method, entries);
+        },
+        send(method, params = {}, timeoutMs = 30000) {
+            const id = nextId++;
+            return new Promise((resolve, reject) => {
+                const timeout = setTimeout(() => {
+                    pending.delete(id);
+                    reject(new Error(`CDP command timed out: ${method}`));
+                }, timeoutMs);
+                pending.set(id, { resolve, reject, timeout });
+                socket.send(JSON.stringify({ id, method, params }));
+            });
+        },
+        close() { socket.close(); }
+    };
+}
+
+async function poll(evaluate, expression, timeoutMs = 30000) {
+    const deadline = Date.now() + timeoutMs;
+    while (Date.now() < deadline) {
+        const value = await evaluate(expression);
+        if (value) return value;
+        await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    throw new Error(`Browser condition timed out: ${expression}`);
+}
+
+test('browser smoke: start, flight, HUD, map, docking, and NPC spawn', { skip: !chrome, timeout: 60000 }, async () => {
+    const server = createStaticServer();
+    await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+    const port = server.address().port;
+    const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'freelancer2d-browser-'));
+    const browser = spawn(chrome, [
+        '--headless=new', '--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage',
+        '--autoplay-policy=no-user-gesture-required', '--remote-debugging-port=0',
+        `--user-data-dir=${profile}`, 'about:blank'
+    ], { stdio: ['ignore', 'ignore', 'pipe'] });
+
+    let client;
+    try {
+        const browserWebSocket = await waitForDevtools(browser);
+        const debuggerPort = new URL(browserWebSocket).port;
+        const targetUrl = `http://127.0.0.1:${port}/`;
+        const target = await fetch(`http://127.0.0.1:${debuggerPort}/json/new?${encodeURIComponent(targetUrl)}`, { method: 'PUT' }).then(response => response.json());
+        client = createCdpClient(target.webSocketDebuggerUrl);
+        await client.ready;
+        const exceptions = [];
+        client.on('Runtime.exceptionThrown', event => exceptions.push(event.exceptionDetails?.text || 'Runtime exception'));
+        await client.send('Runtime.enable');
+        await client.send('Page.enable');
+        const evaluate = async expression => {
+            const result = await client.send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true });
+            if (result.exceptionDetails) throw new Error(result.exceptionDetails.exception?.description || result.exceptionDetails.text);
+            return result.result?.value;
+        };
+
+        await poll(evaluate, `document.readyState === 'complete' && typeof game === 'object' && !!game.player && game.entities.length > 0`);
+        const initial = await evaluate(`({ player: !!game.player, entities: game.entities.length, npcs: game.npcs.length, hud: !!document.getElementById('hud') })`);
+        assert.equal(initial.player, true);
+        assert.equal(initial.hud, true);
+        assert.ok(initial.entities > 0);
+        assert.ok(initial.npcs > 0, 'ambient NPC traffic should be seeded');
+
+        await evaluate(`startGame(); true`);
+        await poll(evaluate, `game.running && document.getElementById('start-screen').classList.contains('hidden')`);
+        const hud = await evaluate(`({ system: document.getElementById('system-name').textContent, mode: document.getElementById('mode-indicator').textContent, hull: document.getElementById('hull-value').textContent })`);
+        assert.ok(hud.system.trim().length > 0);
+        assert.ok(hud.mode.length > 0);
+        assert.match(hud.hull, /%/);
+
+        const before = await evaluate(`({ x: game.player.x, z: game.player.z })`);
+        await evaluate(`game.player.rotation = 0; game.player.speed = 50; game.player.throttle = 1; true`);
+        await new Promise(resolve => setTimeout(resolve, 350));
+        const after = await evaluate(`({ x: game.player.x, z: game.player.z })`);
+        assert.ok(Math.hypot(after.x - before.x, after.z - before.z) > 0.1, 'player should move during free flight');
+
+        await evaluate(`toggleMap(); true`);
+        const map = await poll(evaluate, `game.showMap && !document.getElementById('map-overlay').classList.contains('hidden') && document.getElementById('map-canvas').width > 0`);
+        assert.equal(map, true);
+        await evaluate(`toggleMap(); true`);
+
+        const docked = await evaluate(`(() => { const target = game.entities.find(entity => entity instanceof Station && (entity.base || entity.dockWith)); if (!target) return false; openLandingWindow(target); return game.isDocked && !!game.interior?.active && document.getElementById('hud').classList.contains('interior-mode'); })()`);
+        assert.equal(docked, true);
+        await evaluate(`launchFromBase(); true`);
+        assert.equal(await evaluate(`!game.isDocked && !game.interior`), true);
+        assert.deepEqual(exceptions, []);
+    } finally {
+        client?.close();
+        browser.kill('SIGTERM');
+        await new Promise(resolve => server.close(resolve));
+        fs.rmSync(profile, { recursive: true, force: true });
+    }
+});

@@ -134,17 +134,118 @@
         return { index: nextIndex, reached: true, complete: nextIndex >= route.length };
     }
 
+    function formatDistance(meters) {
+        const value = Number(meters);
+        if (!Number.isFinite(value)) return '-';
+        if (value >= 1000) return (value / 1000).toFixed(value >= 10000 ? 0 : 1) + ' km';
+        return Math.round(value) + ' m';
+    }
+
+    function formatEta(seconds) {
+        const value = Number(seconds);
+        if (!Number.isFinite(value) || value < 0) return '--:--';
+        const total = Math.ceil(value);
+        return Math.floor(total / 60) + ':' + String(total % 60).padStart(2, '0');
+    }
+
+    function reputationStatus(value) {
+        const reputation = Number(value) || 0;
+        if (reputation <= -0.6) return 'hostile';
+        if (reputation >= 0.6) return 'friendly';
+        return 'neutral';
+    }
+
+    function tradeLaneStart(rings, ringIndex, playerRotation = 0) {
+        const route = Array.isArray(rings) ? rings : [];
+        const index = Math.floor(Number(ringIndex));
+        if (route.length < 2 || !Number.isInteger(index) || index < 0 || index >= route.length) return null;
+        let direction = 1;
+        if (index === route.length - 1) direction = -1;
+        else if (index > 0) {
+            const current = route[index];
+            const forward = route[index + 1];
+            const backward = route[index - 1];
+            const vx = Math.cos(Number(playerRotation) || 0);
+            const vz = Math.sin(Number(playerRotation) || 0);
+            const forwardDot = (forward.x - current.x) * vx + (forward.z - current.z) * vz;
+            const backwardDot = (backward.x - current.x) * vx + (backward.z - current.z) * vz;
+            direction = backwardDot > forwardDot ? -1 : 1;
+        }
+        return { targetIndex: index + direction, direction };
+    }
+
+    function distancePointToSegment(px, pz, ax, az, bx, bz) {
+        const dx = bx - ax;
+        const dz = bz - az;
+        const lengthSquared = dx * dx + dz * dz;
+        if (lengthSquared <= 0) return Math.hypot(px - ax, pz - az);
+        const progress = clamp(((px - ax) * dx + (pz - az) * dz) / lengthSquared, 0, 1);
+        return Math.hypot(px - (ax + dx * progress), pz - (az + dz * progress));
+    }
+
+    function pointInsideZone(zone, x, z, margin = 0) {
+        const rotation = (Number(zone?.rotateY ?? zone?.rotate_y) || 0) * Math.PI / 180;
+        const dx = (Number(x) || 0) - (Number(zone?.x) || 0);
+        const dz = (Number(z) || 0) - (Number(zone?.z) || 0);
+        const cos = Math.cos(rotation);
+        const sin = Math.sin(rotation);
+        const localX = dx * cos - dz * sin;
+        const localZ = dx * sin + dz * cos;
+        const shape = String(zone?.shape || '').toUpperCase();
+        const boxScale = shape === 'BOX' ? 0.5 : 1;
+        const radiusX = Math.max(1, Number(zone?.sizeX ?? zone?.size_x ?? zone?.size) || 1) * boxScale + Math.max(0, Number(margin) || 0);
+        const radiusZ = Math.max(1, Number(zone?.sizeZ ?? zone?.size_z ?? zone?.size) || 1) * boxScale + Math.max(0, Number(margin) || 0);
+        if (shape === 'SPHERE') return Math.hypot(localX, localZ) <= Math.max(radiusX, radiusZ);
+        if (shape === 'BOX') return Math.abs(localX) <= radiusX && Math.abs(localZ) <= radiusZ;
+        return (localX * localX) / (radiusX * radiusX) + (localZ * localZ) / (radiusZ * radiusZ) <= 1;
+    }
+
+    function tradePurchaseQuote({ requested, cargoUsed, cargoCapacity, credits, unitPrice, stock = Infinity } = {}) {
+        const price = Math.max(0, Number(unitPrice) || 0);
+        const freeCargo = Math.max(0, (Number(cargoCapacity) || 0) - (Number(cargoUsed) || 0));
+        const affordable = price > 0 ? Math.floor(Math.max(0, Number(credits) || 0) / price) : freeCargo;
+        const availableStock = Number.isFinite(Number(stock)) && Number(stock) > 0 ? Number(stock) : Infinity;
+        const quantity = Math.floor(Math.max(0, Math.min(Number(requested) || 0, freeCargo, affordable, availableStock)));
+        return { quantity, total: quantity * price, freeCargo, affordable };
+    }
+
+    function tradeSaleQuote({ requested, owned, unitPrice } = {}) {
+        const price = Math.max(0, Number(unitPrice) || 0);
+        const quantity = Math.floor(Math.max(0, Math.min(Number(requested) || 0, Math.max(0, Number(owned) || 0))));
+        return { quantity, total: quantity * price };
+    }
+
+    function uniqueObjectIds(records, prefix = 'object') {
+        const counts = new Map();
+        return (Array.isArray(records) ? records : []).map((record, index) => {
+            const base = String(record?.nickname || record?.id || `${prefix}_${index + 1}`).trim() || `${prefix}_${index + 1}`;
+            const key = base.toLowerCase();
+            const count = (counts.get(key) || 0) + 1;
+            counts.set(key, count);
+            return count === 1 ? base : `${base}__${count}`;
+        });
+    }
+
     return {
         advanceFleetCombatTimer,
         baseServices,
         classifyBaseKind,
         clamp,
         advancePatrolRoute,
+        distancePointToSegment,
+        formatDistance,
+        formatEta,
         interceptAngle,
         missionTypeForIndex,
         normalizeAngle,
+        pointInsideZone,
         regenerateShield,
+        reputationStatus,
         restoreMissionState,
-        resolveShieldDamage
+        resolveShieldDamage,
+        tradeLaneStart,
+        tradePurchaseQuote,
+        tradeSaleQuote,
+        uniqueObjectIds
     };
 });

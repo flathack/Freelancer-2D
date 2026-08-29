@@ -111,3 +111,77 @@ test('patrol route advances only inside the checkpoint radius', () => {
         complete: true
     });
 });
+
+test('distance and ETA formatting cover short, long, and invalid values', () => {
+    assert.equal(logic.formatDistance(850), '850 m');
+    assert.equal(logic.formatDistance(1500), '1.5 km');
+    assert.equal(logic.formatDistance(12500), '13 km');
+    assert.equal(logic.formatDistance(Infinity), '-');
+    assert.equal(logic.formatEta(0), '0:00');
+    assert.equal(logic.formatEta(60.1), '1:01');
+    assert.equal(logic.formatEta(-1), '--:--');
+});
+
+test('reputation thresholds are stable at their boundaries', () => {
+    assert.equal(logic.reputationStatus(-0.6), 'hostile');
+    assert.equal(logic.reputationStatus(-0.59), 'neutral');
+    assert.equal(logic.reputationStatus(0.59), 'neutral');
+    assert.equal(logic.reputationStatus(0.6), 'friendly');
+});
+
+test('trade lane entry chooses endpoints and pilot-facing direction', () => {
+    const rings = [{ x: 0, z: 0 }, { x: 100, z: 0 }, { x: 200, z: 0 }];
+    assert.deepEqual(logic.tradeLaneStart(rings, 0, 0), { targetIndex: 1, direction: 1 });
+    assert.deepEqual(logic.tradeLaneStart(rings, 2, 0), { targetIndex: 1, direction: -1 });
+    assert.deepEqual(logic.tradeLaneStart(rings, 1, Math.PI), { targetIndex: 0, direction: -1 });
+    assert.equal(logic.tradeLaneStart([{ x: 0, z: 0 }], 0, 0), null);
+});
+
+test('distance to a route segment clamps to its endpoints', () => {
+    assert.equal(logic.distancePointToSegment(5, 4, 0, 0, 10, 0), 4);
+    assert.equal(logic.distancePointToSegment(-3, 4, 0, 0, 10, 0), 5);
+    assert.equal(logic.distancePointToSegment(3, 4, 0, 0, 0, 0), 5);
+});
+
+test('zone geometry supports ellipse, sphere, rotated box, and margins', () => {
+    assert.equal(logic.pointInsideZone({ x: 0, z: 0, sizeX: 100, sizeZ: 50 }, 90, 0), true);
+    assert.equal(logic.pointInsideZone({ x: 0, z: 0, sizeX: 100, sizeZ: 50 }, 0, 60), false);
+    assert.equal(logic.pointInsideZone({ x: 0, z: 0, shape: 'SPHERE', size: 100 }, 70, 70), true);
+    assert.equal(logic.pointInsideZone({ x: 0, z: 0, shape: 'BOX', sizeX: 100, sizeZ: 40, rotateY: 90 }, 0, 45), true);
+    assert.equal(logic.pointInsideZone({ x: 0, z: 0, shape: 'BOX', sizeX: 100, sizeZ: 40 }, 58, 0, 10), true);
+});
+
+test('trade purchase quote respects cargo, credits, and stock', () => {
+    assert.deepEqual(logic.tradePurchaseQuote({ requested: 20, cargoUsed: 5, cargoCapacity: 15, credits: 700, unitPrice: 100, stock: 4 }), {
+        quantity: 4,
+        total: 400,
+        freeCargo: 10,
+        affordable: 7
+    });
+    assert.equal(logic.tradePurchaseQuote({ requested: 3, cargoUsed: 10, cargoCapacity: 10, credits: 1000, unitPrice: 10 }).quantity, 0);
+});
+
+test('trade sale quote never sells more than owned cargo', () => {
+    assert.deepEqual(logic.tradeSaleQuote({ requested: 8, owned: 3, unitPrice: 125 }), { quantity: 3, total: 375 });
+    assert.deepEqual(logic.tradeSaleQuote({ requested: -2, owned: 3, unitPrice: 125 }), { quantity: 0, total: 0 });
+});
+
+test('invalid and negative combat inputs are safely clamped', () => {
+    assert.deepEqual(logic.resolveShieldDamage({ hull: -5, shield: -10, amount: -20 }), {
+        hull: 0,
+        shield: 0,
+        hullDamage: 0,
+        shieldDamage: 0
+    });
+    assert.equal(logic.regenerateShield(90, 100, 50, 1), 100);
+    assert.equal(logic.regenerateShield(20, 0, 50, 1), 0);
+});
+
+test('duplicate extracted object names receive deterministic runtime ids', () => {
+    assert.deepEqual(logic.uniqueObjectIds([
+        { nickname: 'CF14_Depot' },
+        { nickname: 'cf14_depot' },
+        { id: 'station' },
+        {}
+    ], 'Li01_object'), ['CF14_Depot', 'cf14_depot__2', 'station', 'Li01_object_4']);
+});

@@ -9,13 +9,13 @@
 
 ## Project
 Freelancer2D is a static HTML5 Canvas space sandbox inspired by Freelancer-style trading, docking, jump gates, trade lanes, factions, and ship progression.
-The playable browser entry point is currently `index.html`, with much of the active game and UI logic inline in that file.
+The playable browser entry point is `index.html`. It is a thin HTML shell that loads the active stylesheet and ordered classic-script runtime modules from `css/active-game.css` and `js/active/`.
 
 ## Tech Stack
 - Static HTML/CSS/JavaScript, no npm package manifest.
 - Canvas 2D rendering and DOM overlays for HUD, map, universe view, inventory, and ship shop.
-- Vanilla JavaScript globals are used by the active `index.html` path.
-- ES module files under `js/` contain engine, entity, simulation, AI, and UI code, but verify whether a feature is wired through `index.html` before editing only the module version.
+- Vanilla JavaScript globals are shared by the ordered classic scripts under `js/active/`.
+- ES module files under `js/core`, `js/entities`, `js/simulation`, `js/ai`, and `js/ui` are legacy/prototype paths and are not loaded by `index.html`.
 - Python tools under `tools/` extract and generate game data from the local Freelancer HD installation and FLAtlas renderer.
 
 ## Main Entry Points
@@ -70,8 +70,17 @@ python tools/ini_parser.py "C:/Users/steve/Github/FL-Installationen/Freelancer-H
 The FLAtlas renderer path requires PySide6 and FLAtlas importability. The scripts set `QT_QPA_PLATFORM=offscreen` where needed.
 
 ## Important Paths
-- `index.html`: active game shell, styling, DOM overlays, global data loading, and large inline game implementation.
-- `css/style.css`: older/external stylesheet for a similar HUD layout; `index.html` currently has inline styles and does not link it.
+- `index.html`: active DOM shell and ordered stylesheet/script loading only.
+- `css/active-game.css`: active game, HUD, map, landing, and start-screen styling.
+- `js/active/game-logic.js`: pure shared logic with CommonJS export for Node tests and a browser global for the runtime.
+- `js/active/core.js`: configuration, data access, saves, equipment, missions, navigation, and shared state.
+- `js/active/world.js`: system construction, hazards, entities, and player ship.
+- `js/active/npc.js`: NPC creation, missions, combat, AI, and NPC rendering.
+- `js/active/runtime-ui.js`: audio, main rendering/update loop, HUD, input, scanner, and system map.
+- `js/active/universe-map.js`: universe/sector map and map input.
+- `js/active/base-ui.js`: command UI, inventory, bases, interiors, markets, and landing decks.
+- `js/active/bootstrap.js`: initialization and game start.
+- `css/style.css`: legacy stylesheet; it is not loaded by the active entry point.
 - `js/core/`: GameLoop, Renderer, Input modules.
 - `js/entities/`: Entity, Ship, PlayerShip, Station, Gate, Planet modules.
 - `js/simulation/`: Universe, Economy, Factions, Scheduler, Spawner modules.
@@ -83,7 +92,7 @@ The FLAtlas renderer path requires PySide6 and FLAtlas importability. The script
 
 ## Working Rules
 - Treat `todo.md` as the product direction. It specifically calls out trade lane rings, zoomable 2D maps, freeflight/approach/dock modes, ship shields/armor/energy, universe view, Freelancer INI extraction, IDS name/info parsing, and visible player ship/flight regressions.
-- Before changing behavior, identify whether the browser uses inline `index.html` code, generated global data, or the `js/` module version of the same concept.
+- Before changing behavior, identify the owning file under `js/active/`; do not edit the legacy ES-module path unless explicitly modernizing it.
 - Keep the game static and dependency-light unless the task clearly requires a build system.
 - Prefer small, focused fixes. This project has overlapping old and new paths, so broad rewrites can easily leave dead or duplicate behavior behind.
 - Preserve the Freelancer-inspired UI feel: dark space background, neon HUD colors, compact command buttons, map overlays, and cockpit-like instrumentation.
@@ -99,10 +108,17 @@ The FLAtlas renderer path requires PySide6 and FLAtlas importability. The script
 - Be cautious with large generated asset churn. Regenerate only what the task needs and mention it in the response.
 
 ## Validation
-There is no automated test suite or package build for this project yet.
+Run the complete dependency-free test suite with:
+
+```bash
+node --test tests/*.test.js
+```
+
+The suite covers pure gameplay rules, generated-data integrity, active script wiring, and a Chromium browser smoke flow. Set `CHROME_BIN` when Chromium is not discoverable under a common executable name.
 
 For JavaScript/gameplay changes:
-- Open `index.html` or serve the directory with `python -m http.server 8000`.
+- Run `node --test tests/*.test.js` first.
+- Open `index.html` or serve the directory with `python -m http.server 8000` for additional manual checks.
 - Verify the browser console has no startup errors.
 - Verify the start screen opens, the player ship is visible, movement works, map/universe overlays open, and any touched UI flow behaves correctly.
 
@@ -112,7 +128,7 @@ For Python tool changes:
 - If the script uses FLAtlas rendering, confirm PySide6/FLAtlas imports work in the selected Python environment.
 
 ## Known Caution Areas
-- `index.html` contains active logic that overlaps with modules in `js/`; keep these paths synchronized only when both are actually used.
+- The active classic scripts intentionally share a browser global scope and must remain in the order declared by `index.html`; the static tests enforce that order.
 - Some older module code references DOM IDs such as `loading-screen`, `galaxy-map`, and `minimap`; confirm the current DOM has those elements before relying on that path.
 - The game currently uses global constants from generated scripts, not ES module imports, for the main generated universe and ship data.
 - Local paths in generator scripts are Windows-specific and user-machine-specific.
