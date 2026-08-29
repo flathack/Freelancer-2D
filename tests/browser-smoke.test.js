@@ -313,8 +313,12 @@ test('browser smoke: flight, input, maps, saves, NPC AI, trade lanes, trading, a
         assert.deepEqual(exceptions, []);
     } finally {
         client?.close();
-        browser.kill('SIGTERM');
+        if (browser.exitCode === null && browser.signalCode === null) {
+            const exited = new Promise(resolve => browser.once('exit', resolve));
+            browser.kill('SIGTERM');
+            await Promise.race([exited, new Promise(resolve => setTimeout(resolve, 3000))]);
+        }
         await new Promise(resolve => server.close(resolve));
-        fs.rmSync(profile, { recursive: true, force: true });
+        fs.rmSync(profile, { recursive: true, force: true, maxRetries: 8, retryDelay: 100 });
     }
 });
