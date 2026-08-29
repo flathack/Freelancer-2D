@@ -7225,6 +7225,7 @@ function createNPC(type, options = {}) {
         populationZoneId: options.populationZoneId || '',
         encounter: options.encounter || '',
         shield: shieldValue, maxShield: shieldValue,
+        shieldRegen: Math.max(0, shieldRegenFromEquipment(shieldItem)),
         maxSpeed: options.maxSpeed || (type === 'trader' ? 85 + Math.random() * 18 : 110 + difficulty * 18 + Math.random() * 35),
         turnRate: Math.max(0.65, Math.min(2.9, Number(handling.turnRate) || (type === 'trader' ? 1.15 : 2.0))),
         radius: shipVisualWorldRadius(shipVisual.shipRecord || ship, { shipId: shipVisual.shipId, type }),
@@ -7703,15 +7704,16 @@ function updateNpcTraderRoute(npc, dt) {
 function damageNpc(npc, amount, attacker = null, hitX = null, hitZ = null) {
     if (!npc || npc.hull <= 0 || npc.hidden || npc.inTradeLane) return false;
     if (attacker === game.player) npc.hostileToPlayer = true;
-    let damage = Number(amount) || 0;
-    let shieldDamage = 0;
-    if (npc.shield > 0) {
-        shieldDamage = Math.min(npc.shield, damage * 0.6);
-        npc.shield -= shieldDamage;
-        damage -= shieldDamage;
-        addShieldHitEffect(npc, hitX, hitZ, Math.max(0.7, shieldDamage / 18));
-    }
-    npc.hull -= damage;
+    const result = Freelancer2DLogic.resolveShieldDamage({
+        hull: npc.hull,
+        shield: npc.shield,
+        amount,
+        penetration: 0
+    });
+    npc.hull = result.hull;
+    npc.shield = result.shield;
+    npc.lastDamageAt = performance.now();
+    if (result.shieldDamage > 0) addShieldHitEffect(npc, hitX, hitZ, Math.max(0.7, result.shieldDamage / 18));
     if (npc.hull > 0) return false;
     addLog(npc.name + ' destroyed!');
     createExplosion(npc.x, npc.z, Math.max(42, (Number(npc.radius) || 22) * 2.2), { flash: true });
@@ -7729,6 +7731,7 @@ function updateNPC(npc, dt) {
     }
     npc.stateTimer += dt;
     npc.shieldRotation += dt * 0.5;
+    npc.shield = Freelancer2DLogic.regenerateShield(npc.shield, npc.maxShield, npc.shieldRegen, dt);
     npc.fireCooldown = Math.max(0, (npc.fireCooldown || 0) - dt);
 
     let combatTarget = findNpcCombatTarget(npc);
